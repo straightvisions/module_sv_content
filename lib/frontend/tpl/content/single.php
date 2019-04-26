@@ -1,12 +1,12 @@
-<div class="<?php echo $this->get_prefix(); ?>">
+<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'single' ); ?>">
 	<?php
-	$class = $this->get_prefix( 'header' );
-
-	if ( has_post_thumbnail() ||
-	     ( shortcode_exists( '[sv_featured_image]' )
-	       && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) ) {
-		$class .= ' with-thumbnail';
-	}
+		$class = $this->get_prefix( 'header' );
+		
+		if ( has_post_thumbnail() ||
+			 ( shortcode_exists( '[sv_featured_image]' )
+			   && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) ) {
+			$class .= ' with-thumbnail';
+		}
 	?>
 	<div class="<?php echo $class; ?>">
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
@@ -23,14 +23,12 @@
 			?>
 		</div>
 	</div>
-	<div class="<?php echo $this->get_prefix( 'content_wrapper' ); ?>">
-		<?php
+	<?php
 		while ( have_posts() ) {
 			the_post();
 			?>
-			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
-				<div class="<?php echo $this->get_prefix( 'post_content' ); ?>">
-					<?php
+			<article id="post-<?php echo the_ID(); ?>" <?php post_class( $this->get_prefix( 'wrapper' ) ); ?>>
+				<?php
 					the_content();
 					wp_link_pages(
 						array(
@@ -42,14 +40,11 @@
 							'separator'   => '',
 						)
 					);
-					?>
-				</div>
-				<?php echo do_shortcode( '[sv_tags]' ); ?>
+					
+					echo do_shortcode( '[sv_comments]' );
+				?>
 			</article>
 			<?php
-			
-			echo do_shortcode( '[sv_comments]' );
 		}
-		?>
-	</div>
+	?>
 </div>

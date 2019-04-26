@@ -1,4 +1,4 @@
-/* HEADER */
+/* Header */
 .sv_100_sv_content_header {
 	position: relative;
 	height: 35vh;
@@ -40,6 +40,7 @@
 
 .sv_100_sv_content_header_content h1 {
 	text-transform: uppercase;
+	margin: 0;
 }
 
 .sv_100_sv_content_header_content span {
@@ -53,45 +54,45 @@
 	background: rgb( var( --color-bg-secondary ) );
 }
 
-/* CONTENT */
-.sv_100_sv_content_content_wrapper {
+/* Content */
+.sv_100_sv_content_wrapper {
 	padding: 30px 0;
 }
 
-/* CONTENT WITH SIDEBAR */
+/* Tablet */
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_wrapper {
+		padding: 70px 0;
+	}
+}
+
+/* Content with Sidebar */
 .sv_100_sv_content_sidebar {
 	display: none;
 }
 
-.sv_100_sv_content_content_wrapper.sv_100_sv_content_with_sidebar {
+.sv_100_sv_content_wrapper.sv_100_sv_content_with_sidebar {
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: var( --padding );
+	padding-right: var( --padding );
 }
 
-/* Breakpoints */
+/* Tablet */
 @media ( min-width: 850px ) {
-	/* CONTENT */
-	.sv_100_sv_content_content_wrapper {
-		padding: 70px 0;
-	}
-
-	.sv_100_sv_content_content_wrapper.sv_100_sv_content_with_sidebar {
+	.sv_100_sv_content_wrapper.sv_100_sv_content_with_sidebar {
 		max-width: var( --width-mb );
 	}
 }
 
+/* Desktop */
 @media ( min-width: 1050px ) {
-	.sv_100_sv_content_content_wrapper.sv_100_sv_content_with_sidebar {
+	.sv_100_sv_content_wrapper.sv_100_sv_content_with_sidebar {
 		max-width: var( --width-dt );
 	}
 
-	.sv_100_sv_content_content_wrapper.sv_100_sv_content_with_sidebar .sv_100_sv_content_post_content > * {
-		margin-left: 0;
-		padding-right: 0;
-	}
-
-	.sv_100_sv_content_content_wrapper.sv_100_sv_content_with_sidebar .sv_100_sv_content_post_content > .wp-block-cover::before {
+	.sv_100_sv_content_wrapper.sv_100_sv_content_with_sidebar article > .wp-block-cover::before {
 		margin-right: 0;
 	}
 
@@ -108,8 +109,9 @@
 	}
 }
 
+/* Large */
 @media ( min-width: 1350px ) {
-	.sv_100_sv_content_content_wrapper.sv_100_sv_content_with_sidebar {
+	.sv_100_sv_content_wrapper.sv_100_sv_content_with_sidebar {
 		max-width: var( --width-lg );
 	}
 }

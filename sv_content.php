@@ -414,7 +414,6 @@ class sv_content extends init {
 		} else if ( is_404() ) {
 			$template = array(
 				'path'      => 'content/404',
-				'header'    => '404',
 				'scripts'   => array(
 					$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 					$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),

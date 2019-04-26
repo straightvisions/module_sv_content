@@ -1,4 +1,4 @@
-<div class="<?php echo $this->get_prefix( 'page' ); ?>">
+<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'page' ); ?>">
 	<?php
 		$class = $this->get_prefix( 'header' );
 
@@ -9,7 +9,7 @@
 		}
 	?>
     <div class="<?php echo $class; ?>">
-        <div class="<?php echo $this->get_prefix('header_content'); ?>">
+        <div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
             <h1><?php the_title()?></h1>
         </div>
         <div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
@@ -23,30 +23,26 @@
 			?>
         </div>
     </div>
-    <div class="<?php echo $this->get_prefix( 'content_wrapper' ) . ' ' . $this->get_prefix( 'no_sidebar' ); ?>">
-		<?php
-		while ( have_posts() ) {
-			the_post();
-			?>
-            <article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
-                <div class="<?php echo $this->get_prefix( 'post_content' ); ?>">
-					<?php
-					the_content();
-					wp_link_pages(
-						array(
-							'before'      => '<div class="' . $this->get_prefix( 'page_links' ) . '">',
-							'after'       => '</div>',
-							'link_before' => '',
-							'link_after'  => '',
-							'pagelink'    => __( 'Page', $this->get_module_name() ) . ' %',
-							'separator'   => '',
-						)
-					);
-					?>
-                </div>
-            </article>
-			<?php
-		}
+	<?php
+	while ( have_posts() ) {
+		the_post();
 		?>
-    </div>
+		<article id="post-<?php echo the_ID(); ?>" <?php post_class( $this->get_prefix( 'wrapper' ) ); ?>>
+			<?php
+			the_content();
+			wp_link_pages(
+				array(
+					'before'      => '<div class="' . $this->get_prefix( 'page_links' ) . '">',
+					'after'       => '</div>',
+					'link_before' => '',
+					'link_after'  => '',
+					'pagelink'    => __( 'Page', $this->get_module_name() ) . ' %',
+					'separator'   => '',
+				)
+			);
+			?>
+		</article>
+		<?php
+	}
+	?>
 </div>
