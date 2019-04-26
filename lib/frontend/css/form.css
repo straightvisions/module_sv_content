@@ -1,0 +1,137 @@
+/* General */
+.sv_100_sv_content form ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Label */
+.sv_100_sv_content label {
+    color: rgb( var( --color-primary ) );
+    font-size: 1rem;
+}
+
+/* Inputs */
+.sv_100_sv_content input[type="text"],
+.sv_100_sv_content input[type="search"],
+.sv_100_sv_content input[type="email"],
+.sv_100_sv_content input[type="password"],
+.sv_100_sv_content input[type="url"],
+.sv_100_sv_content input[type="tel"],
+.sv_100_sv_content input[type="number"],
+.sv_100_sv_content input[type="datetime-local"],
+.sv_100_sv_content input[type="date"],
+.sv_100_sv_content input[type="month"],
+.sv_100_sv_content input[type="week"],
+.sv_100_sv_content input[type="time"],
+.sv_100_sv_content input[type="button"],
+.sv_100_sv_content input[type="submit"],
+.sv_100_sv_content input[type="reset"],
+.sv_100_sv_content button {
+    padding: 8px 12px;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba( var( --color-primary ), .6 );
+    color: rgba( var( --color-primary ), .6 );
+    outline: none;
+    box-shadow: none;
+    font-size: .8rem;
+    transition: .25s ease;
+}
+
+.sv_100_sv_content input[type="text"]:hover,
+.sv_100_sv_content input[type="text"]:focus,
+.sv_100_sv_content input[type="search"]:hover,
+.sv_100_sv_content input[type="search"]:focus,
+.sv_100_sv_content input[type="email"]:hover,
+.sv_100_sv_content input[type="email"]:focus,
+.sv_100_sv_content input[type="password"]:hover,
+.sv_100_sv_content input[type="password"]:focus,
+.sv_100_sv_content input[type="url"]:hover,
+.sv_100_sv_content input[type="url"]:focus,
+.sv_100_sv_content input[type="tel"]:hover,
+.sv_100_sv_content input[type="tel"]:focus,
+.sv_100_sv_content input[type="number"]:hover,
+.sv_100_sv_content input[type="number"]:focus,
+.sv_100_sv_content input[type="datetime-local"]:hover,
+.sv_100_sv_content input[type="datetime-local"]:focus,
+.sv_100_sv_content input[type="date"]:hover,
+.sv_100_sv_content input[type="date"]:focus,
+.sv_100_sv_content input[type="month"]:hover,
+.sv_100_sv_content input[type="month"]:focus,
+.sv_100_sv_content input[type="week"]:hover,
+.sv_100_sv_content input[type="week"]:focus,
+.sv_100_sv_content input[type="time"]:hover,
+.sv_100_sv_content input[type="time"]:focus {
+    border-color: rgb( var( --color-primary ) );
+    color: rgb( var( --color-primary ) );
+}
+
+.sv_100_sv_content button,
+.sv_100_sv_content input[type="button"],
+.sv_100_sv_content input[type="submit"],
+.sv_100_sv_content input[type="reset"] {
+    border: 1px solid rgba( var( --color-primary ), .6 );
+    cursor: pointer;
+}
+
+.sv_100_sv_content button:hover,
+.sv_100_sv_content button:focus,
+.sv_100_sv_content input[type="button"]:hover,
+.sv_100_sv_content input[type="button"]:focus,
+.sv_100_sv_content input[type="submit"]:hover,
+.sv_100_sv_content input[type="submit"]:focus,
+.sv_100_sv_content input[type="reset"]:hover,
+.sv_100_sv_content input[type="reset"]:focus {
+    color: rgb( var( --color-highlight ) );
+    border-color: rgb( var( --color-highlight ) );
+}
+
+.sv_100_sv_content input[type="checkbox"],
+.sv_100_sv_content input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid rgba( var( --color-primary ), .6 );
+    color: rgb( var( --color-primary ) );
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: .25s ease;
+}
+
+.sv_100_sv_content input[type="radio"],
+.sv_100_sv_content input[type="radio"]::before {
+    border-radius: 100%;
+}
+
+.sv_100_sv_content input[type="checkbox"]:hover,
+.sv_100_sv_content input[type="checkbox"]:focus,
+.sv_100_sv_content input[type="checkbox"]:checked,
+.sv_100_sv_content input[type="radio"]:hover,
+.sv_100_sv_content input[type="radio"]:focus,
+.sv_100_sv_content input[type="radio"]:checked {
+    border-color: rgb( var( --color-primary ) );
+}
+
+.sv_100_sv_content input[type="checkbox"]::before,
+.sv_100_sv_content input[type="radio"]::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 20px;
+    transform: scale( 0 );
+    display: block;
+    outline: none;
+    background-color: rgb( var( --color-primary ) );
+    transition: .25s ease;
+}
+
+.sv_100_sv_content input[type="checkbox"]:checked::before,
+.sv_100_sv_content input[type="radio"]:checked::before {
+    transform: scale( .6 );
+}

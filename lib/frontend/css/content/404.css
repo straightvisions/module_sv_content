@@ -1,0 +1,9 @@
+/* Header */
+.sv_100_sv_content_404 .sv_100_sv_content_header {
+	height: 80vh;
+}
+
+.sv_100_sv_content_404 .sv_100_sv_content_header h1,
+.sv_100_sv_content_404 .sv_100_sv_content_header h3 {
+	text-align: center;
+}

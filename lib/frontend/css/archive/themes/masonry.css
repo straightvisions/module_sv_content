@@ -1,0 +1,166 @@
+/* General */
+.sv_100_sv_content_masonry {
+	column-gap: 30px;
+	column-count: 1;
+}
+
+/* Tablet */
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_masonry {
+		column-count: 2;
+	}
+}
+
+/* Large */
+@media ( min-width: 1350px ) {
+	.sv_100_sv_content_masonry {
+		column-count: 3;
+	}
+}
+
+.sv_100_sv_content_masonry article {
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+
+.sv_100_sv_content_masonry article:last-of-type {
+	margin-bottom: 0;
+}
+
+/* Tablet */
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_masonry article {
+		margin-bottom: 15px;
+	}
+}
+
+/* Categories */
+.sv_100_sv_content_masonry .sv_100_sv_content_categories {
+	position: absolute;
+	padding: 10px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	max-height: 30%;
+	overflow: hidden;
+	z-index: 100;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_categories a {
+	color: rgb( var( --color-contrast ) );
+	text-decoration: none;
+	font-size: .8rem;
+	background: rgba( var( --color-bg-highlight ), .9 );
+	padding: 5px 10px;
+	margin: 2px;
+}
+
+/* Content */
+/* Tablet */
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_masonry .sv_100_sv_content_wrapper {
+		padding: 30px;
+	}
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info h4 a:hover,
+.sv_100_sv_content_masonry .sv_100_sv_content_info h4 a:focus {
+	color: rgb( var( --color-highlight ) );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_excerpt {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_read_more {
+	color: rgb( var( --color-primary ) );
+	transition: .25s ease;
+	text-decoration: none;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+	font-size: .9rem;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_read_more:hover,
+.sv_100_sv_content_masonry .sv_100_sv_content_read_more:focus {
+	color: rgb( var( --color-primary ) );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_read_more::after {
+	display: block;
+	height: 2px;
+	background: rgb( var( --color-highlight ) );
+	content: '';
+	width: 0;
+	position: absolute;
+	margin-top: 5px;
+	transition: .25s ease;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_read_more:hover::after,
+.sv_100_sv_content_masonry .sv_100_sv_content_read_more:focus::after {
+	width: 100%;
+}
+
+/* Without Thumbnail */
+.sv_100_sv_content_masonry .sv_100_sv_content_wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	color: rgb( var( --color-primary ) );
+	position: relative;
+	background-color: rgb( var( --color-bg-secondary ) );
+	padding: 20px;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_wrapper > * {
+	padding: 0;
+}
+
+/* With Thumbnail */
+/** Forces the images to be displayed in an aspect ratio of 4:3.
+ ** Change padding-bottom to change the aspect ratio.
+ **
+ ** Common aspect ratios:
+ ** 16:9 	= 56%
+ ** 4:3 	= 75%
+ ** 16:10 	= 62%
+ */
+.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail {
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 62%;
+}
+
+/* Tablet */
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail {
+		padding-bottom: 75%;
+	}
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail > a {
+	max-height: 80%;
+	position: absolute;
+	overflow: hidden;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail img {
+	width: 100%;
+	object-fit: cover;
+	transition: transform 10s;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail:hover img {
+	transform: scale(1.5);
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail + .sv_100_sv_content_wrapper {
+	top: -5px;
+}
