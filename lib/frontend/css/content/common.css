@@ -45,7 +45,7 @@
 
 .sv_100_sv_content_header_content span {
 	font-size: .9rem;
-	color: rgb( var( --color-secondary ) );
+	color: rgb( var( --color-contrast ) );
 }
 
 .sv_100_sv_content_header_background {

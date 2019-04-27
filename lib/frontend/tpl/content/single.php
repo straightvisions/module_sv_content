@@ -11,6 +11,7 @@
 	<div class="<?php echo $class; ?>">
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
 			<h1><?php the_title()?></h1>
+            <span><?php echo do_shortcode( '[sv_human_time_diff]' ); ?></span>
 		</div>
 		<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
 			<?php
@@ -29,19 +30,19 @@
 			?>
 			<article id="post-<?php echo the_ID(); ?>" <?php post_class( $this->get_prefix( 'wrapper' ) ); ?>>
 				<?php
-					the_content();
-					wp_link_pages(
-						array(
-							'before'      => '<div class="' . $this->get_prefix( 'page_links' ) . '">',
-							'after'       => '</div>',
-							'link_before' => '',
-							'link_after'  => '',
-							'pagelink'    => __( 'Page', $this->get_module_name() ) . ' %',
-							'separator'   => '',
-						)
-					);
-					
-					echo do_shortcode( '[sv_comments]' );
+                the_content();
+                wp_link_pages(
+                    array(
+                        'before'      => '<div class="' . $this->get_prefix( 'page_links' ) . '">',
+                        'after'       => '</div>',
+                        'link_before' => '',
+                        'link_after'  => '',
+                        'pagelink'    => __( 'Page', $this->get_module_name() ) . ' %',
+                        'separator'   => '',
+                    )
+                );
+
+                echo do_shortcode( '[sv_comments]' );
 				?>
 			</article>
 			<?php
