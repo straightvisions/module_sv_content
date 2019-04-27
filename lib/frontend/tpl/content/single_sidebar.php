@@ -11,6 +11,7 @@
 	<div class="<?php echo $class; ?>">
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
 			<h1><?php the_title()?></h1>
+            <span><?php echo do_shortcode( '[sv_human_time_diff]' ); ?></span>
 		</div>
 		<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
 			<?php
