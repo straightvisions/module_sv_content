@@ -37,7 +37,7 @@
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
 						<h4><?php the_title(); ?></h4>
-                        <span><?php echo do_shortcode( '[sv_human_time_diff]' ); ?></span>
+                        <span><?php echo get_the_date(); ?></span>
 					</div>
 					<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
 						<p><?php echo get_the_excerpt(); ?></p>
