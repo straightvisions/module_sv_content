@@ -218,17 +218,17 @@ class sv_content extends init {
 				->sv_sidebar
 				->create( $this )
 				->set_ID( 'frontpage' )
-				->set_name( __( 'Sidebar - Frontpage', $this->get_module_name() ) )
+				->set_title( __( 'Sidebar - Frontpage', $this->get_module_name() ) )
 				->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', $this->get_module_name() ) )
 				->load_sidebar()
 				->create( $this )
 				->set_ID( 'page' )
-				->set_name( __( 'Sidebar - Pages', $this->get_module_name() ) )
+				->set_title( __( 'Sidebar - Pages', $this->get_module_name() ) )
 				->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', $this->get_module_name() ) )
 				->load_sidebar()
 				->create( $this )
 				->set_ID( 'single' )
-				->set_name( __( 'Sidebar - Posts', $this->get_module_name() ) )
+				->set_title( __( 'Sidebar - Posts', $this->get_module_name() ) )
 				->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', $this->get_module_name() ) )
 				->load_sidebar();
 		}
