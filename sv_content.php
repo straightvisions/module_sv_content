@@ -31,10 +31,16 @@ class sv_content extends init {
 		$this->get_root()->add_section( $this );
 
 		// Load settings, register scripts and sidebars
-		$this->load_settings()->register_scripts()->register_sidebars();
+		$this->add_theme_support()->load_settings()->register_scripts()->register_sidebars();
 
 		// Shortcodes
 		add_shortcode( $this->get_module_name(), array( $this, 'shortcode' ) );
+	}
+
+	protected function add_theme_support(): sv_content {
+		add_theme_support( 'align-wide' );
+
+		return $this;
 	}
 	
 	protected function load_settings(): sv_content {
@@ -432,8 +438,9 @@ class sv_content extends init {
 				),
 			);
 		}
-		
-		return $this->load_template( $template, $settings );
+
+		// @filter: sv_100_sv_content_template
+		return $this->load_template( apply_filters($this->get_prefix('template'), $template, $settings, $this), $settings );
 	}
 
 	// Loads the templates
