@@ -438,8 +438,9 @@ class sv_content extends init {
 				),
 			);
 		}
-		
-		return $this->load_template( $template, $settings );
+
+		// @filter: sv_100_sv_content_template
+		return $this->load_template( apply_filters($this->get_prefix('template'), $template, $settings, $this), $settings );
 	}
 
 	// Loads the templates
