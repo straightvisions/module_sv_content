@@ -230,6 +230,17 @@ blockquote.wp-block-quote.is-style-large > cite {
     padding: 0;
 }
 
+/* Cover Image - Align Wide & Full */
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignwide,
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull {
+    padding: 20px 0;
+}
+
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignwide::before,
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull::before {
+    margin: 20px 0;
+}
+
 /* Galery */
 ul.wp-block-gallery {
     padding-left: var( --padding );
@@ -419,7 +430,7 @@ code, pre.wp-block-code > code {
 
 /* Tablet */
 @media ( min-width: 850px ) {
-    .sv_100_sv_content_wrapper > div:not( .wp-block-group ),
+    .sv_100_sv_content_wrapper > div:not( .wp-block-group ):not( .alignfull ),
     .sv_100_sv_content_wrapper > figure,
     .sv_100_sv_content_wrapper > ul.wp-block-gallery,
     .sv_100_sv_content_wrapper > table,
@@ -458,7 +469,7 @@ code, pre.wp-block-code > code {
 
 /* Desktop */
 @media ( min-width: 1050px ) {
-    .sv_100_sv_content_wrapper > div:not( .wp-block-group ),
+    .sv_100_sv_content_wrapper > div:not( .wp-block-group ):not( .alignfull ),
     .sv_100_sv_content_wrapper > figure,
     .sv_100_sv_content_wrapper > ul.wp-block-gallery,
     .sv_100_sv_content_wrapper > table,
@@ -497,7 +508,7 @@ code, pre.wp-block-code > code {
 
 /* Large */
 @media ( min-width: 1350px ) {
-    .sv_100_sv_content_wrapper > div:not( .wp-block-group ),
+    .sv_100_sv_content_wrapper > div:not( .wp-block-group ):not( .alignfull ),
     .sv_100_sv_content_wrapper > figure,
     .sv_100_sv_content_wrapper > ul.wp-block-gallery,
     .sv_100_sv_content_wrapper > table,

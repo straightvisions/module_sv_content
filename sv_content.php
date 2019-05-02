@@ -31,10 +31,16 @@ class sv_content extends init {
 		$this->get_root()->add_section( $this );
 
 		// Load settings, register scripts and sidebars
-		$this->load_settings()->register_scripts()->register_sidebars();
+		$this->add_theme_support()->load_settings()->register_scripts()->register_sidebars();
 
 		// Shortcodes
 		add_shortcode( $this->get_module_name(), array( $this, 'shortcode' ) );
+	}
+
+	protected function add_theme_support(): sv_content {
+		add_theme_support( 'align-wide' );
+
+		return $this;
 	}
 	
 	protected function load_settings(): sv_content {
