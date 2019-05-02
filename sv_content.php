@@ -361,7 +361,7 @@ class sv_content extends init {
 							'path'      => 'archive/default',
 							'scripts'   => array(
 								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
-								$this->scripts_queue['archive_commmon']->set_inline( $settings['inline'] ),
+								$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
 								$this->scripts_queue['archive_theme_list']->set_inline( $settings['inline'] ),
 								$this->scripts_queue['archive_archive']->set_inline( $settings['inline'] ),
 							),
