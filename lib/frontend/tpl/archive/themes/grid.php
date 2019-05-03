@@ -21,7 +21,7 @@
 								
 								if ( ! empty( $categories ) ) {
 									foreach ( $categories as $category ) {
-										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="'
+										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="'
 												   . esc_attr( sprintf( __( 'View all posts in %s', $this->get_module_name() ), $category->name ) ) .
 												   '" class="' . $this->get_prefix( 'category' ) .'">'
 												   . esc_html( $category->name ) . '</a>' . $separator;
