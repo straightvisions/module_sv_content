@@ -39,6 +39,33 @@ class sv_content extends init {
 
 	protected function add_theme_support(): sv_content {
 		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+				'name' => __( 'Small', $this->get_module_name() ),
+				'size' => 12,
+				'slug' => 'small'
+			),
+			array(
+				'name' => __( 'Normal', $this->get_module_name() ),
+				'size' => 16,
+				'slug' => 'normal'
+			),
+			array(
+				'name' => __( 'Medium', $this->get_module_name() ),
+				'size' => 24,
+				'slug' => 'normal'
+			),
+			array(
+				'name' => __( 'Large', $this->get_module_name() ),
+				'size' => 32,
+				'slug' => 'large'
+			),
+			array(
+				'name' => __( 'Huge', $this->get_module_name() ),
+				'size' => 64,
+				'slug' => 'huge'
+			)
+		) );
 
 		return $this;
 	}
@@ -440,7 +467,7 @@ class sv_content extends init {
 		}
 
 		// @filter: sv_100_sv_content_template
-		return $this->load_template( apply_filters($this->get_prefix('template'), $template, $settings, $this), $settings );
+		return $this->load_template( apply_filters( $this->get_prefix( 'template' ), $template, $settings, $this ), $settings );
 	}
 
 	// Loads the templates
