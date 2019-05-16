@@ -7,7 +7,7 @@
 			if ( do_shortcode( '[sv_featured_image]' ) && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) {
 				$thumbnail = do_shortcode( '[sv_featured_image]' );
 			} else if ( has_post_thumbnail() ) {
-				$thumbnail = get_the_post_thumbnail( null, 'medium_large' );
+				$thumbnail .= get_the_post_thumbnail( null, 'medium_large' );
 			}
 			?>
 			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
@@ -39,9 +39,11 @@
 						<h4><?php the_title(); ?></h4>
                         <span><?php echo get_the_date(); ?></span>
 					</div>
-					<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
-						<p><?php echo get_the_excerpt(); ?></p>
-					</div>
+					<a href="<?php the_permalink(); ?>">
+						<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
+							<p><?php echo get_the_excerpt(); ?></p>
+						</div>
+					</a>
 				</div>
 			</article>
 			<?php
