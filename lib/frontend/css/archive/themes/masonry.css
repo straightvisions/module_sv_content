@@ -59,10 +59,23 @@
 }
 
 /* Content */
+.sv_100_sv_content_masonry .sv_100_sv_content_wrapper {
+	padding: 30px;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_posts_info > h4 {
+	line-height: 150%;
+	margin-top: 0;
+	margin-bottom: .2em;
+	color: var( --color-primary );
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
 /* Tablet */
 @media ( min-width: 850px ) {
-	.sv_100_sv_content_masonry .sv_100_sv_content_wrapper {
-		padding: 30px;
+	.sv_100_sv_content_masonry .sv_100_sv_content_info > h4 {
+		font-size: 1.5rem;
 	}
 }
 

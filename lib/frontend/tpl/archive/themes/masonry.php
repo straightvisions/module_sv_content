@@ -7,7 +7,9 @@
 		if ( do_shortcode( '[sv_featured_image]' ) && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) {
 			$thumbnail = do_shortcode( '[sv_featured_image]' );
 		} else if ( has_post_thumbnail() ) {
-			$thumbnail = get_the_post_thumbnail( null, 'medium_large' );
+			$thumbnail	= '<a href="' . get_the_permalink() . '">';
+			$thumbnail .= get_the_post_thumbnail( null, 'medium_large' );
+			$thumbnail .= '</a>';
 		}
 		?>
 		<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
