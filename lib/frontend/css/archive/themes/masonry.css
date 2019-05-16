@@ -138,13 +138,6 @@
 	padding-bottom: 62%;
 }
 
-/* Tablet */
-@media ( min-width: 850px ) {
-	.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail {
-		padding-bottom: 75%;
-	}
-}
-
 .sv_100_sv_content_masonry .sv_100_sv_content_thumbnail > a {
 	max-height: 80%;
 	position: absolute;
