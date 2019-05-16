@@ -58,8 +58,8 @@
 	margin: 0;
 }
 
-.sv_100_sv_content_archive .sv_100_sv_content_info h4,
-.sv_100_sv_content_archive .sv_100_sv_content_info h4 a {
+.sv_100_sv_content_archive h4,
+.sv_100_sv_content_archive h4 a {
 	color: rgb( var( --color-primary ) );
 	text-decoration: none;
 	outline: none;
@@ -86,8 +86,8 @@
 
 /* Tablet */
 @media ( min-width: 850px ) {
-	.sv_100_sv_content_archive .sv_100_sv_content_info h4,
-	.sv_100_sv_content_archive .sv_100_sv_content_info h4 a {
+	.sv_100_sv_content_archive h4,
+	.sv_100_sv_content_archive h4 a {
 		font-size: 1.5rem;
 		font-weight: 700;
 	}
