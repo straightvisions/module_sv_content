@@ -81,7 +81,7 @@ class sv_content extends init {
 		$this->s['home_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'home_theme' )
-							 ->set_title( __( 'Home Theme', $this->get_module_name() ) )
+							 ->set_title( __( 'Home Listing', $this->get_module_name() ) )
 							 ->set_description( __( 'Defines how posts on the homepage will be displayed.', $this->get_module_name() ) )
 							 ->set_options( array(
 								 'list' => __( 'List (Default)', $this->get_module_name() ),
@@ -93,7 +93,7 @@ class sv_content extends init {
 		$this->s['category_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'category_theme' )
-							 ->set_title( __( 'Category Theme', $this->get_module_name() ) )
+							 ->set_title( __( 'Category Listing', $this->get_module_name() ) )
 							 ->set_description( __( 'Defines how posts filtered by category will be displayed.', $this->get_module_name() ) )
 							 ->set_options( array(
 								 'list' => __( 'List (Default)', $this->get_module_name() ),
@@ -105,7 +105,7 @@ class sv_content extends init {
 		$this->s['tag_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'tag_theme' )
-							 ->set_title( __( 'Tag Theme', $this->get_module_name() ) )
+							 ->set_title( __( 'Tag Listing', $this->get_module_name() ) )
 							 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', $this->get_module_name() ) )
 							 ->set_options( array(
 								 'list' => __( 'List (Default)', $this->get_module_name() ),
@@ -117,7 +117,7 @@ class sv_content extends init {
 		$this->s['search_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'search_theme' )
-							 ->set_title( __( 'Search Theme', $this->get_module_name() ) )
+							 ->set_title( __( 'Search Listing', $this->get_module_name() ) )
 							 ->set_description( __( 'Defines how the search results will be displayed.', $this->get_module_name() ) )
 							 ->set_options( array(
 								 'list' => __( 'List (Default)', $this->get_module_name() ),

@@ -22,24 +22,6 @@
 				?>>
 				<?php if( !empty( $thumbnail ) ) { ?>
 					<div class="<?php echo $this->get_prefix( 'thumbnail' ); ?>">
-						<div class="<?php echo $this->get_prefix( 'categories' ); ?>">
-							<?php
-								$categories = get_the_category();
-								$separator  = ' ';
-								$output     = '';
-								
-								if ( ! empty( $categories ) ) {
-									foreach ( $categories as $category ) {
-										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="'
-												   . esc_attr( sprintf( __( 'View all posts in %s', $this->get_module_name() ), $category->name ) ) .
-												   '" class="' . $this->get_prefix( 'category' ) .'">'
-												   . esc_html( $category->name ) . '</a>' . $separator;
-									}
-									
-									echo trim( $output, $separator );
-								}
-							?>
-						</div>
 						<?php echo $thumbnail; ?>
 					</div>
 				<?php } ?>

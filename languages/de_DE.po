@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sv_content\n"
+"POT-Creation-Date: 2019-05-16 18:23+0200\n"
+"PO-Revision-Date: 2019-05-16 18:25+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: lib/frontend/tpl/archive/archive.php:3
+msgid "Archive"
+msgstr "Archiv"
+
+#: lib/frontend/tpl/archive/category.php:3
+msgid "Category"
+msgstr "Kategorie"
+
+#: lib/frontend/tpl/archive/home.php:22
+msgid "Recent Posts"
+msgstr "Letzte Beiträge"
+
+#: lib/frontend/tpl/archive/no_post.php:3
+msgid "No posts available"
+msgstr "Keine Beiträge vorhanden"
+
+#: lib/frontend/tpl/archive/search.php:3
+msgid "Search results for"
+msgstr "Suchergebnisse für"
+
+#: lib/frontend/tpl/archive/tag.php:3
+msgid "Tag"
+msgstr "Schlagwort"
+
+#: lib/frontend/tpl/archive/themes/grid.php:25
+#: lib/frontend/tpl/archive/themes/masonry.php:27
+#, php-format
+msgid "View all posts in %s"
+msgstr "Zeige alle Beiträge in %s"
+
+#: lib/frontend/tpl/archive/themes/list.php:35
+#: lib/frontend/tpl/archive/themes/masonry.php:47
+msgid "Read more"
+msgstr "Weiterlesen"
+
+#: lib/frontend/tpl/content/404.php:7
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
+
+#: lib/frontend/tpl/content/404.php:10
+msgid "Bring me back to the homepage"
+msgstr "Bringe mich zurück zur Startseite!"
+
+#: lib/frontend/tpl/content/frontpage.php:39
+#: lib/frontend/tpl/content/frontpage_sidebar.php:40
+#: lib/frontend/tpl/content/page.php:39
+#: lib/frontend/tpl/content/page_sidebar.php:40
+#: lib/frontend/tpl/content/single.php:40
+#: lib/frontend/tpl/content/single_sidebar.php:41
+msgid "Page"
+msgstr "Seite"
+
+#: sv_content.php:25
+msgid ""
+"This module defines and manages content output, via the \"[sv_content]\" "
+"shortcode."
+msgstr ""
+"Dieses Modul definiert und verwaltet die Ausgabe von Inhalten über den "
+"Shortcode \"[sv_content]\"."
+
+#: sv_content.php:29
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: sv_content.php:44
+msgid "Small"
+msgstr "Klein"
+
+#: sv_content.php:49
+msgid "Normal"
+msgstr "Normal"
+
+#: sv_content.php:54
+msgid "Medium"
+msgstr "Mittel"
+
+#: sv_content.php:59
+msgid "Large"
+msgstr "Groß"
+
+#: sv_content.php:64
+msgid "Huge"
+msgstr "Riesig"
+
+#: sv_content.php:78
+msgid "Select a page for showing custom content in error 404 / not found cases"
+msgstr ""
+"Wähle eine Seite, die angezeigt werden soll, wenn keine Seite gefunden wurde."
+
+#: sv_content.php:84
+msgid "Home Listing"
+msgstr "Startseiten Auflistung"
+
+#: sv_content.php:85
+msgid "Defines how posts on the homepage will be displayed."
+msgstr "Definiert, wie Beiträge auf der Startseite angezeigt werden."
+
+#: sv_content.php:87 sv_content.php:99 sv_content.php:111 sv_content.php:123
+msgid "List (Default)"
+msgstr "Liste (Standard)"
+
+#: sv_content.php:88 sv_content.php:100 sv_content.php:112 sv_content.php:124
+msgid "Masonry"
+msgstr "Masonry"
+
+#: sv_content.php:89 sv_content.php:101 sv_content.php:113 sv_content.php:125
+msgid "Grid"
+msgstr "Raster"
+
+#: sv_content.php:96
+msgid "Category Listing"
+msgstr "Kategorienliste"
+
+#: sv_content.php:97
+msgid "Defines how posts filtered by category will be displayed."
+msgstr ""
+"Legt fest, wie Beiträge, die nach Kategorien gefiltert werden, angezeigt "
+"werden."
+
+#: sv_content.php:108
+msgid "Tag Listing"
+msgstr "Schlagwörter Auflistung"
+
+#: sv_content.php:109
+msgid "Defines how posts filtered by tags will be displayed."
+msgstr ""
+"Legt fest, wie Beiträge, die durch Schlagwörtern gefiltert werden, angezeigt "
+"werden."
+
+#: sv_content.php:120
+msgid "Search Listing"
+msgstr "Such Auflistung"
+
+#: sv_content.php:121
+msgid "Defines how the search results will be displayed."
+msgstr "Legt fest, wie die Suchergebnisse angezeigt werden."
+
+#: sv_content.php:254
+msgid "Sidebar - Frontpage"
+msgstr "Seitenleiste - Startseite"
+
+#: sv_content.php:255
+msgid ""
+"Widgets in this area will be shown in the sidebar of the frontpage/"
+"landingpage."
+msgstr ""
+"Widgets in diesem Bereich werden in der Seitenleiste der Startseite "
+"angezeigt."
+
+#: sv_content.php:259
+msgid "Sidebar - Pages"
+msgstr "Seitenleiste - Seiten"
+
+#: sv_content.php:260
+msgid "Widgets in this area will be shown in the sidebar of a page."
+msgstr ""
+"Widgets in diesem Bereich werden in der Seitenleiste einer Seite angezeigt."
+
+#: sv_content.php:264
+msgid "Sidebar - Posts"
+msgstr "Seitenleiste - Beiträge"
+
+#: sv_content.php:265
+msgid "Widgets in this area will be shown in the sidebar of single posts."
+msgstr ""
+"Widgets in diesem Bereich werden in der Seitenleiste einzelner Beiträge "
+"angezeigt."
+
+#. Theme Name of the plugin/theme
+msgid "sv_content"
+msgstr "sv_content"
+
+#~ msgid "Home Theme"
+#~ msgstr "Startseiten Thema"
+
+#~ msgid "Category Theme"
+#~ msgstr "Kategorie Thema"
+
+#~ msgid "Tag Theme"
+#~ msgstr "Schlagwörter "
