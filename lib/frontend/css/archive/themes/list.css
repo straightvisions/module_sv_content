@@ -66,11 +66,6 @@
 	opacity: .6;
 }
 
-/* Categories */
-.sv_100_sv_content_list .sv_100_sv_content_categories {
-	display: none;
-}
-
 /* Content */
 .sv_100_sv_content_list .sv_100_sv_content_wrapper {
 	padding: 0;
