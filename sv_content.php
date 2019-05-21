@@ -71,12 +71,34 @@ class sv_content extends init {
 	}
 	
 	protected function load_settings(): sv_content {
-		$this->s['404_page'] =
+		$this->s['home_slider'] =
 			static::$settings->create( $this )
-			                 ->set_ID( '404_page' )
-			                 ->set_title( '404 Page' )
-			                 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', $this->get_module_name() ) )
-			                 ->load_type( 'select_page' );
+							 ->set_ID( 'home_slider' )
+							 ->set_title( __( 'Home Slider', $this->get_module_name() ) )
+							 ->set_description( __( 'Activate or deactivate the slider on the home page.', $this->get_module_name() ) )
+							 ->set_default_value( 1 )
+							 ->load_type( 'checkbox' );
+		
+		$this->s['home_slider_transition'] =
+			static::$settings->create( $this )
+							 ->set_ID( 'home_slider_transition' )
+							 ->set_title( __( 'Home Slider - Transition', $this->get_module_name() ) )
+							 ->set_description( __( 'Choose a transition style for the slider.', $this->get_module_name() ) )
+							 ->set_options( array(
+							 	'fade'		=> 'Fade',
+								'slide'		=> 'Slide'
+							 ) )
+							 ->load_type( 'select' );
+		
+		$this->s['home_slider_max'] =
+			static::$settings->create( $this )
+							 ->set_ID( 'home_slider_max' )
+							 ->set_title( __( 'Home Slider - Max posts', $this->get_module_name() ) )
+							 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', $this->get_module_name() ) )
+							 ->set_default_value( 5 )
+							 ->set_min( 1 )
+							 ->set_max( 20 )
+							 ->load_type( 'number' );
 		
 		$this->s['home_theme'] =
 			static::$settings->create( $this )
@@ -125,6 +147,13 @@ class sv_content extends init {
 								 'grid' => __( 'Grid', $this->get_module_name() ),
 							 ))
 							 ->load_type( 'select' );
+		
+		$this->s['404_page'] =
+			static::$settings->create( $this )
+							 ->set_ID( '404_page' )
+							 ->set_title( __( '404 Page', $this->get_module_name() ) )
+							 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', $this->get_module_name() ) )
+							 ->load_type( 'select_page' );
 
 		return $this;
 	}
