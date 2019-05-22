@@ -136,6 +136,18 @@ class sv_content extends init {
 							 ))
 							 ->load_type( 'select' );
 		
+		$this->s['author_theme'] =
+			static::$settings->create( $this )
+							 ->set_ID( 'author_theme' )
+							 ->set_title( __( 'Author Listing', $this->get_module_name() ) )
+							 ->set_description( __( 'Defines how posts created by an author will be displayed.', $this->get_module_name() ) )
+							 ->set_options( array(
+								 'list' => __( 'List (Default)', $this->get_module_name() ),
+								 'masonry' => __( 'Masonry', $this->get_module_name() ),
+								 'grid' => __( 'Grid', $this->get_module_name() ),
+							 ))
+							 ->load_type( 'select' );
+		
 		$this->s['search_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'search_theme' )
@@ -238,6 +250,12 @@ class sv_content extends init {
 			static::$scripts->create( $this )
 							->set_ID( 'archive_tag' )
 							->set_path( 'lib/frontend/css/archive/tag.css' )
+							->set_inline( true );
+		
+		$this->scripts_queue['archive_author'] =
+			static::$scripts->create( $this )
+							->set_ID( 'archive_author' )
+							->set_path( 'lib/frontend/css/archive/author.css' )
 							->set_inline( true );
 		
 		$this->scripts_queue['archive_search'] =
@@ -468,6 +486,22 @@ class sv_content extends init {
 								$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
 								$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
 								$this->scripts_queue['archive_search']->set_inline( $settings['inline'] ),
+							),
+						);
+						break;
+					case 'author':
+						$archive_theme = 'archive_theme_';
+						$archive_theme .= $this->s['author_theme']->run_type()->get_data()
+							? $this->s['author_theme']->run_type()->get_data()
+							: 'list';
+						
+						$template = array(
+							'path'      => 'archive/author',
+							'scripts'   => array(
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue['archive_author']->set_inline( $settings['inline'] ),
 							),
 						);
 						break;
