@@ -341,7 +341,7 @@ class sv_content extends init {
 				
 				$template = array(
 					'path'      => 'archive/home',
-					'header'    => 'frontpage',
+					'header'    => 'home',
 					'scripts'   => array(
 						$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 						$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
