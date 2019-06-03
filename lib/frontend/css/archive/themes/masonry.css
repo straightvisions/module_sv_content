@@ -24,6 +24,7 @@
 	position: relative;
 	flex-direction: column;
 	margin-bottom: 30px;
+	width: 100%;
 }
 
 .sv_100_sv_content_masonry article:last-of-type {

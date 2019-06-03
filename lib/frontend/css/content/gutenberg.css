@@ -294,6 +294,36 @@ a:hover, a:active, a:focus {
     color: rgb( var( --color-highlight ) );
 }
 
+/* Alignment - Left */
+.sv_100_sv_content_wrapper > p[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h1[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h2[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h3[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h4[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h5[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h6[style*='text-align:center'],
+.sv_100_sv_content_wrapper > ul[style*='text-align:center'],
+.sv_100_sv_content_wrapper > ol[style*='text-align:center'],
+.sv_100_sv_content_wrapper > blockquote[style*='text-align:center'] {
+    margin-left: auto;
+}
+
+/* Alignment - Right */
+.sv_100_sv_content_wrapper > p[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h1[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h2[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h3[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h4[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h5[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h6[style*='text-align:right'],
+.sv_100_sv_content_wrapper > ul[style*='text-align:right'],
+.sv_100_sv_content_wrapper > ol[style*='text-align:right'],
+.sv_100_sv_content_wrapper > blockquote[style*='text-align:right'] {
+    margin-right: calc( ( 100% - var( --width-dt ) ) / 2 );
+    margin-left: auto;
+}
+
+
 /* List */
 .sv_100_sv_content_wrapper > ul,
 .sv_100_sv_content_wrapper > ol {
@@ -438,12 +468,14 @@ blockquote.wp-block-quote.is-style-large > cite {
 
 /* Cover Image - Align Wide & Full */
 .sv_100_sv_content_wrapper > div.wp-block-cover.alignwide,
-.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull {
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull,
+.sv_100_sv_content_wrapper > div.wp-block-cover.full-width {
     padding: 20px 0;
 }
 
 .sv_100_sv_content_wrapper > div.wp-block-cover.alignwide::before,
-.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull::before {
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull::before,
+.sv_100_sv_content_wrapper > div.wp-block-cover.full-width::before{
     margin: 20px 0;
 }
 
