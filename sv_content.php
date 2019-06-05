@@ -35,6 +35,20 @@ class sv_content extends init {
 
 		// Shortcodes
 		add_shortcode( $this->get_module_name(), array( $this, 'shortcode' ) );
+
+		// WP Styles
+		add_action( 'wp_print_styles', array($this, 'wp_print_styles'), 100 );
+	}
+
+	public function wp_print_styles() {
+		// Gutenberg: load Styles inline for Pagespeed purposes
+		wp_dequeue_style( 'wp-block-library' );
+
+		if(is_single() || is_page()) {
+			echo '<style data-id="'.$this->get_prefix('gutenberg').'">';
+			require_once(ABSPATH.'/wp-includes/css/dist/block-library/style.min.css');
+			echo '</style>';
+		}
 	}
 
 	protected function add_theme_support(): sv_content {
