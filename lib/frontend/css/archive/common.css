@@ -38,11 +38,11 @@
 	margin-bottom: 0;
 	line-height: 150%;
 	font-weight: 300;
-	color: var( --color-primary );
+	color: var( --sv-100-color-primary );
 }
 
 .sv_100_sv_content_header > h1 > span {
-	color: rgb( var( --color-highlight ) );
+	color: rgb( var( --sv-100-color-highlight ) );
 }
 
 /* Tablet */
@@ -60,7 +60,7 @@
 
 .sv_100_sv_content_archive h4,
 .sv_100_sv_content_archive h4 a {
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 	text-decoration: none;
 	outline: none;
 	font-size: 1.2rem;
@@ -73,7 +73,7 @@
 .sv_100_sv_content_archive .sv_100_sv_content_info span {
 	font-size: .8rem;
 	font-style: italic;
-	color: rgb( var( --color-secondary ) );
+	color: rgb( var( --sv-100-color-secondary ) );
 }
 
 .sv_100_sv_content_archive .sv_100_sv_content_excerpt p {
