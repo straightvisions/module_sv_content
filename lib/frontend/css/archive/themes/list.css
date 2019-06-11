@@ -11,7 +11,7 @@
 	height: auto;
 	padding: 20px 0;
 	overflow: hidden;
-	border-bottom: 1px solid rgba( var( --color-primary ), .2 );
+	border-bottom: 1px solid rgba( var( --sv-100-color-primary ), .2 );
 }
 
 .sv_100_sv_content_list article.sv_100_sv_content_no_thumbnail {
@@ -26,7 +26,7 @@
 }
 
 .sv_100_sv_content_list article:first-of-type {
-	border-top: 1px solid rgba( var( --color-primary ), .2 );
+	border-top: 1px solid rgba( var( --sv-100-color-primary ), .2 );
 }
 
 /* Thumbnail */
@@ -50,7 +50,7 @@
 .sv_100_sv_content_list .sv_100_sv_content_thumbnail > a {
 	position: absolute;
 	height: 100%;
-	background-color: rgb( var( --color-highlight ) );
+	background-color: rgb( var( --sv-100-color-highlight ) );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_thumbnail img {
@@ -107,7 +107,7 @@
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_read_more {
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 	transition: .25s ease;
 	text-decoration: none;
 	font-weight: bold;
@@ -119,13 +119,13 @@
 
 .sv_100_sv_content_list .sv_100_sv_content_read_more:hover,
 .sv_100_sv_content_list .sv_100_sv_content_read_more:focus {
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_read_more::after {
 	display: block;
 	height: 2px;
-	background: rgb( var( --color-highlight ) );
+	background: rgb( var( --sv-100-color-highlight ) );
 	content: '';
 	width: 0;
 	margin-top: 2px;
@@ -142,7 +142,7 @@
 	font-size: .9rem;
 	flex-direction: column;
 	margin-top: .5em;
-	color: rgb( var( --color-secondary ) );
+	color: rgb( var( --sv-100-color-secondary ) );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info > div {
@@ -172,7 +172,7 @@
 	-webkit-mask-size: 100%;
 	-webkit-mask-position: center;
 	-webkit-mask-repeat: no-repeat;
-	background-color: rgb( var( --color-secondary ) );
+	background-color: rgb( var( --sv-100-color-secondary ) );
 	margin-right: 5px;
 }
 
@@ -194,12 +194,12 @@
 
 .sv_100_sv_content_list .sv_100_sv_content_info a {
 	text-decoration: none;
-	color: rgb( var( --color-secondary ) );
+	color: rgb( var( --sv-100-color-secondary ) );
 	font-weight: 500;
 	transition: color .25s ease;
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info a:hover,
 .sv_100_sv_content_list .sv_100_sv_content_info a:focus {
-	color: rgb( var( --color-highlight ) );
+	color: rgb( var( --sv-100-color-highlight ) );
 }

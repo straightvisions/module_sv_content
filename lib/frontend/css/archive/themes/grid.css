@@ -47,10 +47,10 @@
 }
 
 .sv_100_sv_content_grid .sv_100_sv_content_categories a {
-	color: rgb( var( --color-contrast ) );
+	color: rgb( var( --sv-100-color-contrast ) );
 	text-decoration: none;
 	font-size: .8rem;
-	background: rgba( var( --color-bg-highlight ), .85 );
+	background: rgba( var( --sv-100-color-bg-highlight ), .85 );
 	padding: 5px 10px;
 	margin: 2px;
 }
@@ -85,7 +85,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 	overflow: hidden;
 	padding: 0;
 }
