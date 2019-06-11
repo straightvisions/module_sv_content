@@ -11,6 +11,7 @@
 	<div class="<?php echo $class; ?>">
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
 			<h1><?php the_title()?></h1>
+			<p><?php echo get_the_excerpt(); ?></p>
 		</div>
 		<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
 			<?php
