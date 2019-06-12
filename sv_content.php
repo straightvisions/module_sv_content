@@ -90,7 +90,6 @@ class sv_content extends init {
 							 ->set_ID( 'home_slider' )
 							 ->set_title( __( 'Home Slider', 'sv_content' ) )
 							 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'sv_content' ) )
-							 ->set_default_value( 1 )
 							 ->load_type( 'checkbox' );
 		
 		$this->s['home_slider_transition'] =
@@ -109,7 +108,6 @@ class sv_content extends init {
 							 ->set_ID( 'home_slider_max' )
 							 ->set_title( __( 'Home Slider - Max posts', 'sv_content' ) )
 							 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'sv_content' ) )
-							 ->set_default_value( 5 )
 							 ->set_min( 1 )
 							 ->set_max( 20 )
 							 ->load_type( 'number' );
