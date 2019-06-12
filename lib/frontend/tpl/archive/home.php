@@ -8,7 +8,7 @@
 	}
 	?>
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Recent Posts', $this->get_module_name() ); ?></h1>
+		<h1><?php _e( 'Recent Posts', 'sv_content' ); ?></h1>
 	</div>
 	
 	<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
