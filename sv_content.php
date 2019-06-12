@@ -18,15 +18,15 @@ class sv_content extends init {
 
 	public function init() {
 		// Translates the module
-		load_theme_textdomain( $this->get_module_name(), $this->get_path( 'languages' ) );
+		load_theme_textdomain( 'sv_content', $this->get_path( 'languages' ) );
 
 		// Module Info
 		$this->set_module_title( 'SV Content' );
-		$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', $this->get_module_name() ) );
+		$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'sv_content' ) );
 
 		// Section Info
 		$this->set_section_title( 'Content' );
-		$this->set_section_desc( __( 'Settings', $this->get_module_name() ) );
+		$this->set_section_desc( __( 'Settings', 'sv_content' ) );
 		$this->set_section_type( 'settings' );
 		$this->get_root()->add_section( $this );
 
@@ -55,27 +55,27 @@ class sv_content extends init {
 		add_theme_support( 'align-wide' );
 		add_theme_support( 'editor-font-sizes', array(
 			array(
-				'name' => __( 'Small', $this->get_module_name() ),
+				'name' => __( 'Small', 'sv_content' ),
 				'size' => 12,
 				'slug' => 'small'
 			),
 			array(
-				'name' => __( 'Normal', $this->get_module_name() ),
+				'name' => __( 'Normal', 'sv_content' ),
 				'size' => 16,
 				'slug' => 'normal'
 			),
 			array(
-				'name' => __( 'Medium', $this->get_module_name() ),
+				'name' => __( 'Medium', 'sv_content' ),
 				'size' => 24,
 				'slug' => 'normal'
 			),
 			array(
-				'name' => __( 'Large', $this->get_module_name() ),
+				'name' => __( 'Large', 'sv_content' ),
 				'size' => 32,
 				'slug' => 'large'
 			),
 			array(
-				'name' => __( 'Huge', $this->get_module_name() ),
+				'name' => __( 'Huge', 'sv_content' ),
 				'size' => 64,
 				'slug' => 'huge'
 			)
@@ -88,16 +88,16 @@ class sv_content extends init {
 		$this->s['home_slider'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'home_slider' )
-							 ->set_title( __( 'Home Slider', $this->get_module_name() ) )
-							 ->set_description( __( 'Activate or deactivate the slider on the home page.', $this->get_module_name() ) )
+							 ->set_title( __( 'Home Slider', 'sv_content' ) )
+							 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'sv_content' ) )
 							 ->set_default_value( 1 )
 							 ->load_type( 'checkbox' );
 		
 		$this->s['home_slider_transition'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'home_slider_transition' )
-							 ->set_title( __( 'Home Slider - Transition', $this->get_module_name() ) )
-							 ->set_description( __( 'Choose a transition style for the slider.', $this->get_module_name() ) )
+							 ->set_title( __( 'Home Slider - Transition', 'sv_content' ) )
+							 ->set_description( __( 'Choose a transition style for the slider.', 'sv_content' ) )
 							 ->set_options( array(
 							 	'fade'		=> 'Fade',
 								'slide'		=> 'Slide'
@@ -107,8 +107,8 @@ class sv_content extends init {
 		$this->s['home_slider_max'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'home_slider_max' )
-							 ->set_title( __( 'Home Slider - Max posts', $this->get_module_name() ) )
-							 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', $this->get_module_name() ) )
+							 ->set_title( __( 'Home Slider - Max posts', 'sv_content' ) )
+							 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'sv_content' ) )
 							 ->set_default_value( 5 )
 							 ->set_min( 1 )
 							 ->set_max( 20 )
@@ -117,68 +117,68 @@ class sv_content extends init {
 		$this->s['home_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'home_theme' )
-							 ->set_title( __( 'Home Listing', $this->get_module_name() ) )
-							 ->set_description( __( 'Defines how posts on the homepage will be displayed.', $this->get_module_name() ) )
+							 ->set_title( __( 'Home Listing', 'sv_content' ) )
+							 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv_content' ) )
 							 ->set_options( array(
-								 'list' => __( 'List (Default)', $this->get_module_name() ),
-								 'masonry' => __( 'Masonry', $this->get_module_name() ),
-								 'grid' => __( 'Grid', $this->get_module_name() ),
+								 'list' => __( 'List (Default)', 'sv_content' ),
+								 'masonry' => __( 'Masonry', 'sv_content' ),
+								 'grid' => __( 'Grid', 'sv_content' ),
 							 ))
 							 ->load_type( 'select' );
 		
 		$this->s['category_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'category_theme' )
-							 ->set_title( __( 'Category Listing', $this->get_module_name() ) )
-							 ->set_description( __( 'Defines how posts filtered by category will be displayed.', $this->get_module_name() ) )
+							 ->set_title( __( 'Category Listing', 'sv_content' ) )
+							 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv_content' ) )
 							 ->set_options( array(
-								 'list' => __( 'List (Default)', $this->get_module_name() ),
-								 'masonry' => __( 'Masonry', $this->get_module_name() ),
-								 'grid' => __( 'Grid', $this->get_module_name() ),
+								 'list' => __( 'List (Default)', 'sv_content' ),
+								 'masonry' => __( 'Masonry', 'sv_content' ),
+								 'grid' => __( 'Grid', 'sv_content' ),
 							 ))
 							 ->load_type( 'select' );
 		
 		$this->s['tag_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'tag_theme' )
-							 ->set_title( __( 'Tag Listing', $this->get_module_name() ) )
-							 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', $this->get_module_name() ) )
+							 ->set_title( __( 'Tag Listing', 'sv_content' ) )
+							 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv_content' ) )
 							 ->set_options( array(
-								 'list' => __( 'List (Default)', $this->get_module_name() ),
-								 'masonry' => __( 'Masonry', $this->get_module_name() ),
-								 'grid' => __( 'Grid', $this->get_module_name() ),
+								 'list' => __( 'List (Default)', 'sv_content' ),
+								 'masonry' => __( 'Masonry', 'sv_content' ),
+								 'grid' => __( 'Grid', 'sv_content' ),
 							 ))
 							 ->load_type( 'select' );
 		
 		$this->s['author_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'author_theme' )
-							 ->set_title( __( 'Author Listing', $this->get_module_name() ) )
-							 ->set_description( __( 'Defines how posts created by an author will be displayed.', $this->get_module_name() ) )
+							 ->set_title( __( 'Author Listing', 'sv_content' ) )
+							 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv_content' ) )
 							 ->set_options( array(
-								 'list' => __( 'List (Default)', $this->get_module_name() ),
-								 'masonry' => __( 'Masonry', $this->get_module_name() ),
-								 'grid' => __( 'Grid', $this->get_module_name() ),
+								 'list' => __( 'List (Default)', 'sv_content' ),
+								 'masonry' => __( 'Masonry', 'sv_content' ),
+								 'grid' => __( 'Grid', 'sv_content' ),
 							 ))
 							 ->load_type( 'select' );
 		
 		$this->s['search_theme'] =
 			static::$settings->create( $this )
 							 ->set_ID( 'search_theme' )
-							 ->set_title( __( 'Search Listing', $this->get_module_name() ) )
-							 ->set_description( __( 'Defines how the search results will be displayed.', $this->get_module_name() ) )
+							 ->set_title( __( 'Search Listing', 'sv_content' ) )
+							 ->set_description( __( 'Defines how the search results will be displayed.', 'sv_content' ) )
 							 ->set_options( array(
-								 'list' => __( 'List (Default)', $this->get_module_name() ),
-								 'masonry' => __( 'Masonry', $this->get_module_name() ),
-								 'grid' => __( 'Grid', $this->get_module_name() ),
+								 'list' => __( 'List (Default)', 'sv_content' ),
+								 'masonry' => __( 'Masonry', 'sv_content' ),
+								 'grid' => __( 'Grid', 'sv_content' ),
 							 ))
 							 ->load_type( 'select' );
 		
 		$this->s['404_page'] =
 			static::$settings->create( $this )
 							 ->set_ID( '404_page' )
-							 ->set_title( __( '404 Page', $this->get_module_name() ) )
-							 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', $this->get_module_name() ) )
+							 ->set_title( __( '404 Page', 'sv_content' ) )
+							 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv_content' ) )
 							 ->load_type( 'select_page' );
 
 		return $this;
@@ -302,6 +302,15 @@ class sv_content extends init {
 							->set_ID( 'archive_theme_grid' )
 							->set_path( 'lib/frontend/css/archive/themes/grid.css' )
 							->set_inline( true );
+		
+		// Scripts - Backend
+		static::$scripts->create( $this )
+						->set_ID( 'gutenberg_block_styles' )
+						->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
+						->set_type( 'js' )
+						->set_is_gutenberg()
+						->set_is_backend()
+						->set_is_enqueued();
 
 		return $this;
 	}
@@ -312,18 +321,18 @@ class sv_content extends init {
 				->sv_sidebar
 				->create( $this )
 				->set_ID( 'frontpage' )
-				->set_title( __( 'Sidebar - Frontpage', $this->get_module_name() ) )
-				->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', $this->get_module_name() ) )
+				->set_title( __( 'Sidebar - Frontpage', 'sv_content' ) )
+				->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', 'sv_content' ) )
 				->load_sidebar()
 				->create( $this )
 				->set_ID( 'page' )
-				->set_title( __( 'Sidebar - Pages', $this->get_module_name() ) )
-				->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', $this->get_module_name() ) )
+				->set_title( __( 'Sidebar - Pages', 'sv_content' ) )
+				->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', 'sv_content' ) )
 				->load_sidebar()
 				->create( $this )
 				->set_ID( 'single' )
-				->set_title( __( 'Sidebar - Posts', $this->get_module_name() ) )
-				->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', $this->get_module_name() ) )
+				->set_title( __( 'Sidebar - Posts', 'sv_content' ) )
+				->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', 'sv_content' ) )
 				->load_sidebar();
 		}
 
