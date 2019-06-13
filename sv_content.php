@@ -558,7 +558,12 @@
 			
 			// Loads the template
 			include ( $this->get_path('lib/frontend/tpl/' . $template['path'] . '.php' ) );
-			
+
+			// Loads SV Scroll To Top
+			echo $this->get_root()->get_module( 'sv_scroll_to_top' )
+				? $this->get_root()->get_module( 'sv_scroll_to_top' )->load()
+				: '';
+
 			// Loads the footer
 			$this->get_footer( $template );
 			$output							        = ob_get_contents();
