@@ -4,8 +4,9 @@
 			the_post();
 			
 			// Loads Thumbnail
-			if ( do_shortcode( '[sv_featured_image]' ) && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) {
-				$thumbnail = do_shortcode( '[sv_featured_image]' );
+			if ( $this->get_root()->get_module( 'sv_featured_image' )
+				 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]' ) {
+				$thumbnail = $this->get_root()->get_module( 'sv_featured_image' )->load();
 			} else if ( has_post_thumbnail() ) {
 				$thumbnail .= get_the_post_thumbnail( null, 'medium_large' );
 			}

@@ -12,10 +12,6 @@ namespace sv_100;
  */
 
 class sv_content extends init {
-	public function __construct() {
-
-	}
-
 	public function init() {
 		// Module Info
 		$this->set_module_title( 'SV Content' );
@@ -29,9 +25,6 @@ class sv_content extends init {
 
 		// Load settings, register scripts and sidebars
 		$this->add_theme_support()->load_settings()->register_scripts()->register_sidebars();
-
-		// Shortcodes
-		add_shortcode( $this->get_module_name(), array( $this, 'shortcode' ) );
 	}
 
 	protected function add_theme_support(): sv_content {
@@ -69,14 +62,14 @@ class sv_content extends init {
 	
 	protected function load_settings(): sv_content {
 		$this->s['home_slider'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'home_slider' )
 							 ->set_title( __( 'Home Slider', 'sv_100' ) )
 							 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'sv_100' ) )
 							 ->load_type( 'checkbox' );
 		
 		$this->s['home_slider_transition'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'home_slider_transition' )
 							 ->set_title( __( 'Home Slider - Transition', 'sv_100' ) )
 							 ->set_description( __( 'Choose a transition style for the slider.', 'sv_100' ) )
@@ -87,7 +80,7 @@ class sv_content extends init {
 							 ->load_type( 'select' );
 		
 		$this->s['home_slider_max'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'home_slider_max' )
 							 ->set_title( __( 'Home Slider - Max posts', 'sv_100' ) )
 							 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'sv_100' ) )
@@ -96,7 +89,7 @@ class sv_content extends init {
 							 ->load_type( 'number' );
 		
 		$this->s['home_theme'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'home_theme' )
 							 ->set_title( __( 'Home Listing', 'sv_100' ) )
 							 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv_100' ) )
@@ -108,7 +101,7 @@ class sv_content extends init {
 							 ->load_type( 'select' );
 		
 		$this->s['category_theme'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'category_theme' )
 							 ->set_title( __( 'Category Listing', 'sv_100' ) )
 							 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv_100' ) )
@@ -120,7 +113,7 @@ class sv_content extends init {
 							 ->load_type( 'select' );
 		
 		$this->s['tag_theme'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'tag_theme' )
 							 ->set_title( __( 'Tag Listing', 'sv_100' ) )
 							 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv_100' ) )
@@ -132,7 +125,7 @@ class sv_content extends init {
 							 ->load_type( 'select' );
 		
 		$this->s['author_theme'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'author_theme' )
 							 ->set_title( __( 'Author Listing', 'sv_100' ) )
 							 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv_100' ) )
@@ -144,7 +137,7 @@ class sv_content extends init {
 							 ->load_type( 'select' );
 		
 		$this->s['search_theme'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( 'search_theme' )
 							 ->set_title( __( 'Search Listing', 'sv_100' ) )
 							 ->set_description( __( 'Defines how the search results will be displayed.', 'sv_100' ) )
@@ -156,7 +149,7 @@ class sv_content extends init {
 							 ->load_type( 'select' );
 		
 		$this->s['404_page'] =
-			static::$settings->create( $this )
+			$this->get_setting()
 							 ->set_ID( '404_page' )
 							 ->set_title( __( '404 Page', 'sv_100' ) )
 							 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv_100' ) )
@@ -320,7 +313,7 @@ class sv_content extends init {
 		return $this;
 	}
 
-	public function shortcode( $settings, $content = '' ): string {
+	public function load( $settings = array() ): string {
 		$settings								= shortcode_atts(
 			array(
 				'inline'						=> true,
