@@ -37,7 +37,7 @@
 					'after'       => '</div>',
 					'link_before' => '',
 					'link_after'  => '',
-					'pagelink'    => __( 'Page', 'sv_content' ) . ' %',
+					'pagelink'    => __( 'Page', 'sv_100' ) . ' %',
 					'separator'   => '',
 				)
 			);
