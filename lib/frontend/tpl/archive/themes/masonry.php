@@ -65,7 +65,7 @@
 						<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
 					</div>
 					<?php
-						if ( current_user_can( 'edit_post' ) ) {
+						if ( current_user_can( 'edit_post', get_the_ID() ) ) {
 							echo '<div class="' . $this->get_prefix( 'edit' ) . '">';
 							echo '<a href="' . get_edit_post_link() . '">' . __( 'Edit', 'sv_100' ) . '</a>';
 							echo '</div>';
