@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'category' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Category', $this->get_module_name() ); ?>: <span><?php single_cat_title(); ?></span></h1>
+		<h1><?php _e( 'Category', 'sv_100' ); ?>: <span><?php single_cat_title(); ?></span></h1>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
@@ -17,7 +17,7 @@
 		</div>
 	<?php
 	}
-	
-	echo do_shortcode( '[sv_pagination]' );
+		
+		echo $this->get_root()->get_module( 'sv_pagination' ) ? $this->get_root()->get_module( 'sv_pagination' )->load() : '';
 	?>
 </div>

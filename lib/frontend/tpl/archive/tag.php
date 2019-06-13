@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'tag' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Tag', $this->get_module_name() ); ?>: <span><?php single_tag_title(); ?></span></h1>
+		<h1><?php _e( 'Tag', 'sv_100' ); ?>: <span><?php single_tag_title(); ?></span></h1>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
@@ -18,6 +18,6 @@
 		<?php
 	}
 		
-		echo do_shortcode( '[sv_pagination]' );
+		echo $this->get_root()->get_module( 'sv_pagination' ) ? $this->get_root()->get_module( 'sv_pagination' )->load() : '';
 	?>
 </div>

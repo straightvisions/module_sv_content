@@ -1,22 +1,24 @@
 <div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'page' ); ?>">
 	<?php
 	$class = $this->get_prefix( 'header' );
-
+	
 	if ( has_post_thumbnail() ||
-	     ( shortcode_exists( '[sv_featured_image]' )
-	       && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) ) {
+		 ( $this->get_root()->get_module( 'sv_featured_image' )
+		   && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]' ) ) {
 		$class .= ' with-thumbnail';
 	}
 	?>
 	<div class="<?php echo $class; ?>">
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
 			<h1><?php the_title()?></h1>
+			<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>"><?php the_excerpt(); ?></div>
 		</div>
 		<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
 			<?php
 				// Loads Thumbnail
-				if ( do_shortcode( '[sv_featured_image]' ) && do_shortcode( '[sv_featured_image]' ) !== '[sv_featured_image]' ) {
-					echo do_shortcode( '[sv_featured_image]' );
+				if ( $this->get_root()->get_module( 'sv_featured_image' )
+					 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]'  ) {
+					echo $this->get_root()->get_module( 'sv_featured_image' )->load();
 				} else if ( has_post_thumbnail() ) {
 					echo get_the_post_thumbnail( null, 'large' );
 				}
@@ -37,7 +39,7 @@
 						'after'       => '</div>',
 						'link_before' => '',
 						'link_after'  => '',
-						'pagelink'    => __( 'Page', $this->get_module_name() ) . ' %',
+						'pagelink'    => __( 'Page', 'sv_100' ) . ' %',
 						'separator'   => '',
 					)
 				);
@@ -47,7 +49,13 @@
 		}
 		?>
         <aside class="<?php echo $this->get_prefix( 'sidebar' ); ?>">
-			<?php echo do_shortcode( '[sv_sidebar id="' . $this->get_module_name() . '_page"]' ); ?>
+			<?php
+				echo $this->get_root()->get_module( 'sv_sidebar' )
+					? $this->get_root()->get_module( 'sv_sidebar' )->load( array(
+						'id' => $this->get_module_name() . '_page'
+					) )
+					: '';
+			?>
         </aside>
     </div>
 </div>

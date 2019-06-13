@@ -86,7 +86,7 @@
 .sv_100_sv_content_wrapper > div.wp-block-group > ol,
 .sv_100_sv_content_wrapper > div.wp-block-group > blockquote {
     max-width: var( --width-txt );
-    margin-left: 0;
+    margin-left: auto;
 }
 
 /* Tablet */
@@ -104,6 +104,15 @@
         max-width: var( --width-mb );
     }
 
+    .sv_100_sv_content_wrapper .is-style-block-left {
+        margin-left: calc( ( 100% - var( --width-mb ) ) / 2 );
+    }
+
+    .sv_100_sv_content_wrapper .is-style-block-right {
+        margin-right: calc( ( 100% - var( --width-mb ) ) / 2 );
+    }
+
+    /*
     .sv_100_sv_content_wrapper > p,
     .sv_100_sv_content_wrapper > h1,
     .sv_100_sv_content_wrapper > h2,
@@ -126,6 +135,7 @@
     .sv_100_sv_content_wrapper > div.wp-block-group > blockquote {
         margin-left: calc( ( 100% - var( --width-mb ) ) / 2 );
     }
+     */
 }
 
 /* Desktop */
@@ -143,6 +153,15 @@
         max-width: var( --width-dt );
     }
 
+    .sv_100_sv_content_wrapper .is-style-block-left {
+        margin-left: calc( ( 100% - var( --width-dt ) ) / 2 );
+    }
+
+    .sv_100_sv_content_wrapper .is-style-block-right {
+        margin-right: calc( ( 100% - var( --width-dt ) ) / 2 );
+    }
+
+    /*
     .sv_100_sv_content_wrapper > p,
     .sv_100_sv_content_wrapper > h1,
     .sv_100_sv_content_wrapper > h2,
@@ -165,6 +184,7 @@
     .sv_100_sv_content_wrapper > div.wp-block-group > blockquote {
         margin-left: calc( ( 100% - var( --width-dt ) ) / 2 );
     }
+     */
 }
 
 /* Large */
@@ -182,6 +202,15 @@
         max-width: var( --width-lg );
     }
 
+    .sv_100_sv_content_wrapper .is-style-block-left {
+        margin-left: calc( ( 100% - var( --width-lg ) ) / 2 );
+    }
+
+    .sv_100_sv_content_wrapper .is-style-block-right {
+        margin-right: calc( ( 100% - var( --width-lg ) ) / 2 );
+    }
+
+    /*
     .sv_100_sv_content_wrapper > p,
     .sv_100_sv_content_wrapper > h1,
     .sv_100_sv_content_wrapper > h2,
@@ -204,6 +233,7 @@
     .sv_100_sv_content_wrapper > div.wp-block-group > blockquote {
         margin-left: calc( ( 100% - var( --width-lg ) ) / 2 );
     }
+     */
 }
 
 /* Heading */
@@ -213,7 +243,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
     margin-top: .6em;
     margin-bottom: .2em;
     font-weight: 300;
-    color: var( --color-primary );
+    color: var( --sv-100-color-primary );
 }
 
 h1, h1 a {
@@ -285,14 +315,45 @@ p {
 }
 
 a {
-    color: rgba( var( --color-highlight ), .8 );
+    color: rgba( var( --sv-100-color-highlight ), .8 );
     text-decoration: none;
     transition: color .25s ease;
 }
 
 a:hover, a:active, a:focus {
-    color: rgb( var( --color-highlight ) );
+    color: rgb( var( --sv-100-color-highlight ) );
 }
+
+/* Alignment - Left
+.sv_100_sv_content_wrapper > p[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h1[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h2[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h3[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h4[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h5[style*='text-align:center'],
+.sv_100_sv_content_wrapper > h6[style*='text-align:center'],
+.sv_100_sv_content_wrapper > ul[style*='text-align:center'],
+.sv_100_sv_content_wrapper > ol[style*='text-align:center'],
+.sv_100_sv_content_wrapper > blockquote[style*='text-align:center'] {
+    margin-left: auto;
+}
+
+/* Alignment - Right
+.sv_100_sv_content_wrapper > p[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h1[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h2[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h3[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h4[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h5[style*='text-align:right'],
+.sv_100_sv_content_wrapper > h6[style*='text-align:right'],
+.sv_100_sv_content_wrapper > ul[style*='text-align:right'],
+.sv_100_sv_content_wrapper > ol[style*='text-align:right'],
+.sv_100_sv_content_wrapper > blockquote[style*='text-align:right'] {
+    margin-right: calc( ( 100% - var( --width-dt ) ) / 2 );
+    margin-left: auto;
+}
+*/
+
 
 /* List */
 .sv_100_sv_content_wrapper > ul,
@@ -317,7 +378,7 @@ blockquote, blockquote.wp-block-quote {
 
 blockquote::before, blockquote.wp-block-quote::before {
     content: '';
-    border-left: 2px solid rgb( var( --color-primary ) );
+    border-left: 2px solid rgb( var( --sv-100-color-primary ) );
     grid-area: stripe;
 }
 
@@ -328,15 +389,15 @@ blockquote > p, blockquote.wp-block-quote > p {
 blockquote > cite, blockquote.wp-block-quote > cite {
     grid-area: author;
     font-size: .8rem;
-    color: rgb( var( --color-secondary ) );
+    color: rgb( var( --sv-100-color-secondary ) );
 }
 
 /* Quote - Large */
 blockquote.wp-block-quote.is-style-large {
     margin: 1.5em auto 1.5em auto;
     display: block;
-    border-top: 2px solid rgb( var( --color-primary ) );
-    border-bottom: 2px solid rgb( var( --color-primary ) );
+    border-top: 2px solid rgb( var( --sv-100-color-primary ) );
+    border-bottom: 2px solid rgb( var( --sv-100-color-primary ) );
     padding-top: 2.5em;
     padding-bottom: 2.5em;
 }
@@ -438,12 +499,14 @@ blockquote.wp-block-quote.is-style-large > cite {
 
 /* Cover Image - Align Wide & Full */
 .sv_100_sv_content_wrapper > div.wp-block-cover.alignwide,
-.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull {
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull,
+.sv_100_sv_content_wrapper > div.wp-block-cover.full-width {
     padding: 20px 0;
 }
 
 .sv_100_sv_content_wrapper > div.wp-block-cover.alignwide::before,
-.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull::before {
+.sv_100_sv_content_wrapper > div.wp-block-cover.alignfull::before,
+.sv_100_sv_content_wrapper > div.wp-block-cover.full-width::before{
     margin: 20px 0;
 }
 
@@ -461,7 +524,7 @@ table, table.wp-block-table {
 }
 
 table th, table.wp-block-table th {
-    border-bottom: 1px solid rgb( var( --color-primary ) );
+    border-bottom: 1px solid rgb( var( --sv-100-color-primary ) );
     font-weight: 700;
 }
 
@@ -474,7 +537,7 @@ table td, table.wp-block-table td {
 }
 
 table td, table.wp-block-table td {
-    border-bottom: 1px solid rgba( var( --color-primary ), .1 );
+    border-bottom: 1px solid rgba( var( --sv-100-color-primary ), .1 );
 }
 
 table tr:last-of-type td,
@@ -484,7 +547,7 @@ table.wp-block-table tr:last-of-type td {
 
 table tfoot td, table.wp-block-table tfoot td {
     font-weight: 700;
-    border-top: 1px solid rgb( var( --color-primary ) );
+    border-top: 1px solid rgb( var( --sv-100-color-primary ) );
 }
 
 /* Table - Stripes */
@@ -497,8 +560,8 @@ table.is-style-stripes, table.wp-block-table.is-style-stripes {
 
 table.is-style-stripes th, table.wp-block-table.is-style-stripes th,
 table.is-style-stripes tfoot td, table.wp-block-table.is-style-stripes tfoot td {
-    color: rgb( var( --color-contrast ) );
-    background-color: rgb( var( --color-bg-highlight ) );
+    color: rgb( var( --sv-100-color-contrast ) );
+    background-color: rgb( var( --sv-100-color-bg-highlight ) );
     font-weight: 700;
 }
 
@@ -511,7 +574,7 @@ table.is-style-stripes td, table.wp-block-table.is-style-stripes td {
 }
 
 table.is-style-stripes tbody tr:nth-child(odd), table.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-    background-color: rgb( var( --color-bg-secondary ) );
+    background-color: rgb( var( --sv-100-color-bg-secondary ) );
 }
 
 /* Preformated */
@@ -522,8 +585,8 @@ pre, pre.wp-block-code {
 
 /* Code */
 code, pre.wp-block-code > code {
-    color: rgb( var( --color-highlight ) );
-    background-color: rgb( var( --color-bg-secondary ) );
+    color: rgb( var( --sv-100-color-highlight ) );
+    background-color: rgb( var( --sv-100-color-bg-secondary ) );
     display: block;
     padding: 20px;
 }
@@ -562,13 +625,13 @@ code, pre.wp-block-code > code {
     font-weight: bold;
     position: relative;
     text-decoration: none;
-    color: rgb( var( --color-primary ) );
+    color: rgb( var( --sv-100-color-primary ) );
 }
 
 .sv_100_sv_content_wrapper .sv_100_sv_content_page_links .post-page-numbers::after {
     display: block;
     height: 2px;
-    background: rgb( var( --color-highlight ) );
+    background: rgb( var( --sv-100-color-highlight ) );
     content: '';
     margin-top: 10px;
     width: 0;

@@ -24,6 +24,7 @@
 	position: relative;
 	flex-direction: column;
 	margin-bottom: 30px;
+	width: 100%;
 }
 
 .sv_100_sv_content_masonry article:last-of-type {
@@ -50,10 +51,10 @@
 }
 
 .sv_100_sv_content_masonry .sv_100_sv_content_categories a {
-	color: rgb( var( --color-contrast ) );
+	color: rgb( var( --sv-100-color-contrast ) );
 	text-decoration: none;
 	font-size: .8rem;
-	background: rgba( var( --color-bg-highlight ), .9 );
+	background: rgba( var( --sv-100-color-bg-highlight ), .9 );
 	padding: 5px 10px;
 	margin: 2px;
 }
@@ -67,30 +68,34 @@
 	line-height: 150%;
 	margin-top: 0;
 	margin-bottom: .2em;
-	color: var( --color-primary );
+	color: var( --sv-100-color-primary );
 	font-size: 1.2rem;
 	font-weight: 700;
 }
 
 /* Tablet */
 @media ( min-width: 850px ) {
-	.sv_100_sv_content_masonry .sv_100_sv_content_info > h4 {
+	.sv_100_sv_content_masonry h4 {
 		font-size: 1.5rem;
 	}
 }
 
-.sv_100_sv_content_masonry .sv_100_sv_content_info h4 a:hover,
-.sv_100_sv_content_masonry .sv_100_sv_content_info h4 a:focus {
-	color: rgb( var( --color-highlight ) );
+.sv_100_sv_content_masonry h4 a:hover,
+.sv_100_sv_content_masonry h4 a:focus {
+	color: rgb( var( --sv-100-color-highlight ) );
 }
 
 .sv_100_sv_content_masonry .sv_100_sv_content_excerpt {
-	margin-top: 1em;
+	margin-top: .2em;
 	margin-bottom: 0;
 }
 
+.sv_100_sv_content_masonry .sv_100_sv_content_excerpt p {
+	font-size: .9rem;
+}
+
 .sv_100_sv_content_masonry .sv_100_sv_content_read_more {
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 	transition: .25s ease;
 	text-decoration: none;
 	font-weight: bold;
@@ -101,16 +106,15 @@
 
 .sv_100_sv_content_masonry .sv_100_sv_content_read_more:hover,
 .sv_100_sv_content_masonry .sv_100_sv_content_read_more:focus {
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 }
 
 .sv_100_sv_content_masonry .sv_100_sv_content_read_more::after {
 	display: block;
 	height: 2px;
-	background: rgb( var( --color-highlight ) );
+	background: rgb( var( --sv-100-color-highlight ) );
 	content: '';
 	width: 0;
-	position: absolute;
 	margin-top: 5px;
 	transition: .25s ease;
 }
@@ -120,15 +124,81 @@
 	width: 100%;
 }
 
+.sv_100_sv_content_masonry .sv_100_sv_content_info {
+	display: flex;
+	font-size: .9rem;
+	flex-direction: column;
+	margin-top: 1em;
+	color: rgb( var( --sv-100-color-secondary ) );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info > div {
+	margin-bottom: .2em;
+	display: flex;
+	align-items: end;
+}
+
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_masonry .sv_100_sv_content_info {
+		flex-direction: row;
+		font-size: .8rem;
+	}
+
+	.sv_100_sv_content_masonry .sv_100_sv_content_info > div {
+		margin-right: 20px;
+		margin-bottom: 0;
+	}
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info > div::before {
+	content: '';
+	display: inline-block;
+	height: .8rem;
+	width: .8rem;
+	-webkit-mask-size: 100%;
+	-webkit-mask-position: center;
+	-webkit-mask-repeat: no-repeat;
+	background-color: rgb( var( --sv-100-color-secondary ) );
+	margin-right: 5px;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info .sv_100_sv_content_author::before {
+	-webkit-mask-image: var( --icon-sv_user );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info .sv_100_sv_content_date::before {
+	-webkit-mask-image: var( --icon-sv_clock );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info .sv_100_sv_content_category::before {
+	-webkit-mask-image: var( --icon-sv_folder );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info .sv_100_sv_content_edit::before {
+	-webkit-mask-image: var( --icon-sv_pen );
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info a {
+	text-decoration: none;
+	color: rgb( var( --sv-100-color-secondary ) );
+	font-weight: 500;
+	transition: color .25s ease;
+}
+
+.sv_100_sv_content_masonry .sv_100_sv_content_info a:hover,
+.sv_100_sv_content_masonry .sv_100_sv_content_info a:focus {
+	color: rgb( var( --sv-100-color-highlight ) );
+}
+
 /* Without Thumbnail */
 .sv_100_sv_content_masonry .sv_100_sv_content_wrapper {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	color: rgb( var( --color-primary ) );
+	color: rgb( var( --sv-100-color-primary ) );
 	position: relative;
-	background-color: rgb( var( --color-bg-secondary ) );
+	background-color: rgb( var( --sv-100-color-bg-secondary ) );
 	padding: 20px;
 }
 

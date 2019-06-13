@@ -2,12 +2,12 @@
 .sv_100_sv_content_header {
 	position: relative;
 	height: 35vh;
-	color: rgb( var( --color-primary ) );
-	background-color: rgb( var( --color-bg-secondary ) );
+	color: rgb( var( --sv-100-color-primary ) );
+	background-color: rgb( var( --sv-100-color-bg-secondary ) );
 }
 
 .sv_100_sv_content_header.with-thumbnail {
-	color: rgb( var( --color-contrast ) );
+	color: rgb( var( --sv-100-color-contrast ) );
 }
 
 .sv_100_sv_content_header.with-thumbnail .sv_100_sv_content_header_background::before {
@@ -45,13 +45,19 @@
 
 .sv_100_sv_content_header_content span {
 	font-size: .9rem;
-	color: rgb( var( --color-contrast ) );
+	color: rgb( var( --sv-100-color-contrast ) );
 }
 
 .sv_100_sv_content_header_background {
 	width: 100%;
 	height: 100%;
-	background: rgb( var( --color-bg-secondary ) );
+	background: rgb( var( --sv-100-color-bg-secondary ) );
+}
+
+.sv_100_sv_content_excerpt {
+	max-width: var( --width-txt );
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* Content */
@@ -104,7 +110,7 @@
 
 	.sv_100_sv_content_sidebar {
 		display: block;
-		border-left: 1px solid rgba( var( --color-primary ), .1 );
+		border-left: 1px solid rgba( var( --sv-100-color-primary ), .1 );
 		padding-left: 50px;
 	}
 }
