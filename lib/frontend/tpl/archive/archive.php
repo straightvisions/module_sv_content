@@ -14,6 +14,6 @@
 		<?php
 	}
 		
-		echo do_shortcode( '[sv_pagination]' );
+		echo $this->get_root()->get_module( 'sv_pagination' ) ? $this->get_root()->get_module( 'sv_pagination' )->load() : '';
 	?>
 </div>
