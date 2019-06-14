@@ -40,7 +40,7 @@
 					<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
 						<p><?php echo get_the_excerpt(); ?></p>
 						<a href="<?php the_permalink(); ?>" class="<?php echo $this->get_prefix( 'read_more' )?>">
-							<?php _e( 'Read more', 'sv_100' );?>
+							<?php _e( 'Read more', 'straightvisions_100' );?>
 						</a>
 					</div>
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
@@ -61,7 +61,7 @@
 								if ( ! empty( $categories ) ) {
 									foreach ( $categories as $category ) {
 										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="'
-												   . esc_attr( sprintf( __( 'View all posts in %s', 'sv_100' ), $category->name ) ) .
+												   . esc_attr( sprintf( __( 'View all posts in %s', 'straightvisions_100' ), $category->name ) ) .
 												   '" class="' . $this->get_prefix( 'category' ) .'">'
 												   . esc_html( $category->name ) . '</a>' . $separator;
 									}
@@ -73,7 +73,7 @@
 						<?php
 						if ( current_user_can( 'edit_post', get_the_ID() ) ) {
 							echo '<div class="' . $this->get_prefix( 'edit' ) . '">';
-							echo '<a href="' . get_edit_post_link() . '">' . __( 'Edit', 'sv_100' ) . '</a>';
+							echo '<a href="' . get_edit_post_link() . '">' . __( 'Edit', 'straightvisions_100' ) . '</a>';
 							echo '</div>';
 						}
 						?>
