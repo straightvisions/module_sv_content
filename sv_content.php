@@ -15,11 +15,11 @@
 		public function init() {
 			// Module Info
 			$this->set_module_title( 'SV Content' );
-			$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'sv_100' ) );
+			$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'straightvisions_100' ) );
 			
 			// Section Info
-			$this->set_section_title( __( 'Content', 'sv_100' ) );
-			$this->set_section_desc( __( 'Settings', 'sv_100' ) );
+			$this->set_section_title( __( 'Content', 'straightvisions_100' ) );
+			$this->set_section_desc( __( 'Settings', 'straightvisions_100' ) );
 			$this->set_section_type( 'settings' );
 			$this->get_root()->add_section( $this );
 			
@@ -45,27 +45,27 @@
 			add_theme_support( 'align-wide' );
 			add_theme_support( 'editor-font-sizes', array(
 				array(
-					'name' => __( 'Small', 'sv_100' ),
+					'name' => __( 'Small', 'straightvisions_100' ),
 					'size' => 12,
 					'slug' => 'small'
 				),
 				array(
-					'name' => __( 'Normal', 'sv_100' ),
+					'name' => __( 'Normal', 'straightvisions_100' ),
 					'size' => 16,
 					'slug' => 'normal'
 				),
 				array(
-					'name' => __( 'Medium', 'sv_100' ),
+					'name' => __( 'Medium', 'straightvisions_100' ),
 					'size' => 24,
 					'slug' => 'normal'
 				),
 				array(
-					'name' => __( 'Large', 'sv_100' ),
+					'name' => __( 'Large', 'straightvisions_100' ),
 					'size' => 32,
 					'slug' => 'large'
 				),
 				array(
-					'name' => __( 'Huge', 'sv_100' ),
+					'name' => __( 'Huge', 'straightvisions_100' ),
 					'size' => 64,
 					'slug' => 'huge'
 				)
@@ -78,15 +78,15 @@
 			$this->s['home_slider'] =
 				$this->get_setting()
 					 ->set_ID( 'home_slider' )
-					 ->set_title( __( 'Home Slider', 'sv_100' ) )
-					 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'sv_100' ) )
+					 ->set_title( __( 'Home Slider', 'straightvisions_100' ) )
+					 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'straightvisions_100' ) )
 					 ->load_type( 'checkbox' );
 			
 			$this->s['home_slider_transition'] =
 				$this->get_setting()
 					 ->set_ID( 'home_slider_transition' )
-					 ->set_title( __( 'Home Slider - Transition', 'sv_100' ) )
-					 ->set_description( __( 'Choose a transition style for the slider.', 'sv_100' ) )
+					 ->set_title( __( 'Home Slider - Transition', 'straightvisions_100' ) )
+					 ->set_description( __( 'Choose a transition style for the slider.', 'straightvisions_100' ) )
 					 ->set_options( array(
 						 'fade'		=> 'Fade',
 						 'slide'		=> 'Slide'
@@ -96,8 +96,8 @@
 			$this->s['home_slider_max'] =
 				$this->get_setting()
 					 ->set_ID( 'home_slider_max' )
-					 ->set_title( __( 'Home Slider - Max posts', 'sv_100' ) )
-					 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'sv_100' ) )
+					 ->set_title( __( 'Home Slider - Max posts', 'straightvisions_100' ) )
+					 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'straightvisions_100' ) )
 					 ->set_min( 1 )
 					 ->set_max( 20 )
 					 ->load_type( 'number' );
@@ -105,68 +105,68 @@
 			$this->s['home_theme'] =
 				$this->get_setting()
 					 ->set_ID( 'home_theme' )
-					 ->set_title( __( 'Home Listing', 'sv_100' ) )
-					 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv_100' ) )
+					 ->set_title( __( 'Home Listing', 'straightvisions_100' ) )
+					 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'straightvisions_100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'sv_100' ),
-						 'masonry' => __( 'Masonry', 'sv_100' ),
-						 'grid' => __( 'Grid', 'sv_100' ),
+						 'list' => __( 'List (Default)', 'straightvisions_100' ),
+						 'masonry' => __( 'Masonry', 'straightvisions_100' ),
+						 'grid' => __( 'Grid', 'straightvisions_100' ),
 					 ))
 					 ->load_type( 'select' );
 			
 			$this->s['category_theme'] =
 				$this->get_setting()
 					 ->set_ID( 'category_theme' )
-					 ->set_title( __( 'Category Listing', 'sv_100' ) )
-					 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv_100' ) )
+					 ->set_title( __( 'Category Listing', 'straightvisions_100' ) )
+					 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'straightvisions_100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'sv_100' ),
-						 'masonry' => __( 'Masonry', 'sv_100' ),
-						 'grid' => __( 'Grid', 'sv_100' ),
+						 'list' => __( 'List (Default)', 'straightvisions_100' ),
+						 'masonry' => __( 'Masonry', 'straightvisions_100' ),
+						 'grid' => __( 'Grid', 'straightvisions_100' ),
 					 ))
 					 ->load_type( 'select' );
 			
 			$this->s['tag_theme'] =
 				$this->get_setting()
 					 ->set_ID( 'tag_theme' )
-					 ->set_title( __( 'Tag Listing', 'sv_100' ) )
-					 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv_100' ) )
+					 ->set_title( __( 'Tag Listing', 'straightvisions_100' ) )
+					 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'straightvisions_100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'sv_100' ),
-						 'masonry' => __( 'Masonry', 'sv_100' ),
-						 'grid' => __( 'Grid', 'sv_100' ),
+						 'list' => __( 'List (Default)', 'straightvisions_100' ),
+						 'masonry' => __( 'Masonry', 'straightvisions_100' ),
+						 'grid' => __( 'Grid', 'straightvisions_100' ),
 					 ))
 					 ->load_type( 'select' );
 			
 			$this->s['author_theme'] =
 				$this->get_setting()
 					 ->set_ID( 'author_theme' )
-					 ->set_title( __( 'Author Listing', 'sv_100' ) )
-					 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv_100' ) )
+					 ->set_title( __( 'Author Listing', 'straightvisions_100' ) )
+					 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'straightvisions_100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'sv_100' ),
-						 'masonry' => __( 'Masonry', 'sv_100' ),
-						 'grid' => __( 'Grid', 'sv_100' ),
+						 'list' => __( 'List (Default)', 'straightvisions_100' ),
+						 'masonry' => __( 'Masonry', 'straightvisions_100' ),
+						 'grid' => __( 'Grid', 'straightvisions_100' ),
 					 ))
 					 ->load_type( 'select' );
 			
 			$this->s['search_theme'] =
 				$this->get_setting()
 					 ->set_ID( 'search_theme' )
-					 ->set_title( __( 'Search Listing', 'sv_100' ) )
-					 ->set_description( __( 'Defines how the search results will be displayed.', 'sv_100' ) )
+					 ->set_title( __( 'Search Listing', 'straightvisions_100' ) )
+					 ->set_description( __( 'Defines how the search results will be displayed.', 'straightvisions_100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'sv_100' ),
-						 'masonry' => __( 'Masonry', 'sv_100' ),
-						 'grid' => __( 'Grid', 'sv_100' ),
+						 'list' => __( 'List (Default)', 'straightvisions_100' ),
+						 'masonry' => __( 'Masonry', 'straightvisions_100' ),
+						 'grid' => __( 'Grid', 'straightvisions_100' ),
 					 ))
 					 ->load_type( 'select' );
 			
 			$this->s['404_page'] =
 				$this->get_setting()
 					 ->set_ID( '404_page' )
-					 ->set_title( __( '404 Page', 'sv_100' ) )
-					 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv_100' ) )
+					 ->set_title( __( '404 Page', 'straightvisions_100' ) )
+					 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'straightvisions_100' ) )
 					 ->load_type( 'select_page' );
 			
 			return $this;
@@ -309,18 +309,18 @@
 					->sv_sidebar
 					->create( $this )
 					->set_ID( 'frontpage' )
-					->set_title( __( 'Sidebar - Frontpage', 'sv_100' ) )
-					->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', 'sv_100' ) )
+					->set_title( __( 'Sidebar - Frontpage', 'straightvisions_100' ) )
+					->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', 'straightvisions_100' ) )
 					->load_sidebar()
 					->create( $this )
 					->set_ID( 'page' )
-					->set_title( __( 'Sidebar - Pages', 'sv_100' ) )
-					->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', 'sv_100' ) )
+					->set_title( __( 'Sidebar - Pages', 'straightvisions_100' ) )
+					->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', 'straightvisions_100' ) )
 					->load_sidebar()
 					->create( $this )
 					->set_ID( 'single' )
-					->set_title( __( 'Sidebar - Posts', 'sv_100' ) )
-					->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', 'sv_100' ) )
+					->set_title( __( 'Sidebar - Posts', 'straightvisions_100' ) )
+					->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', 'straightvisions_100' ) )
 					->load_sidebar();
 			}
 			

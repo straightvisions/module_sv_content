@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'category' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Category', 'sv_100' ); ?>: <span><?php single_cat_title(); ?></span></h1>
+		<h1><?php _e( 'Category', 'straightvisions_100' ); ?>: <span><?php single_cat_title(); ?></span></h1>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
