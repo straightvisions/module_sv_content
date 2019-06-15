@@ -15,6 +15,6 @@
 		</div>
 	<?php
 	} else {
-		$post = get_post( $this->s['404_page']->run_type()->get_data() );
-		wp_redirect(  $post->guid );
+		$p = get_post( $this->s['404_page']->run_type()->get_data() );
+		wp_redirect(  $p->guid );
 	}
