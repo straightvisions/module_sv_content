@@ -12,9 +12,15 @@
 	bottom: 0;
 }
 
-.sv_100_sv_posts_slider .sv_100_sv_posts_thumbnail img {
-	height: 100%;
+.sv_100_sv_content .sv_100_sv_posts_slider .sv_100_sv_posts_thumbnail img {
+	height: 35vh;
 	max-height: 60vh;
+}
+
+@media ( min-width: 850px ) {
+	.sv_100_sv_content .sv_100_sv_posts_slider .sv_100_sv_posts_thumbnail img {
+		height: 60vh;
+	}
 }
 
 .sv_100_sv_posts_slider .sv_100_sv_posts_content_wrapper h4 {

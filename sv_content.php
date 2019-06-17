@@ -296,6 +296,7 @@
 							->set_ID( 'gutenberg_block_styles' )
 							->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
 							->set_type( 'js' )
+							->set_deps( array(  'jquery' ) )
 							->set_is_gutenberg()
 							->set_is_backend()
 							->set_is_enqueued();
