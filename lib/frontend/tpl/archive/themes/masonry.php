@@ -57,9 +57,7 @@
 
 				<div class="<?php echo $this->get_prefix( 'info' ); ?>">
 					<div class="<?php echo $this->get_prefix( 'author' ); ?>">
-						<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-							<?php the_author_meta( 'display_name' ); ?>
-						</a>
+						<?php echo get_the_author_posts_link( get_the_author_meta( 'ID' ) ); ?>
 					</div>
 					<div class="<?php echo $this->get_prefix( 'date' ); ?>">
 						<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>

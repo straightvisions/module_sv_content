@@ -81,7 +81,7 @@
 }
 
 /* Posts - List */
-.sv_100_sv_content_archive {
-	margin-top: 1.5rem;
+.sv_100_sv_content_wrapper > .sv_100_sv_content_archive {
+	margin-top: 80px;
 	margin-bottom: 1.5rem;
 }
