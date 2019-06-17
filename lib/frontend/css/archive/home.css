@@ -58,3 +58,30 @@
 		font-size: 1rem;
 	}
 }
+
+/* Title */
+.sv_100_sv_content_wrapper > h1 {
+	width: 100%;
+	padding-left: var( --padding );
+	padding-right: var( --padding );
+	margin: .6em auto .2em auto;
+	max-width: var( --width-txt );
+	text-align: center;
+	line-height: 150%;
+	font-weight: 300;
+	font-size: 2rem;
+	color: var( --sv-100-color-primary );
+	transition: max-width .25s ease;
+}
+
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_wrapper > h1 {
+		font-size: 3rem;
+	}
+}
+
+/* Posts - List */
+.sv_100_sv_content_archive {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}

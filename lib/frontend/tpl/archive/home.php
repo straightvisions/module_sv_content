@@ -7,11 +7,9 @@
 		echo do_shortcode( '[sv_posts slider="1" slider_theme="' . $theme . '" image="1" show_image="1" show_category="0" show_excerpt="1" show_date="0" max_length="80"]' );
 	}
 	?>
-	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Recent Posts', 'straightvisions_100' ); ?></h1>
-	</div>
 	
 	<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
+		<h1><?php _e( 'Recent Posts', 'straightvisions_100' ); ?></h1>
 		<?php
 			$archive_theme = 'lib/frontend/tpl/archive/themes/';
 			$archive_theme .= $this->s['home_theme']->run_type()->get_data()

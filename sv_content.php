@@ -352,7 +352,7 @@
 					
 					$template = array(
 						'path'      => 'archive/home',
-						'header'    => 'home',
+						'header'    => 'slider',
 						'scripts'   => array(
 							$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 							$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
@@ -367,7 +367,31 @@
 					if ( is_page_template( 'page-sidebar.php' ) ) {
 						$template = array(
 							'path'      => 'content/frontpage_sidebar',
-							'header'    => 'frontpage',
+							'scripts'   => array(
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
+							),
+						);
+					} else if ( is_page_template( 'page-slider.php' ) ) {
+						$template = array(
+							'path'      => 'content/frontpage',
+							'header'    => 'slider',
+							'scripts'   => array(
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
+							),
+						);
+					} else if ( is_page_template( 'page-slider-and-sidebar' ) ) {
+						$template = array(
+							'path'      => 'content/frontpage_sidebar',
+							'header'    => 'slider',
 							'scripts'   => array(
 								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 								$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
@@ -380,7 +404,6 @@
 					} else {
 						$template = array(
 							'path'      => 'content/frontpage',
-							'header'    => 'frontpage',
 							'scripts'   => array(
 								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
@@ -432,6 +455,31 @@
 						case 'page_sidebar':
 							$template = array(
 								'path'      => 'content/page_sidebar',
+								'scripts'   => array(
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								),
+							);
+							break;
+						case 'page_slider':
+							$template = array(
+								'path'      => 'content/page',
+								'header'    => 'slider',
+								'scripts'   => array(
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								),
+							);
+							break;
+						case 'page_slider_and_sidebar':
+							$template = array(
+								'path'      => 'content/page_sidebar',
+								'header'    => 'slider',
 								'scripts'   => array(
 									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 									$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
