@@ -18,6 +18,8 @@
 			$archive_theme .= '.php';
 			
 			include( $this->get_path( $archive_theme ) );
+			
+			echo $this->get_root()->get_module( 'sv_pagination' ) ? $this->get_root()->get_module( 'sv_pagination' )->load() : '';
 		?>
 	</div>
 </div>
