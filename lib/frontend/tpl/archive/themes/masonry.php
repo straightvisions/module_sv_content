@@ -15,10 +15,10 @@
 		// Loads Thumbnail
 		if ( $this->get_root()->get_module( 'sv_featured_image' )
 			 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]' ) {
-			$thumbnail = $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'medium' ) );
+			$thumbnail = $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv_100_thumbnail' ) );
 		} else if ( has_post_thumbnail() ) {
 			$thumbnail	= '<a href="' . get_the_permalink() . '">';
-			$thumbnail .= get_the_post_thumbnail( null, 'medium' );
+			$thumbnail .= get_the_post_thumbnail( null, 'sv_100_thumbnail' );
 			$thumbnail .= '</a>';
 		}
 		?>

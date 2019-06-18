@@ -592,6 +592,10 @@ code, pre.wp-block-code > code {
     padding: 20px;
 }
 
+.wp-block-media-text img {
+    max-width: 100%;
+}
+
 @media ( max-width: 600px ) {
     .wp-block-media-text.is-stacked-on-mobile > div.wp-block-media-text__content {
         padding: 20px 0;
