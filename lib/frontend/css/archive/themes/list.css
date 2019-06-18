@@ -40,7 +40,7 @@
 
 @media ( min-width: 850px ) {
 	.sv_100_sv_content_list .sv_100_sv_content_thumbnail {
-		width: 30%;
+		width: 280px;
 		height: 100%;
 		margin-right: 15px;
 		margin-bottom: 0;
@@ -50,6 +50,7 @@
 .sv_100_sv_content_list .sv_100_sv_content_thumbnail > a {
 	position: absolute;
 	height: 100%;
+	width: 100%;
 	background-color: rgb( var( --sv-100-color-highlight ) );
 }
 
@@ -68,9 +69,16 @@
 
 /* Content */
 .sv_100_sv_content_list .sv_100_sv_content_wrapper {
+	width: 100%;
 	padding: 0;
 	display: flex;
 	flex-direction: column;
+}
+
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_list .sv_100_sv_content_wrapper {
+		width: calc( 100% - 280px );
+	}
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_wrapper h4 {
@@ -161,6 +169,28 @@
 	.sv_100_sv_content_list .sv_100_sv_content_info > div {
 		margin-right: 20px;
 		margin-bottom: 0;
+	}
+}
+
+@media ( min-width: 1050px ) {
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_list .sv_100_sv_content_info > div {
+		margin-right: 10px;
+		display: inline;
+	}
+
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_list .sv_100_sv_content_info > div.sv_100_sv_content_edit {
+		display: none;
+	}
+}
+
+@media ( min-width: 1350px ) {
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_list .sv_100_sv_content_info > div {
+		margin-right: 20px;
+	}
+
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_list .sv_100_sv_content_info > div,
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_list .sv_100_sv_content_info > div.sv_100_sv_content_edit {
+		display: flex;
 	}
 }
 

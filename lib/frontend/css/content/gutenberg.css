@@ -426,17 +426,17 @@ blockquote.wp-block-quote.is-style-large > cite {
     margin: 1em auto 1em auto;
 }
 
-.wp-block-image .alignleft > img {
+.wp-block-image .alignleft img {
     margin-right: auto;
     margin-left: 0;
 }
 
-.wp-block-image .aligncenter > img {
+.wp-block-image .aligncenter img {
     margin-right: auto;
     margin-left: auto;
 }
 
-.wp-block-image .alignright > img {
+.wp-block-image .alignright img {
     margin-left: auto;
     margin-right: 0;
 }
@@ -468,7 +468,7 @@ blockquote.wp-block-quote.is-style-large > cite {
     padding-right: 0;
 }
 
-.wp-block-image.full-width > img {
+.wp-block-image.full-width img {
     width: 100%;
 }
 

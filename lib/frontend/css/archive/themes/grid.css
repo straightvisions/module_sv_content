@@ -68,7 +68,7 @@
 	overflow: hidden;
 }
 
-.sv_100_sv_content_grid .sv_100_sv_content_thumbnail > a > img {
+.sv_100_sv_content_grid .sv_100_sv_content_thumbnail > a img {
 	width: 100vw;
 	height: 100%;
 	object-fit: cover;

@@ -154,6 +154,18 @@
 	}
 }
 
+@media ( min-width: 1050px ) {
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_masonry .sv_100_sv_content_info {
+		flex-direction: column;
+	}
+}
+
+@media ( min-width: 1350px ) {
+	.sv_100_sv_content_with_sidebar .sv_100_sv_content_masonry .sv_100_sv_content_info {
+		flex-direction: row;
+	}
+}
+
 .sv_100_sv_content_masonry .sv_100_sv_content_info > div::before {
 	content: '';
 	display: inline-block;
