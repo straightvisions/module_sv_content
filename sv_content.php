@@ -352,10 +352,12 @@
 					$archive_theme .= $this->s['home_theme']->run_type()->get_data()
 						? $this->s['home_theme']->run_type()->get_data()
 						: 'list';
-					
+
+					$slider = $this->s['home_slider']->run_type()->get_data() === 1 ? 'slider' : '';
+
 					$template = array(
 						'path'      => 'archive/home',
-						'header'    => 'slider',
+						'header'    => $slider,
 						'scripts'   => array(
 							$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 							$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),

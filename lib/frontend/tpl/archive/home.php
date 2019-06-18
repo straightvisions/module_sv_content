@@ -1,6 +1,10 @@
 <div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'home' ); ?>">
 	<?php
-	if ( $this->s['home_slider']->run_type()->get_data() && isset( $this->get_root()->sv_posts ) && isset( $this->get_root()->sv_slick ) ) {
+	if (
+        $this->s['home_slider']->run_type()->get_data() === 1
+        && isset( $this->get_root()->sv_posts )
+        && isset( $this->get_root()->sv_slick )
+    ) {
 		$max 	= $this->s['home_slider_max']->run_type()->get_data() ? $this->s['home_slider_max']->run_type()->get_data() : 5;
 		$theme 	= $this->s['home_slider_transition']->run_type()->get_data() ?  $this->s['home_slider_transition']->run_type()->get_data() : 'fade';
 		
