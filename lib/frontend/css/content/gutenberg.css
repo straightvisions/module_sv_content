@@ -423,17 +423,7 @@ blockquote.wp-block-quote.is-style-large > cite {
 .wp-block-image .aligncenter,
 .wp-block-image .alignright {
     float: none;
-    display: block;
     margin: 1em auto 1em auto;
-    width: 100%;
-}
-
-.wp-block-image > img,
-.wp-block-image.is-resized > img,
-.wp-block-image .alignleft > img,
-.wp-block-image .aligncenter > img,
-.wp-block-image .alignright > img {
-    display: block;
 }
 
 .wp-block-image .alignleft > img {
@@ -513,6 +503,12 @@ blockquote.wp-block-quote.is-style-large > cite {
 /* Galery */
 ul.wp-block-gallery {
     padding-left: var( --padding );
+}
+
+ul.wp-block-gallery.alignfull {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
 }
 
 /* Table - Default*/
@@ -604,7 +600,6 @@ code, pre.wp-block-code > code {
 
 /* Groups */
 .sv_100_sv_content_wrapper > div.wp-block-group.has-background {
-    background-clip: content-box;
     padding-top: 20px;
     padding-bottom: 20px;
 }

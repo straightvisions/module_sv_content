@@ -148,7 +148,7 @@
 .sv_100_sv_content_list .sv_100_sv_content_info > div {
 	margin-bottom: .2em;
 	display: flex;
-	align-items: end;
+	align-items: center;
 }
 
 @media ( min-width: 850px ) {

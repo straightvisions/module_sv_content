@@ -16,6 +16,10 @@
 	.sv_100_sv_content_masonry {
 		column-count: 3;
 	}
+
+	.sv_100_sv_content_with_sidebar .sv_100_sv_posts_masonry {
+		column-count: 2;
+	}
 }
 
 .sv_100_sv_content_masonry article {
@@ -135,7 +139,7 @@
 .sv_100_sv_content_masonry .sv_100_sv_content_info > div {
 	margin-bottom: .2em;
 	display: flex;
-	align-items: end;
+	align-items: center;
 }
 
 @media ( min-width: 850px ) {
@@ -206,29 +210,28 @@
 	padding: 0;
 }
 
-/* With Thumbnail */
-/** Forces the images to be displayed in an aspect ratio of 4:3.
- ** Change padding-bottom to change the aspect ratio.
- **
- ** Common aspect ratios:
- ** 16:9 	= 56%
- ** 4:3 	= 75%
- ** 16:10 	= 62%
- */
 .sv_100_sv_content_masonry .sv_100_sv_content_thumbnail {
-	height: 0;
+	height: 200px;
+	width: 100%;
 	overflow: hidden;
-	padding-bottom: 62%;
+}
+
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_masonry .sv_100_sv_content_thumbnail {
+		height: 250px;
+	}
 }
 
 .sv_100_sv_content_masonry .sv_100_sv_content_thumbnail > a {
 	max-height: 80%;
+	width: 100%;
 	position: absolute;
 	overflow: hidden;
 }
 
 .sv_100_sv_content_masonry .sv_100_sv_content_thumbnail img {
 	width: 100%;
+	height: 250px;
 	object-fit: cover;
 	transition: transform 10s;
 }
