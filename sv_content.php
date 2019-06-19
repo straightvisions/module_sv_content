@@ -71,7 +71,7 @@
 				)
 			) );
 			add_image_size( 'sv_100_thumbnail', 400, 400 );
-			add_image_size( 'sv_100_large', 1350, 650 );
+			add_image_size( 'sv_100_large', 2000, 800 );
 			
 			return $this;
 		}
