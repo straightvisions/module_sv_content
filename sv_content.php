@@ -353,7 +353,7 @@
 						? $this->s['home_theme']->run_type()->get_data()
 						: 'list';
 
-					$slider = $this->s['home_slider']->run_type()->get_data() === 1 ? 'slider' : '';
+					$slider = $this->s['home_slider']->run_type()->get_data() === '1' ? 'slider' : '';
 
 					$template = array(
 						'path'      => 'archive/home',
