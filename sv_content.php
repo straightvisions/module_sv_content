@@ -28,19 +28,20 @@
 			
 			// WP Styles
 			add_action( 'wp_print_styles', array($this, 'wp_print_styles'), 100 );
+			add_action('wp', array($this, 'load_gutenberg_css'));
 		}
 		
 		public function wp_print_styles() {
 			// Gutenberg: load Styles inline for Pagespeed purposes
 			wp_dequeue_style( 'wp-block-library' );
-			
-			if(is_single() || is_page()) {
-				echo '<style data-id="'.$this->get_prefix('gutenberg').'">';
-				require_once(ABSPATH.'/wp-includes/css/dist/block-library/style.min.css');
-				echo '</style>';
-			}
 		}
-		
+		public function load_gutenberg_css() : sv_content{
+			if(is_single() || is_page()) {
+				$this->scripts_queue['gutenberg']->set_is_enqueued( true );
+			}
+			
+			return $this;
+		}
 		protected function add_theme_support(): sv_content {
 			add_theme_support( 'align-wide' );
 			add_theme_support( 'editor-font-sizes', array(
@@ -291,6 +292,13 @@
 				static::$scripts->create( $this )
 								->set_ID( 'archive_theme_grid' )
 								->set_path( 'lib/frontend/css/archive/themes/grid.css' )
+								->set_inline( true );
+			
+			// Gutenberg Default Styles
+			$this->scripts_queue['gutenberg'] =
+				static::$scripts->create( $this )
+								->set_ID( 'bodhi-svgs-attachment' )
+								->set_path( ABSPATH.'/wp-includes/css/dist/block-library/style.min.css', true)
 								->set_inline( true );
 			
 			// Scripts - Backend
