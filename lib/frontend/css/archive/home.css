@@ -88,6 +88,12 @@
 
 /* Posts - List */
 .sv_100_sv_content_wrapper > .sv_100_sv_content_archive {
-	margin-top: 80px;
+	margin-top: 50px;
 	margin-bottom: 1.5rem;
+}
+
+@media ( min-width: 850px ) {
+	.sv_100_sv_content_wrapper > .sv_100_sv_content_archive {
+		margin-top: 80px;
+	}
 }
