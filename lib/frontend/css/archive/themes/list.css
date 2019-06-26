@@ -1,3 +1,11 @@
+/* Icons */
+:root {
+	--sv_100_sv_icon-author: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z"/></svg>' );
+	--sv_100_sv_icon-date: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 12v-6h-2v8h7v-2h-5z"/></svg>' );
+	--sv_100_sv_icon-category: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21.669 13l-1.385 9h-16.568l-1.385-9h19.338zm2.331-2h-24l2 13h20l2-13zm-20.312-8l-.688-2h17.979l-.604 2h-16.687zm.166 6l-.415-2h17.121l-.39 2h2.03l.8-4h-22l.8 4h2.054zm12.146 7c0-.552-.447-1-1-1h-6c-.553 0-1 .448-1 1s.447 1 1 1h6c.553 0 1-.448 1-1z"/></svg>' );
+	--sv_100_sv_icon-edit: url( 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z"/></svg>' );
+}
+
 /* General */
 .sv_100_sv_content_list {
 	display: flex;
@@ -207,19 +215,19 @@
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info .sv_100_sv_content_author::before {
-	-webkit-mask-image: var( --icon-sv_user );
+	-webkit-mask-image: var( --sv_100_sv_icon-author );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info .sv_100_sv_content_date::before {
-	-webkit-mask-image: var( --icon-sv_clock );
+	-webkit-mask-image: var( --sv_100_sv_icon-date );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info .sv_100_sv_content_category::before {
-	-webkit-mask-image: var( --icon-sv_folder );
+	-webkit-mask-image: var( --sv_100_sv_icon-category );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info .sv_100_sv_content_edit::before {
-	-webkit-mask-image: var( --icon-sv_pen );
+	-webkit-mask-image: var( --sv_100_sv_icon-edit );
 }
 
 .sv_100_sv_content_list .sv_100_sv_content_info a {
