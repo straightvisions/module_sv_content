@@ -1,12 +1,3 @@
-<?php
-	// Load Icons
-	if ( isset( $this->get_root()->sv_icon ) ) {
-		echo do_shortcode( '[sv_icon id="sv_user" css_var="1"]' );
-		echo do_shortcode( '[sv_icon id="sv_clock" css_var="1"]' );
-		echo do_shortcode( '[sv_icon id="sv_pen" css_var="1"]' );
-	}
-?>
-
 <div class="<?php echo $this->get_prefix( 'archive' ) . ' ' .$this->get_prefix( 'masonry' ); ?>">
 	<?php
 	while ( have_posts() ) {
