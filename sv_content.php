@@ -302,7 +302,7 @@
 								->set_inline( true );
 			
 			// Scripts - Backend
-			static::$scripts->create( $this )
+			$this->scripts_queue['backend_gutenberg'] =static::$scripts->create( $this )
 							->set_ID( 'gutenberg_block_styles' )
 							->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
 							->set_type( 'js' )
