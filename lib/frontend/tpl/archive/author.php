@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'author' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Posts from', 'straightvisions_100' ); ?>: <span><?php the_author_meta( 'display_name' ); ?></span></h1>
+		<h1><?php _e( 'Posts from', 'straightvisions-100' ); ?>: <span><?php the_author_meta( 'display_name' ); ?></span></h1>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
