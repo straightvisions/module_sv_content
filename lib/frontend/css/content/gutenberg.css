@@ -426,6 +426,15 @@ blockquote.wp-block-quote.is-style-large > cite {
     margin: 1em auto 1em auto;
 }
 
+.wp-block-image img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.wp-block-image.is-style-cover img {
+    object-fit: cover;
+}
+
 .wp-block-image .alignleft img {
     margin-right: auto;
     margin-left: 0;
@@ -594,6 +603,7 @@ code, pre.wp-block-code > code {
 
 .wp-block-media-text img {
     max-width: 100%;
+    object-fit: contain;
 }
 
 @media ( max-width: 600px ) {
