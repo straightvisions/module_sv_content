@@ -18,9 +18,9 @@
 				// Loads Thumbnail
 				if ( $this->get_root()->get_module( 'sv_featured_image' )
 					 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]'  ) {
-					echo $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv_100_large' ) );
+					echo $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_large' ) );
 				} else if ( has_post_thumbnail() ) {
-					echo get_the_post_thumbnail( null, 'sv_100_large' );
+					echo get_the_post_thumbnail( null, 'sv100_large' );
 				}
 			?>
 		</div>
@@ -38,7 +38,7 @@
 							'after'       => '</div>',
 							'link_before' => '',
 							'link_after'  => '',
-							'pagelink'    => __( 'Page', 'straightvisions-100' ) . ' %',
+							'pagelink'    => __( 'Page', 'sv100' ) . ' %',
 							'separator'   => '',
 						)
 					);

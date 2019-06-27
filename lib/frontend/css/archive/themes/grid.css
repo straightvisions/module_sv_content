@@ -1,5 +1,5 @@
 /* General */
-.sv_100_sv_content_grid {
+.sv100_sv_content_grid {
 	display: grid;
 	grid-template-columns: repeat( 1, 1fr );
 	grid-template-rows: auto;
@@ -9,19 +9,19 @@
 
 /* Tablet */
 @media ( min-width: 850px ) {
-	.sv_100_sv_content_grid {
+	.sv100_sv_content_grid {
 		grid-template-columns: repeat( 2, 1fr );
 	}
 }
 
 /* Large */
 @media ( min-width: 1350px ) {
-	.sv_100_sv_content_grid {
+	.sv100_sv_content_grid {
 		grid-template-columns: repeat( 3, 1fr );
 	}
 }
 
-.sv_100_sv_content_grid article {
+.sv100_sv_content_grid article {
 	width: 100%;
 	position: relative;
 	top: 0;
@@ -35,7 +35,7 @@
 }
 
 /* Categories */
-.sv_100_sv_content_grid .sv_100_sv_content_categories {
+.sv100_sv_content_grid .sv100_sv_content_categories {
 	position: absolute;
 	padding: 10px;
 	width: 100%;
@@ -46,7 +46,7 @@
 	z-index: 100;
 }
 
-.sv_100_sv_content_grid .sv_100_sv_content_categories a {
+.sv100_sv_content_grid .sv100_sv_content_categories a {
 	color: rgb( var( --sv-100-color-contrast ) );
 	text-decoration: none;
 	font-size: .8rem;
@@ -56,19 +56,19 @@
 }
 
 /* Thumbnail */
-.sv_100_sv_content_grid .sv_100_sv_content_thumbnail {
+.sv100_sv_content_grid .sv100_sv_content_thumbnail {
 	overflow: hidden;
 	height: 0;
 	padding-bottom: 100%;
 }
 
-.sv_100_sv_content_grid .sv_100_sv_content_thumbnail > a {
+.sv100_sv_content_grid .sv100_sv_content_thumbnail > a {
 	height: 100%;
 	position: absolute;
 	overflow: hidden;
 }
 
-.sv_100_sv_content_grid .sv_100_sv_content_thumbnail > a img {
+.sv100_sv_content_grid .sv100_sv_content_thumbnail > a img {
 	width: 100vw;
 	height: 100%;
 	object-fit: cover;
@@ -79,7 +79,7 @@
 }
 
 /* Content */
-.sv_100_sv_content_grid .sv_100_sv_content_wrapper {
+.sv100_sv_content_grid .sv100_sv_content_wrapper {
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -90,15 +90,15 @@
 	padding: 0;
 }
 
-.sv_100_sv_content_grid .sv_100_sv_content_info,
-.sv_100_sv_content_grid .sv_100_sv_content_excerpt {
+.sv100_sv_content_grid .sv100_sv_content_info,
+.sv100_sv_content_grid .sv100_sv_content_excerpt {
 	position: absolute;
 	padding: 30px;
 	border-radius: 25%;
 	transition: 1s ease, border-radius .5s ease .3s;
 }
 
-.sv_100_sv_content_grid .sv_100_sv_content_excerpt {
+.sv100_sv_content_grid .sv100_sv_content_excerpt {
 	background-color: rgba( 0, 0, 0, 0.7 );
 	color: #FFF;
 	opacity: 0;
@@ -114,13 +114,13 @@
 	align-items: center;
 }
 
-.sv_100_sv_content_grid article:hover .sv_100_sv_content_info {
+.sv100_sv_content_grid article:hover .sv100_sv_content_info {
 	opacity: 0;
 	border-radius: 0;
 	transform: scale( 0 );
 }
 
-.sv_100_sv_content_grid article:hover .sv_100_sv_content_excerpt {
+.sv100_sv_content_grid article:hover .sv100_sv_content_excerpt {
 	opacity: 1;
 	border-radius: 0;
 	transform: scale( 1 );
