@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'search' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Search results for', 'straightvisions_100' ); ?>: <span><?php echo get_search_query(); ?></span></h1>
+		<h1><?php _e( 'Search results for', 'straightvisions-100' ); ?>: <span><?php echo get_search_query(); ?></span></h1>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>

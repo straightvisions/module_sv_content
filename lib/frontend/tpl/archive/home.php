@@ -13,7 +13,7 @@
 	?>
 	
 	<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
-		<h1><?php _e( 'Recent Posts', 'straightvisions_100' ); ?></h1>
+		<h1><?php _e( 'Recent Posts', 'straightvisions-100' ); ?></h1>
 		<?php
 			$archive_theme = 'lib/frontend/tpl/archive/themes/';
 			$archive_theme .= $this->s['home_theme']->run_type()->get_data()

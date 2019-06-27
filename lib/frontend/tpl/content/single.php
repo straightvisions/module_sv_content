@@ -42,7 +42,7 @@
 					'after'       => '</div>',
 					'link_before' => '',
 					'link_after'  => '',
-					'pagelink'    => __( 'Page', 'straightvisions_100' ) . ' %',
+					'pagelink'    => __( 'Page', 'straightvisions-100' ) . ' %',
 					'separator'   => '',
 				)
 			);
