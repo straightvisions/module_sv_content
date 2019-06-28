@@ -2,10 +2,15 @@
 	<?php
 		$class = $this->get_prefix( 'header' );
 		
-		if ( has_post_thumbnail() ||
-			 ( $this->get_root()->get_module( 'sv_featured_image' )
-			   && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]' ) ) {
+		// Loads Thumbnail
+		if ( $this->get_module( 'sv_featured_image' ) && ! empty( $this->get_module( 'sv_featured_image' )->load() ) ) {
+			$thumbnail 	= $this->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_thumbnail' ) );
 			$class .= ' with-thumbnail';
+		} else if ( has_post_thumbnail() ) {
+			$thumbnail .= get_the_post_thumbnail( null, 'sv100_thumbnail' );
+			$class .= ' with-thumbnail';
+		} else {
+			$thumbnail 	= false;
 		}
 	?>
 	<div class="<?php echo $class; ?>">
@@ -14,15 +19,7 @@
 			<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>"><?php the_excerpt(); ?></div>
 		</div>
 		<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
-			<?php
-				// Loads Thumbnail
-				if ( $this->get_root()->get_module( 'sv_featured_image' )
-					 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]'  ) {
-					echo $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_large' ) );
-				} else if ( has_post_thumbnail() ) {
-					echo get_the_post_thumbnail( null, 'sv100_large' );
-				}
-			?>
+			<?php echo $thumbnail; ?>
 		</div>
 	</div>
 	<?php

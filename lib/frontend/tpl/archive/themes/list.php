@@ -4,23 +4,16 @@
 			the_post();
 			
 			// Loads Thumbnail
-			if ( $this->get_root()->get_module( 'sv_featured_image' )
-				 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]' ) {
-				$thumbnail = $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_thumbnail' ) );
+			if ( $this->get_module( 'sv_featured_image' ) && ! empty( $this->get_module( 'sv_featured_image' )->load() ) ) {
+				$thumbnail 	= $this->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_thumbnail' ) );
 			} else if ( has_post_thumbnail() ) {
-				$thumbnail	= '<a href="' . get_the_permalink() . '">';
 				$thumbnail .= get_the_post_thumbnail( null, 'sv100_thumbnail' );
-				$thumbnail .= '</a>';
+			} else {
+				$thumbnail 	= false;
 			}
 			?>
-			<article id="post-<?php echo the_ID(); ?>" <?php
-				if ( ! empty( $thumbnail ) ) {
-					post_class();
-				} else {
-					post_class( $this->get_prefix( 'no_thumbnail' ) );
-				}
-				?>>
-				<?php if( !empty( $thumbnail ) ) { ?>
+			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
+				<?php if( $thumbnail ) { ?>
 					<div class="<?php echo $this->get_prefix( 'thumbnail' ); ?>">
 						<?php echo $thumbnail; ?>
 					</div>
@@ -59,11 +52,11 @@
 							?>
 						</div>
 						<?php
-						if ( current_user_can( 'edit_post', get_the_ID() ) ) {
-							echo '<div class="' . $this->get_prefix( 'edit' ) . '">';
-							echo '<a href="' . get_edit_post_link() . '">' . __( 'Edit', 'sv100' ) . '</a>';
-							echo '</div>';
-						}
+							if ( current_user_can( 'edit_post', get_the_ID() ) ) {
+								echo '<div class="' . $this->get_prefix( 'edit' ) . '">';
+								echo '<a href="' . get_edit_post_link() . '">' . __( 'Edit', 'sv100' ) . '</a>';
+								echo '</div>';
+							}
 						?>
 					</div>
 				</div>

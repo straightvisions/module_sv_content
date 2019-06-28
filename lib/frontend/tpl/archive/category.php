@@ -7,8 +7,8 @@
 		<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 			<?php
 				$archive_theme = 'lib/frontend/tpl/archive/themes/';
-				$archive_theme .= $this->s['category_theme']->run_type()->get_data()
-					? $this->s['category_theme']->run_type()->get_data()
+				$archive_theme .= $this->get_setting( 'category_theme' )->run_type()->get_data()
+					? $this->get_setting( 'category_theme' )->run_type()->get_data()
 					: 'list';
 				$archive_theme .= '.php';
 				
@@ -18,6 +18,6 @@
 	<?php
 	}
 		
-		echo $this->get_root()->get_module( 'sv_pagination' ) ? $this->get_root()->get_module( 'sv_pagination' )->load() : '';
+		echo $this->get_module( 'sv_pagination' ) ? $this->get_module( 'sv_pagination' )->load() : '';
 	?>
 </div>
