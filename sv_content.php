@@ -1,13 +1,13 @@
 <?php
-	namespace sv_100;
+	namespace sv100;
 	
 	/**
-	 * @version         1.00
-	 * @author			straightvisions
-	 * @package			sv_100
+	 * @version         4.000
+	 * @author			straightvisions GmbH
+	 * @package			sv100
 	 * @copyright		2019 straightvisions GmbH
 	 * @link			https://straightvisions.com
-	 * @since			1.0
+	 * @since			1.000
 	 * @license			See license.txt or https://straightvisions.com
 	 */
 	
@@ -15,161 +15,165 @@
 		public function init() {
 			// Module Info
 			$this->set_module_title( 'SV Content' );
-			$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'straightvisions-100' ) );
+			$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'sv100' ) );
 			
 			// Section Info
-			$this->set_section_title( __( 'Content', 'straightvisions-100' ) );
-			$this->set_section_desc( __( 'Settings', 'straightvisions-100' ) );
+			$this->set_section_title( __( 'Content', 'sv100' ) );
+			$this->set_section_desc( __( 'Settings', 'sv100' ) );
 			$this->set_section_type( 'settings' );
 			$this->get_root()->add_section( $this );
 			
 			// Load settings, register scripts and sidebars
 			$this->add_theme_support()->load_settings()->register_scripts()->register_sidebars();
 			
-			// WP Styles
-			add_action( 'wp_print_styles', array($this, 'wp_print_styles'), 100 );
-			add_action('wp', array($this, 'load_gutenberg_css'));
+			// Action Hooks
+			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
+			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
 		}
 		
 		public function wp_print_styles() {
 			// Gutenberg: load Styles inline for Pagespeed purposes
 			wp_dequeue_style( 'wp-block-library' );
 		}
-		public function load_gutenberg_css() : sv_content{
-			if(is_single() || is_page()) {
+		
+		public function load_gutenberg_css(): sv_content{
+			if ( is_single() || is_page() ) {
 				$this->scripts_queue['gutenberg']->set_is_enqueued( true );
 			}
 			
 			return $this;
 		}
+		
 		protected function add_theme_support(): sv_content {
 			add_theme_support( 'align-wide' );
 			add_theme_support( 'editor-font-sizes', array(
 				array(
-					'name' => __( 'Small', 'straightvisions-100' ),
+					'name' => __( 'Small', 'sv100' ),
 					'size' => 12,
 					'slug' => 'small'
 				),
 				array(
-					'name' => __( 'Normal', 'straightvisions-100' ),
+					'name' => __( 'Normal', 'sv100' ),
 					'size' => 16,
 					'slug' => 'normal'
 				),
 				array(
-					'name' => __( 'Medium', 'straightvisions-100' ),
+					'name' => __( 'Medium', 'sv100' ),
 					'size' => 24,
 					'slug' => 'normal'
 				),
 				array(
-					'name' => __( 'Large', 'straightvisions-100' ),
+					'name' => __( 'Large', 'sv100' ),
 					'size' => 32,
 					'slug' => 'large'
 				),
 				array(
-					'name' => __( 'Huge', 'straightvisions-100' ),
+					'name' => __( 'Huge', 'sv100' ),
 					'size' => 64,
 					'slug' => 'huge'
 				)
 			) );
-			add_image_size( 'sv_100_thumbnail', 400, 400 );
-			add_image_size( 'sv_100_large', 1350, 650 );
+			
+			add_image_size( 'sv100_thumbnail', 400, 400 );
+			add_image_size( 'sv100_large', 1350, 650 );
 			
 			return $this;
 		}
 		
 		protected function load_settings(): sv_content {
-			$this->s['home_slider'] =
-				$this->get_setting()
-					 ->set_ID( 'home_slider' )
-					 ->set_title( __( 'Home Slider', 'straightvisions-100' ) )
-					 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'straightvisions-100' ) )
-					 ->load_type( 'checkbox' );
+			if ( has_filter( 'sv100_post_header_slider' ) ) {
+				$this->s[ 'home_slider' ] =
+					$this->get_setting()
+						 ->set_ID( 'home_slider' )
+						 ->set_title( __( 'Home Slider', 'sv100' ) )
+						 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'sv100' ) )
+						 ->load_type( 'checkbox' );
+				
+				$this->s[ 'home_slider_transition' ] =
+					$this->get_setting()
+						 ->set_ID( 'home_slider_transition' )
+						 ->set_title( __( 'Home Slider - Transition', 'sv100' ) )
+						 ->set_description( __( 'Choose a transition style for the slider.', 'sv100' ) )
+						 ->set_options( array(
+							 'fade'		=> 'Fade',
+							 'slide'		=> 'Slide'
+						 ) )
+						 ->load_type( 'select' );
+				
+				$this->s[ 'home_slider_max' ] =
+					$this->get_setting()
+						 ->set_ID( 'home_slider_max' )
+						 ->set_title( __( 'Home Slider - Max posts', 'sv100' ) )
+						 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'sv100' ) )
+						 ->set_min( 1 )
+						 ->set_max( 20 )
+						 ->load_type( 'number' );
+			}
 			
-			$this->s['home_slider_transition'] =
-				$this->get_setting()
-					 ->set_ID( 'home_slider_transition' )
-					 ->set_title( __( 'Home Slider - Transition', 'straightvisions-100' ) )
-					 ->set_description( __( 'Choose a transition style for the slider.', 'straightvisions-100' ) )
-					 ->set_options( array(
-						 'fade'		=> 'Fade',
-						 'slide'		=> 'Slide'
-					 ) )
-					 ->load_type( 'select' );
-			
-			$this->s['home_slider_max'] =
-				$this->get_setting()
-					 ->set_ID( 'home_slider_max' )
-					 ->set_title( __( 'Home Slider - Max posts', 'straightvisions-100' ) )
-					 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'straightvisions-100' ) )
-					 ->set_min( 1 )
-					 ->set_max( 20 )
-					 ->load_type( 'number' );
-			
-			$this->s['home_theme'] =
+			$this->s[ 'home_theme' ] =
 				$this->get_setting()
 					 ->set_ID( 'home_theme' )
-					 ->set_title( __( 'Home Listing', 'straightvisions-100' ) )
-					 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'straightvisions-100' ) )
+					 ->set_title( __( 'Home Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'straightvisions-100' ),
-						 'masonry' => __( 'Masonry', 'straightvisions-100' ),
-						 'grid' => __( 'Grid', 'straightvisions-100' ),
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
 					 ))
 					 ->load_type( 'select' );
 			
-			$this->s['category_theme'] =
+			$this->s[ 'category_theme' ] =
 				$this->get_setting()
 					 ->set_ID( 'category_theme' )
-					 ->set_title( __( 'Category Listing', 'straightvisions-100' ) )
-					 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'straightvisions-100' ) )
+					 ->set_title( __( 'Category Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'straightvisions-100' ),
-						 'masonry' => __( 'Masonry', 'straightvisions-100' ),
-						 'grid' => __( 'Grid', 'straightvisions-100' ),
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
 					 ))
 					 ->load_type( 'select' );
 			
-			$this->s['tag_theme'] =
+			$this->s[ 'tag_theme' ] =
 				$this->get_setting()
 					 ->set_ID( 'tag_theme' )
-					 ->set_title( __( 'Tag Listing', 'straightvisions-100' ) )
-					 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'straightvisions-100' ) )
+					 ->set_title( __( 'Tag Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'straightvisions-100' ),
-						 'masonry' => __( 'Masonry', 'straightvisions-100' ),
-						 'grid' => __( 'Grid', 'straightvisions-100' ),
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
 					 ))
 					 ->load_type( 'select' );
-			
-			$this->s['author_theme'] =
+			$this->s[ 'author_theme' ] =
 				$this->get_setting()
 					 ->set_ID( 'author_theme' )
-					 ->set_title( __( 'Author Listing', 'straightvisions-100' ) )
-					 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'straightvisions-100' ) )
+					 ->set_title( __( 'Author Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'straightvisions-100' ),
-						 'masonry' => __( 'Masonry', 'straightvisions-100' ),
-						 'grid' => __( 'Grid', 'straightvisions-100' ),
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
 					 ))
 					 ->load_type( 'select' );
 			
-			$this->s['search_theme'] =
+			$this->s[ 'search_theme' ] =
 				$this->get_setting()
 					 ->set_ID( 'search_theme' )
-					 ->set_title( __( 'Search Listing', 'straightvisions-100' ) )
-					 ->set_description( __( 'Defines how the search results will be displayed.', 'straightvisions-100' ) )
+					 ->set_title( __( 'Search Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
 					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'straightvisions-100' ),
-						 'masonry' => __( 'Masonry', 'straightvisions-100' ),
-						 'grid' => __( 'Grid', 'straightvisions-100' ),
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
 					 ))
 					 ->load_type( 'select' );
 			
-			$this->s['404_page'] =
+			$this->s[ '404_page' ] =
 				$this->get_setting()
 					 ->set_ID( '404_page' )
-					 ->set_title( __( '404 Page', 'straightvisions-100' ) )
-					 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'straightvisions-100' ) )
+					 ->set_title( __( '404 Page', 'sv100' ) )
+					 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv100' ) )
 					 ->load_type( 'select_page' );
 			
 			return $this;
@@ -302,37 +306,37 @@
 								->set_inline( true );
 			
 			// Scripts - Backend
-			$this->scripts_queue['backend_gutenberg'] =static::$scripts->create( $this )
-							->set_ID( 'gutenberg_block_styles' )
-							->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
-							->set_type( 'js' )
-							->set_deps( array(  'jquery' ) )
-							->set_is_gutenberg()
-							->set_is_backend()
-							->set_is_enqueued();
+			$this->scripts_queue['backend_gutenberg'] =
+				static::$scripts->create( $this )
+								->set_ID( 'gutenberg_block_styles' )
+								->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
+								->set_type( 'js' )
+								->set_deps( array(  'jquery' ) )
+								->set_is_gutenberg()
+								->set_is_backend()
+								->set_is_enqueued();
 			
 			return $this;
 		}
 		
 		protected function register_sidebars(): sv_content {
-			if ( isset( $this->get_root()->sv_sidebar ) ) {
-				$this->get_root()
-					->sv_sidebar
-					->create( $this )
-					->set_ID( 'frontpage' )
-					->set_title( __( 'Sidebar - Frontpage', 'straightvisions-100' ) )
-					->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', 'straightvisions-100' ) )
-					->load_sidebar()
-					->create( $this )
-					->set_ID( 'page' )
-					->set_title( __( 'Sidebar - Pages', 'straightvisions-100' ) )
-					->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', 'straightvisions-100' ) )
-					->load_sidebar()
-					->create( $this )
-					->set_ID( 'single' )
-					->set_title( __( 'Sidebar - Posts', 'straightvisions-100' ) )
-					->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', 'straightvisions-100' ) )
-					->load_sidebar();
+			if ( $this->get_module( 'sv_sidebar' ) ) {
+				$this->get_module( 'sv_sidebar' )
+					 ->create( $this )
+					 ->set_ID( 'frontpage' )
+					 ->set_title( __( 'Sidebar - Frontpage', 'sv100' ) )
+					 ->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', 'sv100' ) )
+					 ->load_sidebar()
+					 ->create( $this )
+					 ->set_ID( 'page' )
+					 ->set_title( __( 'Sidebar - Pages', 'sv100' ) )
+					 ->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', 'sv100' ) )
+					 ->load_sidebar()
+					 ->create( $this )
+					 ->set_ID( 'single' )
+					 ->set_title( __( 'Sidebar - Posts', 'sv100' ) )
+					 ->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', 'sv100' ) )
+					 ->load_sidebar();
 			}
 			
 			return $this;
@@ -354,18 +358,16 @@
 		// Handles the routing of the templates
 		protected function router( array $settings ): string {
 			if( have_posts() ) {
+				$slider_support = has_filter( 'sv100_post_header_slider' );
+
 				// Home: The last posts
 				if ( is_front_page() && is_home() ) {
 					$archive_theme = 'archive_theme_';
-					$archive_theme .= $this->s['home_theme']->run_type()->get_data()
-						? $this->s['home_theme']->run_type()->get_data()
+					$archive_theme .= $this->get_setting( 'home_theme' )->run_type()->get_data()
+						? $this->get_setting( 'home_theme' )->run_type()->get_data()
 						: 'list';
-
-					$slider = $this->s['home_slider']->run_type()->get_data() === '1' ? 'slider' : '';
-
 					$template = array(
 						'path'      => 'archive/home',
-						'header'    => $slider,
 						'scripts'   => array(
 							$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 							$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
@@ -373,6 +375,10 @@
 							$this->scripts_queue['archive_home']->set_inline( $settings['inline'] ),
 						),
 					);
+					
+					if ( $slider_support && $this->get_setting( 'home_slider' )->run_type()->get_data() === '1' ) {
+						$template['header'] = 'slider';
+					}
 				}
 				
 				// Home: A static page
@@ -392,7 +398,6 @@
 					} else if ( is_page_template( 'page-slider.php' ) ) {
 						$template = array(
 							'path'      => 'content/frontpage',
-							'header'    => 'slider',
 							'scripts'   => array(
 								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
@@ -401,10 +406,13 @@
 								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
 							),
 						);
+						
+						if ( $slider_support ) {
+							$template[ 'header' ] = 'slider';
+						}
 					} else if ( is_page_template( 'page-slider-and-sidebar' ) ) {
 						$template = array(
 							'path'      => 'content/frontpage_sidebar',
-							'header'    => 'slider',
 							'scripts'   => array(
 								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 								$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
@@ -414,6 +422,10 @@
 								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
 							),
 						);
+						
+						if ( $slider_support ) {
+							$template[ 'header' ] = 'slider';
+						}
 					} else {
 						$template = array(
 							'path'      => 'content/frontpage',
@@ -480,7 +492,6 @@
 						case 'page_slider':
 							$template = array(
 								'path'      => 'content/page',
-								'header'    => 'slider',
 								'scripts'   => array(
 									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
@@ -488,11 +499,14 @@
 									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
 								),
 							);
+							
+							if ( $slider_support ) {
+								$template[ 'header' ] = 'slider';
+							}
 							break;
 						case 'page_slider_and_sidebar':
 							$template = array(
 								'path'      => 'content/page_sidebar',
-								'header'    => 'slider',
 								'scripts'   => array(
 									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
 									$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
@@ -501,6 +515,10 @@
 									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
 								),
 							);
+							
+							if ( $slider_support ) {
+								$template[ 'header' ] = 'slider';
+							}
 							break;
 						case 'archive':
 							$template = array(
@@ -601,7 +619,7 @@
 				);
 			}
 			
-			// @filter: sv_100_sv_content_template
+			// @filter: sv100_sv_content_template
 			return $this->load_template( apply_filters( $this->get_prefix( 'template' ), $template, $settings, $this ), $settings );
 		}
 		
@@ -621,9 +639,12 @@
 			include ( $this->get_path('lib/frontend/tpl/' . $template['path'] . '.php' ) );
 
 			// Loads SV Scroll To Top
-			echo $this->get_root()->get_module( 'sv_scroll_to_top' )
-				? $this->get_root()->get_module( 'sv_scroll_to_top' )->load()
-				: '';
+			if (
+				$this->get_module( 'sv_scroll_to_top' )
+				&& $this->get_module( 'sv_scroll_to_top' )->get_setting( 'active' )->run_type()->get_data() === '1'
+			) {
+				echo $this->get_module( 'sv_scroll_to_top' )->load();
+			}
 
 			// Loads the footer
 			$this->get_footer( $template );

@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'category' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Archive', 'straightvisions-100' ); ?></h1>
+		<h1><?php _e( 'Archive', 'sv100' ); ?></h1>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
@@ -14,6 +14,6 @@
 		<?php
 	}
 		
-		echo $this->get_root()->get_module( 'sv_pagination' ) ? $this->get_root()->get_module( 'sv_pagination' )->load() : '';
+		echo $this->get_module( 'sv_pagination' ) ? $this->get_module( 'sv_pagination' )->load() : '';
 	?>
 </div>

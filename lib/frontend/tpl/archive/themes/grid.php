@@ -4,15 +4,16 @@
 			the_post();
 			
 			// Loads Thumbnail
-			if ( $this->get_root()->get_module( 'sv_featured_image' )
-				 && $this->get_root()->get_module( 'sv_featured_image' )->load() !== '[sv_featured_image]' ) {
-				$thumbnail = $this->get_root()->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv_100_thumbnail' ) );
+			if ( $this->get_module( 'sv_featured_image' ) && ! empty( $this->get_module( 'sv_featured_image' )->load() ) ) {
+				$thumbnail 	= $this->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_thumbnail' ) );
 			} else if ( has_post_thumbnail() ) {
-				$thumbnail .= get_the_post_thumbnail( null, 'sv_100_thumbnail' );
+				$thumbnail .= get_the_post_thumbnail( null, 'sv100_thumbnail' );
+			} else {
+				$thumbnail 	= false;
 			}
 			?>
 			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
-				<?php if( !empty( $thumbnail ) ) { ?>
+				<?php if ( $thumbnail ) { ?>
 					<div class="<?php echo $this->get_prefix( 'thumbnail' ); ?>">
 						<div class="<?php echo $this->get_prefix( 'categories' ); ?>">
 							<?php
@@ -23,7 +24,7 @@
 								if ( ! empty( $categories ) ) {
 									foreach ( $categories as $category ) {
 										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="'
-												   . esc_attr( sprintf( __( 'View all posts in %s', 'straightvisions-100' ), $category->name ) ) .
+												   . esc_attr( sprintf( __( 'View all posts in %s', 'sv100' ), $category->name ) ) .
 												   '" class="' . $this->get_prefix( 'category' ) .'">'
 												   . esc_html( $category->name ) . '</a>' . $separator;
 									}
