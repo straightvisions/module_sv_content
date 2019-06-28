@@ -67,7 +67,12 @@
 	font-weight: 700;
 	line-height: 150%;
 	margin: 0;
-	transition: .25s ease;
+	transition: color .25s ease;
+}
+
+.sv100_sv_content_archive h4 a:hover,
+.sv100_sv_content_archive h4 a:focus {
+	color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 .sv100_sv_content_archive .sv100_sv_content_info span {
