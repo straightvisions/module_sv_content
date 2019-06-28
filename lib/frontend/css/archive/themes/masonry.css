@@ -63,10 +63,10 @@
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_categories a {
-	color: rgb( var( --sv-100-color-contrast ) );
+	color: rgb( var( --sv100_sv_color-contrast ) );
 	text-decoration: none;
 	font-size: .8rem;
-	background: rgba( var( --sv-100-color-bg-highlight ), .9 );
+	background: rgba( var( --sv100_sv_color-bg-highlight ), .9 );
 	padding: 5px 10px;
 	margin: 2px;
 }
@@ -80,7 +80,7 @@
 	line-height: 150%;
 	margin-top: 0;
 	margin-bottom: .2em;
-	color: var( --sv-100-color-primary );
+	color: var( --sv100_sv_color-primary );
 	font-size: 1.2rem;
 	font-weight: 700;
 }
@@ -94,7 +94,7 @@
 
 .sv100_sv_content_masonry h4 a:hover,
 .sv100_sv_content_masonry h4 a:focus {
-	color: rgb( var( --sv-100-color-highlight ) );
+	color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_excerpt {
@@ -107,7 +107,7 @@
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more {
-	color: rgb( var( --sv-100-color-primary ) );
+	color: rgb( var( --sv100_sv_color-primary ) );
 	transition: .25s ease;
 	text-decoration: none;
 	font-weight: bold;
@@ -118,13 +118,13 @@
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more:hover,
 .sv100_sv_content_masonry .sv100_sv_content_read_more:focus {
-	color: rgb( var( --sv-100-color-primary ) );
+	color: rgb( var( --sv100_sv_color-primary ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more::after {
 	display: block;
 	height: 2px;
-	background: rgb( var( --sv-100-color-highlight ) );
+	background: rgb( var( --sv100_sv_color-highlight ) );
 	content: '';
 	width: 0;
 	margin-top: 5px;
@@ -141,7 +141,7 @@
 	font-size: .9rem;
 	flex-direction: column;
 	margin-top: 1em;
-	color: rgb( var( --sv-100-color-secondary ) );
+	color: rgb( var( --sv100_sv_color-secondary ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_info > div {
@@ -169,7 +169,7 @@
 	-webkit-mask-size: 100%;
 	-webkit-mask-position: center;
 	-webkit-mask-repeat: no-repeat;
-	background-color: rgb( var( --sv-100-color-secondary ) );
+	background-color: rgb( var( --sv100_sv_color-secondary ) );
 	margin-right: 5px;
 }
 
@@ -191,14 +191,14 @@
 
 .sv100_sv_content_masonry .sv100_sv_content_info a {
 	text-decoration: none;
-	color: rgb( var( --sv-100-color-secondary ) );
+	color: rgb( var( --sv100_sv_color-secondary ) );
 	font-weight: 500;
 	transition: color .25s ease;
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_info a:hover,
 .sv100_sv_content_masonry .sv100_sv_content_info a:focus {
-	color: rgb( var( --sv-100-color-highlight ) );
+	color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 /* Without Thumbnail */
@@ -207,9 +207,9 @@
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	color: rgb( var( --sv-100-color-primary ) );
+	color: rgb( var( --sv100_sv_color-primary ) );
 	position: relative;
-	background-color: rgb( var( --sv-100-color-bg-secondary ) );
+	background-color: rgb( var( --sv100_sv_color-bg-secondary ) );
 	padding: 20px;
 }
 
@@ -234,7 +234,7 @@
 	width: 100%;
 	position: absolute;
 	overflow: hidden;
-	background-color: rgb( var( --sv-100-color-highlight ) );
+	background-color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_thumbnail img {

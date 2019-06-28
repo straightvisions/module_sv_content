@@ -2,12 +2,12 @@
 .sv100_sv_content_header {
 	position: relative;
 	height: 35vh;
-	color: rgb( var( --sv-100-color-primary ) );
-	background-color: rgb( var( --sv-100-color-bg-secondary ) );
+	color: rgb( var( --sv100_sv_color-primary ) );
+	background-color: rgb( var( --sv100_sv_color-bg-secondary ) );
 }
 
 .sv100_sv_content_header.with-thumbnail {
-	color: rgb( var( --sv-100-color-contrast ) );
+	color: rgb( var( --sv100_sv_color-contrast ) );
 }
 
 .sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background::before {
@@ -45,13 +45,13 @@
 
 .sv100_sv_content_header_content span {
 	font-size: .9rem;
-	color: rgb( var( --sv-100-color-contrast ) );
+	color: rgb( var( --sv100_sv_color-contrast ) );
 }
 
 .sv100_sv_content_header_background {
 	width: 100%;
 	height: 100%;
-	background: rgb( var( --sv-100-color-bg-secondary ) );
+	background: rgb( var( --sv100_sv_color-bg-secondary ) );
 }
 
 .sv100_sv_content_excerpt {
@@ -177,7 +177,7 @@
 
 	.sv100_sv_content_sidebar {
 		display: block;
-		border-left: 1px solid rgba( var( --sv-100-color-primary ), .1 );
+		border-left: 1px solid rgba( var( --sv100_sv_color-primary ), .1 );
 		padding-left: 50px;
 	}
 }
