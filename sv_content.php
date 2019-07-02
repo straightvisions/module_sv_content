@@ -18,9 +18,11 @@
 			$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'sv100' ) );
 			
 			// Section Info
-			$this->set_section_title( __( 'Content', 'sv100' ) );
-			$this->set_section_desc( __( 'Settings', 'sv100' ) );
-			$this->set_section_type( 'settings' );
+			$this->set_section_title( __( 'Content', 'sv100' ) )
+			     ->set_section_desc( __( 'Settings', 'sv100' ) )
+			     ->set_section_type( 'settings' )
+			     ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) );
+
 			$this->get_root()->add_section( $this );
 			
 			// Load settings, register scripts and sidebars
@@ -121,6 +123,18 @@
 						 'grid' => __( 'Grid', 'sv100' ),
 					 ))
 					 ->load_type( 'select' );
+
+			$this->s[ 'search_theme' ] =
+				$this->get_setting()
+				     ->set_ID( 'search_theme' )
+				     ->set_title( __( 'Search Listing', 'sv100' ) )
+				     ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
+				     ->set_options( array(
+					     'list' => __( 'List (Default)', 'sv100' ),
+					     'masonry' => __( 'Masonry', 'sv100' ),
+					     'grid' => __( 'Grid', 'sv100' ),
+				     ))
+				     ->load_type( 'select' );
 			
 			$this->s[ 'category_theme' ] =
 				$this->get_setting()
@@ -150,18 +164,6 @@
 					 ->set_ID( 'author_theme' )
 					 ->set_title( __( 'Author Listing', 'sv100' ) )
 					 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv100' ) )
-					 ->set_options( array(
-						 'list' => __( 'List (Default)', 'sv100' ),
-						 'masonry' => __( 'Masonry', 'sv100' ),
-						 'grid' => __( 'Grid', 'sv100' ),
-					 ))
-					 ->load_type( 'select' );
-			
-			$this->s[ 'search_theme' ] =
-				$this->get_setting()
-					 ->set_ID( 'search_theme' )
-					 ->set_title( __( 'Search Listing', 'sv100' ) )
-					 ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
 					 ->set_options( array(
 						 'list' => __( 'List (Default)', 'sv100' ),
 						 'masonry' => __( 'Masonry', 'sv100' ),
