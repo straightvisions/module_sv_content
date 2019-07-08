@@ -45,6 +45,9 @@
 
 .sv100_sv_content_header_content span {
 	font-size: .9rem;
+}
+
+.sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_content span {
 	color: rgb( var( --sv100_sv_color-contrast ) );
 }
 
