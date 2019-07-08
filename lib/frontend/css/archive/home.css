@@ -68,10 +68,10 @@
 /* Title */
 .sv100_sv_content_wrapper > h1 {
 	width: 100%;
-	padding-left: var( --padding );
-	padding-right: var( --padding );
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
 	margin: .6em auto .2em auto;
-	max-width: var( --width-txt );
+	max-width: var( --sv100_sv_common-max-width-txt );
 	text-align: center;
 	line-height: 150%;
 	font-weight: 300;
