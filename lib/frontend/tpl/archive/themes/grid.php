@@ -3,14 +3,7 @@
 		while ( have_posts() ) {
 			the_post();
 			
-			// Loads Thumbnail
-			if ( $this->get_module( 'sv_featured_image' ) && ! empty( $this->get_module( 'sv_featured_image' )->load() ) ) {
-				$thumbnail 	= $this->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_thumbnail' ) );
-			} else if ( has_post_thumbnail() && strlen(  get_the_post_thumbnail( null, 'sv100_thumbnail' ) ) > 0 ) {
-				$thumbnail 	= get_the_post_thumbnail( null, 'sv100_thumbnail' );
-			} else {
-				$thumbnail 	= false;
-			}
+			include('featured_image.php');
 			?>
 			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
 				<?php if ( $thumbnail ) { ?>

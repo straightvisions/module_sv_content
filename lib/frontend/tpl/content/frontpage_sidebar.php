@@ -2,16 +2,7 @@
 	<?php
 		$class = $this->get_prefix( 'header' );
 		
-		// Loads Thumbnail
-		if ( $this->get_module( 'sv_featured_image' ) && ! empty( $this->get_module( 'sv_featured_image' )->load() ) ) {
-			$thumbnail 	= $this->get_module( 'sv_featured_image' )->load( array( 'size' => 'sv100_thumbnail' ) );
-			$class .= ' with-thumbnail';
-		} else if ( has_post_thumbnail() && strlen(  get_the_post_thumbnail( null, 'sv100_thumbnail' ) ) > 0 ) {
-			$thumbnail = get_the_post_thumbnail( null, 'sv100_thumbnail' );
-			$class .= ' with-thumbnail';
-		} else {
-			$thumbnail 	= false;
-		}
+		include('featured_image.php');
 	?>
 	<div class="<?php echo $class; ?>">
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
