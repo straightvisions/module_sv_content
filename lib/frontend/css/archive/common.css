@@ -53,6 +53,16 @@
 	}
 }
 
+.sv100_sv_content_header > p {
+	text-align: center;
+	line-height: 150%;
+	color: rgb( var( --sv100_sv_color-secondary ) );
+	font-size: .9rem;
+	margin: 0 auto 0 auto;
+	padding: 0 var( --sv100_sv_common-padding );
+	max-width: var( --sv100_sv_common-max-width-txt );
+}
+
 /* Content */
 .sv100_sv_content_archive .sv100_sv_content_info {
 	margin: 0;
