@@ -32,9 +32,9 @@
 /* Header */
 .sv100_sv_content_header > h1 {
 	text-align: center;
-	padding-top: 0;
+	padding-top: 30px;
 	padding-bottom: 0;
-	margin-top: 30px;
+	margin-top: 0;
 	margin-bottom: 0;
 	line-height: 150%;
 	font-weight: 300;
@@ -49,7 +49,7 @@
 @media ( min-width: 850px ) {
 	.sv100_sv_content_header > h1 {
 		font-size: 3rem;
-		margin-top: 70px;
+		padding-top: 70px;
 	}
 }
 

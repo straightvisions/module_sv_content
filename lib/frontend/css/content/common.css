@@ -2,7 +2,6 @@
 .sv100_sv_content_header {
 	position: relative;
 	height: 35vh;
-	color: rgb( var( --sv100_sv_color-primary ) );
 	background-color: rgb( var( --sv100_sv_color-bg-secondary ) );
 }
 

@@ -83,6 +83,54 @@
 		}
 		
 		protected function load_settings(): sv_content {
+			// Text Settings
+			
+			// H1
+			$this->get_settings_component( 'h1_font_family','font_family' );
+			$this->get_settings_component( 'h1_font_size','font_size', 48 );
+			$this->get_settings_component( 'h1_line_height','line_height', 72 );
+			$this->get_settings_component( 'h1_text_color','text_color', '#1e1f22' );
+			
+			// H2
+			$this->get_settings_component( 'h2_font_family','font_family' );
+			$this->get_settings_component( 'h2_font_size','font_size', 40 );
+			$this->get_settings_component( 'h2_line_height','line_height', 60 );
+			$this->get_settings_component( 'h2_text_color','text_color', '#1e1f22' );
+			
+			// H3
+			$this->get_settings_component( 'h3_font_family','font_family' );
+			$this->get_settings_component( 'h3_font_size','font_size', 32 );
+			$this->get_settings_component( 'h3_line_height','line_height', 48 );
+			$this->get_settings_component( 'h3_text_color','text_color', '#1e1f22' );
+			
+			// H4
+			$this->get_settings_component( 'h4_font_family','font_family' );
+			$this->get_settings_component( 'h4_font_size','font_size', 24 );
+			$this->get_settings_component( 'h4_line_height','line_height', 36 );
+			$this->get_settings_component( 'h4_text_color','text_color', '#1e1f22' );
+			
+			// H5
+			$this->get_settings_component( 'h5_font_family','font_family' );
+			$this->get_settings_component( 'h5_font_size','font_size', 19 );
+			$this->get_settings_component( 'h5_line_height','line_height', 29 );
+			$this->get_settings_component( 'h5_text_color','text_color', '#1e1f22' );
+			
+			// H6
+			$this->get_settings_component( 'h6_font_family','font_family' );
+			$this->get_settings_component( 'h6_font_size','font_size', 16 );
+			$this->get_settings_component( 'h6_line_height','line_height', 23 );
+			$this->get_settings_component( 'h6_text_color','text_color', '#1e1f22' );
+			
+			// Color Settings
+			$this->s['color_highlight'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'This color is used to highlight elements, like links (on hover/focus).', 'sv100' ) )
+					 ->set_default_value( '#358ae9' )
+					 ->load_type( 'color' );
+			
+			// Post Listing Settings
 			if ( has_filter( 'sv100_post_header_slider' ) ) {
 				$this->s[ 'home_slider' ] =
 					$this->get_setting()
@@ -171,6 +219,7 @@
 					 ))
 					 ->load_type( 'select' );
 			
+			// 404 Page
 			$this->s[ '404_page' ] =
 				$this->get_setting()
 					 ->set_ID( '404_page' )
@@ -635,6 +684,13 @@
 			foreach ( $template['scripts'] as $script ) {
 				$script->set_is_enqueued();
 			}
+			
+			$this->scripts_queue['config'] =
+				static::$scripts->create( $this )
+								->set_ID( 'config' )
+								->set_path( 'lib/frontend/css/config.php' )
+								->set_inline( true )
+								->set_is_enqueued();
 			
 			
 			// Loads the template
