@@ -83,45 +83,44 @@
 		}
 		
 		protected function load_settings(): sv_content {
-			// Text Settings
-			
+			// ### Content Settings ###
 			// H1
-			$this->get_settings_component( 'h1_font_family','font_family' );
-			$this->get_settings_component( 'h1_font_size','font_size', 48 );
-			$this->get_settings_component( 'h1_line_height','line_height', 72 );
-			$this->get_settings_component( 'h1_text_color','text_color', '#1e1f22' );
+			$this->get_settings_component( 'font_family_h1','font_family' );
+			$this->get_settings_component( 'font_size_h1','font_size', 48 );
+			$this->get_settings_component( 'line_height_h1','line_height', 72 );
+			$this->get_settings_component( 'text_color_h1','text_color', '#1e1f22' );
 			
 			// H2
-			$this->get_settings_component( 'h2_font_family','font_family' );
-			$this->get_settings_component( 'h2_font_size','font_size', 40 );
-			$this->get_settings_component( 'h2_line_height','line_height', 60 );
-			$this->get_settings_component( 'h2_text_color','text_color', '#1e1f22' );
+			$this->get_settings_component( 'font_family_h2','font_family' );
+			$this->get_settings_component( 'font_size_h2','font_size', 40 );
+			$this->get_settings_component( 'line_height_h2','line_height', 60 );
+			$this->get_settings_component( 'text_color_h2','text_color', '#1e1f22' );
 			
 			// H3
-			$this->get_settings_component( 'h3_font_family','font_family' );
-			$this->get_settings_component( 'h3_font_size','font_size', 32 );
-			$this->get_settings_component( 'h3_line_height','line_height', 48 );
-			$this->get_settings_component( 'h3_text_color','text_color', '#1e1f22' );
+			$this->get_settings_component( 'font_family_h3','font_family' );
+			$this->get_settings_component( 'font_size_h3','font_size', 32 );
+			$this->get_settings_component( 'line_height_h3','line_height', 48 );
+			$this->get_settings_component( 'text_color_h3','text_color', '#1e1f22' );
 			
 			// H4
-			$this->get_settings_component( 'h4_font_family','font_family' );
-			$this->get_settings_component( 'h4_font_size','font_size', 24 );
-			$this->get_settings_component( 'h4_line_height','line_height', 36 );
-			$this->get_settings_component( 'h4_text_color','text_color', '#1e1f22' );
+			$this->get_settings_component( 'font_family_h4','font_family' );
+			$this->get_settings_component( 'font_size_h4','font_size', 24 );
+			$this->get_settings_component( 'line_height_h4','line_height', 36 );
+			$this->get_settings_component( 'text_color_h4','text_color', '#1e1f22' );
 			
 			// H5
-			$this->get_settings_component( 'h5_font_family','font_family' );
-			$this->get_settings_component( 'h5_font_size','font_size', 19 );
-			$this->get_settings_component( 'h5_line_height','line_height', 29 );
-			$this->get_settings_component( 'h5_text_color','text_color', '#1e1f22' );
+			$this->get_settings_component( 'font_family_h5','font_family' );
+			$this->get_settings_component( 'font_size_h5','font_size', 19 );
+			$this->get_settings_component( 'line_height_h5','line_height', 29 );
+			$this->get_settings_component( 'text_color_h5','text_color', '#1e1f22' );
 			
 			// H6
-			$this->get_settings_component( 'h6_font_family','font_family' );
-			$this->get_settings_component( 'h6_font_size','font_size', 16 );
-			$this->get_settings_component( 'h6_line_height','line_height', 23 );
-			$this->get_settings_component( 'h6_text_color','text_color', '#1e1f22' );
+			$this->get_settings_component( 'font_family_h6','font_family' );
+			$this->get_settings_component( 'font_size_h6','font_size', 16 );
+			$this->get_settings_component( 'line_height_h6','line_height', 23 );
+			$this->get_settings_component( 'text_color_h6','text_color', '#1e1f22' );
 			
-			// Color Settings
+			// Highlight Color
 			$this->s['color_highlight'] =
 				$this->get_setting()
 					 ->set_ID( 'color_highlight' )
@@ -130,35 +129,145 @@
 					 ->set_default_value( '#358ae9' )
 					 ->load_type( 'color' );
 			
-			// Post Listing Settings
-			if ( has_filter( 'sv100_post_header_slider' ) ) {
-				$this->s[ 'home_slider' ] =
-					$this->get_setting()
-						 ->set_ID( 'home_slider' )
-						 ->set_title( __( 'Home Slider', 'sv100' ) )
-						 ->set_description( __( 'Activate or deactivate the slider on the home page.', 'sv100' ) )
-						 ->load_type( 'checkbox' );
-				
-				$this->s[ 'home_slider_transition' ] =
-					$this->get_setting()
-						 ->set_ID( 'home_slider_transition' )
-						 ->set_title( __( 'Home Slider - Transition', 'sv100' ) )
-						 ->set_description( __( 'Choose a transition style for the slider.', 'sv100' ) )
-						 ->set_options( array(
-							 'fade'		=> 'Fade',
-							 'slide'		=> 'Slide'
-						 ) )
-						 ->load_type( 'select' );
-				
-				$this->s[ 'home_slider_max' ] =
-					$this->get_setting()
-						 ->set_ID( 'home_slider_max' )
-						 ->set_title( __( 'Home Slider - Max posts', 'sv100' ) )
-						 ->set_description( __( 'Set the maximum number of posts that will be shown in the slider.<br>1 = single image', 'sv100' ) )
-						 ->set_min( 1 )
-						 ->set_max( 20 )
-						 ->load_type( 'number' );
-			}
+			// ### Post Listing Settings ###
+			//  List - Title
+			$this->get_settings_component( 'font_family_title_list','font_family' );
+			$this->get_settings_component( 'font_size_title_list','font_size', 32 );
+			$this->get_settings_component( 'line_height_title_list','line_height', 48 );
+			$this->get_settings_component( 'text_color_title_list','text_color', '#1e1f22' );
+			
+			// List - Excerpt
+			$this->get_settings_component( 'font_family_excerpt_list','font_family' );
+			$this->get_settings_component( 'font_size_excerpt_list','font_size', 16 );
+			$this->get_settings_component( 'line_height_excerpt_list','line_height', 23 );
+			$this->get_settings_component( 'text_color_excerpt_list','text_color', '#1e1f22' );
+			
+			// List - Read More
+			$this->s['text_more_list'] =
+				$this->get_setting()
+					 ->set_ID( 'text_more_list' )
+					 ->set_title( __( 'Read More Text', 'sv100' ) )
+					 ->set_default_value( __( 'Read more', 'sv100' ) )
+					 ->load_type( 'text' );
+			$this->get_settings_component( 'font_family_more_list','font_family' );
+			$this->get_settings_component( 'font_size_more_list','font_size', 16 );
+			$this->get_settings_component( 'line_height_more_list','line_height', 23 );
+			$this->get_settings_component( 'text_color_more_list','text_color', '#1e1f22' );
+			
+			// List - Colors Settings
+			$this->s['text_color_info_list'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_info_list' )
+					 ->set_title( __( 'Info Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+					 ->set_default_value( '#85868c' )
+					 ->load_type( 'color' );
+			$this->s['color_highlight_list'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight_list' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'This color is used to highlight elements, like links (on hover/focus).', 'sv100' ) )
+					 ->set_default_value( '#358ae9' )
+					 ->load_type( 'color' );
+			
+			// Masonry - Title
+			$this->get_settings_component( 'font_family_title_masonry','font_family' );
+			$this->get_settings_component( 'font_size_title_masonry','font_size', 32 );
+			$this->get_settings_component( 'line_height_title_masonry','line_height', 48 );
+			$this->get_settings_component( 'text_color_title_masonry','text_color', '#1e1f22' );
+			
+			// Masonry - Excerpt
+			$this->get_settings_component( 'font_family_excerpt_masonry','font_family' );
+			$this->get_settings_component( 'font_size_excerpt_masonry','font_size', 16 );
+			$this->get_settings_component( 'line_height_excerpt_masonry','line_height', 23 );
+			$this->get_settings_component( 'text_color_excerpt_masonry','text_color', '#1e1f22' );
+			
+			// Masonry - Read More
+			$this->s['text_more_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'text_more_masonry' )
+					 ->set_title( __( 'Read More Text', 'sv100' ) )
+					 ->set_default_value( __( 'Read more', 'sv100' ) )
+					 ->load_type( 'text' );
+			$this->get_settings_component( 'font_family_more_masonry','font_family' );
+			$this->get_settings_component( 'font_size_more_masonry','font_size', 16 );
+			$this->get_settings_component( 'line_height_more_masonry','line_height', 23 );
+			$this->get_settings_component( 'text_color_more_masonry','text_color', '#1e1f22' );
+			
+			// Masonry - Colors Settings
+			$this->get_settings_component( 'bg_color_masonry','background_color', '#f7f7f7' );
+			$this->s['text_color_category_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_category_masonry' )
+					 ->set_title( __( 'Category Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#ffffff' )
+					 ->load_type( 'color' );
+			$this->s['bg_color_category_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'bg_color_category_masonry' )
+					 ->set_title( __( 'Category Background Color', 'sv100' ) )
+					 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#1e1f22' )
+					 ->load_type( 'color' );
+			$this->s['text_color_info_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_info_masonry' )
+					 ->set_title( __( 'Info Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+					 ->set_default_value( '#85868c' )
+					 ->load_type( 'color' );
+			$this->s['color_highlight_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight_masonry' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'This color is used to highlight elements, like links (on hover/focus).', 'sv100' ) )
+					 ->set_default_value( '#358ae9' )
+					 ->load_type( 'color' );
+			
+			// Grid - Title
+			$this->get_settings_component( 'font_family_title_grid','font_family' );
+			$this->get_settings_component( 'font_size_title_grid','font_size', 32 );
+			$this->get_settings_component( 'line_height_title_grid','line_height', 48 );
+			$this->get_settings_component( 'text_color_title_grid','text_color', '#1e1f22' );
+			
+			// Grid - Excerpt
+			$this->get_settings_component( 'font_family_excerpt_grid','font_family' );
+			$this->get_settings_component( 'font_size_excerpt_grid','font_size', 16 );
+			$this->get_settings_component( 'line_height_excerpt_grid','line_height', 23 );
+			$this->get_settings_component( 'text_color_excerpt_grid','text_color', '#ffffff' );
+			
+			// Grid - Color Settings
+			$this->get_settings_component( 'bg_color_grid','background_color', '#f7f7f7' );
+			$this->s['text_color_category_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_category_grid' )
+					 ->set_title( __( 'Category Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#ffffff' )
+					 ->load_type( 'color' );
+			$this->s['bg_color_category_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'bg_color_category_grid' )
+					 ->set_title( __( 'Category Background Color', 'sv100' ) )
+					 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#1e1f22' )
+					 ->load_type( 'color' );
+			$this->s['text_color_info_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_info_grid' )
+					 ->set_title( __( 'Info Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+					 ->set_default_value( '#85868c' )
+					 ->load_type( 'color' );
+			$this->s['color_highlight_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight_grid' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'The background color on hover/focus.', 'sv100' ) )
+					 ->set_default_value( '#1e1f22' )
+					 ->load_type( 'color' );
+			
 			
 			$this->s[ 'home_theme' ] =
 				$this->get_setting()

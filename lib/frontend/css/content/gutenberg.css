@@ -411,44 +411,59 @@ blockquote.wp-block-quote.is-style-large > cite {
 }
 
 /* Image */
-.wp-block-image,
-.wp-block-image.is-resized,
-.wp-block-image .alignleft,
-.wp-block-image .aligncenter,
-.wp-block-image .alignright {
+.sv100_sv_content_wrapper .wp-block-image,
+.sv100_sv_content_wrapper .wp-block-image.is-resized,
+.sv100_sv_content_wrapper .wp-block-image .alignleft,
+.sv100_sv_content_wrapper .wp-block-image .aligncenter,
+.sv100_sv_content_wrapper .wp-block-image .alignright {
     float: none;
-    margin: 1em auto 1em auto;
 }
 
-.wp-block-image img {
+.sv100_sv_content_wrapper .wp-block-image figure {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.sv100_sv_content_wrapper .wp-block-image img {
     max-width: 100%;
     object-fit: contain;
 }
 
-.wp-block-image.is-style-cover img {
+.sv100_sv_content_wrapper .wp-block-image.alignfull {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+}
+
+.sv100_sv_content_wrapper .wp-block-image.alignfull img,
+.sv100_sv_content_wrapper .wp-block-image.alignwide img {
+    width: 100%;
+}
+
+.sv100_sv_content_wrapper .wp-block-image.is-style-cover img {
     object-fit: cover;
 }
 
-.wp-block-image .alignleft img {
+.sv100_sv_content_wrapper .wp-block-image .alignleft {
     margin-right: auto;
     margin-left: 0;
 }
 
-.wp-block-image .aligncenter img {
+.sv100_sv_content_wrapper .wp-block-image .aligncenter {
     margin-right: auto;
     margin-left: auto;
 }
 
-.wp-block-image .alignright img {
+.sv100_sv_content_wrapper .wp-block-image .alignright {
     margin-left: auto;
     margin-right: 0;
 }
 
-.wp-block-image figcaption,
-.wp-block-image.is-resized > figcaption,
-.wp-block-image .alignleft > figcaption,
-.wp-block-image .aligncenter > figcaption,
-.wp-block-image .alignright > figcaption {
+.sv100_sv_content_wrapper .wp-block-image figcaption,
+.sv100_sv_content_wrapper .wp-block-image.is-resized > figcaption,
+.sv100_sv_content_wrapper .wp-block-image .alignleft > figcaption,
+.sv100_sv_content_wrapper .wp-block-image .aligncenter > figcaption,
+.sv100_sv_content_wrapper .wp-block-image .alignright > figcaption {
     font-size: .8rem;
     line-height: 150%;
     margin-top: .3em;
@@ -457,11 +472,11 @@ blockquote.wp-block-quote.is-style-large > cite {
     text-align: center;
 }
 
-.wp-block-image .alignleft > figcaption {
+.sv100_sv_content_wrapper .wp-block-image .alignleft > figcaption {
     text-align: left;
 }
 
-.wp-block-image .alignright > figcaption {
+.sv100_sv_content_wrapper .wp-block-image .alignright > figcaption {
     text-align: right;
 }
 

@@ -31,8 +31,13 @@
 				<?php } ?>
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
-						<h4><?php the_title(); ?></h4>
-                        <span><?php echo get_the_date(); ?></span>
+						<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><?php the_title(); ?></h3>
+						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
+							<?php echo get_the_author_meta( 'display_name' ); ?>
+						</div>
+						<div class="<?php echo $this->get_prefix( 'date' ); ?>">
+							<?php echo get_the_date(); ?>
+						</div>
 					</div>
 					<a href="<?php the_permalink(); ?>">
 						<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">

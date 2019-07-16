@@ -76,25 +76,9 @@
 	padding: 30px;
 }
 
-.sv100_sv_content_masonry .sv100_sv_posts_info > h4 {
-	line-height: 150%;
+.sv100_sv_content_masonry .sv100_sv_posts_info > .sv100_sv_content_title {
 	margin-top: 0;
 	margin-bottom: .2em;
-	color: var( --sv100_sv_color-primary );
-	font-size: 1.2rem;
-	font-weight: 700;
-}
-
-/* Tablet */
-@media ( min-width: 850px ) {
-	.sv100_sv_content_masonry h4 {
-		font-size: 1.5rem;
-	}
-}
-
-.sv100_sv_content_masonry h4 a:hover,
-.sv100_sv_content_masonry h4 a:focus {
-	color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_excerpt {
@@ -102,29 +86,16 @@
 	margin-bottom: 0;
 }
 
-.sv100_sv_content_masonry .sv100_sv_content_excerpt p {
-	font-size: .9rem;
-}
-
 .sv100_sv_content_masonry .sv100_sv_content_read_more {
-	color: rgb( var( --sv100_sv_color-primary ) );
 	transition: .25s ease;
 	text-decoration: none;
-	font-weight: bold;
 	display: inline-block;
 	position: relative;
-	font-size: .9rem;
-}
-
-.sv100_sv_content_masonry .sv100_sv_content_read_more:hover,
-.sv100_sv_content_masonry .sv100_sv_content_read_more:focus {
-	color: rgb( var( --sv100_sv_color-primary ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more::after {
 	display: block;
 	height: 2px;
-	background: rgb( var( --sv100_sv_color-highlight ) );
 	content: '';
 	width: 0;
 	margin-top: 5px;
@@ -141,7 +112,6 @@
 	font-size: .9rem;
 	flex-direction: column;
 	margin-top: 1em;
-	color: rgb( var( --sv100_sv_color-secondary ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_info > div {
@@ -169,7 +139,6 @@
 	-webkit-mask-size: 100%;
 	-webkit-mask-position: center;
 	-webkit-mask-repeat: no-repeat;
-	background-color: rgb( var( --sv100_sv_color-secondary ) );
 	margin-right: 5px;
 }
 
@@ -191,14 +160,8 @@
 
 .sv100_sv_content_masonry .sv100_sv_content_info a {
 	text-decoration: none;
-	color: rgb( var( --sv100_sv_color-secondary ) );
 	font-weight: 500;
 	transition: color .25s ease;
-}
-
-.sv100_sv_content_masonry .sv100_sv_content_info a:hover,
-.sv100_sv_content_masonry .sv100_sv_content_info a:focus {
-	color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 /* Without Thumbnail */
@@ -207,9 +170,7 @@
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	color: rgb( var( --sv100_sv_color-primary ) );
 	position: relative;
-	background-color: rgb( var( --sv100_sv_color-bg-secondary ) );
 	padding: 20px;
 }
 
@@ -234,23 +195,16 @@
 	width: 100%;
 	position: absolute;
 	overflow: hidden;
-	background-color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_thumbnail img {
 	width: 100%;
 	height: 250px;
 	object-fit: cover;
-	/*transition: transform 10s ease;*/
 	transition: opacity 1s ease;
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_thumbnail:hover img {
-	/* Disabled due to bug in chrome
-	transform: scale(1.5);
-	-webkit-transform: scale(1.5);
-	-moz-transform: scale(1.5);
-	 */
 	opacity: .6;
 }
 
