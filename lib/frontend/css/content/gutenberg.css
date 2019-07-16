@@ -314,40 +314,14 @@ p {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     transition: color .25s ease;
 }
 
-/* Alignment - Left
-.sv100_sv_content_wrapper > p[style*='text-align:center'],
-.sv100_sv_content_wrapper > h1[style*='text-align:center'],
-.sv100_sv_content_wrapper > h2[style*='text-align:center'],
-.sv100_sv_content_wrapper > h3[style*='text-align:center'],
-.sv100_sv_content_wrapper > h4[style*='text-align:center'],
-.sv100_sv_content_wrapper > h5[style*='text-align:center'],
-.sv100_sv_content_wrapper > h6[style*='text-align:center'],
-.sv100_sv_content_wrapper > ul[style*='text-align:center'],
-.sv100_sv_content_wrapper > ol[style*='text-align:center'],
-.sv100_sv_content_wrapper > blockquote[style*='text-align:center'] {
-    margin-left: auto;
+a:hover,
+a:focus {
+    text-decoration: none;
 }
-
-/* Alignment - Right
-.sv100_sv_content_wrapper > p[style*='text-align:right'],
-.sv100_sv_content_wrapper > h1[style*='text-align:right'],
-.sv100_sv_content_wrapper > h2[style*='text-align:right'],
-.sv100_sv_content_wrapper > h3[style*='text-align:right'],
-.sv100_sv_content_wrapper > h4[style*='text-align:right'],
-.sv100_sv_content_wrapper > h5[style*='text-align:right'],
-.sv100_sv_content_wrapper > h6[style*='text-align:right'],
-.sv100_sv_content_wrapper > ul[style*='text-align:right'],
-.sv100_sv_content_wrapper > ol[style*='text-align:right'],
-.sv100_sv_content_wrapper > blockquote[style*='text-align:right'] {
-    margin-right: calc( ( 100% - var( --sv100_sv_common-max-width-dt ) ) / 2 );
-    margin-left: auto;
-}
-*/
-
 
 /* List */
 .sv100_sv_content_wrapper > ul,
