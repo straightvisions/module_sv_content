@@ -808,7 +808,7 @@
 			// Loads SV Scroll To Top
 			if (
 				$this->get_module( 'sv_scroll_to_top' )
-				&& $this->get_module( 'sv_scroll_to_top' )->get_setting( 'active' )->run_type()->get_data() === '1'
+				&& $this->get_module( 'sv_scroll_to_top' )->get_setting( 'activate' )->run_type()->get_data() === '1'
 			) {
 				echo $this->get_module( 'sv_scroll_to_top' )->load();
 			}
