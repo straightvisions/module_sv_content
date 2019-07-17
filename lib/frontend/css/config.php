@@ -343,7 +343,12 @@
 	margin-top: <?php echo ( $header_fixed === true ) ? 80 : 0; ?>px;
 }
 
+body.admin-bar .sv100_sv_content {
+	margin-top: 0;
+}
+
 @media ( min-width: 850px ) {
+	body.admin-bar .sv100_sv_content,
 	.sv100_sv_content {
 		margin-top: <?php echo ( $header_fixed === true ) ? 100 : 0; ?>px;
 	}
