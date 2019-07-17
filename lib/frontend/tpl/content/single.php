@@ -5,7 +5,7 @@
 	<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'single' ); ?>">
 		<?php
 			$class = $this->get_prefix( 'header' );
-			include('featured_image.php');
+			include( $this->get_path( 'lib/frontend/tpl/content/featured_image.php' ) );
 		?>
 		<div class="<?php echo $class; ?>">
 			<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">

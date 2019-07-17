@@ -2,7 +2,6 @@
 .sv100_sv_posts_slider .sv100_sv_posts_thumbnail::before {
 	content: '';
 	display: block;
-	background-color: rgba( 0, 0, 0, .5 );
 	height: 60vh;
 	width: 100%;
 	position: absolute;
@@ -73,17 +72,7 @@
 	margin: .6em auto .2em auto;
 	max-width: var( --sv100_sv_common-max-width-txt );
 	text-align: center;
-	line-height: 150%;
-	font-weight: 300;
-	font-size: 2rem;
-	color: var( --sv-100-color-primary );
 	transition: max-width .25s ease;
-}
-
-@media ( min-width: 850px ) {
-	.sv100_sv_content_wrapper > h1 {
-		font-size: 3rem;
-	}
 }
 
 /* Posts - List */

@@ -1,12 +1,19 @@
 <?php
 	// SV Header - Position
 	$header_fixed				= (
-		$script->get_root()->get_module('sv_header')
-		&& $script->get_root()->get_module('sv_header')->get_setting( 'position' )->run_type()->get_data()
-		&& $script->get_root()->get_module('sv_header')->get_setting( 'position' )->run_type()->get_data() === 'fixed'
+		$script->get_parent()->get_module( 'sv_header' )
+		&& $script->get_parent()->get_module( 'sv_header' )->get_setting( 'position' )->run_type()->get_data()
+		&& $script->get_parent()->get_module( 'sv_header' )->get_setting( 'position' )->run_type()->get_data() === 'fixed'
 	) ? true : false;
 	
-	// ##### Content Settings #####
+	// SV Common - Color
+	$sv_common_text_color		= false;
+	
+	if ( $script->get_parent()->get_module( 'sv_common' ) ) {
+		$sv_common_text_color 	= $script->get_parent()->get_module( 'sv_common' )->get_setting( 'text_color' )->run_type()->get_data();
+	}
+	
+	// ### Content Settings ###
 	// H1
 	$font_family_h1				= $script->get_parent()->get_setting( 'font_family_h1' )->run_type()->get_data();
 	
@@ -86,10 +93,46 @@
 	$line_height_h6				= $script->get_parent()->get_setting( 'line_height_h6' )->run_type()->get_data();
 	
 	// Color Settings
-	$color_highlight			= $script->get_parent()->get_setting( 'color_highlight' )->run_type()->get_data();
+	$highlight_color			= $script->get_parent()->get_setting( 'highlight_color' )->run_type()->get_data();
 	
-	// ##### Post Listing Settings #####
-	// ##### LIST #####
+	// ### Content Header Settings ###
+	// Content Header - Title
+	$font_family_title			= $script->get_parent()->get_setting( 'font_family_title' )->run_type()->get_data();
+	
+	if ( $font_family_title ) {
+		$font_title				= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title );
+	} else {
+		$font_title             = false;
+	}
+	
+	$font_size_title			= $script->get_parent()->get_setting( 'font_size_title' )->run_type()->get_data();
+	$text_color_title			= $script->get_parent()->get_setting( 'text_color_title' )->run_type()->get_data();
+	$line_height_title			= $script->get_parent()->get_setting( 'line_height_title' )->run_type()->get_data();
+	
+	// Content Header - Excerpt
+	$font_family_excerpt		= $script->get_parent()->get_setting( 'font_family_excerpt' )->run_type()->get_data();
+	
+	if ( $font_family_excerpt ) {
+		$font_excerpt			= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_excerpt );
+	} else {
+		$font_excerpt           = false;
+	}
+	
+	$font_size_excerpt			= $script->get_parent()->get_setting( 'font_size_excerpt' )->run_type()->get_data();
+	$text_color_excerpt			= $script->get_parent()->get_setting( 'text_color_excerpt' )->run_type()->get_data();
+	$line_height_excerpt		= $script->get_parent()->get_setting( 'line_height_excerpt' )->run_type()->get_data();
+	
+	// Content Header - Color Settings
+	$bg_color					= $script->get_parent()->get_setting( 'bg_color' )->run_type()->get_data();
+	$text_color_info			= $script->get_parent()->get_setting( 'text_color_info' )->run_type()->get_data();
+	
+	// Content Header - Color Settings (with Thumbnail)
+	$text_color_title_image		= $script->get_parent()->get_setting( 'text_color_title_image' )->run_type()->get_data();
+	$text_color_excerpt_image	= $script->get_parent()->get_setting( 'text_color_excerpt_image' )->run_type()->get_data();
+	$bg_color_image				= sscanf( $script->get_parent()->get_setting( 'bg_color_image' )->run_type()->get_data(), "#%02x%02x%02x" );
+	$text_color_info_image		= $script->get_parent()->get_setting( 'text_color_info_image' )->run_type()->get_data();
+	
+	// ### Post Listing Settings ###
 	// List - Title
 	$font_family_title_list		= $script->get_parent()->get_setting( 'font_family_title_list' )->run_type()->get_data();
 	
@@ -131,9 +174,8 @@
 	
 	// List - Color Settings
 	$text_color_info_list		= $script->get_parent()->get_setting( 'text_color_info_list' )->run_type()->get_data();
-	$color_highlight_list		= $script->get_parent()->get_setting( 'color_highlight_list' )->run_type()->get_data();
+	$highlight_color_list		= $script->get_parent()->get_setting( 'highlight_color_list' )->run_type()->get_data();
 	
-	// ##### MASONRY #####
 	// Masonry - Title
 	$font_family_title_masonry	= $script->get_parent()->get_setting( 'font_family_title_masonry' )->run_type()->get_data();
 	
@@ -178,9 +220,8 @@
 	$text_color_category_masonry= $script->get_parent()->get_setting( 'text_color_category_masonry' )->run_type()->get_data();
 	$bg_color_category_masonry	= $script->get_parent()->get_setting( 'bg_color_category_masonry' )->run_type()->get_data();
 	$text_color_info_masonry	= $script->get_parent()->get_setting( 'text_color_info_masonry' )->run_type()->get_data();
-	$color_highlight_masonry	= $script->get_parent()->get_setting( 'color_highlight_masonry' )->run_type()->get_data();
+	$highlight_color_masonry	= $script->get_parent()->get_setting( 'highlight_color_masonry' )->run_type()->get_data();
 	
-	// ##### GRID #####
 	// Grid - Title
 	$font_family_title_grid	= $script->get_parent()->get_setting( 'font_family_title_grid' )->run_type()->get_data();
 	
@@ -212,26 +253,103 @@
 	$text_color_category_grid	= $script->get_parent()->get_setting( 'text_color_category_grid' )->run_type()->get_data();
 	$bg_color_category_grid		= $script->get_parent()->get_setting( 'bg_color_category_grid' )->run_type()->get_data();
 	$text_color_info_grid		= $script->get_parent()->get_setting( 'text_color_info_grid' )->run_type()->get_data();
-	$color_highlight_grid		= sscanf( $script->get_parent()->get_setting( 'color_highlight_grid' )->run_type()->get_data(), "#%02x%02x%02x" );
+	$highlight_color_grid		= sscanf( $script->get_parent()->get_setting( 'highlight_color_grid' )->run_type()->get_data(), "#%02x%02x%02x" );
+	
+	if ( $script->get_parent()->has_sidebar() ) {
+		// ### Widget Settings ###
+		// Widget Titles
+		$font_family_widget_title	= $script->get_parent()->get_setting( 'font_family_widget_title' )->run_type()->get_data();
+		
+		if ( $font_family_widget_title ) {
+			$font_widget_title		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_widget_title );
+		} else {
+			$font_widget_title      = false;
+		}
+		
+		$font_size_widget_title		= $script->get_parent()->get_setting( 'font_size_widget_title' )->run_type()->get_data();
+		$text_color_widget_title	= $script->get_parent()->get_setting( 'text_color_widget_title' )->run_type()->get_data();
+		$line_height_widget_title	= $script->get_parent()->get_setting( 'line_height_widget_title' )->run_type()->get_data();
+		
+		// Widget Color
+		$text_color_widget			= $script->get_parent()->get_setting( 'text_color_widget' )->run_type()->get_data();
+		$bg_color_widget			= $script->get_parent()->get_setting( 'bg_color_widget' )->run_type()->get_data();
+	}
 ?>
+/* Common Settings *//
+<?php if ( $sv_common_text_color ) { ?>
+.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > .post-page-numbers,
+.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers,
+.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:hover,
+.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:focus,
+.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:visited,
+.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:active,
+.sv100_sv_content input,
+.sv100_sv_content button {
+	color: <?php echo $sv_common_text_color; ?>;
+}
 
-/* ##### Content Settings ##### */
+.sv100_sv_content blockquote::before, .sv100_sv_content blockquote.wp-block-quote::before,
+.sv100_sv_content table th, .sv100_sv_content table.wp-block-table th,
+.sv100_sv_content table td, .sv100_sv_content table.wp-block-table td,
+.sv100_sv_content table tfoot td, .sv100_sv_content table.wp-block-table tfoot td,
+.sv100_sv_content input,
+.sv100_sv_content input[type="checkbox"]:hover,
+.sv100_sv_content input[type="checkbox"]:focus,
+.sv100_sv_content input[type="checkbox"]:checked,
+.sv100_sv_content input[type="radio"]:hover,
+.sv100_sv_content input[type="radio"]:focus,
+.sv100_sv_content input[type="radio"]:checked {
+	border-color: <?php echo $sv_common_text_color; ?>;
+}
+
+.sv100_sv_content input[type="checkbox"]::before,
+.sv100_sv_content input[type="radio"]::before {
+	background-color: <?php echo $sv_common_text_color; ?>;
+}
+<?php } ?>
+
+/* Color Settings */
+.sv100_sv_content a:hover,
+.sv100_sv_content a:focus,
+.sv100_sv_content_header > h1 > span,
+.sv100_sv_content code, .sv100_sv_content pre.wp-block-code > code,
+.sv100_sv_content button:hover,
+.sv100_sv_content button:focus,
+.sv100_sv_content input[type="button"]:hover,
+.sv100_sv_content input[type="button"]:focus,
+.sv100_sv_content input[type="submit"]:hover,
+.sv100_sv_content input[type="submit"]:focus,
+.sv100_sv_content input[type="reset"]:hover,
+.sv100_sv_content input[type="reset"]:focus {
+	color: <?php echo $highlight_color; ?>;
+}
+
+.sv100_sv_content .sv100_sv_content_page_links .post-page-numbers::after {
+	background-color: <?php echo $highlight_color; ?>;
+}
+
+.sv100_sv_content button:hover,
+.sv100_sv_content button:focus,
+.sv100_sv_content input[type="button"]:hover,
+.sv100_sv_content input[type="button"]:focus,
+.sv100_sv_content input[type="submit"]:hover,
+.sv100_sv_content input[type="submit"]:focus,
+.sv100_sv_content input[type="reset"]:hover,
+.sv100_sv_content input[type="reset"]:focus {
+	border-color: <?php echo $highlight_color; ?>;
+}
+
 .sv100_sv_content {
-	margin-top: <?php echo $header_fixed ? 80 : 0; ?>px;
+	margin-top: <?php echo ( $header_fixed === true ) ? 80 : 0; ?>px;
 }
 
 @media ( min-width: 850px ) {
 	.sv100_sv_content {
-		margin-top: <?php echo $header_fixed ? 100 : 0; ?>px;
+		margin-top: <?php echo ( $header_fixed === true ) ? 100 : 0; ?>px;
 	}
 }
 
-.sv100_sv_content a:hover,
-.sv100_sv_content a:focus,
-.sv100_sv_content_header > h1 > span {
-	color: <?php echo $color_highlight; ?>;
-}
-
+/* Headings */
 .sv100_sv_content_header h1,
 .sv100_sv_content_wrapper h1 {
 	font-family: <?php echo ( $font_h1 ? '"' . $font_h1['family'] . '", ' : '' ); ?>sans-serif;
@@ -281,7 +399,48 @@
 	line-height: <?php echo $line_height_h6; ?>px;
 }
 
-/* ##### Post Listing Settings ##### */
+/* Content Header Settings */
+.sv100_sv_content_header {
+	background-color: <?php echo $bg_color; ?>;
+}
+
+.sv100_sv_content_header h1 {
+	font-family: <?php echo ( $font_title ? '"' . $font_title['family'] . '", ' : '' ); ?>sans-serif;
+	font-weight: <?php echo ( $font_title ? $font_title['weight'] : '400' ); ?>;
+	font-size: <?php echo $font_size_title; ?>px;
+	color: <?php echo $text_color_title; ?>;
+	line-height: <?php echo $line_height_title; ?>px;
+}
+
+.sv100_sv_content_header .sv100_sv_content_excerpt p {
+	font-family: <?php echo ( $font_excerpt ? '"' . $font_excerpt['family'] . '", ' : '' ); ?>sans-serif;
+	font-weight: <?php echo ( $font_excerpt ? $font_excerpt['weight'] : '400' ); ?>;
+	font-size: <?php echo $font_size_excerpt; ?>px;
+	color: <?php echo $text_color_excerpt; ?>;
+	line-height: <?php echo $line_height_excerpt; ?>px;
+}
+
+.sv100_sv_content_header span {
+	color: <?php echo $text_color_info; ?>;
+}
+
+/* Content Header Settings (with Thumbnail) */
+.sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background::before {
+	background-color: rgba( <?php echo $bg_color_image[0] . ',' . $bg_color_image[1] . ',' . $bg_color_image[2]; ?>, .5 );
+}
+
+.sv100_sv_content_header.with-thumbnail h1 {
+	color: <?php echo $text_color_title_image; ?>;
+}
+
+.sv100_sv_content_header.with-thumbnail .sv100_sv_content_excerpt p {
+	color: <?php echo $text_color_excerpt_image; ?>;
+}
+
+.sv100_sv_content_header.with-thumbnail span {
+	color: <?php echo $text_color_info_image; ?>;
+}
+
 /* List */
 .sv100_sv_content_list .sv100_sv_content_title a {
 	font-family: <?php echo ( $font_title_list ? '"' . $font_title_list['family'] . '", ' : '' ); ?>sans-serif;
@@ -325,12 +484,12 @@
 .sv100_sv_content_list .sv100_sv_content_title:focus a,
 .sv100_sv_content_list .sv100_sv_content_info a:hover,
 .sv100_sv_content_list .sv100_sv_content_info a:focus {
-	color: <?php echo $color_highlight_list; ?>;
+	color: <?php echo $highlight_color_list; ?>;
 }
 
 .sv100_sv_content_list .sv100_sv_content_read_more::after,
 .sv100_sv_content_list .sv100_sv_content_thumbnail > a {
-	background-color: <?php echo $color_highlight_list; ?>
+	background-color: <?php echo $highlight_color_list; ?>
 }
 
 /* Masonry */
@@ -386,12 +545,12 @@
 .sv100_sv_content_masonry .sv100_sv_content_title:focus a,
 .sv100_sv_content_masonry .sv100_sv_content_info a:hover,
 .sv100_sv_content_masonry .sv100_sv_content_info a:focus {
-	color: <?php echo $color_highlight_masonry; ?>;
+	color: <?php echo $highlight_color_masonry; ?>;
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more::after,
 .sv100_sv_content_masonry .sv100_sv_content_thumbnail > a {
-	background-color: <?php echo $color_highlight_masonry; ?>;
+	background-color: <?php echo $highlight_color_masonry; ?>;
 }
 
 /* Grid */
@@ -423,7 +582,7 @@
 }
 
 .sv100_sv_content_grid .sv100_sv_content_excerpt {
-	background-color: rgba( <?php echo $color_highlight_grid[0] . ',' . $color_highlight_grid[1] . ',' . $color_highlight_grid[2]; ?>, .7 );
+	background-color: rgba( <?php echo $highlight_color_grid[0] . ',' . $highlight_color_grid[1] . ',' . $highlight_color_grid[2]; ?>, .7 );
 }
 
 .sv100_sv_content_grid .sv100_sv_content_excerpt p {
@@ -433,3 +592,64 @@
 	color: <?php echo $text_color_excerpt_grid; ?>;
 	line-height: <?php echo $line_height_excerpt_grid; ?>px;
 }
+
+<?php if ( $script->get_parent()->has_sidebar() ) { ?>
+/* Widget Settings */
+.sv100_sv_content_sidebar {
+	border-color: <?php echo $bg_color_widget; ?>;
+}
+
+.sv100_sv_content_sidebar .widget,
+.sv100_sv_content_sidebar .widget a,
+.sv100_sv_content_sidebar .widget a:hover,
+.sv100_sv_content_sidebar .widget a:focus {
+	color: <?php echo $text_color_widget; ?>;
+}
+
+.sv100_sv_content_sidebar .widget h3 {
+	font-family: <?php echo ( $font_widget_title ? '"' . $font_widget_title['family'] . '", ' : '' ); ?>sans-serif;
+	font-weight: <?php echo ( $font_widget_title ? $font_widget_title['weight'] : '400' ); ?>;
+	font-size: <?php echo $font_size_widget_title; ?>px;
+	color: <?php echo $text_color_widget_title; ?>;
+	line-height: <?php echo $line_height_widget_title; ?>px;
+}
+
+.sv100_sv_content_sidebar .widget ul li,
+.sv100_sv_content_sidebar .widget.widget_recent_comments li:hover,
+.sv100_sv_content_sidebar .widget.widget_recent_comments li:focus,
+.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:hover,
+.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:focus,
+.sv100_sv_content_sidebar .widget.widget_rss ul li:hover,
+.sv100_sv_content_sidebar .widget.widget_rss ul li:focus {
+	background-color: <?php echo $bg_color_widget; ?>;
+}
+
+.sv100_sv_content_sidebar .widget ul li:hover,
+.sv100_sv_content_sidebar .widget ul li:focus,
+.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:hover > a,
+.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:focus > a {
+	background-color: <?php echo $highlight_color; ?>;
+}
+
+.sv100_sv_content_sidebar .widget_recent_comments a:hover,
+.sv100_sv_content_sidebar .widget_recent_comments a:focus,
+.sv100_sv_content_sidebar .widget_text a:hover,
+.sv100_sv_content_sidebar .widget_text a:focus,
+.sv100_sv_content_sidebar .widget_tag_cloud a:hover,
+.sv100_sv_content_sidebar .widget_tag_cloud a:focus,
+.sv100_sv_content_sidebar .widget_rss ul li > a:hover,
+.sv100_sv_content_sidebar .widget_rss ul li > a:focus {
+	color: <?php echo $highlight_color; ?>;
+}
+
+<?php if ( $sv_common_text_color ) { ?>
+.sv100_sv_content_sidebar .widget input[type="search"],
+.sv100_sv_content_sidebar .widget input::placeholder {
+	color: <?php echo $sv_common_text_color; ?>;
+}
+
+.sv100_sv_content_sidebar .widget_calendar table td,
+.sv100_sv_content_sidebar .widget_calendar table th {
+	border-color: <?php echo $sv_common_text_color; ?>;
+}
+<?php } } ?>
