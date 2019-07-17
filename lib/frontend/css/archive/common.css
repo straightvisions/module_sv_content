@@ -1,4 +1,8 @@
 /* General */
+.sv100_sv_content .sv100_sv_content_header {
+	background-color: transparent;
+}
+
 .sv100_sv_content_wrapper,
 .sv100_sv_content_header > h1 {
 	width: 100%;
