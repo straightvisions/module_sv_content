@@ -6,7 +6,7 @@
 		<?php
 			$class = $this->get_prefix( 'header' );
 			
-			include( $this->get_path( 'lib/frontend/tpl/content/featured_image.php' ) );
+			include('featured_image.php');
 		?>
 		<div class="<?php echo $class; ?>">
 			<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
@@ -42,7 +42,9 @@
 			</article>
 			<aside class="<?php echo $this->get_prefix( 'sidebar' ); ?>">
 				<?php
-					echo $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_single' ) );
+					echo $this->get_module( 'sv_sidebar' )
+						? $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_single' ) )
+						: '';
 				?>
 			</aside>
 		</div>

@@ -26,32 +26,64 @@
 .sv100_sv_content input[type="button"],
 .sv100_sv_content input[type="submit"],
 .sv100_sv_content input[type="reset"],
-.sv100_sv_content textarea,
-.sv100_sv_content select,
 .sv100_sv_content button {
     padding: 8px 12px;
     background-color: transparent;
-    border-width: 0 0 1px 0;
-    border-style: solid;
+    border: 0;
+    border-bottom: 1px solid rgba( var( --sv100_sv_color-primary ), .6 );
+    color: rgba( var( --sv100_sv_color-primary ), .6 );
     outline: none;
     box-shadow: none;
     font-size: .8rem;
     transition: .25s ease;
 }
 
-.sv100_sv_content textarea {
-    border-width: 1px;
-    border-style: solid;
-    transition: 0s;
+.sv100_sv_content input[type="text"]:hover,
+.sv100_sv_content input[type="text"]:focus,
+.sv100_sv_content input[type="search"]:hover,
+.sv100_sv_content input[type="search"]:focus,
+.sv100_sv_content input[type="email"]:hover,
+.sv100_sv_content input[type="email"]:focus,
+.sv100_sv_content input[type="password"]:hover,
+.sv100_sv_content input[type="password"]:focus,
+.sv100_sv_content input[type="url"]:hover,
+.sv100_sv_content input[type="url"]:focus,
+.sv100_sv_content input[type="tel"]:hover,
+.sv100_sv_content input[type="tel"]:focus,
+.sv100_sv_content input[type="number"]:hover,
+.sv100_sv_content input[type="number"]:focus,
+.sv100_sv_content input[type="datetime-local"]:hover,
+.sv100_sv_content input[type="datetime-local"]:focus,
+.sv100_sv_content input[type="date"]:hover,
+.sv100_sv_content input[type="date"]:focus,
+.sv100_sv_content input[type="month"]:hover,
+.sv100_sv_content input[type="month"]:focus,
+.sv100_sv_content input[type="week"]:hover,
+.sv100_sv_content input[type="week"]:focus,
+.sv100_sv_content input[type="time"]:hover,
+.sv100_sv_content input[type="time"]:focus {
+    border-color: rgb( var( --sv100_sv_color-primary ) );
+    color: rgb( var( --sv100_sv_color-primary ) );
 }
 
 .sv100_sv_content button,
 .sv100_sv_content input[type="button"],
 .sv100_sv_content input[type="submit"],
 .sv100_sv_content input[type="reset"] {
+    border: 1px solid rgba( var( --sv100_sv_color-primary ), .6 );
     cursor: pointer;
-    border-width: 1px;
-    border-style: solid;
+}
+
+.sv100_sv_content button:hover,
+.sv100_sv_content button:focus,
+.sv100_sv_content input[type="button"]:hover,
+.sv100_sv_content input[type="button"]:focus,
+.sv100_sv_content input[type="submit"]:hover,
+.sv100_sv_content input[type="submit"]:focus,
+.sv100_sv_content input[type="reset"]:hover,
+.sv100_sv_content input[type="reset"]:focus {
+    color: rgb( var( --sv100_sv_color-highlight ) );
+    border-color: rgb( var( --sv100_sv_color-highlight ) );
 }
 
 .sv100_sv_content input[type="checkbox"],
@@ -60,8 +92,8 @@
     height: 20px;
     margin: 0;
     background-color: transparent;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid rgba( var( --sv100_sv_color-primary ), .6 );
+    color: rgb( var( --sv100_sv_color-primary ) );
     outline: none;
     box-shadow: none;
     -webkit-appearance: none;
@@ -75,6 +107,15 @@
     border-radius: 100%;
 }
 
+.sv100_sv_content input[type="checkbox"]:hover,
+.sv100_sv_content input[type="checkbox"]:focus,
+.sv100_sv_content input[type="checkbox"]:checked,
+.sv100_sv_content input[type="radio"]:hover,
+.sv100_sv_content input[type="radio"]:focus,
+.sv100_sv_content input[type="radio"]:checked {
+    border-color: rgb( var( --sv100_sv_color-primary ) );
+}
+
 .sv100_sv_content input[type="checkbox"]::before,
 .sv100_sv_content input[type="radio"]::before {
     content: '';
@@ -86,6 +127,7 @@
     transform: scale( 0 );
     display: block;
     outline: none;
+    background-color: rgb( var( --sv100_sv_color-primary ) );
     transition: .25s ease;
 }
 

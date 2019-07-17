@@ -2,7 +2,6 @@
 	if ( current_user_can( 'activate_plugins' ) ) {
 	?>
 	<div class="sv_section_description"><?php echo $module->get_section_desc(); ?></div>
-	
 	<h3 class="divider">H1</h3>
 	<div class="sv_setting_flex">
 		<?php
@@ -57,58 +56,16 @@
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'font_family_h6' )->run_type()->form();
-			echo $module->get_settings_component( 'font_size_h6' )->run_type()->form();
+			echo $module->get_settings_component( 'font_size_h5' )->run_type()->form();
 			echo $module->get_settings_component( 'text_color_h6' )->run_type()->form();
 			echo $module->get_settings_component( 'line_height_h6' )->run_type()->form();
 		?>
 	</div>
 
-	<h3 class="divider"><?php _e( 'Content Color Settings', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'Color Settings', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
-			echo $module->get_setting( 'highlight_color' )->run_type()->form();
-		?>
-	</div>
-
-	<h3 class="divider"><?php _e( 'Content Header - Title', 'sv100' ); ?></h3>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'font_family_title' )->run_type()->form();
-			echo $module->get_settings_component( 'font_size_title' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_title' )->run_type()->form();
-			echo $module->get_settings_component( 'line_height_title' )->run_type()->form();
-		?>
-	</div>
-
-	<h3 class="divider"><?php _e( 'Content Header - Excerpt', 'sv100' ); ?></h3>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'font_family_excerpt' )->run_type()->form();
-			echo $module->get_settings_component( 'font_size_excerpt' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_excerpt' )->run_type()->form();
-			echo $module->get_settings_component( 'line_height_excerpt' )->run_type()->form();
-		?>
-	</div>
-
-	<h3 class="divider"><?php _e( 'Content Header - Color Settings', 'sv100' ); ?></h3>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'bg_color' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_info' )->run_type()->form();
-		?>
-	</div>
-
-	<h3 class="divider"><?php _e( 'Content Header - Color Settings (with Thumbnail)', 'sv100' ); ?></h3>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'text_color_title_image' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_excerpt_image' )->run_type()->form();
-		?>
-	</div>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'bg_color_image' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_info_image' )->run_type()->form();
+			echo $module->get_setting( 'color_highlight' )->run_type()->form();
 		?>
 	</div>
 	
@@ -161,8 +118,8 @@
 	<h3 class="divider"><?php _e( 'List - Color Settings', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
-			echo $module->get_settings_component( 'highlight_color_list' )->run_type()->form();
-			echo $module->get_setting( 'text_color_info_list' )->run_type()->form();
+			echo $module->get_settings_component( 'text_color_info_list' )->run_type()->form();
+			echo $module->get_setting( 'color_highlight_list' )->run_type()->form();
 		?>
 	</div>
 
@@ -200,15 +157,15 @@
 	<h3 class="divider"><?php _e( 'Masonry - Color Settings', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
-			echo $module->get_settings_component( 'highlight_color_masonry' )->run_type()->form();
-			echo $module->get_setting( 'text_color_info_masonry' )->run_type()->form();
+			echo $module->get_setting( 'text_color_category_masonry' )->run_type()->form();
+			echo $module->get_setting( 'bg_color_category_masonry' )->run_type()->form();
 		?>
 	</div>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'bg_color_masonry' )->run_type()->form();
-			echo $module->get_setting( 'text_color_category_masonry' )->run_type()->form();
-			echo $module->get_setting( 'bg_color_category_masonry' )->run_type()->form();
+			echo $module->get_setting( 'text_color_info_masonry' )->run_type()->form();
+			echo $module->get_setting( 'color_highlight_masonry' )->run_type()->form();
 		?>
 	</div>
 	
@@ -236,40 +193,22 @@
 	<h3 class="divider"><?php _e( 'Grid - Color Settings', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
-			echo $module->get_settings_component( 'highlight_color_grid' )->run_type()->form();
-			echo $module->get_setting( 'text_color_info_grid' )->run_type()->form();
+			echo $module->get_setting( 'text_color_category_grid' )->run_type()->form();
+			echo $module->get_setting( 'bg_color_category_grid' )->run_type()->form();
 		?>
 	</div>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'bg_color_grid' )->run_type()->form();
-			echo $module->get_setting( 'text_color_category_grid' )->run_type()->form();
-			echo $module->get_setting( 'bg_color_category_grid' )->run_type()->form();
-		?>
-	</div>
-
-	<h3 class="divider"><?php _e( 'Widget - Title Settings', 'sv100' ); ?></h3>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'font_family_widget_title' )->run_type()->form();
-			echo $module->get_settings_component( 'font_size_widget_title' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_widget_title' )->run_type()->form();
-			echo $module->get_settings_component( 'line_height_widget_title' )->run_type()->form();
-		?>
-	</div>
-
-	<h3 class="divider"><?php _e( 'Widget - Color Settings', 'sv100' ); ?></h3>
-	<div class="sv_setting_flex">
-		<?php
-			echo $module->get_setting( 'text_color_widget' )->run_type()->form();
-			echo $module->get_setting( 'bg_color_widget' )->run_type()->form();
+			echo $module->get_setting( 'text_color_info_grid' )->run_type()->form();
+			echo $module->get_setting( 'color_highlight_grid' )->run_type()->form();
 		?>
 	</div>
 		
     <h3 class="divider"><?php _e( '404 Page', 'sv100' ); ?></h3>
     <div class="sv_setting_flex">
         <?php
-        	echo $module->get_setting( '404_page' )->run_type()->form();
+        echo $module->get_setting( '404_page' )->run_type()->form();
         ?>
     </div>
 	<?php

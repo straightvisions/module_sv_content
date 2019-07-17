@@ -12,25 +12,38 @@
 	 */
 	
 	class sv_content extends init {
-		protected static $has_sidebar = false;
-		
 		public function init() {
-			$this->set_module_title( 'SV Content' )
-				 ->set_module_desc( __( 'This module defines and manages content output.', 'sv100' ) )
-				 ->add_theme_support()
-				 ->load_settings()
-				 ->register_scripts()
-				 ->register_sidebars()
-				 ->set_section_title( __( 'Content', 'sv100' ) )
+			// Module Info
+			$this->set_module_title( 'SV Content' );
+			$this->set_module_desc( __( 'This module defines and manages content output, via the "[sv_content]" shortcode.', 'sv100' ) );
+			
+			// Section Info
+			$this->set_section_title( __( 'Content', 'sv100' ) )
 			     ->set_section_desc( __( 'Settings', 'sv100' ) )
 			     ->set_section_type( 'settings' )
-			     ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
-				 ->get_root()
-				 ->add_section( $this );
+			     ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) );
+
+			$this->get_root()->add_section( $this );
+			
+			// Load settings, register scripts and sidebars
+			$this->add_theme_support()->load_settings()->register_scripts()->register_sidebars();
 			
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
 			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
+		}
+		
+		public function wp_print_styles() {
+			// Gutenberg: load Styles inline for Pagespeed purposes
+			wp_dequeue_style( 'wp-block-library' );
+		}
+		
+		public function load_gutenberg_css(): sv_content{
+			if ( is_single() || is_page() ) {
+				$this->scripts_queue['gutenberg']->set_is_enqueued( true );
+			}
+			
+			return $this;
 		}
 		
 		protected function add_theme_support(): sv_content {
@@ -38,7 +51,7 @@
 			add_theme_support( 'editor-font-sizes', array(
 				array(
 					'name' => __( 'Small', 'sv100' ),
-					'size' => 14,
+					'size' => 12,
 					'slug' => 'small'
 				),
 				array(
@@ -107,48 +120,14 @@
 			$this->get_settings_component( 'line_height_h6','line_height', 23 );
 			$this->get_settings_component( 'text_color_h6','text_color', '#1e1f22' );
 			
-			// Color Settings
-			$this->get_settings_component( 'highlight_color','highlight_color', '#358ae9' );
-			
-			// ### Content Header Settings ###
-			// Title
-			$this->get_settings_component( 'font_family_title','font_family' );
-			$this->get_settings_component( 'font_size_title','font_size', 48 );
-			$this->get_settings_component( 'line_height_title','line_height', 72 );
-			$this->get_settings_component( 'text_color_title','text_color', '#1e1f22' );
-			
-			// Excerpt
-			$this->get_settings_component( 'font_family_excerpt','font_family' );
-			$this->get_settings_component( 'font_size_excerpt','font_size', 16 );
-			$this->get_settings_component( 'line_height_excerpt','line_height', 23 );
-			$this->get_settings_component( 'text_color_excerpt','text_color', '#85868c' );
-			
-			// Color Settings
-			$this->get_settings_component( 'bg_color','background_color', '#f7f7f7' );
-			
-			$this->get_setting( 'text_color_info' )
-				 ->set_title( __( 'Author & Date Color', 'sv100' ) )
-				 ->set_description( __( 'This color is used for the post author and date in the header.', 'sv100' ) )
-				 ->set_default_value( '#85868c' )
-				 ->load_type( 'color' );
-			
-			// Color Settings with Thumbnail
-			$this->get_settings_component( 'bg_color_image','background_color', '#1e1f22' );
-			
-			$this->get_setting( 'text_color_title_image' )
-				 ->set_title( __( 'Title Color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'text_color_excerpt_image' )
-				 ->set_title( __( 'Excerpt Color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'text_color_info_image' )
-				 ->set_title( __( 'Author & Date Color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
+			// Highlight Color
+			$this->s['color_highlight'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'This color is used to highlight elements, like links (on hover/focus).', 'sv100' ) )
+					 ->set_default_value( '#358ae9' )
+					 ->load_type( 'color' );
 			
 			// ### Post Listing Settings ###
 			//  List - Title
@@ -164,24 +143,32 @@
 			$this->get_settings_component( 'text_color_excerpt_list','text_color', '#1e1f22' );
 			
 			// List - Read More
+			$this->s['text_more_list'] =
+				$this->get_setting()
+					 ->set_ID( 'text_more_list' )
+					 ->set_title( __( 'Read More Text', 'sv100' ) )
+					 ->set_default_value( __( 'Read more', 'sv100' ) )
+					 ->load_type( 'text' );
 			$this->get_settings_component( 'font_family_more_list','font_family' );
 			$this->get_settings_component( 'font_size_more_list','font_size', 16 );
 			$this->get_settings_component( 'line_height_more_list','line_height', 23 );
 			$this->get_settings_component( 'text_color_more_list','text_color', '#1e1f22' );
 			
-			$this->get_setting( 'text_more_list' )
-				 ->set_title( __( 'Read More Text', 'sv100' ) )
-				 ->set_default_value( __( 'Read more', 'sv100' ) )
-				 ->load_type( 'text' );
-			
 			// List - Colors Settings
-			$this->get_settings_component( 'highlight_color_list','highlight_color', '#358ae9' );
-			
-			$this->get_setting( 'text_color_info_list' )
-				 ->set_title( __( 'Info Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post info.', 'sv100' ) )
-				 ->set_default_value( '#85868c' )
-				 ->load_type( 'color' );
+			$this->s['text_color_info_list'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_info_list' )
+					 ->set_title( __( 'Info Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+					 ->set_default_value( '#85868c' )
+					 ->load_type( 'color' );
+			$this->s['color_highlight_list'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight_list' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'This color is used to highlight elements, like links (on hover/focus).', 'sv100' ) )
+					 ->set_default_value( '#358ae9' )
+					 ->load_type( 'color' );
 			
 			// Masonry - Title
 			$this->get_settings_component( 'font_family_title_masonry','font_family' );
@@ -196,37 +183,47 @@
 			$this->get_settings_component( 'text_color_excerpt_masonry','text_color', '#1e1f22' );
 			
 			// Masonry - Read More
+			$this->s['text_more_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'text_more_masonry' )
+					 ->set_title( __( 'Read More Text', 'sv100' ) )
+					 ->set_default_value( __( 'Read more', 'sv100' ) )
+					 ->load_type( 'text' );
 			$this->get_settings_component( 'font_family_more_masonry','font_family' );
 			$this->get_settings_component( 'font_size_more_masonry','font_size', 16 );
 			$this->get_settings_component( 'line_height_more_masonry','line_height', 23 );
 			$this->get_settings_component( 'text_color_more_masonry','text_color', '#1e1f22' );
-
-			$this->get_setting( 'text_more_masonry' )
-				 ->set_title( __( 'Read More Text', 'sv100' ) )
-				 ->set_default_value( __( 'Read more', 'sv100' ) )
-				 ->load_type( 'text' );
 			
 			// Masonry - Colors Settings
-			$this->get_settings_component( 'highlight_color_masonry','highlight_color', '#358ae9' );
 			$this->get_settings_component( 'bg_color_masonry','background_color', '#f7f7f7' );
-			
-			$this->get_setting( 'text_color_category_masonry' )
-				 ->set_title( __( 'Category Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'bg_color_category_masonry' )
-				 ->set_title( __( 'Category Background Color', 'sv100' ) )
-				 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
-				 ->set_default_value( '#1e1f22' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'text_color_info_masonry' )
-				 ->set_title( __( 'Info Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post info.', 'sv100' ) )
-				 ->set_default_value( '#85868c' )
-				 ->load_type( 'color' );
+			$this->s['text_color_category_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_category_masonry' )
+					 ->set_title( __( 'Category Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#ffffff' )
+					 ->load_type( 'color' );
+			$this->s['bg_color_category_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'bg_color_category_masonry' )
+					 ->set_title( __( 'Category Background Color', 'sv100' ) )
+					 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#1e1f22' )
+					 ->load_type( 'color' );
+			$this->s['text_color_info_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_info_masonry' )
+					 ->set_title( __( 'Info Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+					 ->set_default_value( '#85868c' )
+					 ->load_type( 'color' );
+			$this->s['color_highlight_masonry'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight_masonry' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'This color is used to highlight elements, like links (on hover/focus).', 'sv100' ) )
+					 ->set_default_value( '#358ae9' )
+					 ->load_type( 'color' );
 			
 			// Grid - Title
 			$this->get_settings_component( 'font_family_title_grid','font_family' );
@@ -241,203 +238,243 @@
 			$this->get_settings_component( 'text_color_excerpt_grid','text_color', '#ffffff' );
 			
 			// Grid - Color Settings
-			$this->get_settings_component( 'highlight_color_grid','highlight_color', '#358ae9' );
 			$this->get_settings_component( 'bg_color_grid','background_color', '#f7f7f7' );
+			$this->s['text_color_category_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_category_grid' )
+					 ->set_title( __( 'Category Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#ffffff' )
+					 ->load_type( 'color' );
+			$this->s['bg_color_category_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'bg_color_category_grid' )
+					 ->set_title( __( 'Category Background Color', 'sv100' ) )
+					 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
+					 ->set_default_value( '#1e1f22' )
+					 ->load_type( 'color' );
+			$this->s['text_color_info_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'text_color_info_grid' )
+					 ->set_title( __( 'Info Text Color', 'sv100' ) )
+					 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+					 ->set_default_value( '#85868c' )
+					 ->load_type( 'color' );
+			$this->s['color_highlight_grid'] =
+				$this->get_setting()
+					 ->set_ID( 'color_highlight_grid' )
+					 ->set_title( __( 'Highlight Color', 'sv100' ) )
+					 ->set_description( __( 'The background color on hover/focus.', 'sv100' ) )
+					 ->set_default_value( '#1e1f22' )
+					 ->load_type( 'color' );
 			
-			$this->get_setting( 'text_color_category_grid' )
-				 ->set_title( __( 'Category Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
 			
-			$this->get_setting( 'bg_color_category_grid' )
-				 ->set_title( __( 'Category Background Color', 'sv100' ) )
-				 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
-				 ->set_default_value( '#1e1f22' )
-				 ->load_type( 'color' );
+			$this->s[ 'home_theme' ] =
+				$this->get_setting()
+					 ->set_ID( 'home_theme' )
+					 ->set_title( __( 'Home Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv100' ) )
+					 ->set_options( array(
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
+					 ))
+					 ->load_type( 'select' );
+
+			$this->s[ 'search_theme' ] =
+				$this->get_setting()
+				     ->set_ID( 'search_theme' )
+				     ->set_title( __( 'Search Listing', 'sv100' ) )
+				     ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
+				     ->set_options( array(
+					     'list' => __( 'List (Default)', 'sv100' ),
+					     'masonry' => __( 'Masonry', 'sv100' ),
+					     'grid' => __( 'Grid', 'sv100' ),
+				     ))
+				     ->load_type( 'select' );
 			
-			$this->get_setting( 'text_color_info_grid' )
-				 ->set_title( __( 'Info Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post info.', 'sv100' ) )
-				 ->set_default_value( '#85868c' )
-				 ->load_type( 'color' );
+			$this->s[ 'category_theme' ] =
+				$this->get_setting()
+					 ->set_ID( 'category_theme' )
+					 ->set_title( __( 'Category Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv100' ) )
+					 ->set_options( array(
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
+					 ))
+					 ->load_type( 'select' );
 			
-			// Post Listing Styles
-			$this->get_setting( 'home_theme' )
-				 ->set_title( __( 'Home Listing', 'sv100' ) )
-				 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv100' ) )
-				 ->set_options( array(
-				 	'list' 		=> __( 'List (Default)', 'sv100' ),
-					'masonry' 	=> __( 'Masonry', 'sv100' ),
-					'grid' 		=> __( 'Grid', 'sv100' ),
-				 ))
-				 ->load_type( 'select' );
-			
-			$this->get_setting( 'search_theme' )
-				 ->set_title( __( 'Search Listing', 'sv100' ) )
-				 ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
-				 ->set_options( array(
-				 	'list' 		=> __( 'List (Default)', 'sv100' ),
-					'masonry' 	=> __( 'Masonry', 'sv100' ),
-					'grid' 		=> __( 'Grid', 'sv100' ),
-				 ))
-				 ->load_type( 'select' );
-			
-			$this->get_setting( 'category_theme' )
-				 ->set_title( __( 'Category Listing', 'sv100' ) )
-				 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv100' ) )
-				 ->set_options( array(
-				 	'list' 		=> __( 'List (Default)', 'sv100' ),
-					'masonry' 	=> __( 'Masonry', 'sv100' ),
-					'grid' 		=> __( 'Grid', 'sv100' ),
-				 ))
-				 ->load_type( 'select' );
-			
-			$this->get_setting( 'tag_theme' )
-				 ->set_title( __( 'Tag Listing', 'sv100' ) )
-				 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv100' ) )
-				 ->set_options( array(
-				 	'list' 		=> __( 'List (Default)', 'sv100' ),
-					'masonry' 	=> __( 'Masonry', 'sv100' ),
-					'grid' 		=> __( 'Grid', 'sv100' ),
-				 ))
-				 ->load_type( 'select' );
-			
-			$this->get_setting( 'author_theme' )
-				 ->set_title( __( 'Author Listing', 'sv100' ) )
-				 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv100' ) )
-				 ->set_options( array(
-				 	'list' 		=> __( 'List (Default)', 'sv100' ),
-					'masonry' 	=> __( 'Masonry', 'sv100' ),
-					'grid' 		=> __( 'Grid', 'sv100' ),
-				 ))
-				 ->load_type( 'select' );
-			
-			// ### Widgets Settings ###
-			// Widgets Title
-			$this->get_settings_component( 'font_family_widget_title','font_family' );
-			$this->get_settings_component( 'font_size_widget_title','font_size', 32 );
-			$this->get_settings_component( 'text_color_widget_title','text_color', '#85868c' );
-			$this->get_settings_component( 'line_height_widget_title','line_height', 48 );
-			
-			$this->get_setting( 'text_color_widget' )
-				 ->set_title( __( 'Widget Text Color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'bg_color_widget' )
-				 ->set_title( __( 'Widget Background Color', 'sv100' ) )
-				 ->set_default_value( '#353639' )
-				 ->load_type( 'color' );
+			$this->s[ 'tag_theme' ] =
+				$this->get_setting()
+					 ->set_ID( 'tag_theme' )
+					 ->set_title( __( 'Tag Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv100' ) )
+					 ->set_options( array(
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
+					 ))
+					 ->load_type( 'select' );
+			$this->s[ 'author_theme' ] =
+				$this->get_setting()
+					 ->set_ID( 'author_theme' )
+					 ->set_title( __( 'Author Listing', 'sv100' ) )
+					 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv100' ) )
+					 ->set_options( array(
+						 'list' => __( 'List (Default)', 'sv100' ),
+						 'masonry' => __( 'Masonry', 'sv100' ),
+						 'grid' => __( 'Grid', 'sv100' ),
+					 ))
+					 ->load_type( 'select' );
 			
 			// 404 Page
-			$this->get_setting( '404_page' )
-				 ->set_title( __( '404 Page', 'sv100' ) )
-				 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv100' ) )
-				 ->load_type( 'select_page' );
+			$this->s[ '404_page' ] =
+				$this->get_setting()
+					 ->set_ID( '404_page' )
+					 ->set_title( __( '404 Page', 'sv100' ) )
+					 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv100' ) )
+					 ->load_type( 'select_page' );
 			
 			return $this;
 		}
 		
 		protected function register_scripts(): sv_content {
 			// Styles - Common
-			$this->get_script( 'form' )
-				 ->set_path( 'lib/frontend/css/form.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['form'] =
+				static::$scripts->create( $this )
+								->set_ID( 'form' )
+								->set_path( 'lib/frontend/css/form.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'sidebar' )
-				 ->set_path( 'lib/frontend/css/sidebar.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['sidebar'] =
+				static::$scripts->create( $this )
+								->set_ID( 'sidebar' )
+								->set_path( 'lib/frontend/css/sidebar.css' )
+								->set_inline( true );
 			
 			// Styles - Content
-			$this->get_script( 'content_common' )
-				 ->set_path( 'lib/frontend/css/content/common.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['content_common'] =
+				static::$scripts->create( $this )
+								->set_ID( 'content_common' )
+								->set_path( 'lib/frontend/css/content/common.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'content_gutenberg' )
-				 ->set_path( 'lib/frontend/css/content/gutenberg.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['content_gutenberg'] =
+				static::$scripts->create( $this )
+								->set_ID( 'content_gutenberg' )
+								->set_path( 'lib/frontend/css/content/gutenberg.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'content_single' )
-				 ->set_path( 'lib/frontend/css/content/single.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['content_single'] =
+				static::$scripts->create( $this )
+								->set_ID( 'content_single' )
+								->set_path( 'lib/frontend/css/content/single.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'content_page' )
-				 ->set_path( 'lib/frontend/css/content/page.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['content_page'] =
+				static::$scripts->create( $this )
+								->set_ID( 'content_page' )
+								->set_path( 'lib/frontend/css/content/page.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'content_frontpage' )
-				 ->set_path( 'lib/frontend/css/content/frontpage.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['content_frontpage'] =
+				static::$scripts->create( $this )
+								->set_ID( 'content_frontpage' )
+								->set_path( 'lib/frontend/css/content/frontpage.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'content_404' )
-				 ->set_path( 'lib/frontend/css/content/404.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['content_404'] =
+				static::$scripts->create( $this )
+								->set_ID( 'content_404' )
+								->set_path( 'lib/frontend/css/content/404.css' )
+								->set_inline( true );
 			
 			// Styles - Archive
-			$this->get_script( 'archive_common' )
-				 ->set_path( 'lib/frontend/css/archive/common.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_common'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_common' )
+								->set_path( 'lib/frontend/css/archive/common.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_home' )
-				 ->set_path( 'lib/frontend/css/archive/home.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_home'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_home' )
+								->set_path( 'lib/frontend/css/archive/home.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_archive' )
-				 ->set_path( 'lib/frontend/css/archive/archive.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_archive'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_archive' )
+								->set_path( 'lib/frontend/css/archive/archive.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_category' )
-				 ->set_path( 'lib/frontend/css/archive/category.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_category'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_category' )
+								->set_path( 'lib/frontend/css/archive/category.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_tag' )
-				 ->set_path( 'lib/frontend/css/archive/tag.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_tag'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_tag' )
+								->set_path( 'lib/frontend/css/archive/tag.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_author' )
-				 ->set_path( 'lib/frontend/css/archive/author.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_author'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_author' )
+								->set_path( 'lib/frontend/css/archive/author.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_search' )
-				 ->set_path( 'lib/frontend/css/archive/search.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_search'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_search' )
+								->set_path( 'lib/frontend/css/archive/search.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_no_post' )
-				 ->set_path( 'lib/frontend/css/archive/no_post.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_no_post'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_no_post' )
+								->set_path( 'lib/frontend/css/archive/no_post.css' )
+								->set_inline( true );
 			
 			// Styles - Archive Themes
-			$this->get_script( 'archive_theme_list' )
-				 ->set_path( 'lib/frontend/css/archive/themes/list.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_theme_list'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_theme_list' )
+								->set_path( 'lib/frontend/css/archive/themes/list.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_theme_masonry' )
-				 ->set_path( 'lib/frontend/css/archive/themes/masonry.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_theme_masonry'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_theme_masonry' )
+								->set_path( 'lib/frontend/css/archive/themes/masonry.css' )
+								->set_inline( true );
 			
-			$this->get_script( 'archive_theme_grid' )
-				 ->set_path( 'lib/frontend/css/archive/themes/grid.css' )
-				 ->set_inline( true );
+			$this->scripts_queue['archive_theme_grid'] =
+				static::$scripts->create( $this )
+								->set_ID( 'archive_theme_grid' )
+								->set_path( 'lib/frontend/css/archive/themes/grid.css' )
+								->set_inline( true );
 			
 			// Gutenberg Default Styles
-			$this->get_script( 'bodhi-svgs-attachment' )
-				 ->set_path( ABSPATH . '/wp-includes/css/dist/block-library/style.min.css', true )
-				 ->set_inline( true );
-			
-			// Inline Config
-			$this->get_script( 'inline_config' )
-				 ->set_path( 'lib/frontend/css/config.php' )
-				 ->set_inline( true );
+			$this->scripts_queue['gutenberg'] =
+				static::$scripts->create( $this )
+								->set_ID( 'bodhi-svgs-attachment' )
+								->set_path( ABSPATH.'/wp-includes/css/dist/block-library/style.min.css', true)
+								->set_inline( true );
 			
 			// Scripts - Backend
-			$this->get_script( 'gutenberg_block_styles' )
-				 ->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
-				 ->set_type( 'js' )
-				 ->set_deps( array(  'jquery' ) )
-				 ->set_is_gutenberg()
-				 ->set_is_backend()
-				 ->set_is_enqueued();
+			$this->scripts_queue['backend_gutenberg'] =
+				static::$scripts->create( $this )
+								->set_ID( 'gutenberg_block_styles' )
+								->set_path( 'lib/backend/js/gutenberg_block_styles.js' )
+								->set_type( 'js' )
+								->set_deps( array(  'jquery' ) )
+								->set_is_gutenberg()
+								->set_is_backend()
+								->set_is_enqueued();
 			
 			return $this;
 		}
@@ -465,25 +502,11 @@
 			return $this;
 		}
 		
-		public function wp_print_styles() {
-			// Gutenberg: load Styles inline for Pagespeed purposes
-			wp_dequeue_style( 'wp-block-library' );
-		}
-		
-		public function load_gutenberg_css(): sv_content {
-			if ( is_single() || is_page() ) {
-				$this->get_script( 'bodhi-svgs-attachment' )
-					 ->set_is_enqueued( true );
-			}
-			
-			return $this;
-		}
-		
 		public function load( $settings = array() ): string {
-			$settings = shortcode_atts(
+			$settings								= shortcode_atts(
 				array(
-					'inline'	=> true,
-					'template'	=> 'single',
+					'inline'						=> true,
+					'template'						=> 'single',
 				),
 				$settings,
 				$this->get_module_name()
@@ -494,24 +517,22 @@
 		
 		// Handles the routing of the templates
 		protected function router( array $settings ): string {
-			if ( have_posts() ) {
+			if( have_posts() ) {
 				$slider_support = has_filter( 'sv100_post_header_slider' );
 
 				// Home: The last posts
 				if ( is_front_page() && is_home() ) {
 					$archive_theme = 'archive_theme_';
-					$archive_theme .=
-						$this->get_setting( 'home_theme' )->run_type()->get_data()
+					$archive_theme .= $this->get_setting( 'home_theme' )->run_type()->get_data()
 						? $this->get_setting( 'home_theme' )->run_type()->get_data()
 						: 'list';
-					
 					$template = array(
 						'path'      => 'archive/home',
 						'scripts'   => array(
-							$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-							$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-							$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
-							$this->get_script( 'archive_home' )->set_inline( $settings['inline'] ),
+							$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+							$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+							$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
+							$this->scripts_queue['archive_home']->set_inline( $settings['inline'] ),
 						),
 					);
 					
@@ -521,141 +542,121 @@
 				}
 				
 				// Home: A static page
-				elseif ( ( is_front_page() && !is_home() ) || ( ! is_front_page() && is_home() ) ) {
+				else if ( ( is_front_page() && !is_home() ) || ( !is_front_page() && is_home() ) ) {
 					if ( is_page_template( 'page-sidebar.php' ) ) {
-						$template = array(
-							'path'      => 'content/frontpage',
-							'scripts'   => array(
-								$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_frontpage' )->set_inline( $settings['inline'] ),
-							),
-						);
-						
-						if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage' ) ) ) ) {
-							$template['path'] = 'content/frontpage_sidebar';
-							array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-							$this::$has_sidebar = true;
-						}
-					} elseif ( is_page_template( 'page-slider.php' ) ) {
-						$template = array(
-							'path'      => 'content/frontpage',
-							'scripts'   => array(
-								$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_frontpage' )->set_inline( $settings['inline'] ),
-							),
-						);
-						
-						if ( $slider_support ) {
-							$template[ 'header' ] = 'slider';
-						}
-					} elseif ( is_page_template( 'page-slider-and-sidebar' ) ) {
 						$template = array(
 							'path'      => 'content/frontpage_sidebar',
 							'scripts'   => array(
-								$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_frontpage' )->set_inline( $settings['inline'] ),
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
+							),
+						);
+					} else if ( is_page_template( 'page-slider.php' ) ) {
+						$template = array(
+							'path'      => 'content/frontpage',
+							'scripts'   => array(
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
 							),
 						);
 						
 						if ( $slider_support ) {
 							$template[ 'header' ] = 'slider';
 						}
+					} else if ( is_page_template( 'page-slider-and-sidebar' ) ) {
+						$template = array(
+							'path'      => 'content/frontpage_sidebar',
+							'scripts'   => array(
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
+							),
+						);
 						
-						if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage' ) ) ) ) {
-							$template['path'] = 'content/frontpage_sidebar';
-							array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-							$this::$has_sidebar = true;
+						if ( $slider_support ) {
+							$template[ 'header' ] = 'slider';
 						}
 					} else {
 						$template = array(
 							'path'      => 'content/frontpage',
 							'scripts'   => array(
-								$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-								$this->get_script( 'content_frontpage' )->set_inline( $settings['inline'] ),
+								$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+								$this->scripts_queue[ 'content_frontpage' ]->set_inline( $settings['inline'] ),
 							),
 						);
 					}
 				}
 				
 				// Template Management
-				elseif ( $settings['template'] ) {
+				else if ( $settings['template'] ) {
 					switch ( $settings['template'] ) {
 						case 'single':
 							$template = array(
 								'path'      => 'content/single',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_single' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_single' ]->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 						case 'single_sidebar':
 							$template = array(
-								'path'      => 'content/single',
+								'path'      => 'content/single_sidebar',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_single' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_single' ]->set_inline( $settings['inline'] ),
 								),
 							);
-							
-							if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_single' ) ) ) ) {
-								$template['path'] = 'content/single_sidebar';
-								array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-								$this::$has_sidebar = true;
-							}
 							break;
 						case 'page':
 							$template = array(
 								'path'      => 'content/page',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 						case 'page_sidebar':
 							$template = array(
-								'path'      => 'content/page',
+								'path'      => 'content/page_sidebar',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
 								),
 							);
-							
-							if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page' ) ) ) ) {
-								$template['path'] = 'content/page_sidebar';
-								array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-								$this::$has_sidebar = true;
-							}
 							break;
 						case 'page_slider':
 							$template = array(
 								'path'      => 'content/page',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
 								),
 							);
 							
@@ -665,124 +666,115 @@
 							break;
 						case 'page_slider_and_sidebar':
 							$template = array(
-								'path'      => 'content/page',
+								'path'      => 'content/page_sidebar',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['sidebar']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
 								),
 							);
 							
 							if ( $slider_support ) {
 								$template[ 'header' ] = 'slider';
 							}
-							
-							if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page' ) ) ) ) {
-								$template['path'] = 'content/page_sidebar';
-								array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-								$this::$has_sidebar = true;
-							}
 							break;
 						case 'archive':
 							$template = array(
 								'path'      => 'archive/default',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_theme_list' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_archive' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_theme_list']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_archive']->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 						case 'category':
 							$archive_theme = 'archive_theme_';
-							$archive_theme .=
-								$this->get_setting( 'category_theme' )->run_type()->get_data()
-								? $this->get_setting( 'category_theme' )->run_type()->get_data()
+							$archive_theme .= $this->s['category_theme']->run_type()->get_data()
+								? $this->s['category_theme']->run_type()->get_data()
 								: 'list';
 							
 							$template = array(
 								'path'      => 'archive/category',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_category' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_category']->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 						case 'tag':
 							$archive_theme = 'archive_theme_';
-							$archive_theme .=
-								$this->get_setting( 'tag_theme' )->run_type()->get_data()
-								? $this->get_setting( 'tag_theme' )->run_type()->get_data()
+							$archive_theme .= $this->s['tag_theme']->run_type()->get_data()
+								? $this->s['tag_theme']->run_type()->get_data()
 								: 'list';
 							
 							$template = array(
 								'path'      => 'archive/tag',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_tag' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_tag']->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 						case 'search':
 							$archive_theme = 'archive_theme_';
-							$archive_theme .=
-								$this->get_setting( 'search_theme' )->run_type()->get_data()
-								? $this->get_setting( 'search_theme' )->run_type()->get_data()
+							$archive_theme .= $this->s['search_theme']->run_type()->get_data()
+								? $this->s['search_theme']->run_type()->get_data()
 								: 'list';
 							
 							$template = array(
 								'path'      => 'archive/search',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_search' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_search']->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 						case 'author':
 							$archive_theme = 'archive_theme_';
-							$archive_theme .=
-								$this->get_setting( 'author_theme' )->run_type()->get_data()
-								? $this->get_setting( 'author_theme' )->run_type()->get_data()
+							$archive_theme .= $this->s['author_theme']->run_type()->get_data()
+								? $this->s['author_theme']->run_type()->get_data()
 								: 'list';
 							
 							$template = array(
 								'path'      => 'archive/author',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
-									$this->get_script( 'archive_author' )->set_inline( $settings['inline'] ),
+									$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+									$this->scripts_queue[ $archive_theme ]->set_inline( $settings['inline'] ),
+									$this->scripts_queue['archive_author']->set_inline( $settings['inline'] ),
 								),
 							);
 							break;
 					}
 				}
-			} elseif ( is_404() ) {
+			} else if ( is_404() ) {
 				$template = array(
 					'path'      => 'content/404',
 					'scripts'   => array(
-						$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_404' )->set_inline( $settings['inline'] ),
+						$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+						$this->scripts_queue[ 'content_common' ]->set_inline( $settings['inline'] ),
+						$this->scripts_queue[ 'content_gutenberg' ]->set_inline( $settings['inline'] ),
+						$this->scripts_queue[ 'content_page' ]->set_inline( $settings['inline'] ),
+						$this->scripts_queue[ 'content_404' ]->set_inline( $settings['inline'] ),
 					),
 				);
 			} else {
 				$template = array(
 					'path'      => 'archive/no_post',
 					'scripts'   => array(
-						$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'archive_no_post' )->set_inline( $settings['inline'] ),
+						$this->scripts_queue['form']->set_inline( $settings['inline'] ),
+						$this->scripts_queue['archive_common']->set_inline( $settings['inline'] ),
+						$this->scripts_queue['archive_no_post']->set_inline( $settings['inline'] ),
 					),
 				);
 			}
@@ -794,7 +786,6 @@
 		// Loads the templates
 		protected function load_template( array $template, array $settings ): string {
 			ob_start();
-			
 			// Loads the header
 			$this->get_header( $template );
 			
@@ -803,7 +794,13 @@
 				$script->set_is_enqueued();
 			}
 			
-			$this->get_script( 'inline_config' )->set_is_enqueued();
+			$this->scripts_queue['config'] =
+				static::$scripts->create( $this )
+								->set_ID( 'config' )
+								->set_path( 'lib/frontend/css/config.php' )
+								->set_inline( true )
+								->set_is_enqueued();
+			
 			
 			// Loads the template
 			include ( $this->get_path('lib/frontend/tpl/' . $template['path'] . '.php' ) );
@@ -818,7 +815,6 @@
 
 			// Loads the footer
 			$this->get_footer( $template );
-			
 			$output							        = ob_get_contents();
 			ob_end_clean();
 			
@@ -843,9 +839,5 @@
 			}
 			
 			return $this;
-		}
-		
-		public function has_sidebar(): bool {
-			return $this::$has_sidebar;
 		}
 	}

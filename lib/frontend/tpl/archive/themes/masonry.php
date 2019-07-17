@@ -3,7 +3,7 @@
 	while ( have_posts() ) {
 		the_post();
 		
-		include( $this->get_path( 'lib/frontend/tpl/archive/themes/featured_image.php' ) );
+		include('featured_image.php');
 		?>
 		<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
 			<?php if ( $thumbnail ) { ?>
