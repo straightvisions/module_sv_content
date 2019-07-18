@@ -12,7 +12,7 @@
 	 */
 	
 	class sv_content extends init {
-		protected static $has_sidebar = false;
+		protected $content_metabox = false;
 		
 		public function init() {
 			$this->set_module_title( 'SV Content' )
@@ -27,6 +27,12 @@
 			     ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
 				 ->get_root()
 				 ->add_section( $this );
+			
+			require_once($this->get_path('lib/modules/metabox.php'));
+			$this->content_metabox				= new sv_content_metabox();
+			$this->content_metabox->set_root( $this->get_root() );
+			$this->content_metabox->set_parent( $this );
+			$this->content_metabox->init();
 			
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
@@ -336,6 +342,32 @@
 				 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv100' ) )
 				 ->load_type( 'select_page' );
 			
+			// ### Date Settings ###
+			// Post
+			$this->get_setting( 'show_date_post' )
+				 ->set_title( __( 'Show Date on Posts', 'sv100' ) )
+				 ->set_default_value( 0 )
+				 ->load_type( 'checkbox' );
+			
+			// Page
+			$this->get_setting( 'show_date_page' )
+				 ->set_title( __( 'Show Date on Pages', 'sv100' ) )
+				 ->set_default_value( 0 )
+				 ->load_type( 'checkbox' );
+			
+			// ### Author Settings ###
+			// Post
+			$this->get_setting( 'show_author_post' )
+				 ->set_title( __( 'Show Author on Posts', 'sv100' ) )
+				 ->set_default_value( 0 )
+				 ->load_type( 'checkbox' );
+			
+			// Page
+			$this->get_setting( 'show_author_page' )
+				 ->set_title( __( 'Show Author on Pages', 'sv100' ) )
+				 ->set_default_value( 0 )
+				 ->load_type( 'checkbox' );
+			
 			return $this;
 		}
 		
@@ -537,7 +569,7 @@
 						if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage' ) ) ) ) {
 							$template['path'] = 'content/frontpage_sidebar';
 							array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-							$this::$has_sidebar = true;
+							$this->has_sidebar = true;
 						}
 					} elseif ( is_page_template( 'page-slider.php' ) ) {
 						$template = array(
@@ -573,7 +605,7 @@
 						if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage' ) ) ) ) {
 							$template['path'] = 'content/frontpage_sidebar';
 							array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-							$this::$has_sidebar = true;
+							$this->has_sidebar = true;
 						}
 					} else {
 						$template = array(
@@ -645,7 +677,7 @@
 							if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page' ) ) ) ) {
 								$template['path'] = 'content/page_sidebar';
 								array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-								$this::$has_sidebar = true;
+								$this->has_sidebar = true;
 							}
 							break;
 						case 'page_slider':
@@ -681,7 +713,7 @@
 							if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page' ) ) ) ) {
 								$template['path'] = 'content/page_sidebar';
 								array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-								$this::$has_sidebar = true;
+								$this->has_sidebar = true;
 							}
 							break;
 						case 'archive':
@@ -844,8 +876,10 @@
 			
 			return $this;
 		}
-		
-		public function has_sidebar(): bool {
-			return $this::$has_sidebar;
+		public function show_date(): bool{
+			return boolval($this->content_metabox->get_setting('show_date')->run_type()->get_data());
+		}
+		public function show_author(): bool{
+			return boolval($this->content_metabox->get_setting('show_author')->run_type()->get_data());
 		}
 	}

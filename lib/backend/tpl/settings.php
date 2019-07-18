@@ -272,6 +272,24 @@
         	echo $module->get_setting( '404_page' )->run_type()->form();
         ?>
     </div>
+
+    <h3 class="divider"><?php _e( 'Date', 'sv100' ); ?></h3>
+    <p><?php _e('You can override this within each Post or Page.', 'sv100'); ?></p>
+    <div class="sv_setting_flex">
+        <?php
+            echo $module->get_setting( 'show_date_post' )->run_type()->form();
+			echo $module->get_setting( 'show_date_page' )->run_type()->form();
+        ?>
+    </div>
+
+        <h3 class="divider"><?php _e( 'Author', 'sv100' ); ?></h3>
+        <p><?php _e('You can override this within each Post or Page.', 'sv100'); ?></p>
+        <div class="sv_setting_flex">
+			<?php
+				echo $module->get_setting( 'show_author_post' )->run_type()->form();
+				echo $module->get_setting( 'show_author_page' )->run_type()->form();
+			?>
+        </div>
 	<?php
 	}
 ?>

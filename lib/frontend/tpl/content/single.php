@@ -11,10 +11,7 @@
 			<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
 				<h1><?php the_title()?></h1>
 				<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>"><?php the_excerpt(); ?></div>
-				<div>
-					<span><?php echo get_the_author(); ?></span>
-					<span><?php echo get_the_date(); ?></span>
-				</div>
+				<?php include($this->get_path('lib/frontend/tpl/content/_meta.php')); ?>
 			</div>
 			<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
 				<?php echo $thumbnail; ?>

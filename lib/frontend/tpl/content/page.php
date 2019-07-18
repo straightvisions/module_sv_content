@@ -1,3 +1,4 @@
+<?php the_post(); ?>
 <div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'page' ); ?>">
 	<?php
 		$class = $this->get_prefix( 'header' );
@@ -7,6 +8,7 @@
 		<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
 			<h1><?php the_title() ?></h1>
 			<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>"><?php the_excerpt(); ?></div>
+            <?php include($this->get_path('lib/frontend/tpl/content/_meta.php')); ?>
 		</div>
 		<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
 			<?php echo $thumbnail; ?>
