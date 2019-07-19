@@ -346,7 +346,7 @@
 			// Post
 			$this->get_setting( 'show_date_post' )
 				 ->set_title( __( 'Show date on posts', 'sv100' ) )
-				 ->set_default_value( 0 )
+				 ->set_default_value( 1 )
 				 ->load_type( 'checkbox' );
 			
 			// Page
@@ -359,7 +359,7 @@
 			// Post
 			$this->get_setting( 'show_author_post' )
 				 ->set_title( __( 'Show author on posts', 'sv100' ) )
-				 ->set_default_value( 0 )
+				 ->set_default_value( 1 )
 				 ->load_type( 'checkbox' );
 			
 			// Page
