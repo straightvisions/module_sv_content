@@ -16,13 +16,13 @@
 		
 		public function init() {
 			$this->set_module_title( 'SV Content' )
-				 ->set_module_desc( __( 'This module defines and manages content output.', 'sv100' ) )
+				 ->set_module_desc( __( 'Manages content output.', 'sv100' ) )
 				 ->add_theme_support()
 				 ->load_settings()
 				 ->register_scripts()
 				 ->register_sidebars()
 				 ->set_section_title( __( 'Content', 'sv100' ) )
-			     ->set_section_desc( __( 'Settings', 'sv100' ) )
+			     ->set_section_desc( __( 'Content settings', 'sv100' ) )
 			     ->set_section_type( 'settings' )
 			     ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
 				 ->get_root()
@@ -133,8 +133,8 @@
 			$this->get_settings_component( 'bg_color','background_color', '#f7f7f7' );
 			
 			$this->get_setting( 'text_color_info' )
-				 ->set_title( __( 'Author & Date Color', 'sv100' ) )
-				 ->set_description( __( 'This color is used for the post author and date in the header.', 'sv100' ) )
+				 ->set_title( __( 'Author & Date color', 'sv100' ) )
+				 ->set_description( __( 'Color for the post author and date in the header.', 'sv100' ) )
 				 ->set_default_value( '#85868c' )
 				 ->load_type( 'color' );
 			
@@ -142,17 +142,17 @@
 			$this->get_settings_component( 'bg_color_image','background_color', '#1e1f22' );
 			
 			$this->get_setting( 'text_color_title_image' )
-				 ->set_title( __( 'Title Color', 'sv100' ) )
+				 ->set_title( __( 'Title color', 'sv100' ) )
 				 ->set_default_value( '#ffffff' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_color_excerpt_image' )
-				 ->set_title( __( 'Excerpt Color', 'sv100' ) )
+				 ->set_title( __( 'Excerpt color', 'sv100' ) )
 				 ->set_default_value( '#ffffff' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_color_info_image' )
-				 ->set_title( __( 'Author & Date Color', 'sv100' ) )
+				 ->set_title( __( 'Author & Date color', 'sv100' ) )
 				 ->set_default_value( '#ffffff' )
 				 ->load_type( 'color' );
 			
@@ -176,7 +176,7 @@
 			$this->get_settings_component( 'text_color_more_list','text_color', '#1e1f22' );
 			
 			$this->get_setting( 'text_more_list' )
-				 ->set_title( __( 'Read More Text', 'sv100' ) )
+				 ->set_title( __( 'Read more text', 'sv100' ) )
 				 ->set_default_value( __( 'Read more', 'sv100' ) )
 				 ->load_type( 'text' );
 			
@@ -184,8 +184,8 @@
 			$this->get_settings_component( 'highlight_color_list','highlight_color', '#358ae9' );
 			
 			$this->get_setting( 'text_color_info_list' )
-				 ->set_title( __( 'Info Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+				 ->set_title( __( 'Info text color', 'sv100' ) )
+				 ->set_description( __( 'Color for the post info.', 'sv100' ) )
 				 ->set_default_value( '#85868c' )
 				 ->load_type( 'color' );
 			
@@ -208,7 +208,7 @@
 			$this->get_settings_component( 'text_color_more_masonry','text_color', '#1e1f22' );
 
 			$this->get_setting( 'text_more_masonry' )
-				 ->set_title( __( 'Read More Text', 'sv100' ) )
+				 ->set_title( __( 'Read more text', 'sv100' ) )
 				 ->set_default_value( __( 'Read more', 'sv100' ) )
 				 ->load_type( 'text' );
 			
@@ -217,20 +217,20 @@
 			$this->get_settings_component( 'bg_color_masonry','background_color', '#f7f7f7' );
 			
 			$this->get_setting( 'text_color_category_masonry' )
-				 ->set_title( __( 'Category Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
+				 ->set_title( __( 'Category text color', 'sv100' ) )
+				 ->set_description( __( 'Color for the post categories.', 'sv100' ) )
 				 ->set_default_value( '#ffffff' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'bg_color_category_masonry' )
-				 ->set_title( __( 'Category Background Color', 'sv100' ) )
-				 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
+				 ->set_title( __( 'Category background color', 'sv100' ) )
+				 ->set_description( __( 'Background color for the post categories.', 'sv100' ) )
 				 ->set_default_value( '#1e1f22' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_color_info_masonry' )
-				 ->set_title( __( 'Info Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+				 ->set_title( __( 'Info text color', 'sv100' ) )
+				 ->set_description( __( 'Color for the post info.', 'sv100' ) )
 				 ->set_default_value( '#85868c' )
 				 ->load_type( 'color' );
 			
@@ -251,26 +251,26 @@
 			$this->get_settings_component( 'bg_color_grid','background_color', '#f7f7f7' );
 			
 			$this->get_setting( 'text_color_category_grid' )
-				 ->set_title( __( 'Category Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post categories.', 'sv100' ) )
+				 ->set_title( __( 'Category text color', 'sv100' ) )
+				 ->set_description( __( 'Color for the post categories.', 'sv100' ) )
 				 ->set_default_value( '#ffffff' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'bg_color_category_grid' )
-				 ->set_title( __( 'Category Background Color', 'sv100' ) )
-				 ->set_description( __( 'The background color for the post categories.', 'sv100' ) )
+				 ->set_title( __( 'Category background color', 'sv100' ) )
+				 ->set_description( __( 'Background color for the post categories.', 'sv100' ) )
 				 ->set_default_value( '#1e1f22' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_color_info_grid' )
-				 ->set_title( __( 'Info Text Color', 'sv100' ) )
-				 ->set_description( __( 'The color for the post info.', 'sv100' ) )
+				 ->set_title( __( 'Info text color', 'sv100' ) )
+				 ->set_description( __( 'Color for the post info.', 'sv100' ) )
 				 ->set_default_value( '#85868c' )
 				 ->load_type( 'color' );
 			
 			// Post Listing Styles
 			$this->get_setting( 'home_theme' )
-				 ->set_title( __( 'Home Listing', 'sv100' ) )
+				 ->set_title( __( 'Home listing', 'sv100' ) )
 				 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 				 	'list' 		=> __( 'List (Default)', 'sv100' ),
@@ -280,7 +280,7 @@
 				 ->load_type( 'select' );
 			
 			$this->get_setting( 'search_theme' )
-				 ->set_title( __( 'Search Listing', 'sv100' ) )
+				 ->set_title( __( 'Search listing', 'sv100' ) )
 				 ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 				 	'list' 		=> __( 'List (Default)', 'sv100' ),
@@ -290,7 +290,7 @@
 				 ->load_type( 'select' );
 			
 			$this->get_setting( 'category_theme' )
-				 ->set_title( __( 'Category Listing', 'sv100' ) )
+				 ->set_title( __( 'Category listing', 'sv100' ) )
 				 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 				 	'list' 		=> __( 'List (Default)', 'sv100' ),
@@ -300,7 +300,7 @@
 				 ->load_type( 'select' );
 			
 			$this->get_setting( 'tag_theme' )
-				 ->set_title( __( 'Tag Listing', 'sv100' ) )
+				 ->set_title( __( 'Tag listing', 'sv100' ) )
 				 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 				 	'list' 		=> __( 'List (Default)', 'sv100' ),
@@ -310,7 +310,7 @@
 				 ->load_type( 'select' );
 			
 			$this->get_setting( 'author_theme' )
-				 ->set_title( __( 'Author Listing', 'sv100' ) )
+				 ->set_title( __( 'Author listing', 'sv100' ) )
 				 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 				 	'list' 		=> __( 'List (Default)', 'sv100' ),
@@ -327,12 +327,12 @@
 			$this->get_settings_component( 'line_height_widget_title','line_height', 48 );
 			
 			$this->get_setting( 'text_color_widget' )
-				 ->set_title( __( 'Widget Text Color', 'sv100' ) )
+				 ->set_title( __( 'Widget text color', 'sv100' ) )
 				 ->set_default_value( '#ffffff' )
 				 ->load_type( 'color' );
 			
 			$this->get_setting( 'bg_color_widget' )
-				 ->set_title( __( 'Widget Background Color', 'sv100' ) )
+				 ->set_title( __( 'Widget background color', 'sv100' ) )
 				 ->set_default_value( '#353639' )
 				 ->load_type( 'color' );
 			
@@ -345,26 +345,26 @@
 			// ### Date Settings ###
 			// Post
 			$this->get_setting( 'show_date_post' )
-				 ->set_title( __( 'Show Date on Posts', 'sv100' ) )
+				 ->set_title( __( 'Show date on posts', 'sv100' ) )
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
 			
 			// Page
 			$this->get_setting( 'show_date_page' )
-				 ->set_title( __( 'Show Date on Pages', 'sv100' ) )
+				 ->set_title( __( 'Show date on pages', 'sv100' ) )
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
 			
 			// ### Author Settings ###
 			// Post
 			$this->get_setting( 'show_author_post' )
-				 ->set_title( __( 'Show Author on Posts', 'sv100' ) )
+				 ->set_title( __( 'Show author on posts', 'sv100' ) )
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
 			
 			// Page
 			$this->get_setting( 'show_author_page' )
-				 ->set_title( __( 'Show Author on Pages', 'sv100' ) )
+				 ->set_title( __( 'Show author on pages', 'sv100' ) )
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
 			
@@ -480,17 +480,17 @@
 					 ->create( $this )
 					 ->set_ID( 'frontpage' )
 					 ->set_title( __( 'Sidebar - Frontpage', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this area will be shown in the sidebar of the frontpage/landingpage.', 'sv100' ) )
+					 ->set_desc( __( 'Widgets in this sidebar will be shown on the frontpage/landingpage.', 'sv100' ) )
 					 ->load_sidebar()
 					 ->create( $this )
 					 ->set_ID( 'page' )
 					 ->set_title( __( 'Sidebar - Pages', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this area will be shown in the sidebar of a page.', 'sv100' ) )
+					 ->set_desc( __( 'Widgets in this sidebar will be shown on pages.', 'sv100' ) )
 					 ->load_sidebar()
 					 ->create( $this )
 					 ->set_ID( 'single' )
 					 ->set_title( __( 'Sidebar - Posts', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this area will be shown in the sidebar of single posts.', 'sv100' ) )
+					 ->set_desc( __( 'Widgets in this sidebar will be shown on posts.', 'sv100' ) )
 					 ->load_sidebar();
 			}
 			

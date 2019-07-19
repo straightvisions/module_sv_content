@@ -20,7 +20,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'Content Header - Color Settings', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'Content Header - Colors', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'bg_color' )->run_type()->form();
@@ -28,7 +28,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'Content Header - Color Settings (with Thumbnail)', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'Content Header - Colors (with Thumbnail)', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'text_color_title_image' )->run_type()->form();

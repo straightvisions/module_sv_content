@@ -36,7 +36,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'List - Read More', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'List - Read more', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'font_family_more_list' )->run_type()->form();
@@ -46,7 +46,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'List - Color Settings', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'List - Colors', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'highlight_color_list' )->run_type()->form();
@@ -75,7 +75,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'Masonry - Read More', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'Masonry - Read more', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'font_family_more_masonry' )->run_type()->form();
@@ -85,7 +85,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'Masonry - Color Settings', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'Masonry - Colors', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'highlight_color_masonry' )->run_type()->form();
@@ -121,7 +121,7 @@
 		?>
 	</div>
 	
-	<h3 class="divider"><?php _e( 'Grid - Color Settings', 'sv100' ); ?></h3>
+	<h3 class="divider"><?php _e( 'Grid - Colors', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_settings_component( 'highlight_color_grid' )->run_type()->form();
