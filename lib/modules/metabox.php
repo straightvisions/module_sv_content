@@ -45,20 +45,28 @@
 		}
 		public function load_settings(): sv_content{
 			global $post;
-			
+
 			$this->get_setting( 'show_date' )
 				 ->set_title( __( 'Show Date', 'sv100' ) )
 				 ->set_default_value( $this->get_post_type() === 'page' ? $this->get_parent()->get_setting('show_date_page')->run_type()->get_data() : $this->get_parent()->get_setting('show_date_post')->run_type()->get_data() )
-				 ->load_type( 'checkbox' )
-				->run_type()
-				->set_data(get_post_meta($post->ID, $this->get_setting('show_date')->get_prefix($this->get_setting('show_date')->get_ID()), true));
-			
+				 ->load_type( 'checkbox' );
+
+			if($post) {
+				$this->get_setting('show_date')
+					->run_type()
+					->set_data(get_post_meta($post->ID, $this->get_setting('show_date')->get_prefix($this->get_setting('show_date')->get_ID()), true));
+			}
+
 			$this->get_setting( 'show_author' )
 				 ->set_title( __( 'Show Author', 'sv100' ) )
 				 ->set_default_value( $this->get_post_type() === 'page' ? $this->get_parent()->get_setting('show_author_page')->run_type()->get_data() : $this->get_parent()->get_setting('show_author_post')->run_type()->get_data() )
-				 ->load_type( 'checkbox' )
-				 ->run_type()
-				 ->set_data(get_post_meta($post->ID, $this->get_setting('show_author')->get_prefix($this->get_setting('show_author')->get_ID()), true));
+				 ->load_type( 'checkbox' );
+
+			if($post) {
+				$this->get_setting('show_author')
+					->run_type()
+					->set_data(get_post_meta($post->ID, $this->get_setting('show_author')->get_prefix($this->get_setting('show_author')->get_ID()), true));
+			}
 			
 			return $this;
 		}
