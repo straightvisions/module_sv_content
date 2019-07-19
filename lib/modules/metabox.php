@@ -73,7 +73,7 @@
 		public function load_metabox(): sv_content{
 			static::$metabox
 				->create( $this )
-				->set_title( __('SV100') );
+				->set_title( __('SV100', 'sv100') );
 			
 			return $this;
 		}
