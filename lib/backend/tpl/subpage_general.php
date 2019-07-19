@@ -1,5 +1,5 @@
 <div class="sv_setting_subpage">
-	<h2><?php _e('Miscellaneous', 'sv100'); ?></h2>
+	<h2><?php _e('General', 'sv100'); ?></h2>
 	<h3 class="divider"><?php _e( 'Content Color Settings', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
