@@ -68,7 +68,8 @@
 .sv100_sv_content_wrapper .aligncenter,
 .sv100_sv_content_wrapper .wp-block-image,
 .sv100_sv_content_wrapper .wp-block-cover,
-.sv100_sv_content_wrapper .wp-block-quote.is-style-large{
+.sv100_sv_content_wrapper .wp-block-quote.is-style-large,
+.sv100_sv_content_wrapper .wp-block-pullquote {
     margin-left: auto;
     margin-right: auto;
 }
@@ -147,7 +148,8 @@
 }
 
 /* Quote Block */
-.sv100_sv_content_wrapper .wp-block-quote {
+.sv100_sv_content_wrapper .wp-block-quote,
+.sv100_sv_content_wrapper .wp-block-pullquote {
     display: grid;
     grid-template-columns: 20px 1fr;
     grid-template-rows: auto auto;
@@ -157,7 +159,8 @@
     margin-bottom: 1em;
 }
 
-.sv100_sv_content_wrapper .wp-block-quote::before {
+.sv100_sv_content_wrapper .wp-block-quote::before,
+.sv100_sv_content_wrapper .wp-block-pullquote::before {
     content: '';
     border-width: 0 0 0 2px;
     border-style: solid;
@@ -182,11 +185,13 @@
     border-width: 0 2px 0 0;
 }
 
-.sv100_sv_content_wrapper .wp-block-quote > p {
+.sv100_sv_content_wrapper .wp-block-quote > p,
+.sv100_sv_content_wrapper .wp-block-pullquote > p {
     grid-area: quote;
 }
 
-.sv100_sv_content_wrapper .wp-block-quote > cite {
+.sv100_sv_content_wrapper .wp-block-quote > cite,
+.sv100_sv_content_wrapper .wp-block-pullquote > cite {
     grid-area: author;
     font-size: .8rem;
 }
