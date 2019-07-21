@@ -46,7 +46,7 @@
 .sv100_sv_content_wrapper *,
 .sv100_sv_content_wrapper .wp-block-image,
 .sv100_sv_content_wrapper .wp-block-cover {
-    max-width: var( --sv100_sv_common-max-width );
+    max-width: var( --sv100_sv_common-max-width-txt );
 }
 
 .sv100_sv_content_wrapper .alignwide,
