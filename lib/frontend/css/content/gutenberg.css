@@ -1,5 +1,5 @@
 /* Responsive Content */
-.sv100_sv_content_wrapper > *:not(.alignfull):not( .wp-block-group ) {
+.sv100_sv_content_wrapper > *:not(.alignfull):not( .wp-block-group ):not(.wp-block-columns) {
     width: 100%;
     max-width: var( --sv100_sv_common-max-width-txt );
     padding-left: var( --sv100_sv_common-padding );
@@ -199,6 +199,7 @@ blockquote.wp-block-quote.is-style-large > cite {
 .sv100_sv_content_wrapper .wp-block-image .aligncenter,
 .sv100_sv_content_wrapper .wp-block-image .alignright {
     float: none;
+    margin:0;
 }
 
 .sv100_sv_content_wrapper .wp-block-image figure {
