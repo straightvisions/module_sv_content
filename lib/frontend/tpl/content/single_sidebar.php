@@ -37,7 +37,7 @@
 					);
 					
 					echo $this->get_module( 'sv_tags' ) ? $this->get_module( 'sv_tags' )->load() : '';
-					echo $this->get_module( 'sv_comments' ) ? $this->get_module( 'sv_comments' )->load() : '';
+				    comments_template();
 				?>
 			</article>
 			<aside class="<?php echo $this->get_prefix( 'sidebar' ); ?>">
