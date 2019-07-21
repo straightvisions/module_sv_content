@@ -409,6 +409,10 @@ body.admin-bar .sv100_sv_content {
 	background-color: <?php echo $bg_color; ?>;
 }
 
+.sv100_sv_content_wrapper pre, .sv100_sv_content_wrapper pre.wp-block-code {
+    border-color: <?php echo $bg_color; ?>;
+}
+
 .sv100_sv_content_header h1 {
 	font-family: <?php echo ( $font_title ? '"' . $font_title['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_title ? $font_title['weight'] : '400' ); ?>;
