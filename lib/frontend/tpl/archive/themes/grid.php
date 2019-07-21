@@ -32,12 +32,16 @@
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
 						<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><?php the_title(); ?></h3>
+						<?php if($this->show_author()){ ?>
 						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 							<?php echo get_the_author_meta( 'display_name' ); ?>
 						</div>
+						<?php } ?>
+						<?php if($this->show_date()){ ?>
 						<div class="<?php echo $this->get_prefix( 'date' ); ?>">
 							<?php echo get_the_date(); ?>
 						</div>
+						<?php } ?>
 					</div>
 					<a href="<?php the_permalink(); ?>">
 						<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">

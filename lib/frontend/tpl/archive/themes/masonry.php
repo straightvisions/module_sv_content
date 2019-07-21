@@ -39,12 +39,16 @@
 				</div>
 
 				<div class="<?php echo $this->get_prefix( 'info' ); ?>">
+					<?php if($this->show_author()){ ?>
 					<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 						<?php echo get_the_author_posts_link( get_the_author_meta( 'ID' ) ); ?>
 					</div>
+					<?php } ?>
+					<?php if($this->show_date()){ ?>
 					<div class="<?php echo $this->get_prefix( 'date' ); ?>">
 						<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
 					</div>
+					<?php } ?>
 					<?php
 						if ( current_user_can( 'edit_post', get_the_ID() ) ) {
 							echo '<div class="' . $this->get_prefix( 'edit' ) . '">';

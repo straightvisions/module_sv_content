@@ -49,7 +49,7 @@
 	}
 }
 
-.sv100_sv_content_header p {
+.sv100_sv_content_header > * {
 	text-align: center;
 	font-size: .9rem;
 	margin: 0 auto 0 auto;

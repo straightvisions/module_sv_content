@@ -12,9 +12,15 @@
 	 */
 	
 	class sv_content extends init {
-		protected $content_metabox = false;
+		public $content_metabox = false;
 		
 		public function init() {
+			require_once($this->get_path('lib/modules/metabox.php'));
+			$this->content_metabox				= new sv_content_metabox();
+			$this->content_metabox->set_root( $this->get_root() );
+			$this->content_metabox->set_parent( $this );
+			$this->content_metabox->init();
+
 			$this->set_module_title( 'SV Content' )
 				 ->set_module_desc( __( 'Manages content output.', 'sv100' ) )
 				 ->add_theme_support()
@@ -27,12 +33,6 @@
 			     ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
 				 ->get_root()
 				 ->add_section( $this );
-			
-			require_once($this->get_path('lib/modules/metabox.php'));
-			$this->content_metabox				= new sv_content_metabox();
-			$this->content_metabox->set_root( $this->get_root() );
-			$this->content_metabox->set_parent( $this );
-			$this->content_metabox->init();
 			
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );

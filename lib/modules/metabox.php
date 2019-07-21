@@ -30,25 +30,14 @@
 			return $this;
 		}
 		public function wp_init(){
-			if(is_page()) {
-				$this->post_type = 'page';
-			}elseif(is_single()){
-				$this->post_type = 'post';
-			}else{
-				return;
-			}
-			
 			$this->load_settings()->load_metabox();
-		}
-		public function get_post_type(): string{
-			return $this->post_type;
 		}
 		public function load_settings(): sv_content{
 			global $post;
 
 			$this->get_setting( 'show_date' )
 				 ->set_title( __( 'Show date', 'sv100' ) )
-				 ->set_default_value( $this->get_post_type() === 'page' ? $this->get_parent()->get_setting('show_date_page')->run_type()->get_data() : $this->get_parent()->get_setting('show_date_post')->run_type()->get_data() )
+				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_date_'.get_post_type())->run_type()->get_data() : false )
 				 ->load_type( 'checkbox' );
 
 			if($post) {
@@ -59,7 +48,7 @@
 
 			$this->get_setting( 'show_author' )
 				 ->set_title( __( 'Show author', 'sv100' ) )
-				 ->set_default_value( $this->get_post_type() === 'page' ? $this->get_parent()->get_setting('show_author_page')->run_type()->get_data() : $this->get_parent()->get_setting('show_author_post')->run_type()->get_data() )
+				->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_author_'.get_post_type())->run_type()->get_data() : false )
 				 ->load_type( 'checkbox' );
 
 			if($post) {
