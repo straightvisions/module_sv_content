@@ -46,7 +46,8 @@
 .sv100_sv_content_wrapper > *,
 /* The following elements are necessary, because they got own max-width value that would overwrite the * rules */
 .sv100_sv_content_wrapper .wp-block-image,
-.sv100_sv_content_wrapper .wp-block-cover {
+.sv100_sv_content_wrapper .wp-block-cover,
+.sv100_sv_content_wrapper .wp-block-cover .wp-block-cover__inner-container {
     max-width: var( --sv100_sv_common-max-width-txt );
 }
 
