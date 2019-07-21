@@ -1,4 +1,3 @@
-<?php the_post(); ?>
 <div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'page' ); ?>">
 	<?php
 		$class = $this->get_prefix( 'header' );
