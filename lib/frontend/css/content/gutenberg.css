@@ -48,6 +48,7 @@
     .sv100_sv_content_wrapper > div.wp-block-group > ul.wp-block-gallery,
     .sv100_sv_content_wrapper > div.wp-block-group > table,
     .sv100_sv_content_wrapper > div.wp-block-group > pre {
+        margin:auto;
         max-width: var( --sv100_sv_common-max-width-mb );
     }
 
@@ -72,6 +73,7 @@
     .sv100_sv_content_wrapper > div.wp-block-group > ul.wp-block-gallery,
     .sv100_sv_content_wrapper > div.wp-block-group > table,
     .sv100_sv_content_wrapper > div.wp-block-group > pre {
+        margin:auto;
         max-width: var( --sv100_sv_common-max-width-dt );
     }
 
@@ -96,6 +98,7 @@
     .sv100_sv_content_wrapper > div.wp-block-group > ul.wp-block-gallery,
     .sv100_sv_content_wrapper > div.wp-block-group > table,
     .sv100_sv_content_wrapper > div.wp-block-group > pre {
+        margin:auto;
         max-width: var( --sv100_sv_common-max-width-lg );
     }
 
