@@ -1,35 +1,7 @@
 /* Responsive Content */
-.sv100_sv_content_wrapper > p,
-.sv100_sv_content_wrapper > h1,
-.sv100_sv_content_wrapper > h2,
-.sv100_sv_content_wrapper > h3,
-.sv100_sv_content_wrapper > h4,
-.sv100_sv_content_wrapper > h5,
-.sv100_sv_content_wrapper > h6,
-.sv100_sv_content_wrapper > ul,
-.sv100_sv_content_wrapper > ol,
-.sv100_sv_content_wrapper > blockquote,
-.sv100_sv_content_wrapper > div:not(.alignfull),
-.sv100_sv_content_wrapper > figure,
-.sv100_sv_content_wrapper > ul.wp-block-gallery,
-.sv100_sv_content_wrapper > table,
-.sv100_sv_content_wrapper > pre,
-.sv100_sv_content_wrapper > div.wp-block-group > p,
-.sv100_sv_content_wrapper > div.wp-block-group > h1,
-.sv100_sv_content_wrapper > div.wp-block-group > h2,
-.sv100_sv_content_wrapper > div.wp-block-group > h3,
-.sv100_sv_content_wrapper > div.wp-block-group > h4,
-.sv100_sv_content_wrapper > div.wp-block-group > h5,
-.sv100_sv_content_wrapper > div.wp-block-group > h6,
-.sv100_sv_content_wrapper > div.wp-block-group > ul,
-.sv100_sv_content_wrapper > div.wp-block-group > ol,
-.sv100_sv_content_wrapper > div.wp-block-group > blockquote,
-.sv100_sv_content_wrapper > div.wp-block-group > div,
-.sv100_sv_content_wrapper > div.wp-block-group > figure,
-.sv100_sv_content_wrapper > div.wp-block-group > ul.wp-block-gallery,
-.sv100_sv_content_wrapper > div.wp-block-group > table,
-.sv100_sv_content_wrapper > div.wp-block-group > pre {
+.sv100_sv_content_wrapper > *:not(.alignfull):not( .wp-block-group ) {
     width: 100%;
+    max-width: var( --sv100_sv_common-max-width-txt );
     padding-left: var( --sv100_sv_common-padding );
     padding-right: var( --sv100_sv_common-padding );
     margin-left: auto;
@@ -47,7 +19,6 @@
 .sv100_sv_content_wrapper > div.wp-block-group > ul.wp-block-gallery,
 .sv100_sv_content_wrapper > div.wp-block-group > table,
 .sv100_sv_content_wrapper > div.wp-block-group > pre {
-    max-width: 100%;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
@@ -63,30 +34,6 @@
 .sv100_sv_content_wrapper > div.wp-block-spacer {
     margin-bottom: 0;
     margin-top: 0;
-}
-
-.sv100_sv_content_wrapper > p,
-.sv100_sv_content_wrapper > h1,
-.sv100_sv_content_wrapper > h2,
-.sv100_sv_content_wrapper > h3,
-.sv100_sv_content_wrapper > h4,
-.sv100_sv_content_wrapper > h5,
-.sv100_sv_content_wrapper > h6,
-.sv100_sv_content_wrapper > ul,
-.sv100_sv_content_wrapper > ol,
-.sv100_sv_content_wrapper > blockquote,
-.sv100_sv_content_wrapper > div.wp-block-group > p,
-.sv100_sv_content_wrapper > div.wp-block-group > h1,
-.sv100_sv_content_wrapper > div.wp-block-group > h2,
-.sv100_sv_content_wrapper > div.wp-block-group > h3,
-.sv100_sv_content_wrapper > div.wp-block-group > h4,
-.sv100_sv_content_wrapper > div.wp-block-group > h5,
-.sv100_sv_content_wrapper > div.wp-block-group > h6,
-.sv100_sv_content_wrapper > div.wp-block-group > ul,
-.sv100_sv_content_wrapper > div.wp-block-group > ol,
-.sv100_sv_content_wrapper > div.wp-block-group > blockquote {
-    max-width: var( --sv100_sv_common-max-width-txt );
-    margin-left: auto;
 }
 
 /* Tablet */
