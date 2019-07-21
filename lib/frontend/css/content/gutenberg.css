@@ -428,3 +428,31 @@ code, pre.wp-block-code > code {
 .sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers.current::after {
     width: 100%;
 }
+
+/* Columns */
+.sv100_sv_content_wrapper .wp-block-columns.are-vertically-aligned-top {
+    align-items: flex-start;
+}
+
+.sv100_sv_content_wrapper .wp-block-column.is-vertically-aligned-top {
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+.sv100_sv_content_wrapper .wp-block-columns.are-vertically-aligned-center {
+    align-items: center;
+}
+
+.sv100_sv_content_wrapper .wp-block-column.is-vertically-aligned-center {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.sv100_sv_content_wrapper .wp-block-columns.are-vertically-aligned-bottom {
+    align-items: flex-end;
+}
+
+.sv100_sv_content_wrapper .wp-block-column.is-vertically-aligned-bottom {
+    margin-top: auto;
+    margin-bottom: 0;
+}
