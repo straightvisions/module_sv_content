@@ -321,3 +321,8 @@
 .sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers.current::after {
     width: 100%;
 }
+@media ( max-width: 849px ) {
+    div.wp-block-columns{
+        display:block;
+    }
+}
