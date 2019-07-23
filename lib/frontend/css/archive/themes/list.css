@@ -39,7 +39,7 @@
 /* Thumbnail */
 .sv100_sv_content_list .sv100_sv_content_thumbnail {
 	width: 100%;
-	height: 150px;
+	height: 160px;
 	margin-bottom: 15px;
 	overflow: hidden;
 	position: relative;
@@ -48,7 +48,6 @@
 @media ( min-width: 850px ) {
 	.sv100_sv_content_list .sv100_sv_content_thumbnail {
 		width: 280px;
-		height: 100%;
 		margin-right: 15px;
 		margin-bottom: 0;
 	}

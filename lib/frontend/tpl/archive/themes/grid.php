@@ -6,8 +6,8 @@
 			include( $this->get_path( 'lib/frontend/tpl/archive/themes/featured_image.php' ) );
 			?>
 			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
-				<?php if ( $thumbnail ) { ?>
 					<div class="<?php echo $this->get_prefix( 'thumbnail' ); ?>">
+						<?php if ( $thumbnail ) { ?>
 						<div class="<?php echo $this->get_prefix( 'categories' ); ?>">
 							<?php
 								$categories = get_the_category();
@@ -26,12 +26,15 @@
 								}
 							?>
 						</div>
-						<?php echo $thumbnail; ?>
+						<?php
+								echo $thumbnail;
+							}
+						?>
 					</div>
-				<?php } ?>
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
 						<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><?php the_title(); ?></h3>
+						<p class="<?php echo $this->get_prefix( 'mobile_excerpt' ); ?>"><?php echo get_the_excerpt(); ?></p>
 						<?php if($this->show_author()){ ?>
 						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 							<?php echo get_the_author_meta( 'display_name' ); ?>

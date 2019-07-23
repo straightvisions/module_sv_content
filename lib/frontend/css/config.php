@@ -24,8 +24,10 @@
 	 }
 
 	$font_size_h1				= $script->get_parent()->get_setting( 'font_size_h1' )->run_type()->get_data();
+	$font_size_h1_mobile		= $script->get_parent()->get_setting( 'font_size_h1_mobile' )->run_type()->get_data();
 	$text_color_h1				= $script->get_parent()->get_setting( 'text_color_h1' )->run_type()->get_data();
 	$line_height_h1				= $script->get_parent()->get_setting( 'line_height_h1' )->run_type()->get_data();
+	$line_height_h1_mobile		= $script->get_parent()->get_setting( 'line_height_h1_mobile' )->run_type()->get_data();
 	
 	// H2
 	$font_family_h2				= $script->get_parent()->get_setting( 'font_family_h2' )->run_type()->get_data();
@@ -37,8 +39,10 @@
 	}
 	
 	$font_size_h2				= $script->get_parent()->get_setting( 'font_size_h2' )->run_type()->get_data();
+	$font_size_h2_mobile		= $script->get_parent()->get_setting( 'font_size_h2_mobile' )->run_type()->get_data();
 	$text_color_h2				= $script->get_parent()->get_setting( 'text_color_h2' )->run_type()->get_data();
 	$line_height_h2				= $script->get_parent()->get_setting( 'line_height_h2' )->run_type()->get_data();
+	$line_height_h2_mobile		= $script->get_parent()->get_setting( 'line_height_h2_mobile' )->run_type()->get_data();
 	
 	// H3
 	$font_family_h3				= $script->get_parent()->get_setting( 'font_family_h3' )->run_type()->get_data();
@@ -50,8 +54,10 @@
 	}
 	
 	$font_size_h3				= $script->get_parent()->get_setting( 'font_size_h3' )->run_type()->get_data();
+	$font_size_h3_mobile		= $script->get_parent()->get_setting( 'font_size_h3_mobile' )->run_type()->get_data();
 	$text_color_h3				= $script->get_parent()->get_setting( 'text_color_h3' )->run_type()->get_data();
 	$line_height_h3				= $script->get_parent()->get_setting( 'line_height_h3' )->run_type()->get_data();
+	$line_height_h3_mobile		= $script->get_parent()->get_setting( 'line_height_h3_mobile' )->run_type()->get_data();
 	
 	// H4
 	$font_family_h4				= $script->get_parent()->get_setting( 'font_family_h4' )->run_type()->get_data();
@@ -63,8 +69,10 @@
 	}
 	
 	$font_size_h4				= $script->get_parent()->get_setting( 'font_size_h4' )->run_type()->get_data();
+	$font_size_h4_mobile		= $script->get_parent()->get_setting( 'font_size_h4_mobile' )->run_type()->get_data();
 	$text_color_h4				= $script->get_parent()->get_setting( 'text_color_h4' )->run_type()->get_data();
 	$line_height_h4				= $script->get_parent()->get_setting( 'line_height_h4' )->run_type()->get_data();
+	$line_height_h4_mobile		= $script->get_parent()->get_setting( 'line_height_h4_mobile' )->run_type()->get_data();
 	
 	// H5
 	$font_family_h5				= $script->get_parent()->get_setting( 'font_family_h5' )->run_type()->get_data();
@@ -76,8 +84,10 @@
 	}
 	
 	$font_size_h5				= $script->get_parent()->get_setting( 'font_size_h5' )->run_type()->get_data();
+	$font_size_h5_mobile		= $script->get_parent()->get_setting( 'font_size_h5_mobile' )->run_type()->get_data();
 	$text_color_h5				= $script->get_parent()->get_setting( 'text_color_h5' )->run_type()->get_data();
 	$line_height_h5				= $script->get_parent()->get_setting( 'line_height_h5' )->run_type()->get_data();
+	$line_height_h5_mobile		= $script->get_parent()->get_setting( 'line_height_h5_mobile' )->run_type()->get_data();
 	
 	// H6
 	$font_family_h6				= $script->get_parent()->get_setting( 'font_family_h6' )->run_type()->get_data();
@@ -88,9 +98,11 @@
 		$font_h6                = false;
 	}
 	
-	$font_size_h6				= $script->get_parent()->get_setting( 'font_size_h5' )->run_type()->get_data();
+	$font_size_h6				= $script->get_parent()->get_setting( 'font_size_h6' )->run_type()->get_data();
+	$font_size_h6_mobile		= $script->get_parent()->get_setting( 'font_size_h6_mobile' )->run_type()->get_data();
 	$text_color_h6				= $script->get_parent()->get_setting( 'text_color_h6' )->run_type()->get_data();
 	$line_height_h6				= $script->get_parent()->get_setting( 'line_height_h6' )->run_type()->get_data();
+	$line_height_h6_mobile		= $script->get_parent()->get_setting( 'line_height_h6_mobile' )->run_type()->get_data();
 	
 	// Color Settings
 	$highlight_color			= $script->get_parent()->get_setting( 'highlight_color' )->run_type()->get_data();
@@ -106,8 +118,10 @@
 	}
 	
 	$font_size_title			= $script->get_parent()->get_setting( 'font_size_title' )->run_type()->get_data();
+	$font_size_title_mobile		= $script->get_parent()->get_setting( 'font_size_title_mobile' )->run_type()->get_data();
 	$text_color_title			= $script->get_parent()->get_setting( 'text_color_title' )->run_type()->get_data();
 	$line_height_title			= $script->get_parent()->get_setting( 'line_height_title' )->run_type()->get_data();
+	$line_height_title_mobile	= $script->get_parent()->get_setting( 'line_height_title_mobile' )->run_type()->get_data();
 	
 	// Content Header - Excerpt
 	$font_family_excerpt		= $script->get_parent()->get_setting( 'font_family_excerpt' )->run_type()->get_data();
@@ -119,8 +133,10 @@
 	}
 	
 	$font_size_excerpt			= $script->get_parent()->get_setting( 'font_size_excerpt' )->run_type()->get_data();
+	$font_size_excerpt_mobile	= $script->get_parent()->get_setting( 'font_size_excerpt_mobile' )->run_type()->get_data();
 	$text_color_excerpt			= $script->get_parent()->get_setting( 'text_color_excerpt' )->run_type()->get_data();
 	$line_height_excerpt		= $script->get_parent()->get_setting( 'line_height_excerpt' )->run_type()->get_data();
+	$line_height_excerpt_mobile	= $script->get_parent()->get_setting( 'line_height_excerpt_mobile' )->run_type()->get_data();
 	
 	// Content Header - Color Settings
 	$bg_color					= $script->get_parent()->get_setting( 'bg_color' )->run_type()->get_data();
@@ -359,49 +375,97 @@ body.admin-bar .sv100_sv_content {
 .sv100_sv_content_wrapper h1 {
 	font-family: <?php echo ( $font_h1 ? '"' . $font_h1['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_h1 ?  $font_h1['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_h1; ?>px;
+	font-size: <?php echo $font_size_h1_mobile; ?>px;
 	color: <?php echo $text_color_h1; ?>;
-	line-height: <?php echo $line_height_h1; ?>px;
+	line-height: <?php echo $line_height_h1_mobile; ?>px;
+}
+
+@media( min-width: 850px ) {
+	.sv100_sv_content_header h1,
+	.sv100_sv_content_wrapper h1 {
+		font-size: <?php echo $font_size_h1; ?>px;
+		line-height: <?php echo $line_height_h1; ?>px;
+	}
 }
 
 .sv100_sv_content_wrapper h2 {
 	font-family: <?php echo ( $font_h2 ? '"' . $font_h2['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_h2 ? $font_h2['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_h2; ?>px;
+	font-size: <?php echo $font_size_h2_mobile; ?>px;
 	color: <?php echo $text_color_h2; ?>;
-	line-height: <?php echo $line_height_h2; ?>px;
+	line-height: <?php echo $line_height_h2_mobile; ?>px;
+}
+
+@media( min-width: 850px ) {
+	.sv100_sv_content_header h2,
+	.sv100_sv_content_wrapper h2 {
+		font-size: <?php echo $font_size_h2; ?>px;
+		line-height: <?php echo $line_height_h2; ?>px;
+	}
 }
 
 .sv100_sv_content_wrapper h3 {
 	font-family: <?php echo ( $font_h3 ? '"' . $font_h3['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_h3 ? $font_h3['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_h3; ?>px;
+	font-size: <?php echo $font_size_h3_mobile; ?>px;
 	color: <?php echo $text_color_h3; ?>;
-	line-height: <?php echo $line_height_h3; ?>px;
+	line-height: <?php echo $line_height_h3_mobile; ?>px;
+}
+
+@media( min-width: 850px ) {
+	.sv100_sv_content_header h3,
+	.sv100_sv_content_wrapper h3 {
+		font-size: <?php echo $font_size_h3; ?>px;
+		line-height: <?php echo $line_height_h3; ?>px;
+	}
 }
 
 .sv100_sv_content_wrapper h4 {
 	font-family: <?php echo ( $font_h4 ? '"' . $font_h4['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_h4 ? $font_h4['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_h4; ?>px;
+	font-size: <?php echo $font_size_h4_mobile; ?>px;
 	color: <?php echo $text_color_h4; ?>;
-	line-height: <?php echo $line_height_h4; ?>px;
+	line-height: <?php echo $line_height_h4_mobile; ?>px;
+}
+
+@media( min-width: 850px ) {
+	.sv100_sv_content_header h4,
+	.sv100_sv_content_wrapper h4 {
+		font-size: <?php echo $font_size_h4; ?>px;
+		line-height: <?php echo $line_height_h4; ?>px;
+	}
 }
 
 .sv100_sv_content_wrapper h5 {
 	font-family: <?php echo ( $font_h5 ? '"' . $font_h5['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_h5 ? $font_h5['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_h5; ?>px;
+	font-size: <?php echo $font_size_h5_mobile; ?>px;
 	color: <?php echo $text_color_h5; ?>;
-	line-height: <?php echo $line_height_h5; ?>px;
+	line-height: <?php echo $line_height_h5_mobile; ?>px;
+}
+
+@media( min-width: 850px ) {
+	.sv100_sv_content_header h5,
+	.sv100_sv_content_wrapper h5 {
+		font-size: <?php echo $font_size_h5; ?>px;
+		line-height: <?php echo $line_height_h5; ?>px;
+	}
 }
 
 .sv100_sv_content_wrapper h6 {
 	font-family: <?php echo ( $font_h6 ? '"' . $font_h6['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_h6 ? $font_h6['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_h6; ?>px;
+	font-size: <?php echo $font_size_h6_mobile; ?>px;
 	color: <?php echo $text_color_h6; ?>;
-	line-height: <?php echo $line_height_h6; ?>px;
+	line-height: <?php echo $line_height_h6_mobile; ?>px;
+}
+
+@media( min-width: 850px ) {
+	.sv100_sv_content_header h6,
+	.sv100_sv_content_wrapper h6 {
+		font-size: <?php echo $font_size_h6; ?>px;
+		line-height: <?php echo $line_height_h6; ?>px;
+	}
 }
 
 /* Content Header Settings */
@@ -416,20 +480,35 @@ body.admin-bar .sv100_sv_content {
 .sv100_sv_content_header h1 {
 	font-family: <?php echo ( $font_title ? '"' . $font_title['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_title ? $font_title['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_title; ?>px;
+	font-size: <?php echo $font_size_title_mobile; ?>px;
 	color: <?php echo $text_color_title; ?>;
-	line-height: <?php echo $line_height_title; ?>px;
+	line-height: <?php echo $line_height_title_mobile; ?>px;
+}
+
+@media ( min-width: 850px ) {
+	.sv100_sv_content_header h1 {
+		font-size: <?php echo $font_size_title; ?>px;
+		line-height: <?php echo $line_height_title; ?>px;
+	}
 }
 
 .sv100_sv_content_header .sv100_sv_content_excerpt p {
 	font-family: <?php echo ( $font_excerpt ? '"' . $font_excerpt['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_excerpt ? $font_excerpt['weight'] : '400' ); ?>;
-	font-size: <?php echo $font_size_excerpt; ?>px;
+	font-size: <?php echo $font_size_excerpt_mobile; ?>px;
 	color: <?php echo $text_color_excerpt; ?>;
-	line-height: <?php echo $line_height_excerpt; ?>px;
+	line-height: <?php echo $line_height_excerpt_mobile; ?>px;
 }
 
-.sv100_sv_content_header span {
+@media ( min-width: 850px ) {
+	.sv100_sv_content_header .sv100_sv_content_excerpt p {
+		font-size: <?php echo $font_size_excerpt; ?>px;
+		line-height: <?php echo $line_height_excerpt; ?>px;
+	}
+}
+
+.sv100_sv_content_header span,
+.sv100_sv_content_header .sv100_sv_content_meta {
 	color: <?php echo $text_color_info; ?>;
 }
 
@@ -446,7 +525,8 @@ body.admin-bar .sv100_sv_content {
 	color: <?php echo $text_color_excerpt_image; ?>;
 }
 
-.sv100_sv_content_header.with-thumbnail span {
+.sv100_sv_content_header.with-thumbnail span,
+.sv100_sv_content_header.with-thumbnail .sv100_sv_content_meta {
 	color: <?php echo $text_color_info_image; ?>;
 }
 
@@ -582,7 +662,8 @@ body.admin-bar .sv100_sv_content {
 	line-height: <?php echo $line_height_title_grid; ?>px;
 }
 
-.sv100_sv_content_grid .sv100_sv_content_info > div {
+.sv100_sv_content_grid .sv100_sv_content_info > div,
+.sv100_sv_content_grid .sv100_sv_content_info > p {
 	color: <?php echo $text_color_info_grid; ?>;
 }
 
