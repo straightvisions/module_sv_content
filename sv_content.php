@@ -649,7 +649,7 @@
 							if ( ! empty( $this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_single' ) ) ) ) {
 								$template['path'] = 'content/single_sidebar';
 								array_push( $template['scripts'], $this->get_script( 'sidebar' )->set_inline( $settings['inline'] ) );
-								$this::$has_sidebar = true;
+								$this->has_sidebar = true;
 							}
 							break;
 						case 'page':
