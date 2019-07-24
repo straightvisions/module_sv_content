@@ -293,79 +293,79 @@
 ?>
 /* Common Settings *//
 <?php if ( $sv_common_text_color ) { ?>
-.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > .post-page-numbers,
-.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers,
-.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:hover,
-.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:focus,
-.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:visited,
-.sv100_sv_content .sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:active,
-.sv100_sv_content input,
-.sv100_sv_content button {
+.sv100_sv_content_wrapper .sv100_sv_content_page_links > .post-page-numbers,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:hover,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:focus,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:visited,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:active,
+input,
+button {
 	color: <?php echo $sv_common_text_color; ?>;
 }
 
-.sv100_sv_content blockquote::before, .sv100_sv_content blockquote.wp-block-quote::before,
-.sv100_sv_content table th, .sv100_sv_content table.wp-block-table th,
-.sv100_sv_content table td, .sv100_sv_content table.wp-block-table td,
-.sv100_sv_content table tfoot td, .sv100_sv_content table.wp-block-table tfoot td,
-.sv100_sv_content input,
-.sv100_sv_content input[type="checkbox"]:hover,
-.sv100_sv_content input[type="checkbox"]:focus,
-.sv100_sv_content input[type="checkbox"]:checked,
-.sv100_sv_content input[type="radio"]:hover,
-.sv100_sv_content input[type="radio"]:focus,
-.sv100_sv_content input[type="radio"]:checked {
+blockquote::before, blockquote.wp-block-quote::before,
+table th, table.wp-block-table th,
+table td, table.wp-block-table td,
+table tfoot td, table.wp-block-table tfoot td,
+input,
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:checked,
+input[type="radio"]:hover,
+input[type="radio"]:focus,
+input[type="radio"]:checked {
 	border-color: <?php echo $sv_common_text_color; ?>;
 }
 
-.sv100_sv_content input[type="checkbox"]::before,
-.sv100_sv_content input[type="radio"]::before {
+input[type="checkbox"]::before,
+input[type="radio"]::before {
 	background-color: <?php echo $sv_common_text_color; ?>;
 }
 <?php } ?>
 
 /* Color Settings */
-.sv100_sv_content a:hover,
-.sv100_sv_content a:focus,
+a:hover,
+a:focus,
 .sv100_sv_content_header > h1 > span,
-.sv100_sv_content code, .sv100_sv_content pre.wp-block-code > code,
-.sv100_sv_content button:hover,
-.sv100_sv_content button:focus,
-.sv100_sv_content input[type="button"]:hover,
-.sv100_sv_content input[type="button"]:focus,
-.sv100_sv_content input[type="submit"]:hover,
-.sv100_sv_content input[type="submit"]:focus,
-.sv100_sv_content input[type="reset"]:hover,
-.sv100_sv_content input[type="reset"]:focus {
+code, pre.wp-block-code > code,
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus {
 	color: <?php echo $highlight_color; ?>;
 }
 
-.sv100_sv_content .sv100_sv_content_page_links .post-page-numbers::after {
+.sv100_sv_content_page_links .post-page-numbers::after {
 	background-color: <?php echo $highlight_color; ?>;
 }
 
-.sv100_sv_content button:hover,
-.sv100_sv_content button:focus,
-.sv100_sv_content input[type="button"]:hover,
-.sv100_sv_content input[type="button"]:focus,
-.sv100_sv_content input[type="submit"]:hover,
-.sv100_sv_content input[type="submit"]:focus,
-.sv100_sv_content input[type="reset"]:hover,
-.sv100_sv_content input[type="reset"]:focus {
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus {
 	border-color: <?php echo $highlight_color; ?>;
 }
 
-.sv100_sv_content {
+{
 	margin-top: <?php echo ( $header_fixed === true ) ? 80 : 0; ?>px;
 }
 
-body.admin-bar .sv100_sv_content {
+body.admin-bar {
 	margin-top: 0;
 }
 
 @media ( min-width: 850px ) {
 	body.admin-bar .sv100_sv_content,
-	.sv100_sv_content {
+	{
 		margin-top: <?php echo ( $header_fixed === true ) ? 100 : 0; ?>px;
 	}
 }
@@ -685,18 +685,18 @@ body.admin-bar .sv100_sv_content {
 
 <?php if ( $script->get_parent()->has_sidebar() ) { ?>
 /* Widget Settings */
-.sv100_sv_content_sidebar {
+.sv100_sv_content_wrapper .sv100_sv_sidebar {
 	border-color: <?php echo $bg_color_widget; ?>;
 }
 
-.sv100_sv_content_sidebar .widget,
-.sv100_sv_content_sidebar .widget a,
-.sv100_sv_content_sidebar .widget a:hover,
-.sv100_sv_content_sidebar .widget a:focus {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget a,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget a:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget a:focus {
 	color: <?php echo $text_color_widget; ?>;
 }
 
-.sv100_sv_content_sidebar .widget h3 {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget h3 {
 	font-family: <?php echo ( $font_widget_title ? '"' . $font_widget_title['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_widget_title ? $font_widget_title['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_widget_title; ?>px;
@@ -704,42 +704,42 @@ body.admin-bar .sv100_sv_content {
 	line-height: <?php echo $line_height_widget_title; ?>px;
 }
 
-.sv100_sv_content_sidebar .widget ul li,
-.sv100_sv_content_sidebar .widget.widget_recent_comments li:hover,
-.sv100_sv_content_sidebar .widget.widget_recent_comments li:focus,
-.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:hover,
-.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:focus,
-.sv100_sv_content_sidebar .widget.widget_rss ul li:hover,
-.sv100_sv_content_sidebar .widget.widget_rss ul li:focus {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget ul li,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget.widget_recent_comments li:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget.widget_recent_comments li:focus,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_nav_menu ul > li.menu-item-has-children:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_nav_menu ul > li.menu-item-has-children:focus,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget.widget_rss ul li:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget.widget_rss ul li:focus {
 	background-color: <?php echo $bg_color_widget; ?>;
 }
 
-.sv100_sv_content_sidebar .widget ul li:hover,
-.sv100_sv_content_sidebar .widget ul li:focus,
-.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:hover > a,
-.sv100_sv_content_sidebar .widget_nav_menu ul > li.menu-item-has-children:focus > a {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget ul li:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget ul li:focus,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_nav_menu ul > li.menu-item-has-children:hover > a,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_nav_menu ul > li.menu-item-has-children:focus > a {
 	background-color: <?php echo $highlight_color; ?>;
 }
 
-.sv100_sv_content_sidebar .widget_recent_comments a:hover,
-.sv100_sv_content_sidebar .widget_recent_comments a:focus,
-.sv100_sv_content_sidebar .widget_text a:hover,
-.sv100_sv_content_sidebar .widget_text a:focus,
-.sv100_sv_content_sidebar .widget_tag_cloud a:hover,
-.sv100_sv_content_sidebar .widget_tag_cloud a:focus,
-.sv100_sv_content_sidebar .widget_rss ul li > a:hover,
-.sv100_sv_content_sidebar .widget_rss ul li > a:focus {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_recent_comments a:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_recent_comments a:focus,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_text a:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_text a:focus,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_tag_cloud a:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_tag_cloud a:focus,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_rss ul li > a:hover,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_rss ul li > a:focus {
 	color: <?php echo $highlight_color; ?>;
 }
 
 <?php if ( $sv_common_text_color ) { ?>
-.sv100_sv_content_sidebar .widget input[type="search"],
-.sv100_sv_content_sidebar .widget input::placeholder {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget input[type="search"],
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget input::placeholder {
 	color: <?php echo $sv_common_text_color; ?>;
 }
 
-.sv100_sv_content_sidebar .widget_calendar table td,
-.sv100_sv_content_sidebar .widget_calendar table th {
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_calendar table td,
+.sv100_sv_content_wrapper .sv100_sv_sidebar .widget_calendar table th {
 	border-color: <?php echo $sv_common_text_color; ?>;
 }
 <?php } } ?>

@@ -32,7 +32,7 @@
 }
 
 /* Padding */
-.sv100_sv_content_wrapper > * {
+.sv100_sv_content_wrapper > article > * {
     padding-right: var( --sv100_sv_common-padding );
     padding-left: var( --sv100_sv_common-padding );
 }
@@ -43,7 +43,7 @@
 }
 
 /* Max Width */
-.sv100_sv_content_wrapper > *,
+.sv100_sv_content_wrapper > article > *,
 /* The following elements are necessary, because they got own max-width value that would overwrite the * rules */
 .sv100_sv_content_wrapper .wp-block-image,
 .sv100_sv_content_wrapper .wp-block-cover,
@@ -66,7 +66,7 @@
     margin-right: auto;
 }
 
-.sv100_sv_content_wrapper > *,
+.sv100_sv_content_wrapper > article > *,
 .sv100_sv_content_wrapper .aligncenter,
 .sv100_sv_content_wrapper .wp-block-image,
 .sv100_sv_content_wrapper .wp-block-cover,

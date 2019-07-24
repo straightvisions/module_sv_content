@@ -34,16 +34,16 @@
 		}
 		public function load_settings(): sv_content{
 			global $post;
-
+			
 			$this->get_setting( 'show_date' )
 				 ->set_title( __( 'Show date', 'sv100' ) )
-				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_date_'.get_post_type())->run_type()->get_data() : false )
+				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting( 'show_date_' . get_post_type() )->run_type()->get_data() : false )
 				 ->load_type( 'checkbox' );
 
-			if($post) {
+			if ( $post ) {
 				$this->get_setting('show_date')
 					->run_type()
-					->set_data(get_post_meta($post->ID, $this->get_setting('show_date')->get_prefix($this->get_setting('show_date')->get_ID()), true));
+					->set_data( get_post_meta( $post->ID, $this->get_setting( 'show_date' )->get_prefix( $this->get_setting( 'show_date' )->get_ID() ), true ) );
 			}
 
 			$this->get_setting( 'show_author' )
@@ -55,6 +55,28 @@
 				$this->get_setting('show_author')
 					->run_type()
 					->set_data(get_post_meta($post->ID, $this->get_setting('show_author')->get_prefix($this->get_setting('show_author')->get_ID()), true));
+			}
+			
+			$this->get_setting( 'show_sidebar_right' )
+				 ->set_title( __( 'Show right sidebar', 'sv100' ) )
+				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_sidebar_right_'.get_post_type())->run_type()->get_data() : false )
+				 ->load_type( 'checkbox' );
+			
+			if($post) {
+				$this->get_setting('show_sidebar_right')
+					 ->run_type()
+					 ->set_data(get_post_meta($post->ID, $this->get_setting('show_sidebar_right')->get_prefix($this->get_setting('show_sidebar_right')->get_ID()), true));
+			}
+			
+			$this->get_setting( 'show_sidebar_bottom' )
+				 ->set_title( __( 'Show bottom sidebar', 'sv100' ) )
+				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_sidebar_bottom_'.get_post_type())->run_type()->get_data() : false )
+				 ->load_type( 'checkbox' );
+			
+			if($post) {
+				$this->get_setting('show_sidebar_bottom')
+					 ->run_type()
+					 ->set_data(get_post_meta($post->ID, $this->get_setting('show_sidebar_bottom')->get_prefix($this->get_setting('show_sidebar_bottom')->get_ID()), true));
 			}
 			
 			return $this;

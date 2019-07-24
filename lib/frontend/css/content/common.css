@@ -58,6 +58,7 @@
 	margin-right: auto;
 }
 
+/* @todo SV Posts Styles, should be removed */
 /* Header with Slider */
 .sv100_sv_posts_slider .sv100_sv_posts_thumbnail::before {
 	content: '';

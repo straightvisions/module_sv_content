@@ -1,0 +1,20 @@
+/* ### Content - Sidebar ### */
+.sv100_sv_content_has_sidebar_bottom .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_bottom {
+	width: 100%;
+	margin-top: calc( var( --sv100_sv_common-padding ) * 2 );
+	max-width: var( --sv100_sv_common-max-width-txt );
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
+}
+
+.sv100_sv_content_has_sidebar_bottom.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_bottom {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.sv100_sv_content_has_sidebar_bottom .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_bottom > .sv100_sv_sidebar {
+	border-width: 1px 0 0 0;
+	border-style: solid;
+}
