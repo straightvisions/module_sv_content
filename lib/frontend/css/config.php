@@ -272,6 +272,10 @@
 	$highlight_color_grid		= sscanf( $script->get_parent()->get_setting( 'highlight_color_grid' )->run_type()->get_data(), "#%02x%02x%02x" );
 	
 	if ( $script->get_parent()->has_sidebar() ) {
+		// ### Sidebar Settings ###
+		$sidebar_right_post_sticky	= $script->get_parent()->get_setting( 'sidebar_right_post_sticky' )->run_type()->get_data();
+		$sidebar_right_page_sticky	= $script->get_parent()->get_setting( 'sidebar_right_page_sticky' )->run_type()->get_data();
+		
 		// ### Widget Settings ###
 		// Widget Titles
 		$font_family_widget_title	= $script->get_parent()->get_setting( 'font_family_widget_title' )->run_type()->get_data();
@@ -684,6 +688,21 @@ body.admin-bar {
 }
 
 <?php if ( $script->get_parent()->has_sidebar() ) { ?>
+/* Sidebar Settings */
+<?php if ( $sidebar_right_post_sticky ) { ?>
+.sv100_sv_content_wrapper .sv100_sv_sidebar_sv_content_post_right {
+	position: sticky;
+}
+<?php
+}
+
+if ( $sidebar_right_page_sticky ) {
+?>
+.sv100_sv_content_wrapper .sv100_sv_sidebar_sv_content_page_right {
+	position: sticky;
+}
+<?php } ?>
+
 /* Widget Settings */
 .sv100_sv_content_wrapper .sv100_sv_sidebar {
 	border-color: <?php echo $bg_color_widget; ?>;
