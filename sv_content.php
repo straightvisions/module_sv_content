@@ -407,6 +407,11 @@
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
 			
+			$this->get_setting( 'sidebar_right_post_sticky' )
+				 ->set_title( __( 'Make right sidebar on posts sticky', 'sv100' ) )
+				 ->set_default_value( 0 )
+				 ->load_type( 'checkbox' );
+			
 			$this->get_setting( 'show_sidebar_bottom_post' )
 				 ->set_title( __( 'Show bottom sidebar on posts', 'sv100' ) )
 				 ->set_default_value( 0 )
@@ -415,6 +420,11 @@
 			// Page
 			$this->get_setting( 'show_sidebar_right_page' )
 				 ->set_title( __( 'Show right sidebar on pages', 'sv100' ) )
+				 ->set_default_value( 0 )
+				 ->load_type( 'checkbox' );
+			
+			$this->get_setting( 'sidebar_right_page_sticky' )
+				 ->set_title( __( 'Make right sidebar on pages sticky', 'sv100' ) )
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
 			
@@ -525,6 +535,12 @@
 			$this->get_script( 'inline_config' )
 				 ->set_path( 'lib/frontend/css/config.php' )
 				 ->set_inline( true );
+			
+			// Scripts - Frontend
+			$this->get_script( 'sidebar_js' )
+				 ->set_path( 'lib/frontend/js/sidebar.js' )
+				 ->set_type( 'js' )
+				 ->set_deps( array(  'jquery' ) );
 			
 			// Scripts - Backend
 			$this->get_script( 'gutenberg_block_styles' )

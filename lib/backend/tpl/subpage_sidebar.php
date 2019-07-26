@@ -5,8 +5,14 @@
 	<div class="sv_setting_flex">
 		<?php
 			echo $module->get_setting( 'show_sidebar_right_post' )->run_type()->form();
+			echo $module->get_setting( 'sidebar_right_post_sticky' )->run_type()->form();
 			echo $module->get_setting( 'show_sidebar_bottom_post' )->run_type()->form();
+		?>
+	</div>
+	<div class="sv_setting_flex">
+		<?php
 			echo $module->get_setting( 'show_sidebar_right_page' )->run_type()->form();
+			echo $module->get_setting( 'sidebar_right_page_sticky' )->run_type()->form();
 			echo $module->get_setting( 'show_sidebar_bottom_page' )->run_type()->form();
 		?>
 	</div>
