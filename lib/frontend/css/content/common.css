@@ -36,6 +36,7 @@
 .sv100_sv_content_header_content h1 {
 	text-transform: uppercase;
 	margin: 0;
+	text-align:center;
 }
 
 .sv100_sv_content_header_content span {
