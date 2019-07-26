@@ -22,9 +22,11 @@
 			}
 		}
 		public function admin_post_type(): sv_content{
+
 			if(is_object(get_current_screen()) && isset(get_current_screen()->post_type)){
 				$this->post_type		= get_current_screen()->post_type;
 			}
+
 			$this->load_settings()->load_metabox();
 			
 			return $this;
@@ -41,9 +43,12 @@
 				 ->load_type( 'checkbox' );
 
 			if ( $post ) {
-				$this->get_setting('show_date')
-					->run_type()
-					->set_data( get_post_meta( $post->ID, $this->get_setting( 'show_date' )->get_prefix( $this->get_setting( 'show_date' )->get_ID() ), true ) );
+				$meta_setting = get_post_meta( $post->ID, $this->get_setting( 'show_date' )->get_prefix( $this->get_setting( 'show_date' )->get_ID()), true);
+				if($meta_setting !== false) {
+					$this->get_setting( 'show_date' )
+						 ->run_type()
+						 ->set_data( $meta_setting );
+				}
 			}
 
 			$this->get_setting( 'show_author' )
