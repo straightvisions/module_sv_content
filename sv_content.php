@@ -882,18 +882,37 @@
 		}
 		
 		public function show_date(): bool{
-			return boolval($this->content_metabox->get_setting('show_date')->run_type()->get_data());
+			return $this->get_visibility('date');
 		}
 		
 		public function show_author(): bool{
-			return boolval($this->content_metabox->get_setting('show_author')->run_type()->get_data());
+			return $this->get_visibility('author');
 		}
 		
 		public function show_right_sidebar(): bool{
-			return boolval($this->content_metabox->get_setting('show_sidebar_right')->run_type()->get_data());
+			return $this->get_visibility('sidebar_right');
 		}
 		
 		public function show_bottom_sidebar(): bool{
-			return boolval($this->content_metabox->get_setting('show_sidebar_bottom')->run_type()->get_data());
+			return $this->get_visibility('sidebar_bottom');
+		}
+		public function get_visibility(string $field): int{
+			global $post;
+
+			if ( $post ) {
+				$metabox_data = get_post_meta( $post->ID, $this->content_metabox->get_setting( 'show_'.$field )->get_prefix( $this->get_setting( 'show_'.$field )->get_ID() ), true );
+
+				if($metabox_data == 'hidden'){
+					$data = 0;
+				}elseif($metabox_data == 'show'){
+					$data = 1;
+				}
+			}
+
+			if(!isset($data)){
+				$data = $this->content_metabox->get_setting('show_'.$field)->run_type()->get_data();
+			}
+
+			return boolval($data);
 		}
 	}
