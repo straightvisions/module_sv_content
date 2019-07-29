@@ -9,6 +9,12 @@
 			echo $module->get_settings_component( 'line_height_title' )->run_type()->form();
 		?>
 	</div>
+    <div class="sv_setting_flex">
+		<?php
+		echo $module->get_setting( 'text_align_title' )->run_type()->form();
+		echo $module->get_setting( 'block_align_title' )->run_type()->form();
+		?>
+    </div>
 
 	<h3 class="divider"><?php _e( 'Title (Mobile)', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
@@ -27,6 +33,12 @@
 			echo $module->get_settings_component( 'line_height_excerpt' )->run_type()->form();
 		?>
 	</div>
+    <div class="sv_setting_flex">
+		<?php
+		echo $module->get_setting( 'text_align_excerpt' )->run_type()->form();
+		echo $module->get_setting( 'block_align_excerpt' )->run_type()->form();
+		?>
+    </div>
 
 	<h3 class="divider"><?php _e( 'Excerpt (Mobile)', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">

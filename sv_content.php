@@ -141,6 +141,51 @@
 			$this->get_settings_component( 'highlight_color','highlight_color', '#328ce6' );
 			
 			// ### Content Header Settings ###
+			// Alignment
+			$this->get_setting( 'text_align_title' )
+			     ->set_title( __( 'Text Alignment', 'sv100' ) )
+			     ->set_description( __( 'Defines the alignment of the title inside the content header.', 'sv100' ) )
+			     ->set_options( array(
+				     'left'      => __( 'Left', 'sv100' ),
+				     'center'    => __( 'Center', 'sv100' ),
+				     'right'     => __( 'Right', 'sv100' )
+			     ) )
+			     ->set_default_value( 'center' )
+			     ->load_type( 'select' );
+
+			$this->get_setting( 'block_align_title' )
+			     ->set_title( __( 'Block Alignment', 'sv100' ) )
+			     ->set_description( __( 'Defines the alignment of the title block inside the content header.', 'sv100' ) )
+			     ->set_options( array(
+				     'left'      => __( 'Left', 'sv100' ),
+				     'center'    => __( 'Center', 'sv100' ),
+				     'right'     => __( 'Right', 'sv100' )
+			     ) )
+			     ->set_default_value( 'center' )
+			     ->load_type( 'select' );
+
+			$this->get_setting( 'text_align_excerpt' )
+			     ->set_title( __( 'Text Alignment', 'sv100' ) )
+			     ->set_description( __( 'Defines the alignment of the excerpt inside the content header.', 'sv100' ) )
+			     ->set_options( array(
+				     'left'      => __( 'Left', 'sv100' ),
+				     'center'    => __( 'Center', 'sv100' ),
+				     'right'     => __( 'Right', 'sv100' )
+			     ) )
+			     ->set_default_value( 'left' )
+			     ->load_type( 'select' );
+
+			$this->get_setting( 'block_align_excerpt' )
+			     ->set_title( __( 'Block Alignment', 'sv100' ) )
+			     ->set_description( __( 'Defines the alignment of the excerpt block inside the content header.', 'sv100' ) )
+			     ->set_options( array(
+			     	'left'      => __( 'Left', 'sv100' ),
+			        'center'    => __( 'Center', 'sv100' ),
+			        'right'     => __( 'Right', 'sv100' )
+			     ) )
+			     ->set_default_value( 'center' )
+			     ->load_type( 'select' );
+
 			// Title
 			$this->get_settings_component( 'font_family_title','font_family' );
 			$this->get_settings_component( 'font_size_title','font_size', 48 );

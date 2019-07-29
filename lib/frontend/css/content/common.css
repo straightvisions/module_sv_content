@@ -25,18 +25,23 @@
 	flex-direction: column;
 	position: relative;
 	z-index: 50;
-	padding: 20px var( --sv100_sv_common-padding );
+	padding: 20px 0;
 	align-items: center;
 	justify-content: center;
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+	max-width: var( --sv100_sv_common-max-width-lg );
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .sv100_sv_content_header_content h1 {
 	text-transform: uppercase;
 	margin: 0;
-	text-align:center;
+	text-align: center;
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
 }
 
 .sv100_sv_content_header_content span {
@@ -57,6 +62,8 @@
 	max-width: var( --sv100_sv_common-max-width-txt );
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
 }
 
 /* @todo SV Posts Styles, should be removed */

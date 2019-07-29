@@ -108,6 +108,12 @@
 	$highlight_color			= $script->get_parent()->get_setting( 'highlight_color' )->run_type()->get_data();
 	
 	// ### Content Header Settings ###
+    // Content Header - Alignment
+    $text_align_title		    = $script->get_parent()->get_setting( 'text_align_title' )->run_type()->get_data();
+    $block_align_title		    = $script->get_parent()->get_setting( 'block_align_title' )->run_type()->get_data();
+    $text_align_excerpt		    = $script->get_parent()->get_setting( 'text_align_excerpt' )->run_type()->get_data();
+    $block_align_excerpt		= $script->get_parent()->get_setting( 'block_align_excerpt' )->run_type()->get_data();
+
 	// Content Header - Title
 	$font_family_title			= $script->get_parent()->get_setting( 'font_family_title' )->run_type()->get_data();
 	
@@ -475,6 +481,40 @@ body.admin-bar {
 /* Content Header Settings */
 .sv100_sv_content_header {
 	background-color: <?php echo $bg_color; ?>;
+}
+
+.sv100_sv_content_header .sv100_sv_content_header_content > h1 {
+text-align: <?php echo $text_align_title; ?>;
+    }
+
+.sv100_sv_content_header .sv100_sv_content_header_content > .sv100_sv_content_excerpt {
+    text-align: <?php echo $text_align_excerpt; ?>;
+}
+
+.sv100_sv_content_header .sv100_sv_content_header_content {
+    align-items: <?php
+        switch ( $block_align_title ) {
+            case 'left':
+                echo 'flex-start';
+                break;
+            case 'center':
+                echo 'center';
+                break;
+            case 'right':
+                echo 'flex-end';
+        }; ?>;
+}
+
+.sv100_sv_content_header .sv100_sv_content_header_content .sv100_sv_content_excerpt {
+<?php
+    switch ( $block_align_excerpt ) {
+        case 'left':
+            echo 'margin-left: 0;';
+            break;
+        case 'right':
+            echo 'margin-right: 0;';
+    };
+?>
 }
 
 .sv100_sv_content_wrapper pre, .sv100_sv_content_wrapper pre.wp-block-code {
