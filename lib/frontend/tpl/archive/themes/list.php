@@ -33,7 +33,7 @@
 						<div class="<?php echo $this->get_prefix( 'category' ); ?>">
 							<?php
 								$categories = get_the_category();
-								$separator  = ', ';
+								$separator  = ',&#160;';
 								$output     = '';
 								
 								if ( ! empty( $categories ) ) {
