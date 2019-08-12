@@ -28,13 +28,7 @@
 }
 
 .sv100_sv_content_wrapper a {
-    text-decoration: underline;
-    transition: color .25s ease;
-}
-
-.sv100_sv_content_wrapper a:hover,
-.sv100_sv_content_wrapper a:focus {
-    text-decoration: none;
+    transition: color .25s ease-in-out;
 }
 
 /* Padding */
@@ -153,6 +147,11 @@
     padding-left: 0;
     padding-right: 0;
     max-width: 100%;
+}
+
+.sv100_sv_content_wrapper div.wp-block-cover > .wp-block-cover__inner-container > *.has-background {
+    padding-left: var( --sv100_sv_common-padding );
+    padding-right: var( --sv100_sv_common-padding );
 }
 
 /* Seperator Block */
