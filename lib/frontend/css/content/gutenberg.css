@@ -317,26 +317,19 @@
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 20px;
-    font-weight: bold;
     position: relative;
-    text-decoration: none;
 }
 
 .sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers::after {
     display: block;
-    height: 2px;
     content: '';
     margin-top: 10px;
     width: 0;
-    transition: .25s ease;
+    transition: all .25s ease-in-out;
     left: 0;
     position: absolute;
 }
 
-.sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers:hover::after,
-.sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers.current::after {
-    width: 100%;
-}
 @media ( max-width: 849px ) {
     div.wp-block-columns{
         display:block;

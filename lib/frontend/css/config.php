@@ -13,6 +13,26 @@
 		$sv_common_text_color 	= $script->get_parent()->get_module( 'sv_common' )->get_setting( 'text_color' )->run_type()->get_data();
 	}
 	
+	// ### Pagination Settings ###
+	$font_family_pagination		= $script->get_parent()->get_setting( 'font_family_pagination' )->run_type()->get_data();
+	
+	if ( $font_family_pagination ) {
+		$font_pagination		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_pagination );
+	} else {
+		$font_pagination        = false;
+	}
+	
+	$font_size_pagination		            = $script->get_parent()->get_setting( 'font_size_pagination' )->run_type()->get_data();
+	$line_height_pagination		            = $script->get_parent()->get_setting( 'line_height_pagination' )->run_type()->get_data();
+	$text_color_pagination		            = $script->get_parent()->get_setting( 'text_color_pagination' )->run_type()->get_data();
+	$text_color_pagination_hover            = $script->get_parent()->get_setting( 'text_color_pagination_hover' )->run_type()->get_data();
+	$text_deco_pagination		            = $script->get_parent()->get_setting( 'text_deco_pagination' )->run_type()->get_data();
+	$text_deco_pagination_hover             = $script->get_parent()->get_setting( 'text_deco_pagination_hover' )->run_type()->get_data();
+	$text_deco_pagination_color             = $script->get_parent()->get_setting( 'text_deco_pagination_color' )->run_type()->get_data();
+	$text_deco_pagination_color_hover       = $script->get_parent()->get_setting( 'text_deco_pagination_color_hover' )->run_type()->get_data();
+    $text_deco_pagination_thickness         = $script->get_parent()->get_setting( 'text_deco_pagination_thickness' )->run_type()->get_data();
+	$text_deco_pagination_thickness_hover   = $script->get_parent()->get_setting( 'text_deco_pagination_thickness_hover' )->run_type()->get_data();
+	
 	// ### Content Settings ###
 	// H1
 	$font_family_h1				= $script->get_parent()->get_setting( 'font_family_h1' )->run_type()->get_data();
@@ -378,6 +398,38 @@ body.admin-bar {
 	{
 		margin-top: <?php echo ( $header_fixed === true ) ? 100 : 0; ?>px;
 	}
+}
+
+/* Pagination */
+.sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers {
+    font-family: <?php echo ( $font_pagination ? '"' . $font_pagination['family'] . '", ' : '' ); ?>sans-serif;
+    font-weight: <?php echo ( $font_pagination ?  $font_pagination['weight'] : '400' ); ?>;
+    font-size: <?php echo $font_size_pagination; ?>px;
+    color: <?php echo $text_color_pagination; ?>;
+    line-height: <?php echo $line_height_pagination; ?>px;
+    text-decoration: <?php echo $text_deco_pagination; ?>;
+}
+
+.sv100_sv_content_wrapper .sv100_sv_content_page_links a.post-page-numbers:hover,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links a.post-page-numbers:focus {
+    color: <?php echo $text_color_pagination_hover; ?>;
+}
+
+.sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers::after {
+height: <?php echo $text_deco_pagination_thickness; ?>px;
+<?php if ( $text_deco_pagination === 'underline' ) { ?>
+    width: 100%;
+    background-color: <?php echo $text_deco_pagination_color; ?>;
+<?php } ?>
+}
+
+.sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers:hover::after,
+.sv100_sv_content_wrapper .sv100_sv_content_page_links .post-page-numbers.current::after {
+    height: <?php echo $text_deco_pagination_thickness_hover; ?>px;
+	<?php if ( $text_deco_pagination_hover === 'underline' ) { ?>
+        width: 100%;
+        background-color: <?php echo $text_deco_pagination_color_hover; ?>;
+	<?php } ?>
 }
 
 /* Headings */
