@@ -30,31 +30,4 @@
 			echo $module->get_setting( 'show_author_page' )->run_type()->form();
 		?>
 	</div>
-
-    <h3 class="divider"><?php _e( 'Pagination', 'sv100' ); ?></h3>
-    <div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'font_family_pagination' )->run_type()->form();
-			echo $module->get_settings_component( 'font_size_pagination' )->run_type()->form();
-			echo $module->get_settings_component( 'text_color_pagination' )->run_type()->form();
-			echo $module->get_settings_component( 'line_height_pagination' )->run_type()->form();
-		?>
-    </div>
-    <div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'text_deco_pagination' )->run_type()->form();
-			echo $module->get_setting( 'text_deco_pagination_color' )->run_type()->form();
-			echo $module->get_setting( 'text_deco_pagination_thickness' )->run_type()->form();
-		?>
-    </div>
-
-    <h3 class="divider"><?php _e( 'Pagination (Hover/Focus)', 'sv100' ); ?></h3>
-    <div class="sv_setting_flex">
-		<?php
-			echo $module->get_settings_component( 'text_color_pagination_hover' )->run_type()->form();
-			echo $module->get_settings_component( 'text_deco_pagination_hover' )->run_type()->form();
-			echo $module->get_setting( 'text_deco_pagination_color_hover' )->run_type()->form();
-			echo $module->get_setting( 'text_deco_pagination_thickness_hover' )->run_type()->form();
-		?>
-    </div>
 </div>

@@ -234,39 +234,6 @@
 				 ->load_type( 'color' );
 			
 			// ### Post Listing Settings ###
-			// Pagination Settings
-			$this->get_settings_component( 'font_family_pagination','font_family' );
-			$this->get_settings_component( 'font_size_pagination','font_size', 16 );
-			$this->get_settings_component( 'line_height_pagination','line_height', 23 );
-			$this->get_settings_component( 'text_color_pagination','text_color', '#1e1e1e' );
-			$this->get_settings_component( 'text_deco_pagination','text_decoration', 'none' );
-			$this->get_setting( 'text_deco_pagination_color' )
-				 ->set_title( __( 'Text underline color', 'sv100' ) )
-				 ->set_description( __( 'Set the color of the underline.' ) )
-				 ->set_default_value( '#328ce6' )
-				 ->load_type( 'color' );
-			$this->get_setting( 'text_deco_pagination_thickness' )
-				 ->set_title( __( 'Text underline thickness', 'sv100' ) )
-				 ->set_description( __( 'Set the thickness of the underline, in pixel.' ) )
-				 ->set_default_value( 2 )
-				 ->set_min( 1 )
-				 ->load_type( 'number' );
-			
-			// Pagination Settings (Hover/Focus)
-			$this->get_settings_component( 'text_color_pagination_hover','text_color', '#1e1e1e' );
-			$this->get_settings_component( 'text_deco_pagination_hover','text_decoration', 'underline' );
-			$this->get_setting( 'text_deco_pagination_color_hover' )
-				 ->set_title( __( 'Text underline color (Hover/Focus)', 'sv100' ) )
-				 ->set_description( __( 'Set the color of the underline.' ) )
-				 ->set_default_value( '#328ce6' )
-				 ->load_type( 'color' );
-			$this->get_setting( 'text_deco_pagination_thickness_hover' )
-				 ->set_title( __( 'Text underline thickness (Hover/Focus)', 'sv100' ) )
-				 ->set_description( __( 'Set the thickness of the underline, in pixel.' ) )
-				 ->set_default_value( 2 )
-				 ->set_min( 1 )
-				 ->load_type( 'number' );
-			
 			//  List - Title
 			$this->get_settings_component( 'font_family_title_list','font_family' );
 			$this->get_settings_component( 'font_size_title_list','font_size', 32 );
