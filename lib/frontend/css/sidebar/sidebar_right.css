@@ -115,3 +115,8 @@
 		margin-right: 0;
 	}
 }
+
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_right > .sv100_sv_sidebar {
+	display: flex;
+	flex-direction: column;
+}

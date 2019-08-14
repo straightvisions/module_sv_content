@@ -15,6 +15,8 @@
 }
 
 .sv100_sv_content_has_sidebar_bottom .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_bottom > .sv100_sv_sidebar {
+	display: flex;
+	flex-direction: column;
 	border-width: 1px 0 0 0;
 	border-style: solid;
 }
