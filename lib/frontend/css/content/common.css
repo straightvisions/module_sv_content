@@ -42,6 +42,7 @@
 	text-align: center;
 	padding-left: var( --sv100_sv_common-padding );
 	padding-right: var( --sv100_sv_common-padding );
+	word-break: break-word;
 }
 
 .sv100_sv_content_header_content span {

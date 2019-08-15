@@ -9,6 +9,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	padding: 30px var( --sv100_sv_common-padding );
+	word-break: break-word;
 }
 
 /* Tablet */
