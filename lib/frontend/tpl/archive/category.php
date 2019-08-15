@@ -1,7 +1,9 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'category' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php single_cat_title(); ?></span></h1>
-		<?php echo category_description(); ?>
+        <div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
+            <h1><?php single_cat_title(); ?></span></h1>
+            <?php echo category_description(); ?>
+        </div>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>

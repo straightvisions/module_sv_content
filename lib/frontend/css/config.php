@@ -483,9 +483,9 @@ body.admin-bar {
 	background-color: <?php echo $bg_color; ?>;
 }
 
-.sv100_sv_content_header .sv100_sv_content_header_content > h1 {
-text-align: <?php echo $text_align_title; ?>;
-    }
+.sv100_sv_content_header .sv100_sv_content_header_content > * {
+    text-align: <?php echo $text_align_title; ?>;
+}
 
 .sv100_sv_content_header .sv100_sv_content_header_content > .sv100_sv_content_excerpt {
     text-align: <?php echo $text_align_excerpt; ?>;
