@@ -15,6 +15,8 @@
 	</div>
 	<?php
 	} else {
-		$p = get_post( $this->get_setting( '404_page' )->run_type()->get_data() );
-		wp_redirect(  $p->guid );
+		global $post;
+		$post = get_post( $this->get_setting( '404_page' )->run_type()->get_data() );
+		setup_postdata($post);
+		require_once($this->get_path('lib/frontend/tpl/content/page.php'));
 	}
