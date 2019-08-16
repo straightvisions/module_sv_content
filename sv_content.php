@@ -215,6 +215,20 @@
 				 ->set_default_value( '#828282' )
 				 ->load_type( 'color' );
 			
+			// Overlay Settings
+			$this->get_setting('image_overlay_color')
+				 ->set_title( __( 'Image Overlay Color', 'sv100' ) )
+				 ->set_default_value( '#000000' )
+				 ->load_type( 'color' );
+			
+			$this->get_setting('image_overlay_opacity')
+				 ->set_title( __( 'Image Overlay Opacity', 'sv_posts' ) )
+				 ->set_description( __( 'Image overlay opacity in percent.', 'sv100' ) )
+				 ->set_default_value( 30 )
+				 ->set_min( 0 )
+				 ->set_max( 100 )
+				 ->load_type( 'number' );
+			
 			// Color Settings with Thumbnail
 			$this->get_settings_component( 'bg_color_image','background_color', '#1e1e1e' );
 			

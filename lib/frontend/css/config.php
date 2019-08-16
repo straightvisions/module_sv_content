@@ -154,6 +154,15 @@
 	$bg_color_image				= sscanf( $script->get_parent()->get_setting( 'bg_color_image' )->run_type()->get_data(), "#%02x%02x%02x" );
 	$text_color_info_image		= $script->get_parent()->get_setting( 'text_color_info_image' )->run_type()->get_data();
 	
+	// Content Header - Image Overlay Settings
+	$image_overlay_color     = $script->get_parent()->get_setting( 'image_overlay_color' )->run_type()->get_data();
+	$image_overlay_opacity   = $script->get_parent()->get_setting( 'image_overlay_opacity' )->run_type()->get_data();
+	
+	// Value is a hex color
+	list( $r, $g, $b ) = sscanf( $image_overlay_color, "#%02x%02x%02x" );
+	
+	$image_overlay_color_rgb = $r . ',' . $g . ',' . $b;
+	
 	// ### Post Listing Settings ###
 	// List - Title
 	$font_family_title_list		= $script->get_parent()->get_setting( 'font_family_title_list' )->run_type()->get_data();
@@ -558,7 +567,7 @@ body.admin-bar {
 
 /* Content Header Settings (with Thumbnail) */
 .sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background::before {
-	background-color: rgba( <?php echo $bg_color_image[0] . ',' . $bg_color_image[1] . ',' . $bg_color_image[2]; ?>, .5 );
+	background-color: rgba( <?php echo $image_overlay_color_rgb . ',' . $image_overlay_opacity / 100; ?> );
 }
 
 .sv100_sv_content_header.with-thumbnail h1 {

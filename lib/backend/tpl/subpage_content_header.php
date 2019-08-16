@@ -69,4 +69,12 @@
 			echo $module->get_settings_component( 'text_color_info_image' )->run_type()->form();
 		?>
 	</div>
+
+    <h3 class="divider"><?php _e( 'Image Overlay Settings', 'sv100' ); ?></h3>
+    <div class="sv_setting_flex">
+		<?php
+			echo $module->get_setting( 'image_overlay_color' )->run_type()->form();
+			echo $module->get_setting( 'image_overlay_opacity' )->run_type()->form();
+		?>
+    </div>
 </div>
