@@ -199,6 +199,7 @@
     'stripe author';
     margin-top: 0;
     margin-bottom: 1em;
+    word-break: break-word;
 }
 
 .sv100_sv_content_wrapper .wp-block-quote::before,
