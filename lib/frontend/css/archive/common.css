@@ -3,6 +3,15 @@
 	background-color: transparent;
 }
 
+.sv100_sv_content  .sv100_sv_content_header_content {
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
+	overflow: hidden;
+	max-width: var( --sv100_sv_common-max-width-lg );
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .sv100_sv_content_wrapper {
 	width: 100%;
 	margin-right: auto;
