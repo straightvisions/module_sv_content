@@ -12,7 +12,9 @@
 					</div>
 				<?php } ?>
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
-					<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h3 class="<?php echo $this->get_prefix( 'title' ); ?>">
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</h3>
 					<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
 						<p><?php echo get_the_excerpt(); ?></p>
 						<a href="<?php the_permalink(); ?>" class="<?php echo $this->get_prefix( 'read_more' )?>">
@@ -38,8 +40,11 @@
 								
 								if ( ! empty( $categories ) ) {
 									foreach ( $categories as $category ) {
-										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="'
-												   . esc_attr( sprintf( __( 'View all posts in %s', 'sv100' ), $category->name ) ) .
+										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) )
+												   . '" title="'
+												   . esc_attr(
+												   		sprintf( __( 'View all posts in %s', 'sv100' ), $category->name )
+												   ) .
 												   '" class="' . $this->get_prefix( 'category' ) .'">'
 												   . esc_html( $category->name ) . '</a>' . $separator;
 									}

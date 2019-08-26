@@ -21,7 +21,7 @@
 			$this->content_metabox->set_parent( $this );
 			$this->content_metabox->init();
 			
-			$this->set_module_title( 'SV Content' )
+			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				 ->set_module_desc( __( 'Manages content output.', 'sv100' ) )
 				 ->add_theme_support()
 				 ->load_settings()
@@ -365,7 +365,7 @@
 				 ->set_description( __( 'Defines how posts on the homepage will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 					 'list' 		=> __( 'List (Default)', 'sv100' ),
-					 'masonry' 	=> __( 'Masonry', 'sv100' ),
+					 'masonry' 		=> __( 'Masonry', 'sv100' ),
 					 'grid' 		=> __( 'Grid', 'sv100' ),
 				 ))
 				 ->load_type( 'select' );
@@ -375,7 +375,7 @@
 				 ->set_description( __( 'Defines how the search results will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 					 'list' 		=> __( 'List (Default)', 'sv100' ),
-					 'masonry' 	=> __( 'Masonry', 'sv100' ),
+					 'masonry' 		=> __( 'Masonry', 'sv100' ),
 					 'grid' 		=> __( 'Grid', 'sv100' ),
 				 ))
 				 ->load_type( 'select' );
@@ -385,7 +385,7 @@
 				 ->set_description( __( 'Defines how posts filtered by category will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 					 'list' 		=> __( 'List (Default)', 'sv100' ),
-					 'masonry' 	=> __( 'Masonry', 'sv100' ),
+					 'masonry' 		=> __( 'Masonry', 'sv100' ),
 					 'grid' 		=> __( 'Grid', 'sv100' ),
 				 ))
 				 ->load_type( 'select' );
@@ -395,7 +395,7 @@
 				 ->set_description( __( 'Defines how posts filtered by tags will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 					 'list' 		=> __( 'List (Default)', 'sv100' ),
-					 'masonry' 	=> __( 'Masonry', 'sv100' ),
+					 'masonry' 		=> __( 'Masonry', 'sv100' ),
 					 'grid' 		=> __( 'Grid', 'sv100' ),
 				 ))
 				 ->load_type( 'select' );
@@ -405,7 +405,7 @@
 				 ->set_description( __( 'Defines how posts created by an author will be displayed.', 'sv100' ) )
 				 ->set_options( array(
 					 'list' 		=> __( 'List (Default)', 'sv100' ),
-					 'masonry' 	=> __( 'Masonry', 'sv100' ),
+					 'masonry' 		=> __( 'Masonry', 'sv100' ),
 					 'grid' 		=> __( 'Grid', 'sv100' ),
 				 ))
 				 ->load_type( 'select' );
@@ -883,7 +883,12 @@
 			}
 			
 			// @filter: sv100_sv_content_template
-			return $this->load_template( apply_filters( $this->get_prefix( 'template' ), $template, $settings, $this ), $settings );
+			return $this->load_template(
+				apply_filters(
+					$this->get_prefix( 'template' ),
+					$template, $settings, $this
+				), $settings
+			);
 		}
 		
 		// Loads the templates
@@ -959,7 +964,13 @@
 			global $post;
 
 			if ( $post ) {
-				$metabox_data = get_post_meta( $post->ID, $this->content_metabox->get_setting( 'show_'.$field )->get_prefix( $this->get_setting( 'show_'.$field )->get_ID() ), true );
+				$metabox_data = get_post_meta(
+					$post->ID,
+					$this->content_metabox
+						->get_setting( 'show_'.$field )
+						->get_prefix( $this->get_setting( 'show_'.$field )->get_ID() ),
+					true
+				);
 
 				if($metabox_data == 'hidden'){
 					$data = 0;

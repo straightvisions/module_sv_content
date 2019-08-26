@@ -41,25 +41,41 @@
 
 			$this->get_setting( 'show_date' )
 				 ->set_title( __( 'Show date', 'sv100' ) )
-				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting( 'show_date_' . get_post_type() )->run_type()->get_data() : false )
+				 ->set_default_value(
+				 	get_post_type()
+						? $this->get_parent()->get_setting( 'show_date_' . get_post_type() )->run_type()->get_data()
+						: false
+				 )
 				 ->load_type( 'radio' )
 				->set_options($states);
 
 			$this->get_setting( 'show_author' )
 				 ->set_title( __( 'Show author', 'sv100' ) )
-				->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_author_'.get_post_type())->run_type()->get_data() : false )
+				->set_default_value(
+					get_post_type()
+						? $this->get_parent()->get_setting('show_author_'.get_post_type())->run_type()->get_data()
+						: false
+				)
 				->load_type( 'radio' )
 				->set_options($states);
 
 			$this->get_setting( 'show_sidebar_right' )
 				 ->set_title( __( 'Show right sidebar', 'sv100' ) )
-				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_sidebar_right_'.get_post_type())->run_type()->get_data() : false )
+				 ->set_default_value(
+				 	get_post_type()
+						? $this->get_parent()->get_setting('show_sidebar_right_'.get_post_type())->run_type()->get_data()
+						: false
+				 )
 				->load_type( 'radio' )
 				->set_options($states);
 
 			$this->get_setting( 'show_sidebar_bottom' )
 				 ->set_title( __( 'Show bottom sidebar', 'sv100' ) )
-				 ->set_default_value( get_post_type() ? $this->get_parent()->get_setting('show_sidebar_bottom_'.get_post_type())->run_type()->get_data() : false )
+				 ->set_default_value(
+				 	get_post_type()
+						? $this->get_parent()->get_setting('show_sidebar_bottom_'.get_post_type())->run_type()->get_data()
+						: false
+				 )
 				->load_type( 'radio' )
 				->set_options($states);
 

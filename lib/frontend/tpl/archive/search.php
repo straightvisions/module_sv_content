@@ -1,7 +1,10 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'search' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
         <div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
-		    <h1><?php _e( 'Search results for', 'sv100' ); ?>: <span><?php echo get_search_query(); ?></span></h1>
+		    <h1>
+				<?php _e( 'Search results for', 'sv100' ); ?>:
+				<span><?php echo get_search_query(); ?></span>
+			</h1>
         </div>
 	</div>
 	

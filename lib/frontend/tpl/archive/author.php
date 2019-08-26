@@ -1,7 +1,10 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'author' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
         <div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
-		    <h1><?php _e( 'Posts from', 'sv100' ); ?>: <span><?php the_author_meta( 'display_name' ); ?></span></h1>
+		    <h1>
+				<?php _e( 'Posts from', 'sv100' ); ?>:
+				<span><?php the_author_meta( 'display_name' ); ?></span>
+			</h1>
         </div>
 	</div>
 	

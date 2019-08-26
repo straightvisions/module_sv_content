@@ -16,8 +16,11 @@
 								
 								if ( ! empty( $categories ) ) {
 									foreach ( $categories as $category ) {
-										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="'
-												   . esc_attr( sprintf( __( 'View all posts in %s', 'sv100' ), $category->name ) ) .
+										$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) )
+												   . '" title="'
+												   . esc_attr(
+												   		sprintf( __( 'View all posts in %s', 'sv100' ), $category->name )
+												   ) .
 												   '" class="' . $this->get_prefix( 'category' ) .'">'
 												   . esc_html( $category->name ) . '</a>' . $separator;
 									}
@@ -34,7 +37,9 @@
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
 						<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><?php the_title(); ?></h3>
-						<p class="<?php echo $this->get_prefix( 'mobile_excerpt' ); ?>"><?php echo get_the_excerpt(); ?></p>
+						<p class="<?php echo $this->get_prefix( 'mobile_excerpt' ); ?>">
+							<?php echo get_the_excerpt(); ?>
+						</p>
 						<?php if($this->show_author()){ ?>
 						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 							<?php echo get_the_author_meta( 'display_name' ); ?>

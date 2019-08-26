@@ -30,7 +30,9 @@
 				</div>
 			<?php } ?>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
-				<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<h3 class="<?php echo $this->get_prefix( 'title' ); ?>">
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</h3>
 				<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
 					<p><?php echo get_the_excerpt(); ?></p>
 					<a href="<?php the_permalink(); ?>" class="<?php echo $this->get_prefix( 'read_more' )?>">
