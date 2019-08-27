@@ -222,7 +222,7 @@
 				 ->load_type( 'color' );
 			
 			$this->get_setting('image_overlay_opacity')
-				 ->set_title( __( 'Image Overlay Opacity', 'sv_posts' ) )
+				 ->set_title( __( 'Image Overlay Opacity', 'sv100' ) )
 				 ->set_description( __( 'Image overlay opacity in percent.', 'sv100' ) )
 				 ->set_default_value( 30 )
 				 ->set_min( 0 )
