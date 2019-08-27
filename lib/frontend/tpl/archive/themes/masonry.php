@@ -1,7 +1,17 @@
 <div class="<?php echo $this->get_prefix( 'archive' ) . ' ' .$this->get_prefix( 'masonry' ); ?>">
 	<?php
-	while ( have_posts() ) {
-		the_post();
+		$posts_per_page = get_option( 'posts_per_page' );
+		$order_by = get_term_meta( get_the_category()[0]->term_id, '_order_by', true );
+		$order = get_term_meta( get_the_category()[0]->term_id, '_order', true );
+		
+		$args = array( 'posts_per_page' => $posts_per_page );
+		$args['orderby'] = $order_by ? $order_by : 'date';
+		$args['order'] = $order ? $order : 'ASC';
+		
+		$loop = new WP_Query( $args );
+		
+		while ( $loop->have_posts() ) {
+			$loop->the_post();
 		
 		include( $this->get_path( 'lib/frontend/tpl/archive/themes/featured_image.php' ) );
 		?>
@@ -30,9 +40,7 @@
 				</div>
 			<?php } ?>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
-				<h3 class="<?php echo $this->get_prefix( 'title' ); ?>">
-					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				</h3>
+				<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 				<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
 					<p><?php echo get_the_excerpt(); ?></p>
 					<a href="<?php the_permalink(); ?>" class="<?php echo $this->get_prefix( 'read_more' )?>">
