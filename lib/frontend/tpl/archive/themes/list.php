@@ -1,17 +1,7 @@
 <div class="<?php echo $this->get_prefix( 'archive' ) . ' ' .$this->get_prefix( 'list' ); ?>">
 	<?php
-        $posts_per_page = get_option( 'posts_per_page' );
-        $order_by = get_term_meta( get_the_category()[0]->term_id, '_order_by', true );
-		$order = get_term_meta( get_the_category()[0]->term_id, '_order', true );
-		
-		$args = array( 'posts_per_page' => $posts_per_page );
-		$args['orderby'] = $order_by ? $order_by : 'date';
-		$args['order'] = $order ? $order : 'ASC';
-
-        $loop = new WP_Query( $args );
-
-        while ( $loop->have_posts() ) {
-            $loop->the_post();
+        while ( have_posts() ) {
+			the_post();
 
             include( $this->get_path( 'lib/frontend/tpl/archive/themes/featured_image.php' ) );
             ?>
@@ -70,7 +60,7 @@
             </article>
             <?php
         }
-		
-		$loop->reset_postdata();
+        
+		wp_reset_postdata();
 	?>
 </div>

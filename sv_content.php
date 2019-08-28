@@ -37,6 +37,25 @@
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
 			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
+			add_filter( 'posts_orderby', array( $this, 'posts_orderby' ), 10, 2 );
+		}
+		
+		public function posts_orderby( $orderby_statement, $wp_query ) {
+			if ( is_category() ) {
+				$cat_ID = get_cat_ID( $wp_query->query['category_name'] );
+				$order_by = get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order_by', true )
+					? get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order_by', true )
+					: 'date';
+				$order = get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order', true )
+					? get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order', true )
+					: 'DESC';
+
+				$orderby_statement = 'wp_posts.post_' . $order_by . ' ' . $order;
+				//var_dump($orderby_statement);
+				return $orderby_statement;
+			} else {
+				return $orderby_statement;
+			}
 		}
 		
 		protected function add_theme_support(): sv_content {
