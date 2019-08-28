@@ -598,7 +598,6 @@ body.admin-bar {
 	font-size: <?php echo $font_size_excerpt_list; ?>px;
 	color: <?php echo $text_color_excerpt_list; ?>;
 	line-height: <?php echo $line_height_excerpt_list; ?>px;
-	max-height: calc( 4 * <?php echo $line_height_excerpt_list; ?>px );
 }
 
 .sv100_sv_content_list .sv100_sv_content_read_more {

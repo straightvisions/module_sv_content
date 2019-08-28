@@ -105,7 +105,8 @@
 	border-style: solid;
 	padding-right: 0;
 	padding-left: 0;
-	margin-top: calc( var( --sv100_sv_common-padding ) * 2 );
+	margin-top: var( --sv100_sv_common-padding );
+	padding-top: var( --sv100_sv_common-padding );
 	max-width: var( --sv100_sv_common-max-width-txt );
 	margin-left: auto;
 	margin-right: auto;

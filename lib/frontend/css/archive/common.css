@@ -17,7 +17,6 @@
 	margin-right: auto;
 	margin-left: auto;
 	padding: 30px var( --sv100_sv_common-padding );
-	word-break: break-word;
 }
 
 /* Tablet */
@@ -46,13 +45,13 @@
 .sv100_sv_content_header .sv100_sv_content_header_content {
 	margin: 0 auto;
 	max-width: var( --sv100_sv_common-max-width-lg );
-	word-break: break-word;
 }
 
 .sv100_sv_content_header h1 {
 	margin: 0;
 	width: 100%;
 	padding-top: 30px;
+	max-width: 100%;
 	word-break: break-word;
 }
 
@@ -61,6 +60,10 @@
 	.sv100_sv_content_header h1 {
 		padding-top: 70px;
 	}
+}
+
+.sv100_sv_content_header .sv100_sv_content_excerpt p {
+	max-width: 100%;
 }
 
 /* Content */

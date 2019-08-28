@@ -178,6 +178,32 @@
     padding-right: var( --sv100_sv_common-padding );
 }
 
+/* Media & Text Block */
+.sv100_sv_content_wrapper .wp-block-media-text .wp-block-media-text__content {
+    padding-right: 0;
+}
+
+.sv100_sv_content_wrapper .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+    padding-left: 0;
+}
+
+@media ( min-width: 601px ) {
+    .sv100_sv_content_wrapper .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+        padding-left: 8%;
+    }
+}
+
+/* Columns Block */
+.sv100_sv_content_wrapper .wp-block-columns .wp-block-column:not(:first-child) {
+    margin-left: 0;
+}
+
+@media ( min-width: 850px ) {
+    .sv100_sv_content_wrapper .wp-block-columns .wp-block-column:not(:first-child) {
+        margin-left: 32px;
+    }
+}
+
 /* Seperator Block */
 .sv100_sv_content_wrapper .wp-block-separator,
 .sv100_sv_content_wrapper .wp-block-separator.is-style-wide {
@@ -199,7 +225,6 @@
     'stripe author';
     margin-top: 0;
     margin-bottom: 1em;
-    word-break: break-word;
 }
 
 .sv100_sv_content_wrapper .wp-block-quote::before,
