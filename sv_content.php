@@ -20,7 +20,7 @@
 			$this->content_metabox->set_root( $this->get_root() );
 			$this->content_metabox->set_parent( $this );
 			$this->content_metabox->init();
-			
+
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				 ->set_module_desc( __( 'Manages content output.', 'sv100' ) )
 				 ->add_theme_support()
@@ -693,7 +693,7 @@
 				$settings,
 				$this->get_module_name()
 			);
-			
+
 			return $this->router( $settings );
 		}
 		
