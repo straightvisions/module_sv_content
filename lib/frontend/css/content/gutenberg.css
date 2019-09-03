@@ -131,6 +131,11 @@
 }
 
 /* Image Block */
+@media ( max-width: 750px ) {
+	.sv100_sv_content_wrapper .wp-block-image {
+		overflow: hidden;
+	}
+}
 .sv100_sv_content_wrapper .wp-block-image > .aligncenter {
 	width: 100%;
 }
