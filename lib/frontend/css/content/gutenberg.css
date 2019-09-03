@@ -196,6 +196,10 @@
 }
 
 /* Columns Block */
+.sv100_sv_content_wrapper .wp-block-column{
+	word-break: normal;
+	overflow-wrap: normal;
+}
 .sv100_sv_content_wrapper .wp-block-columns .wp-block-column:not(:first-child) {
 	margin-left: 0;
 }
@@ -354,8 +358,11 @@
 	padding: 20px;
 }
 
-@media ( max-width: 849px ) {
+@media ( max-width: 1300px ) {
 	div.wp-block-columns{
-		display:block;
+		flex-direction: column;
+	}
+	.sv100_sv_content_wrapper .wp-block-columns .wp-block-column:not(:first-child){
+		margin-left:0;
 	}
 }

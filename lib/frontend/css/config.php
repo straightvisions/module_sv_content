@@ -538,7 +538,7 @@ body.admin-bar {
 	line-height: <?php echo $line_height_title_mobile; ?>px;
 }
 
-@media ( min-width: 850px ) {
+@media ( min-width: 750px ) {
 	.sv100_sv_content_header h1 {
 		font-size: <?php echo $font_size_title; ?>px;
 		line-height: <?php echo $line_height_title; ?>px;
@@ -553,7 +553,7 @@ body.admin-bar {
 	line-height: <?php echo $line_height_excerpt_mobile; ?>px;
 }
 
-@media ( min-width: 850px ) {
+@media ( min-width: 750px ) {
 	.sv100_sv_content_header .sv100_sv_content_excerpt p {
 		font-size: <?php echo $font_size_excerpt; ?>px;
 		line-height: <?php echo $line_height_excerpt; ?>px;
