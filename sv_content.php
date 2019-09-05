@@ -1004,25 +1004,26 @@
 			global $post;
 
 			$data = $this->get_setting( 'header_content_overlay_color' )->run_type()->get_data();
-
-			if(get_post_meta(
-				$post->ID,
-				$this->content_metabox
-					->get_setting( 'header_content_override' )
-					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-				true
-			)) {
-				if ($post) {
-					$metabox_data = get_post_meta(
-						$post->ID,
-						$this->content_metabox
-							->get_setting('header_content_overlay_color')
-							->get_prefix($this->get_setting('header_content_overlay_color')->get_ID()),
-						true
-					);
-
-					if ($metabox_data) {
-						$data = $metabox_data;
+			if ( is_single() || is_page() || is_front_page() ) {
+				if ( get_post_meta(
+					$post->ID,
+					$this->content_metabox
+						->get_setting( 'header_content_override' )
+						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+					true
+				) ) {
+					if ( $post ) {
+						$metabox_data = get_post_meta(
+							$post->ID,
+							$this->content_metabox
+								->get_setting( 'header_content_overlay_color' )
+								->get_prefix( $this->get_setting( 'header_content_overlay_color' )->get_ID() ),
+							true
+						);
+						
+						if ( $metabox_data ) {
+							$data = $metabox_data;
+						}
 					}
 				}
 			}
@@ -1033,25 +1034,26 @@
 			global $post;
 
 			$data = $this->get_setting( 'header_content_overlay_opacity' )->run_type()->get_data();
-
-			if(get_post_meta(
-				$post->ID,
-				$this->content_metabox
-					->get_setting( 'header_content_override' )
-					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-				true
-			)) {
-				if ($post) {
-					$metabox_data = get_post_meta(
-						$post->ID,
-						$this->content_metabox
-							->get_setting('header_content_overlay_opacity')
-							->get_prefix($this->get_setting('header_content_overlay_opacity')->get_ID()),
-						true
-					);
-
-					if ($metabox_data) {
-						$data = $metabox_data;
+			if ( is_single() || is_page() || is_front_page() ) {
+				if ( get_post_meta(
+					$post->ID,
+					$this->content_metabox
+						->get_setting( 'header_content_override' )
+						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+					true
+				) ) {
+					if ( $post ) {
+						$metabox_data = get_post_meta(
+							$post->ID,
+							$this->content_metabox
+								->get_setting( 'header_content_overlay_opacity' )
+								->get_prefix( $this->get_setting( 'header_content_overlay_opacity' )->get_ID() ),
+							true
+						);
+						
+						if ( $metabox_data ) {
+							$data = $metabox_data;
+						}
 					}
 				}
 			}
@@ -1062,25 +1064,26 @@
 			global $post;
 
 			$data = $this->get_setting( 'text_color_title' )->run_type()->get_data();
-
-			if(get_post_meta(
-				$post->ID,
-				$this->content_metabox
-					->get_setting( 'header_content_override' )
-					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-				true
-			)) {
-				if ($post) {
-					$metabox_data = get_post_meta(
-						$post->ID,
-						$this->content_metabox
-							->get_setting('text_color_title')
-							->get_prefix($this->get_setting('text_color_title')->get_ID()),
-						true
-					);
-
-					if ($metabox_data) {
-						$data = $metabox_data;
+			if ( is_single() || is_page() || is_front_page() ) {
+				if ( get_post_meta(
+					$post->ID,
+					$this->content_metabox
+						->get_setting( 'header_content_override' )
+						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+					true
+				) ) {
+					if ( $post ) {
+						$metabox_data = get_post_meta(
+							$post->ID,
+							$this->content_metabox
+								->get_setting( 'text_color_title' )
+								->get_prefix( $this->get_setting( 'text_color_title' )->get_ID() ),
+							true
+						);
+						
+						if ( $metabox_data ) {
+							$data = $metabox_data;
+						}
 					}
 				}
 			}
