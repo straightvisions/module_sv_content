@@ -125,7 +125,7 @@
 	
 	$font_size_title			= $script->get_parent()->get_setting( 'font_size_title' )->run_type()->get_data();
 	$font_size_title_mobile		= $script->get_parent()->get_setting( 'font_size_title_mobile' )->run_type()->get_data();
-	$text_color_title			= $script->get_parent()->get_setting( 'text_color_title' )->run_type()->get_data();
+	$text_color_title			= $script->get_parent()->get_header_content_title_color();
 	$line_height_title			= $script->get_parent()->get_setting( 'line_height_title' )->run_type()->get_data();
 	$line_height_title_mobile	= $script->get_parent()->get_setting( 'line_height_title_mobile' )->run_type()->get_data();
 	
@@ -140,28 +140,27 @@
 	
 	$font_size_excerpt			= $script->get_parent()->get_setting( 'font_size_excerpt' )->run_type()->get_data();
 	$font_size_excerpt_mobile	= $script->get_parent()->get_setting( 'font_size_excerpt_mobile' )->run_type()->get_data();
-	$text_color_excerpt			= $script->get_parent()->get_setting( 'text_color_excerpt' )->run_type()->get_data();
+	$text_color_excerpt			= $script->get_parent()->get_header_content_excerpt_color();
 	$line_height_excerpt		= $script->get_parent()->get_setting( 'line_height_excerpt' )->run_type()->get_data();
 	$line_height_excerpt_mobile	= $script->get_parent()->get_setting( 'line_height_excerpt_mobile' )->run_type()->get_data();
 	
 	// Content Header - Color Settings
 	$bg_color					= $script->get_parent()->get_setting( 'bg_color' )->run_type()->get_data();
-	$text_color_info			= $script->get_parent()->get_setting( 'text_color_info' )->run_type()->get_data();
-	
-	// Content Header - Color Settings (with Thumbnail)
-	$text_color_title_image		= $script->get_parent()->get_setting( 'text_color_title_image' )->run_type()->get_data();
-	$text_color_excerpt_image	= $script->get_parent()->get_setting( 'text_color_excerpt_image' )->run_type()->get_data();
-	$bg_color_image				= sscanf( $script->get_parent()->get_setting( 'bg_color_image' )->run_type()->get_data(), "#%02x%02x%02x" );
-	$text_color_info_image		= $script->get_parent()->get_setting( 'text_color_info_image' )->run_type()->get_data();
-	
+	$text_color_info			= $script->get_parent()->get_header_content_author_date_color();
+
 	// Content Header - Image Overlay Settings
 	$image_overlay_color     = $script->get_parent()->get_setting( 'image_overlay_color' )->run_type()->get_data();
 	$image_overlay_opacity   = $script->get_parent()->get_setting( 'image_overlay_opacity' )->run_type()->get_data();
-	
 	// Value is a hex color
 	list( $r, $g, $b ) = sscanf( $image_overlay_color, "#%02x%02x%02x" );
-	
 	$image_overlay_color_rgb = $r . ',' . $g . ',' . $b;
+
+	$header_content_overlay_color     = $script->get_parent()->get_header_content_overlay_color();
+	$header_content_overlay_opacity   = $script->get_parent()->get_header_content_overlay_opacity();
+	// Value is a hex color
+	list( $r, $g, $b ) = sscanf( $header_content_overlay_color, "#%02x%02x%02x" );
+	$header_content_overlay_color_rgb = $r . ',' . $g . ',' . $b;
+
 	
 	// ### Post Listing Settings ###
 	// List - Title
@@ -570,17 +569,8 @@ body.admin-bar {
 	background-color: rgba( <?php echo $image_overlay_color_rgb . ',' . $image_overlay_opacity / 100; ?> );
 }
 
-.sv100_sv_content_header.with-thumbnail h1 {
-	color: <?php echo $text_color_title_image; ?>;
-}
-
-.sv100_sv_content_header.with-thumbnail .sv100_sv_content_excerpt p {
-	color: <?php echo $text_color_excerpt_image; ?>;
-}
-
-.sv100_sv_content_header.with-thumbnail span,
-.sv100_sv_content_header.with-thumbnail .sv100_sv_content_meta {
-	color: <?php echo $text_color_info_image; ?>;
+.sv100_sv_content_header_content {
+background-color: rgba( <?php echo $header_content_overlay_color_rgb . ',' . $header_content_overlay_opacity / 100; ?> );
 }
 
 /* List */

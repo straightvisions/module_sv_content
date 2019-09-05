@@ -247,25 +247,21 @@
 				 ->set_min( 0 )
 				 ->set_max( 100 )
 				 ->load_type( 'number' );
-			
-			// Color Settings with Thumbnail
-			$this->get_settings_component( 'bg_color_image','background_color', '#1e1e1e' );
-			
-			$this->get_setting( 'text_color_title_image' )
-				 ->set_title( __( 'Title color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'text_color_excerpt_image' )
-				 ->set_title( __( 'Excerpt color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
-			$this->get_setting( 'text_color_info_image' )
-				 ->set_title( __( 'Author & Date color', 'sv100' ) )
-				 ->set_default_value( '#ffffff' )
-				 ->load_type( 'color' );
-			
+
+			// Header Content Overlay
+			$this->get_setting( 'header_content_overlay_color' )
+				->set_title( __( 'Header Content Overlay Color', 'sv100' ) )
+				->set_default_value( '#000000' )
+				->load_type( 'color' );
+
+			$this->get_setting('header_content_overlay_opacity')
+				->set_title( __( 'Header Content Overlay Opacity', 'sv100' ) )
+				->set_description( __( 'Header Content overlay opacity in percent.', 'sv100' ) )
+				->set_default_value( 0 )
+				->set_min( 0 )
+				->set_max( 100 )
+				->load_type( 'number' );
+
 			// ### Post Listing Settings ###
 			//  List - Title
 			$this->get_settings_component( 'font_family_title_list','font_family' );
@@ -451,7 +447,7 @@
 				 ->set_title( __( '404 Page', 'sv100' ) )
 				 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv100' ) )
 				 ->load_type( 'select_page' );
-			
+
 			// ### Date Settings ###
 			// Post
 			$this->get_setting( 'show_date_post' )
@@ -1003,5 +999,150 @@
 			}
 
 			return boolval($data);
+		}
+		public function get_header_content_overlay_color(): string{
+			global $post;
+
+			$data = $this->get_setting( 'header_content_overlay_color' )->run_type()->get_data();
+
+			if(get_post_meta(
+				$post->ID,
+				$this->content_metabox
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			)) {
+				if ($post) {
+					$metabox_data = get_post_meta(
+						$post->ID,
+						$this->content_metabox
+							->get_setting('header_content_overlay_color')
+							->get_prefix($this->get_setting('header_content_overlay_color')->get_ID()),
+						true
+					);
+
+					if ($metabox_data) {
+						$data = $metabox_data;
+					}
+				}
+			}
+
+			return $data;
+		}
+		public function get_header_content_overlay_opacity(): string{
+			global $post;
+
+			$data = $this->get_setting( 'header_content_overlay_opacity' )->run_type()->get_data();
+
+			if(get_post_meta(
+				$post->ID,
+				$this->content_metabox
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			)) {
+				if ($post) {
+					$metabox_data = get_post_meta(
+						$post->ID,
+						$this->content_metabox
+							->get_setting('header_content_overlay_opacity')
+							->get_prefix($this->get_setting('header_content_overlay_opacity')->get_ID()),
+						true
+					);
+
+					if ($metabox_data) {
+						$data = $metabox_data;
+					}
+				}
+			}
+
+			return $data;
+		}
+		public function get_header_content_title_color(): string{
+			global $post;
+
+			$data = $this->get_setting( 'text_color_title' )->run_type()->get_data();
+
+			if(get_post_meta(
+				$post->ID,
+				$this->content_metabox
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			)) {
+				if ($post) {
+					$metabox_data = get_post_meta(
+						$post->ID,
+						$this->content_metabox
+							->get_setting('text_color_title')
+							->get_prefix($this->get_setting('text_color_title')->get_ID()),
+						true
+					);
+
+					if ($metabox_data) {
+						$data = $metabox_data;
+					}
+				}
+			}
+
+			return $data;
+		}
+		public function get_header_content_excerpt_color(): string{
+			global $post;
+
+			$data = $this->get_setting( 'text_color_excerpt' )->run_type()->get_data();
+
+			if(get_post_meta(
+				$post->ID,
+				$this->content_metabox
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			)) {
+				if ($post) {
+					$metabox_data = get_post_meta(
+						$post->ID,
+						$this->content_metabox
+							->get_setting('text_color_excerpt')
+							->get_prefix($this->get_setting('text_color_excerpt')->get_ID()),
+						true
+					);
+
+					if ($metabox_data) {
+						$data = $metabox_data;
+					}
+				}
+			}
+
+			return $data;
+		}
+		public function get_header_content_author_date_color(): string{
+			global $post;
+
+			$data = $this->get_setting( 'text_color_info' )->run_type()->get_data();
+
+			if(get_post_meta(
+				$post->ID,
+				$this->content_metabox
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			)) {
+				if ($post) {
+					$metabox_data = get_post_meta(
+						$post->ID,
+						$this->content_metabox
+							->get_setting('text_color_info')
+							->get_prefix($this->get_setting('text_color_info')->get_ID()),
+						true
+					);
+
+					if ($metabox_data) {
+						$data = $metabox_data;
+					}
+				}
+			}
+
+			return $data;
 		}
 	}

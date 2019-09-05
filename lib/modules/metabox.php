@@ -80,6 +80,43 @@
 				->load_type( 'radio' )
 				->set_options($states);
 
+			$this->get_setting( 'header_content_override' )
+				->set_title( __( 'Override Default Header Content Settings', 'sv100' ) )
+				->set_default_value(0)
+				->load_type( 'radio' )
+				->set_options(array(__('no','sv100'), __('yes','sv100')));
+
+			$this->get_setting( 'header_content_overlay_color' )
+				->set_title( $this->get_parent()->get_setting('header_content_overlay_color')->get_title() )
+				->set_description( $this->get_parent()->get_setting('header_content_overlay_color')->get_description() )
+				->set_default_value($this->get_parent()->get_setting('header_content_overlay_color')->run_type()->get_data())
+				->load_type( 'color' );
+
+			$this->get_setting('header_content_overlay_opacity')
+				->set_title( $this->get_parent()->get_setting('header_content_overlay_opacity')->get_title() )
+				->set_description( $this->get_parent()->get_setting('header_content_overlay_opacity')->get_description() )
+				->set_default_value( $this->get_parent()->get_setting('header_content_overlay_opacity')->run_type()->get_data() )
+				->set_min( 0 )
+				->set_max( 100 )
+				->load_type( 'number' );
+
+			$this->get_setting( 'text_color_title' )
+				->set_title( __('Header Title: ','sv100').$this->get_parent()->get_setting('text_color_title')->get_title() )
+				->set_description( $this->get_parent()->get_setting('text_color_title')->get_description() )
+				->set_default_value($this->get_parent()->get_setting('text_color_title')->run_type()->get_data())
+				->load_type( 'color' );
+
+			$this->get_setting( 'text_color_excerpt' )
+				->set_title( __('Header Excerpt: ','sv100').$this->get_parent()->get_setting('text_color_excerpt')->get_title() )
+				->set_description( $this->get_parent()->get_setting('text_color_excerpt')->get_description() )
+				->set_default_value($this->get_parent()->get_setting('text_color_excerpt')->run_type()->get_data())
+				->load_type( 'color' );
+
+			$this->get_setting( 'text_color_info' )
+				->set_title( $this->get_parent()->get_setting('text_color_info')->get_title() )
+				->set_description( $this->get_parent()->get_setting('text_color_info')->get_description() )
+				->set_default_value($this->get_parent()->get_setting('text_color_info')->run_type()->get_data())
+				->load_type( 'color' );
 			return $this;
 		}
 		public function load_metabox(): sv_content{
