@@ -191,13 +191,22 @@
 	padding-right: 0;
 }
 
-.sv100_sv_content_wrapper .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+.sv100_sv_content_wrapper .wp-block-media-text .wp-block-media-text__content {
 	padding-left: 0;
+}
+@media ( max-width: 850px ) {
+	.sv100_sv_content_wrapper .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__media{
+		padding-bottom:.8em;
+	}
 }
 
 @media ( min-width: 601px ) {
-	.sv100_sv_content_wrapper .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+	.sv100_sv_content_wrapper .wp-block-media-text .wp-block-media-text__content {
 		padding-left: 8%;
+	}
+	.sv100_sv_content_wrapper .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+		padding-left: 0;
+		padding-right: 8%;
 	}
 }
 
