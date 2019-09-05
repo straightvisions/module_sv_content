@@ -1091,25 +1091,27 @@
 			global $post;
 
 			$data = $this->get_setting( 'text_color_excerpt' )->run_type()->get_data();
-
-			if(get_post_meta(
-				$post->ID,
-				$this->content_metabox
-					->get_setting( 'header_content_override' )
-					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-				true
-			)) {
-				if ($post) {
-					$metabox_data = get_post_meta(
-						$post->ID,
-						$this->content_metabox
-							->get_setting('text_color_excerpt')
-							->get_prefix($this->get_setting('text_color_excerpt')->get_ID()),
-						true
-					);
-
-					if ($metabox_data) {
-						$data = $metabox_data;
+			
+			if ( is_single() || is_page() || is_front_page() ) {
+				if(get_post_meta(
+					$post->ID,
+					$this->content_metabox
+						->get_setting( 'header_content_override' )
+						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+					true
+				)) {
+					if ($post) {
+						$metabox_data = get_post_meta(
+							$post->ID,
+							$this->content_metabox
+								->get_setting('text_color_excerpt')
+								->get_prefix($this->get_setting('text_color_excerpt')->get_ID()),
+							true
+						);
+						
+						if ($metabox_data) {
+							$data = $metabox_data;
+						}
 					}
 				}
 			}

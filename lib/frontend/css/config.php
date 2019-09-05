@@ -495,7 +495,8 @@ body.admin-bar {
     text-align: <?php echo $text_align_title; ?>;
 }
 
-.sv100_sv_content_header .sv100_sv_content_header_content > .sv100_sv_content_excerpt {
+.sv100_sv_content_header .sv100_sv_content_header_content > .sv100_sv_content_excerpt,
+.sv100_sv_content_header .sv100_sv_content_header_content > p {
     text-align: <?php echo $text_align_excerpt; ?>;
 }
 
@@ -513,7 +514,8 @@ body.admin-bar {
         }; ?>;
 }
 
-.sv100_sv_content_header .sv100_sv_content_header_content .sv100_sv_content_excerpt {
+.sv100_sv_content_header .sv100_sv_content_header_content .sv100_sv_content_excerpt,
+.sv100_sv_content_header .sv100_sv_content_header_content > p {
 <?php
     switch ( $block_align_excerpt ) {
         case 'left':
@@ -544,7 +546,8 @@ body.admin-bar {
 	}
 }
 
-.sv100_sv_content_header .sv100_sv_content_excerpt p {
+.sv100_sv_content_header .sv100_sv_content_excerpt p,
+.sv100_sv_content_header .sv100_sv_content_header_content > p {
 	font-family: <?php echo ( $font_excerpt ? '"' . $font_excerpt['family'] . '", ' : '' ); ?>sans-serif;
 	font-weight: <?php echo ( $font_excerpt ? $font_excerpt['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_excerpt_mobile; ?>px;
@@ -553,7 +556,8 @@ body.admin-bar {
 }
 
 @media ( min-width: 750px ) {
-	.sv100_sv_content_header .sv100_sv_content_excerpt p {
+	.sv100_sv_content_header .sv100_sv_content_excerpt p,
+    .sv100_sv_content_header .sv100_sv_content_header_content > p {
 		font-size: <?php echo $font_size_excerpt; ?>px;
 		line-height: <?php echo $line_height_excerpt; ?>px;
 	}
