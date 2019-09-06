@@ -14,19 +14,10 @@
 		?>
 		<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'single' ) . $post_classes; ?>">
 			<?php
-				$class = $this->get_prefix( 'header' );
-				include( $this->get_path( 'lib/frontend/tpl/content/featured_image.php' ) );
+			$class = $this->get_prefix( 'header' );
+			include( $this->get_path( 'lib/frontend/tpl/content/featured_image.php' ) );
+			include( $this->get_path( 'lib/frontend/tpl/content/_header_content.php' ) );
 			?>
-			<div class="<?php echo $class; ?>">
-				<div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
-					<h1><?php the_title()?></h1>
-					<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>"><?php the_excerpt(); ?></div>
-					<?php include( $this->get_path( 'lib/frontend/tpl/content/_meta_info.php' ) ); ?>
-				</div>
-				<div class="<?php echo $this->get_prefix( 'header_background' ); ?>">
-					<?php echo $thumbnail; ?>
-				</div>
-			</div>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 				<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
 					<?php

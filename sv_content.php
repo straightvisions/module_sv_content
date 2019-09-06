@@ -160,6 +160,40 @@
 			$this->get_settings_component( 'highlight_color','highlight_color', '#328ce6' );
 			
 			// ### Content Header Settings ###
+			// Max Width
+			$this->get_setting( 'content_header_wrapper_max_width' )
+				->set_title( __( 'Wrapper Max Width', 'sv100' ) )
+				->set_description( __( 'Set the max width of the wrapper for the content within the Content-Header', 'sv100' ) )
+				->set_options( array(
+					'100%'										=> __( 'Full', 'sv100' ),
+					'var( --sv100_sv_common-max-width-lg )'	=> __( 'Wide', 'sv100' ),
+					'var( --sv100_sv_common-max-width-txt )'	=> __( 'Normal', 'sv100' )
+				) )
+				->set_default_value( '100%' )
+				->load_type( 'select' );
+
+			$this->get_setting( 'content_header_max_width' )
+				->set_title( __( 'Max Width', 'sv100' ) )
+				->set_description( __( 'Set the max width of the content within the Content-Header', 'sv100' ) )
+				->set_options( array(
+					'100%'										=> __( 'Full', 'sv100' ),
+					'var( --sv100_sv_common-max-width-lg )'	=> __( 'Wide', 'sv100' ),
+					'var( --sv100_sv_common-max-width-txt )'	=> __( 'Normal', 'sv100' )
+				) )
+				->set_default_value( '100%' )
+				->load_type( 'select' );
+
+			$this->get_setting( 'content_header_align' )
+				->set_title( __( 'Alignment', 'sv100' ) )
+				->set_description( __( 'Set the alignment of the Content-Header', 'sv100' ) )
+				->set_options( array(
+					'0 auto'									=> __( 'center', 'sv100' ),
+					'0 auto 0 0'								=> __( 'left', 'sv100' ),
+					'0 0 0 auto'								=> __( 'right', 'sv100' )
+				) )
+				->set_default_value( '0 auto' )
+				->load_type( 'select' );
+
 			// Alignment
 			$this->get_setting( 'text_align_title' )
 			     ->set_title( __( 'Text Alignment', 'sv100' ) )

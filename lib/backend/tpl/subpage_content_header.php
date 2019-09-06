@@ -1,5 +1,12 @@
 <div class="sv_setting_subpage">
 	<h2><?php _e('Content Header', 'sv100'); ?></h2>
+	<div class="sv_setting_flex">
+		<?php
+		echo $module->get_setting( 'content_header_wrapper_max_width' )->run_type()->form();
+		echo $module->get_setting( 'content_header_max_width' )->run_type()->form();
+		echo $module->get_setting( 'content_header_align' )->run_type()->form();
+		?>
+	</div>
 	<h3 class="divider"><?php _e( 'Title', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php

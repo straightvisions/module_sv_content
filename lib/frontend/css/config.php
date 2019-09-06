@@ -500,6 +500,11 @@ body.admin-bar {
     text-align: <?php echo $text_align_excerpt; ?>;
 }
 
+.sv100_sv_content_header .sv100_sv_content_header_content_wrapper {
+	width:100%;
+	margin:0 auto;
+	max-width:<?php echo $script->get_parent()->get_setting( 'content_header_wrapper_max_width' )->run_type()->get_data(); ?>;
+}
 .sv100_sv_content_header .sv100_sv_content_header_content {
     align-items: <?php
         switch ( $block_align_title ) {
@@ -512,6 +517,11 @@ body.admin-bar {
             case 'right':
                 echo 'flex-end';
         }; ?>;
+
+	margin:<?php echo $script->get_parent()->get_setting( 'content_header_align' )->run_type()->get_data(); ?>;
+
+
+	max-width:<?php echo $script->get_parent()->get_setting( 'content_header_max_width' )->run_type()->get_data(); ?>;
 }
 
 .sv100_sv_content_header .sv100_sv_content_header_content .sv100_sv_content_excerpt,

@@ -31,9 +31,6 @@
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-	max-width: var( --sv100_sv_common-max-width-lg );
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .sv100_sv_content_header_content h1 {
