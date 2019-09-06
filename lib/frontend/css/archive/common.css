@@ -1,8 +1,4 @@
 /* General */
-.sv100_sv_content .sv100_sv_content_header {
-	background-color: transparent;
-}
-
 .sv100_sv_content  .sv100_sv_content_header_content {
 	padding-left: var( --sv100_sv_common-padding );
 	padding-right: var( --sv100_sv_common-padding );

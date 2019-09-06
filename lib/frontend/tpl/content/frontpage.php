@@ -32,6 +32,8 @@
 								'separator'   => '',
 							)
 						);
+
+						include( $this->get_path( 'lib/frontend/tpl/content/_meta_sidebar_bottom.php' ) );
 					?>
 				</article>
 				<?php include( $this->get_path( 'lib/frontend/tpl/content/_meta_sidebar.php' ) ); ?>
