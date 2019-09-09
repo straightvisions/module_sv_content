@@ -1075,7 +1075,7 @@
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
-				) ) {
+				) == 1 ) {
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
@@ -1085,7 +1085,7 @@
 							true
 						);
 						
-						if ( $metabox_data ) {
+						if ( $metabox_data !== false && $metabox_data !== '') {
 							$data = $metabox_data;
 						}
 					}
