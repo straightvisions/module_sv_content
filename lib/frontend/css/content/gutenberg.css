@@ -21,6 +21,10 @@
 	padding-right: var( --sv100_sv_common-padding );
 }
 
+.sv100_sv_content_wrapper figure{
+	margin:0;
+}
+
 /* Paragraph & Link */
 .sv100_sv_content_wrapper p {
 	margin-top: 0;
@@ -383,6 +387,7 @@
 .sv100_sv_content_wrapper code {
 	display: block;
 	padding: 20px;
+	max-height:400px;
 }
 
 @media ( max-width: 1300px ) {
