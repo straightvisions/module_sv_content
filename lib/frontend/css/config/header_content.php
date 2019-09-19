@@ -40,7 +40,7 @@ $line_height_excerpt_mobile	= $script->get_parent()->get_setting( 'line_height_e
 $text_color_info			= $script->get_parent()->get_header_content_author_date_color();
 ?>
 .sv100_sv_content_header h1 {
-font-family: <?php echo ( $font_title ? '"' . $font_title['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_title ? 'font-family: "' . $font_title['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_title ? $font_title['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_title_mobile; ?>px;
 color: <?php echo $text_color_title; ?>;
@@ -57,7 +57,7 @@ line-height: <?php echo $line_height_title; ?>px;
 .sv100_sv_content_header .sv100_sv_content_excerpt p,
 .sv100_sv_content_header .sv100_sv_content_header_content > p,
 .sv100_sv_content_header .sv100_sv_content_header_content a {
-font-family: <?php echo ( $font_excerpt ? '"' . $font_excerpt['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_excerpt ? 'font-family: "' . $font_excerpt['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_excerpt ? $font_excerpt['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_excerpt_mobile; ?>px;
 color: <?php echo $text_color_excerpt; ?>;

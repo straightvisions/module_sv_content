@@ -92,7 +92,7 @@
 
 /* Headings */
 .sv100_sv_content_wrapper h1 {
-font-family: <?php echo ( $font_h1 ? '"' . $font_h1['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_h1 ? 'font-family: "' . $font_h1['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_h1 ?  $font_h1['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h1_mobile; ?>px;
 color: <?php echo $text_color_h1; ?>;
@@ -107,7 +107,7 @@ line-height: <?php echo $line_height_h1; ?>px;
 }
 
 .sv100_sv_content_wrapper h2 {
-font-family: <?php echo ( $font_h2 ? '"' . $font_h2['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_h2 ? 'font-family: "' . $font_h2['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_h2 ? $font_h2['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h2_mobile; ?>px;
 color: <?php echo $text_color_h2; ?>;
@@ -123,7 +123,7 @@ line-height: <?php echo $line_height_h2; ?>px;
 }
 
 .sv100_sv_content_wrapper h3 {
-font-family: <?php echo ( $font_h3 ? '"' . $font_h3['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_h3 ? 'font-family: "' . $font_h3['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_h3 ? $font_h3['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h3_mobile; ?>px;
 color: <?php echo $text_color_h3; ?>;
@@ -139,7 +139,7 @@ line-height: <?php echo $line_height_h3; ?>px;
 }
 
 .sv100_sv_content_wrapper h4 {
-font-family: <?php echo ( $font_h4 ? '"' . $font_h4['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_h4 ? 'font-family: "' . $font_h4['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_h4 ? $font_h4['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h4_mobile; ?>px;
 color: <?php echo $text_color_h4; ?>;
@@ -155,7 +155,7 @@ line-height: <?php echo $line_height_h4; ?>px;
 }
 
 .sv100_sv_content_wrapper h5 {
-font-family: <?php echo ( $font_h5 ? '"' . $font_h5['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_h5 ? 'font-family: "' . $font_h5['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_h5 ? $font_h5['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h5_mobile; ?>px;
 color: <?php echo $text_color_h5; ?>;
@@ -171,7 +171,7 @@ line-height: <?php echo $line_height_h5; ?>px;
 }
 
 .sv100_sv_content_wrapper h6 {
-font-family: <?php echo ( $font_h6 ? '"' . $font_h6['family'] . '", ' : '' ); ?>sans-serif;
+<?php echo ( $font_h6 ? 'font-family: "' . $font_h6['family'] . '", sans-serif;' : '' ); ?>
 font-weight: <?php echo ( $font_h6 ? $font_h6['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h6_mobile; ?>px;
 color: <?php echo $text_color_h6; ?>;

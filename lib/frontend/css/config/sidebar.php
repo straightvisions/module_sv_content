@@ -50,7 +50,7 @@
 	}
 
 	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget h3 {
-	font-family: <?php echo ( $font_widget_title ? '"' . $font_widget_title['family'] . '", ' : '' ); ?>sans-serif;
+	<?php echo ( $font_widget_title ? 'font-family: "' . $font_widget_title['family'] . '", sans-serif;' : '' ); ?>
 	font-weight: <?php echo ( $font_widget_title ? $font_widget_title['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_widget_title; ?>px;
 	color: <?php echo $text_color_widget_title; ?>;
