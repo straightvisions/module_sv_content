@@ -41,7 +41,9 @@
 		}
 		
 		public function posts_orderby( $orderby_statement, $wp_query ) {
-			if ( is_category() ) {
+			global $wpdb;
+
+			if ( !is_admin() && is_category() ) {
 				$cat_ID = get_cat_ID( $wp_query->query['category_name'] );
 				$order_by = get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order_by', true )
 					? get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order_by', true )
@@ -50,8 +52,8 @@
 					? get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order', true )
 					: 'DESC';
 
-				$orderby_statement = 'wp_posts.post_' . $order_by . ' ' . $order;
-				//var_dump($orderby_statement);
+				$orderby_statement = $wpdb->prefix.'posts.post_' . $order_by . ' ' . $order;
+
 				return $orderby_statement;
 			} else {
 				return $orderby_statement;
