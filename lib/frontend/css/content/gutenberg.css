@@ -230,6 +230,7 @@
 .sv100_sv_content_wrapper .wp-block-column{
 	word-break: normal;
 	overflow-wrap: normal;
+	max-width:100%;
 }
 .sv100_sv_content_wrapper .wp-block-columns .wp-block-column:not(:first-child) {
 	margin-left: 0;
