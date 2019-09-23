@@ -249,9 +249,18 @@
 
 .sv100_sv_content_wrapper .wp-block-columns.is-style-stretch > .wp-block-column {
 	display: flex;
+	flex-flow: column;
 	align-items: stretch;
 	margin-top: inherit;
 	margin-bottom: inherit;
+}
+/* If we have only one child, just stretch it */
+.sv100_sv_content_wrapper .wp-block-columns.is-style-stretch > .wp-block-column > :only-child{
+	flex: 1;
+}
+/* If we have more than one child, stretch the selected one by this class */
+.sv100_sv_content_wrapper .wp-block-columns.is-style-stretch > .wp-block-column > .sv_flex_stretch_element {
+	flex: 1;
 }
 
 /* Seperator Block */
