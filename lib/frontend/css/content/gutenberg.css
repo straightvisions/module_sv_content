@@ -242,6 +242,18 @@
 	}
 }
 
+/* Column Style - Stretch */
+.sv100_sv_content_wrapper .wp-block-columns.is-style-stretch {
+	align-items: inherit;
+}
+
+.sv100_sv_content_wrapper .wp-block-columns.is-style-stretch > .wp-block-column {
+	display: flex;
+	align-items: stretch;
+	margin-top: inherit;
+	margin-bottom: inherit;
+}
+
 /* Seperator Block */
 .sv100_sv_content_wrapper .wp-block-separator,
 .sv100_sv_content_wrapper .wp-block-separator.is-style-wide {
