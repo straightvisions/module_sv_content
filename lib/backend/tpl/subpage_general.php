@@ -19,7 +19,7 @@
 		<?php
 			echo $module->get_setting( 'show_date_post' )->run_type()->form();
 			echo $module->get_setting( 'show_date_page' )->run_type()->form();
-			echo $module->get_setting( 'show_date_modfied_post' )->run_type()->form();
+			echo $module->get_setting( 'show_date_modified_post' )->run_type()->form();
 			echo $module->get_setting( 'show_date_modified_page' )->run_type()->form();
 		?>
 	</div>

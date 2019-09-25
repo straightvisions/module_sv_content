@@ -832,7 +832,7 @@
 
 			$data = $this->get_setting( 'text_color_info' )->run_type()->get_data();
 
-			if(get_post_meta(
+			if($post && get_post_meta(
 				$post->ID,
 				$this->get_sub('metabox')
 					->get_setting( 'header_content_override' )
