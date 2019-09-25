@@ -248,8 +248,6 @@ class sv_content_archives extends sv_content
 		$template = false;
 
 		if ( have_posts() ) {
-			$slider_support = has_filter( 'sv100_post_header_slider' );
-
 			// Home: The last posts
 			if ( is_front_page() && is_home() ) {
 
@@ -267,10 +265,6 @@ class sv_content_archives extends sv_content
 						$this->get_script( 'archive_home' )->set_inline( $settings['inline'] ),
 					),
 				);
-
-				if ( $slider_support && $this->get_setting( 'home_slider' )->run_type()->get_data() === '1' ) {
-					$template['header'] = 'slider';
-				}
 			}
 			// Template Management
 			elseif ( $settings['template'] ) {

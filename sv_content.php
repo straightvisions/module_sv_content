@@ -537,8 +537,6 @@
 			$template = false;
 
 			if ( have_posts() ) {
-				$slider_support = has_filter( 'sv100_post_header_slider' );
-
 				// Home: A static page
 				if ( ( is_front_page() && !is_home() ) || ( ! is_front_page() && is_home() ) ) {
 					$template = array(
@@ -551,10 +549,6 @@
 							$this->get_script( 'content_frontpage' )->set_inline( $settings['inline'] ),
 						),
 					);
-					
-					if ( $slider_support ) {
-						$template[ 'header' ] = 'slider';
-					}
 				}
 				
 				// Template Management
@@ -571,21 +565,6 @@
 								),
 							);
 							break;
-						case 'single_slider':
-							$template = array(
-								'path'      => 'content/single',
-								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_single' )->set_inline( $settings['inline'] ),
-								),
-							);
-							
-							if ( $slider_support ) {
-								$template[ 'header' ] = 'slider';
-							}
-							break;
 						case 'page':
 							$template = array(
 								'path'      => 'content/page',
@@ -596,21 +575,6 @@
 									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
 								),
 							);
-							break;
-						case 'page_slider':
-							$template = array(
-								'path'      => 'content/page',
-								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-								),
-							);
-							
-							if ( $slider_support ) {
-								$template[ 'header' ] = 'slider';
-							}
 							break;
 					}
 				}
