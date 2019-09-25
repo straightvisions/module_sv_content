@@ -45,6 +45,11 @@
 							<?php echo get_the_date(); ?>
 						</div>
 						<?php } ?>
+						<?php if($this->show_date_modified()){ ?>
+							<div class="<?php echo $this->get_prefix( 'date_modified' ); ?>">
+								<?php echo get_the_modified_date(); ?>
+							</div>
+						<?php } ?>
 					</div>
 					<a href="<?php the_permalink(); ?>">
 						<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">

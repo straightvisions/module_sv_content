@@ -345,6 +345,18 @@
 				 ->set_title( __( 'Show date on pages', 'sv100' ) )
 				 ->set_default_value( 0 )
 				 ->load_type( 'checkbox' );
+
+			// Post
+			$this->get_setting( 'show_date_modified_post' )
+				->set_title( __( 'Show modified date on posts', 'sv100' ) )
+				->set_default_value( 0 )
+				->load_type( 'checkbox' );
+
+			// Page
+			$this->get_setting( 'show_date_modified_page' )
+				->set_title( __( 'Show modified date on pages', 'sv100' ) )
+				->set_default_value( 0 )
+				->load_type( 'checkbox' );
 			
 			// ### Author Settings ###
 			// Post
@@ -652,6 +664,10 @@
 		
 		public function show_date(): bool{
 			return $this->get_visibility('date');
+		}
+
+		public function show_date_modified(): bool{
+			return $this->get_visibility('date_modified');
 		}
 		
 		public function show_author(): bool{
