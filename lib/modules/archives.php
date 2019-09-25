@@ -252,6 +252,7 @@ class sv_content_archives extends sv_content
 
 			// Home: The last posts
 			if ( is_front_page() && is_home() ) {
+
 				$archive_theme = 'archive_theme_';
 				$archive_theme .=
 					$this->get_setting( 'home_theme' )->run_type()->get_data()
@@ -261,7 +262,6 @@ class sv_content_archives extends sv_content
 				$template = array(
 					'path'      => 'archive/home',
 					'scripts'   => array(
-						$this->get_script( 'form' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 						$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
 						$this->get_script( 'archive_home' )->set_inline( $settings['inline'] ),
@@ -272,7 +272,6 @@ class sv_content_archives extends sv_content
 					$template['header'] = 'slider';
 				}
 			}
-
 			// Template Management
 			elseif ( $settings['template'] ) {
 				switch ( $settings['template'] ) {
@@ -371,7 +370,7 @@ class sv_content_archives extends sv_content
 				), $settings
 			);
 		}else{
-			return __('No Template found.', 'sv100');
+			return $this->get_prefix().': '.__('No Template found.', 'sv100');
 		}
 	}
 }

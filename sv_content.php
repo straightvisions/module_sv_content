@@ -47,6 +47,10 @@
 			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
 			add_filter( 'posts_orderby', array( $this, 'posts_orderby' ), 10, 2 );
 		}
+		public function get_sub(string $sub){
+			$sub = 'content_'.$sub;
+			return $this->get_module('sv_content')->$sub;
+		}
 		
 		public function posts_orderby( $orderby_statement, $wp_query ) {
 			global $wpdb;
@@ -621,8 +625,6 @@
 						$this->get_script( 'content_404' )->set_inline( $settings['inline'] ),
 					),
 				);
-			}else{
-				return $this->content_archives->router($settings);
 			}
 
 			// @filter: sv100_sv_content_template
@@ -634,7 +636,7 @@
 					), $settings
 				);
 			}else{
-				return __('No Template found.', 'sv100');
+				return $this->content_archives->router($settings);
 			}
 		}
 		
@@ -699,13 +701,13 @@
 		public function show_bottom_sidebar(): bool{
 			return $this->get_visibility('sidebar_bottom');
 		}
-		public function get_visibility(string $field): int{
+		public function get_visibility(string $field): bool{
 			global $post;
 
 			if ( $post ) {
 				$metabox_data = get_post_meta(
 					$post->ID,
-					$this->content_metabox
+					$this->get_sub('metabox')
 						->get_setting( 'show_'.$field )
 						->get_prefix( $this->get_setting( 'show_'.$field )->get_ID() ),
 					true
@@ -719,7 +721,7 @@
 			}
 
 			if(!isset($data)){
-				$data = $this->content_metabox->get_setting('show_'.$field)->run_type()->get_data();
+				$data = $this->get_sub('metabox')->get_setting('show_'.$field)->run_type()->get_data();
 			}
 
 			return boolval($data);
@@ -731,7 +733,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
-					$this->content_metabox
+					$this->get_sub('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -739,7 +741,7 @@
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->content_metabox
+							$this->get_sub('metabox')
 								->get_setting( 'header_content_overlay_color' )
 								->get_prefix( $this->get_setting( 'header_content_overlay_color' )->get_ID() ),
 							true
@@ -761,7 +763,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
-					$this->content_metabox
+					$this->get_sub('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -769,7 +771,7 @@
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->content_metabox
+							$this->get_sub('metabox')
 								->get_setting( 'header_content_overlay_opacity' )
 								->get_prefix( $this->get_setting( 'header_content_overlay_opacity' )->get_ID() ),
 							true
@@ -791,7 +793,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
-					$this->content_metabox
+					$this->get_sub('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -799,7 +801,7 @@
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->content_metabox
+							$this->get_sub('metabox')
 								->get_setting( 'text_color_title' )
 								->get_prefix( $this->get_setting( 'text_color_title' )->get_ID() ),
 							true
@@ -822,7 +824,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if(get_post_meta(
 					$post->ID,
-					$this->content_metabox
+					$this->get_sub('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -830,7 +832,7 @@
 					if ($post) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->content_metabox
+							$this->get_sub('metabox')
 								->get_setting('text_color_excerpt')
 								->get_prefix($this->get_setting('text_color_excerpt')->get_ID()),
 							true
@@ -852,7 +854,7 @@
 
 			if(get_post_meta(
 				$post->ID,
-				$this->content_metabox
+				$this->get_sub('metabox')
 					->get_setting( 'header_content_override' )
 					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 				true
@@ -860,7 +862,7 @@
 				if ($post) {
 					$metabox_data = get_post_meta(
 						$post->ID,
-						$this->content_metabox
+						$this->get_sub('metabox')
 							->get_setting('text_color_info')
 							->get_prefix($this->get_setting('text_color_info')->get_ID()),
 						true
