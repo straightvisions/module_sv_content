@@ -44,13 +44,13 @@ $text_color_info			= $script->get_parent()->get_header_content_author_date_color
 font-weight: <?php echo ( $font_title ? $font_title['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_title_mobile; ?>px;
 color: <?php echo $text_color_title; ?>;
-line-height: <?php echo $line_height_title_mobile; ?>px;
+line-height: <?php echo $line_height_title_mobile; ?>;
 }
 
 @media ( min-width: 850px ) {
 .sv100_sv_content_header h1 {
 font-size: <?php echo $font_size_title; ?>px;
-line-height: <?php echo $line_height_title; ?>px;
+line-height: <?php echo $line_height_title; ?>;
 }
 }
 
@@ -61,7 +61,7 @@ line-height: <?php echo $line_height_title; ?>px;
 font-weight: <?php echo ( $font_excerpt ? $font_excerpt['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_excerpt_mobile; ?>px;
 color: <?php echo $text_color_excerpt; ?>;
-line-height: <?php echo $line_height_excerpt_mobile; ?>px;
+line-height: <?php echo $line_height_excerpt_mobile; ?>;
 }
 
 @media ( min-width: 850px ) {
@@ -69,7 +69,7 @@ line-height: <?php echo $line_height_excerpt_mobile; ?>px;
 .sv100_sv_content_header .sv100_sv_content_header_content > p,
 .sv100_sv_content_header .sv100_sv_content_header_content a {
 font-size: <?php echo $font_size_excerpt; ?>px;
-line-height: <?php echo $line_height_excerpt; ?>px;
+line-height: <?php echo $line_height_excerpt; ?>;
 }
 }
 

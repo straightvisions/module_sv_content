@@ -54,7 +54,7 @@
 	font-weight: <?php echo ( $font_widget_title ? $font_widget_title['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_widget_title; ?>px;
 	color: <?php echo $text_color_widget_title; ?>;
-	line-height: <?php echo $line_height_widget_title; ?>px;
+	line-height: <?php echo $line_height_widget_title; ?>;
 	}
 
 	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget ul li,

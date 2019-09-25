@@ -398,7 +398,7 @@
 .sv100_sv_content_wrapper .wp-block-code,
 .sv100_sv_content_wrapper pre {
 	font-size: .9rem;
-	line-height: 150%;
+	line-height: 1.5;
 	overflow: auto;
 	border-width: 1px;
 	border-style: solid;

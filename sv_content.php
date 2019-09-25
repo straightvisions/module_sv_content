@@ -113,62 +113,62 @@
 			// H1
 			$this->get_settings_component( 'font_family_h1','font_family' );
 			$this->get_settings_component( 'font_size_h1','font_size', 48 );
-			$this->get_settings_component( 'line_height_h1','line_height', 72 );
+			$this->get_settings_component( 'line_height_h1','line_height' );
 			$this->get_settings_component( 'text_color_h1','text_color', '#1e1e1e' );
 			
 			// H1 (Mobile)
 			$this->get_settings_component( 'font_size_h1_mobile','font_size', 38 );
-			$this->get_settings_component( 'line_height_h1_mobile','line_height', 57 );
+			$this->get_settings_component( 'line_height_h1_mobile','line_height');
 			
 			// H2
 			$this->get_settings_component( 'font_family_h2','font_family' );
 			$this->get_settings_component( 'font_size_h2','font_size', 40 );
-			$this->get_settings_component( 'line_height_h2','line_height', 60 );
+			$this->get_settings_component( 'line_height_h2','line_height');
 			$this->get_settings_component( 'text_color_h2','text_color', '#1e1e1e' );
 			
 			// H2 (Mobile)
 			$this->get_settings_component( 'font_size_h2_mobile','font_size', 32 );
-			$this->get_settings_component( 'line_height_h2_mobile','line_height', 48 );
+			$this->get_settings_component( 'line_height_h2_mobile','line_height');
 			
 			// H3
 			$this->get_settings_component( 'font_family_h3','font_family' );
 			$this->get_settings_component( 'font_size_h3','font_size', 32 );
-			$this->get_settings_component( 'line_height_h3','line_height', 48 );
+			$this->get_settings_component( 'line_height_h3','line_height');
 			$this->get_settings_component( 'text_color_h3','text_color', '#1e1e1e' );
 			
 			// H3 (Mobile)
 			$this->get_settings_component( 'font_size_h3_mobile','font_size', 24 );
-			$this->get_settings_component( 'line_height_h3_mobile','line_height', 36 );
+			$this->get_settings_component( 'line_height_h3_mobile','line_height');
 			
 			// H4
 			$this->get_settings_component( 'font_family_h4','font_family' );
 			$this->get_settings_component( 'font_size_h4','font_size', 24 );
-			$this->get_settings_component( 'line_height_h4','line_height', 36 );
+			$this->get_settings_component( 'line_height_h4','line_height');
 			$this->get_settings_component( 'text_color_h4','text_color', '#1e1e1e' );
 			
 			// H4 (Mobile)
 			$this->get_settings_component( 'font_size_h4_mobile','font_size', 19 );
-			$this->get_settings_component( 'line_height_h4_mobile','line_height', 29 );
+			$this->get_settings_component( 'line_height_h4_mobile','line_height' );
 			
 			// H5
 			$this->get_settings_component( 'font_family_h5','font_family' );
 			$this->get_settings_component( 'font_size_h5','font_size', 19 );
-			$this->get_settings_component( 'line_height_h5','line_height', 29 );
+			$this->get_settings_component( 'line_height_h5','line_height' );
 			$this->get_settings_component( 'text_color_h5','text_color', '#1e1e1e' );
 			
 			// H5 (Mobile)
 			$this->get_settings_component( 'font_size_h5_mobile','font_size', 16 );
-			$this->get_settings_component( 'line_height_h5_mobile','line_height', 23 );
+			$this->get_settings_component( 'line_height_h5_mobile','line_height' );
 			
 			// H6
 			$this->get_settings_component( 'font_family_h6','font_family' );
 			$this->get_settings_component( 'font_size_h6','font_size', 16 );
-			$this->get_settings_component( 'line_height_h6','line_height', 23 );
+			$this->get_settings_component( 'line_height_h6','line_height' );
 			$this->get_settings_component( 'text_color_h6','text_color', '#1e1e1e' );
 			
 			// H6 (Mobile)
 			$this->get_settings_component( 'font_size_h6_mobile','font_size', 14 );
-			$this->get_settings_component( 'line_height_h6_mobile','line_height', 21 );
+			$this->get_settings_component( 'line_height_h6_mobile','line_height' );
 			
 			// Color Settings
 			$this->get_settings_component( 'highlight_color','highlight_color', '#328ce6' );
@@ -256,22 +256,22 @@
 			// Title
 			$this->get_settings_component( 'font_family_title','font_family' );
 			$this->get_settings_component( 'font_size_title','font_size', 48 );
-			$this->get_settings_component( 'line_height_title','line_height', 72 );
+			$this->get_settings_component( 'line_height_title','line_height' );
 			$this->get_settings_component( 'text_color_title','text_color', '#1e1e1e' );
 			
 			// Title (Mobile)
 			$this->get_settings_component( 'font_size_title_mobile','font_size', 38 );
-			$this->get_settings_component( 'line_height_title_mobile','line_height', 57 );
+			$this->get_settings_component( 'line_height_title_mobile','line_height' );
 			
 			// Excerpt
 			$this->get_settings_component( 'font_family_excerpt','font_family' );
 			$this->get_settings_component( 'font_size_excerpt','font_size', 16 );
-			$this->get_settings_component( 'line_height_excerpt','line_height', 23 );
+			$this->get_settings_component( 'line_height_excerpt','line_height' );
 			$this->get_settings_component( 'text_color_excerpt','text_color', '#828282' );
 			
 			// Excerpt (Mobile)
 			$this->get_settings_component( 'font_size_excerpt_mobile','font_size', 14 );
-			$this->get_settings_component( 'line_height_excerpt_mobile','line_height', 21 );
+			$this->get_settings_component( 'line_height_excerpt_mobile','line_height' );
 			
 			// Color Settings
 			$this->get_settings_component( 'bg_color','background_color', '#f5f5f5' );
@@ -315,7 +315,7 @@
 			$this->get_settings_component( 'font_family_widget_title','font_family' );
 			$this->get_settings_component( 'font_size_widget_title','font_size', 32 );
 			$this->get_settings_component( 'text_color_widget_title','text_color', '#828282' );
-			$this->get_settings_component( 'line_height_widget_title','line_height', 48 );
+			$this->get_settings_component( 'line_height_widget_title','line_height' );
 			
 			$this->get_setting( 'text_color_widget' )
 				 ->set_title( __( 'Widget text color', 'sv100' ) )

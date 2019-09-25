@@ -96,13 +96,13 @@
 font-weight: <?php echo ( $font_h1 ?  $font_h1['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h1_mobile; ?>px;
 color: <?php echo $text_color_h1; ?>;
-line-height: <?php echo $line_height_h1_mobile; ?>px;
+line-height: <?php echo $line_height_h1_mobile; ?>;
 }
 
 @media( min-width: 850px ) {
 .sv100_sv_content_wrapper h1 {
 font-size: <?php echo $font_size_h1; ?>px;
-line-height: <?php echo $line_height_h1; ?>px;
+line-height: <?php echo $line_height_h1; ?>;
 }
 }
 
@@ -111,14 +111,14 @@ line-height: <?php echo $line_height_h1; ?>px;
 font-weight: <?php echo ( $font_h2 ? $font_h2['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h2_mobile; ?>px;
 color: <?php echo $text_color_h2; ?>;
-line-height: <?php echo $line_height_h2_mobile; ?>px;
+line-height: <?php echo $line_height_h2_mobile; ?>;
 }
 
 @media( min-width: 850px ) {
 .sv100_sv_content_header h2,
 .sv100_sv_content_wrapper h2 {
 font-size: <?php echo $font_size_h2; ?>px;
-line-height: <?php echo $line_height_h2; ?>px;
+line-height: <?php echo $line_height_h2; ?>;
 }
 }
 
@@ -127,14 +127,14 @@ line-height: <?php echo $line_height_h2; ?>px;
 font-weight: <?php echo ( $font_h3 ? $font_h3['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h3_mobile; ?>px;
 color: <?php echo $text_color_h3; ?>;
-line-height: <?php echo $line_height_h3_mobile; ?>px;
+line-height: <?php echo $line_height_h3_mobile; ?>;
 }
 
 @media( min-width: 850px ) {
 .sv100_sv_content_header h3,
 .sv100_sv_content_wrapper h3 {
 font-size: <?php echo $font_size_h3; ?>px;
-line-height: <?php echo $line_height_h3; ?>px;
+line-height: <?php echo $line_height_h3; ?>;
 }
 }
 
@@ -143,14 +143,14 @@ line-height: <?php echo $line_height_h3; ?>px;
 font-weight: <?php echo ( $font_h4 ? $font_h4['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h4_mobile; ?>px;
 color: <?php echo $text_color_h4; ?>;
-line-height: <?php echo $line_height_h4_mobile; ?>px;
+line-height: <?php echo $line_height_h4_mobile; ?>;
 }
 
 @media( min-width: 850px ) {
 .sv100_sv_content_header h4,
 .sv100_sv_content_wrapper h4 {
 font-size: <?php echo $font_size_h4; ?>px;
-line-height: <?php echo $line_height_h4; ?>px;
+line-height: <?php echo $line_height_h4; ?>;
 }
 }
 
@@ -159,14 +159,14 @@ line-height: <?php echo $line_height_h4; ?>px;
 font-weight: <?php echo ( $font_h5 ? $font_h5['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h5_mobile; ?>px;
 color: <?php echo $text_color_h5; ?>;
-line-height: <?php echo $line_height_h5_mobile; ?>px;
+line-height: <?php echo $line_height_h5_mobile; ?>;
 }
 
 @media( min-width: 850px ) {
 .sv100_sv_content_header h5,
 .sv100_sv_content_wrapper h5 {
 font-size: <?php echo $font_size_h5; ?>px;
-line-height: <?php echo $line_height_h5; ?>px;
+line-height: <?php echo $line_height_h5; ?>;
 }
 }
 
@@ -175,13 +175,13 @@ line-height: <?php echo $line_height_h5; ?>px;
 font-weight: <?php echo ( $font_h6 ? $font_h6['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_h6_mobile; ?>px;
 color: <?php echo $text_color_h6; ?>;
-line-height: <?php echo $line_height_h6_mobile; ?>px;
+line-height: <?php echo $line_height_h6_mobile; ?>;
 }
 
 @media( min-width: 850px ) {
 .sv100_sv_content_header h6,
 .sv100_sv_content_wrapper h6 {
 font-size: <?php echo $font_size_h6; ?>px;
-line-height: <?php echo $line_height_h6; ?>px;
+line-height: <?php echo $line_height_h6; ?>;
 }
 }

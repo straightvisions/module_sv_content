@@ -130,7 +130,7 @@ $highlight_color_grid		= sscanf( $script->get_parent()->get_setting( 'highlight_
 font-weight: <?php echo ( $font_title_list ? $font_title_list['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_title_list; ?>px;
 color: <?php echo $text_color_title_list; ?>;
-line-height: <?php echo $line_height_title_list; ?>px;
+line-height: <?php echo $line_height_title_list; ?>;
 }
 
 .sv100_sv_content_list .sv100_sv_content_excerpt p {
@@ -138,7 +138,7 @@ line-height: <?php echo $line_height_title_list; ?>px;
 font-weight: <?php echo ( $font_excerpt_list ? $font_excerpt_list['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_excerpt_list; ?>px;
 color: <?php echo $text_color_excerpt_list; ?>;
-line-height: <?php echo $line_height_excerpt_list; ?>px;
+line-height: <?php echo $line_height_excerpt_list; ?>;
 }
 
 .sv100_sv_content_list .sv100_sv_content_read_more {
@@ -146,7 +146,7 @@ line-height: <?php echo $line_height_excerpt_list; ?>px;
 font-weight: <?php echo ( $font_more_list ? $font_more_list['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_more_list; ?>px;
 color: <?php echo $text_color_more_list; ?>;
-line-height: <?php echo $line_height_more_list; ?>px;
+line-height: <?php echo $line_height_more_list; ?>;
 }
 
 .sv100_sv_content_list .sv100_sv_content_read_more:hover,
@@ -191,7 +191,7 @@ background-color: <?php echo $bg_color_category_masonry; ?>;
 font-weight: <?php echo ( $font_title_masonry ? $font_title_masonry['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_title_masonry; ?>px;
 color: <?php echo $text_color_title_masonry; ?>;
-line-height: <?php echo $line_height_title_masonry; ?>px;
+line-height: <?php echo $line_height_title_masonry; ?>;
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_excerpt p {
@@ -199,7 +199,7 @@ line-height: <?php echo $line_height_title_masonry; ?>px;
 font-weight: <?php echo ( $font_excerpt_masonry ? $font_excerpt_masonry['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_excerpt_masonry; ?>px;
 color: <?php echo $text_color_excerpt_masonry; ?>;
-line-height: <?php echo $line_height_excerpt_masonry; ?>px;
+line-height: <?php echo $line_height_excerpt_masonry; ?>;
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more {
@@ -207,7 +207,7 @@ line-height: <?php echo $line_height_excerpt_masonry; ?>px;
 font-weight: <?php echo ( $font_more_masonry ? $font_more_masonry['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_more_masonry; ?>px;
 color: <?php echo $text_color_more_masonry; ?>;
-line-height: <?php echo $line_height_more_masonry; ?>px;
+line-height: <?php echo $line_height_more_masonry; ?>;
 }
 
 .sv100_sv_content_masonry .sv100_sv_content_read_more:hover,
@@ -252,7 +252,7 @@ background-color: <?php echo $bg_color_category_grid; ?>;
 font-weight: <?php echo ( $font_title_grid ? $font_title_grid['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_title_grid; ?>px;
 color: <?php echo $text_color_title_grid; ?>;
-line-height: <?php echo $line_height_title_grid; ?>px;
+line-height: <?php echo $line_height_title_grid; ?>;
 }
 
 .sv100_sv_content_grid .sv100_sv_content_info > div,
@@ -273,5 +273,5 @@ background-color: rgba( <?php echo $highlight_color_grid[0] . ',' . $highlight_c
 font-weight: <?php echo ( $font_excerpt_grid ? $font_excerpt_grid['weight'] : '400' ); ?>;
 font-size: <?php echo $font_size_excerpt_grid; ?>px;
 color: <?php echo $text_color_excerpt_grid; ?>;
-line-height: <?php echo $line_height_excerpt_grid; ?>px;
+line-height: <?php echo $line_height_excerpt_grid; ?>;
 }
