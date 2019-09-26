@@ -275,23 +275,17 @@
 }
 
 /* Quote Block */
-.sv100_sv_content_wrapper .wp-block-quote,
+.sv100_sv_content_wrapper .wp-block-quote{
+	border-left: 4px solid #000;
+	padding-left: 1em;
+}
 .sv100_sv_content_wrapper .wp-block-pullquote {
-	display: grid;
-	grid-template-columns: 20px 1fr;
-	grid-template-rows: auto auto;
-	grid-template-areas:	'stripe quote'
-	'stripe author';
 	margin-top: 0;
 	margin-bottom: 1em;
-}
-
-.sv100_sv_content_wrapper .wp-block-quote::before,
-.sv100_sv_content_wrapper .wp-block-pullquote::before {
-	content: '';
-	border-width: 0 0 0 2px;
-	border-style: solid;
-	grid-area: stripe;
+	border-top-width: 4px;
+	border-bottom-width: 4px;
+	border-top-style: solid;
+	border-bottom-style: solid;
 }
 
 .sv100_sv_content_wrapper .wp-block-quote[style="text-align:center"] {
@@ -301,20 +295,8 @@
 .sv100_sv_content_wrapper .wp-block-quote[style="text-align:center"]::before {
 	display: none;
 }
-
-.sv100_sv_content_wrapper .wp-block-quote[style="text-align:right"] {
-	grid-template-columns: 1fr 20px;
-	grid-template-areas: 'quote stripe'
-	'author stripe';
-}
-
 .sv100_sv_content_wrapper .wp-block-quote[style="text-align:right"]::before {
 	border-width: 0 2px 0 0;
-}
-
-.sv100_sv_content_wrapper .wp-block-quote > p,
-.sv100_sv_content_wrapper .wp-block-pullquote > p {
-	grid-area: quote;
 }
 
 .sv100_sv_content_wrapper .wp-block-quote > cite,
