@@ -7,7 +7,6 @@ list( $r, $g, $b ) = sscanf( $image_overlay_color, "#%02x%02x%02x" );
 $image_overlay_color_rgb = $r . ',' . $g . ',' . $b;
 ?>
 
-/* Content Header Settings (with Thumbnail) */
-.sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background {
+.sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background::before{
 background-color: rgba( <?php echo $image_overlay_color_rgb . ',' . $image_overlay_opacity / 100; ?> );
 }
