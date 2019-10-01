@@ -36,7 +36,7 @@
 }
 
 /* Padding */
-.sv100_sv_content_wrapper > article > * {
+.sv100_sv_content_wrapper > article > *:not(.wp-block-media-text) {
 	padding-right: var( --sv100_sv_common-padding );
 	padding-left: var( --sv100_sv_common-padding );
 }
@@ -204,6 +204,9 @@
 	.sv100_sv_content_wrapper .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__media{
 		padding-bottom:.8em;
 	}
+	.sv100_sv_content_wrapper .wp-block-media-text .wp-block-media-text__content {
+		padding: 1em;
+	}
 }
 
 @media ( min-width: 601px ) {
@@ -253,8 +256,6 @@
 	display: flex;
 	flex-flow: column;
 	align-items: stretch;
-	margin-top: inherit;
-	margin-bottom: inherit;
 }
 /* If we have only one child, just stretch it */
 .sv100_sv_content_wrapper .wp-block-columns > .wp-block-column > :only-child{
