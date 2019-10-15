@@ -517,6 +517,36 @@
 			return $this;
 		}
 		
+		public function has_sidebar_content(): bool{
+			if(!$this->get_module( 'sv_sidebar' )){
+				return false;
+			}
+			
+			$i = false;
+			
+			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage_right' ) ) ){
+				$i = true;
+			}
+			
+			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage_bottom' ) ) ){
+				$i = true;
+			}
+			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page_right' ) ) ){
+				$i = true;
+			}
+			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page_bottom' ) ) ){
+				$i = true;
+			}
+			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_post_right' ) ) ){
+				$i = true;
+			}
+			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_post_bottom' ) ) ){
+				$i = true;
+			}
+			
+			return $i;
+		}
+		
 		public function wp_print_styles() {
 			// Gutenberg: load Styles inline for Pagespeed purposes
 			wp_dequeue_style( 'wp-block-library' );
