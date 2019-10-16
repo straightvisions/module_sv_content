@@ -886,4 +886,19 @@
 
 			return $data;
 		}
+		public function hide_header(): bool {
+			global $post;
+	
+			if ( get_post_meta(
+					 $post->ID,
+					 $this->get_sub( 'metabox' )
+						  ->get_setting( 'hide_header' )
+						  ->get_prefix( $this->get_setting( 'hide_header' )->get_ID() ),
+					 true
+				 ) == 1 ) {
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}

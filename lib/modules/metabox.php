@@ -127,6 +127,12 @@
 				->set_description( $this->get_parent()->get_setting('text_color_info')->get_description() )
 				->set_default_value($this->get_parent()->get_setting('text_color_info')->run_type()->get_data())
 				->load_type( 'color' );
+			
+			$this->get_setting( 'hide_header' )
+				 ->set_title( __('Hide Header', 'sv100') )
+				 ->set_description( __('No Content Header will be shown on this post.', 'sv100') )
+				 ->load_type( 'checkbox' );
+			
 			return $this;
 		}
 		public function load_metabox(): sv_content{
