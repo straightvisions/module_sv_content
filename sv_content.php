@@ -31,7 +31,6 @@
 
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				 ->set_module_desc( __( 'Manages content output.', 'sv100' ) )
-				 ->add_theme_support()
 				 ->load_settings()
 				 ->register_scripts()
 				 ->register_sidebars()
@@ -70,42 +69,6 @@
 			} else {
 				return $orderby_statement;
 			}
-		}
-		
-		protected function add_theme_support(): sv_content {
-			add_theme_support( 'align-wide' );
-			add_theme_support( 'editor-font-sizes', array(
-				array(
-					'name' => __( 'Small', 'sv100' ),
-					'size' => 14,
-					'slug' => 'small'
-				),
-				array(
-					'name' => __( 'Normal', 'sv100' ),
-					'size' => 16,
-					'slug' => 'normal'
-				),
-				array(
-					'name' => __( 'Medium', 'sv100' ),
-					'size' => 24,
-					'slug' => 'normal'
-				),
-				array(
-					'name' => __( 'Large', 'sv100' ),
-					'size' => 32,
-					'slug' => 'large'
-				),
-				array(
-					'name' => __( 'Huge', 'sv100' ),
-					'size' => 64,
-					'slug' => 'huge'
-				)
-			) );
-			
-			add_image_size( 'sv100_thumbnail', 400, 400 );
-			add_image_size( 'sv100_large', 1350, 650 );
-			
-			return $this;
 		}
 		
 		protected function load_settings(): sv_content {
