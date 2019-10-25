@@ -422,3 +422,6 @@ ul.wp-block-latest-posts{
 	list-style-type:none;
 	padding-left:0;
 }
+ul.wp-block-latest-posts li{
+	margin-bottom:20px;
+}
