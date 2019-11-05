@@ -1,9 +1,9 @@
 <?php
 	require_once($script->get_parent()->get_path( 'lib/frontend/css/config/highlight_color.php' ));
 
-	if(is_archive()){
+	if( is_archive() || ( is_front_page() && is_home() ) ) {
 		require_once($script->get_parent()->get_path( 'lib/frontend/css/config/archive.php' ));
-	}else{
+	} else {
 		require_once($script->get_parent()->get_path( 'lib/frontend/css/config/text_color.php' ));
 		require_once($script->get_parent()->get_path( 'lib/frontend/css/config/header.php' ));
 		require_once($script->get_parent()->get_path( 'lib/frontend/css/config/header_content.php' ));

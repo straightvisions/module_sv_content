@@ -620,8 +620,8 @@
 			foreach ( $template['scripts'] as $script ) {
 				$script->set_is_enqueued();
 			}
-			
-			$this->get_script( 'inline_config' )->set_is_enqueued();
+
+			$this->get_module( 'sv_content' )->get_script( 'inline_config' )->set_is_enqueued();
 			
 			// Loads the template
 			require ( $this->get_path('lib/frontend/tpl/' . $template['path'] . '.php' ) );
