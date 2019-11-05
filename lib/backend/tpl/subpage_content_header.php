@@ -67,13 +67,7 @@
     <div class="sv_setting_flex">
 		<?php
 			echo $module->get_setting( 'image_overlay_color' )->run_type()->form();
-			echo $module->get_setting( 'image_overlay_opacity' )->run_type()->form();
-		?>
-    </div>
-	<div class="sv_setting_flex">
-		<?php
-		echo $module->get_setting( 'header_content_overlay_color' )->run_type()->form();
-		echo $module->get_setting( 'header_content_overlay_opacity' )->run_type()->form();
+			echo $module->get_setting( 'header_content_overlay_color' )->run_type()->form();
 		?>
 	</div>
 </div>

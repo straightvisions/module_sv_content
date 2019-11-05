@@ -1,13 +1,13 @@
 <?php
-// SV Common - Color
-$sv_common_text_color		= false;
+	// SV Common - Color
+	$sv_common_text_color		= false;
 
-if ( $script->get_parent()->get_module( 'sv_common' ) ) {
-	$sv_common_text_color 	= $script->get_parent()->get_module( 'sv_common' )->get_setting( 'text_color' )->run_type()->get_data();
-}
-?>
-/* Text Color */
+	if ( $script->get_parent()->get_module( 'sv_common' ) ) {
+		$sv_common_text_color 	= $script->get_parent()->get_module( 'sv_common' )->get_setting( 'text_color' )->run_type()->get_data();
+	}
+	?>
 <?php if ( $sv_common_text_color ) { ?>
+	/* Text Color */
 	.sv100_sv_content_wrapper .sv100_sv_content_page_links > .post-page-numbers,
 	.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers,
 	.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:hover,
@@ -16,7 +16,7 @@ if ( $script->get_parent()->get_module( 'sv_common' ) ) {
 	.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:active,
 	input,
 	button {
-	color: <?php echo $sv_common_text_color; ?>;
+		color: rgba(<?php echo $sv_common_text_color; ?>);
 	}
 
 	blockquote::before, blockquote.wp-block-quote::before,
@@ -30,11 +30,11 @@ if ( $script->get_parent()->get_module( 'sv_common' ) ) {
 	input[type="radio"]:hover,
 	input[type="radio"]:focus,
 	input[type="radio"]:checked {
-	border-color: <?php echo $sv_common_text_color; ?>;
+		border-color: rgba(<?php echo $sv_common_text_color; ?>);
 	}
 
 	input[type="checkbox"]::before,
 	input[type="radio"]::before {
-	background-color: <?php echo $sv_common_text_color; ?>;
+		background-color: rgba(<?php echo $sv_common_text_color; ?>);
 	}
 <?php } ?>

@@ -11,14 +11,14 @@
 	 * @license			See license.txt or https://straightvisions.com
 	 */
 	
-	class sv_content_metabox extends sv_content {
+	class metabox extends sv_content {
 		protected $post_type		= '';
 
 		public function init() {
-			if(is_admin()){
-				add_action('current_screen', array($this, 'admin_post_type'));
-			}else{
-				add_action('wp', array($this, 'wp_init'));
+			if ( is_admin() ) {
+				add_action( 'current_screen', array( $this, 'admin_post_type' ) );
+			} else {
+				add_action( 'wp', array( $this, 'wp_init' ) );
 			}
 		}
 		public function admin_post_type(): sv_content{

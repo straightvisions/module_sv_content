@@ -11,14 +11,12 @@ namespace sv100;
  * @license			See license.txt or https://straightvisions.com
  */
 
-class sv_content_archives extends sv_content
-{
+class archive extends sv_content {
 	protected $post_type = '';
 
-	public function init()
-	{
-		$this->set_is_child_module();
-		$this->load_settings()
+	public function init() {
+		$this->set_is_child_module()
+			->load_settings()
 			->register_scripts()
 			->set_section_title( __( 'Archive', 'sv100' ) )
 			->set_section_desc( __( 'Archive settings', 'sv100' ) )
@@ -27,6 +25,7 @@ class sv_content_archives extends sv_content
 			->get_root()
 			->add_section( $this );
 	}
+
 	protected function load_settings(): sv_content {
 		// ### Post Listing Settings ###
 		//  List - Title
@@ -193,6 +192,7 @@ class sv_content_archives extends sv_content
 
 		return $this;
 	}
+
 	protected function register_scripts(): sv_content {
 		// Styles - Archive
 		$this->get_script( 'archive_common' )

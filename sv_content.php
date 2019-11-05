@@ -13,42 +13,52 @@
 	
 	class sv_content extends init {
 		public $content_metabox = false;
-		public $content_archives = false;
+		public $content_archive = false;
 		
 		public function init() {
-			require_once($this->get_path('lib/modules/metabox.php'));
-			$this->content_metabox				= new sv_content_metabox();
-			$this->content_metabox->set_root( $this->get_root() );
-			$this->content_metabox->set_parent( $this );
-			$this->content_metabox->init();
-
-			require_once($this->get_path('lib/modules/archives.php'));
-			$this->content_archives				= new sv_content_archives();
-			$this->content_archives
-				->set_root( $this->get_root() )
-				->set_parent( $this )
-				->init();
-
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
-				 ->set_module_desc( __( 'Manages content output.', 'sv100' ) )
-				 ->load_settings()
-				 ->register_scripts()
-				 ->register_sidebars()
-				 ->set_section_title( __( 'Content', 'sv100' ) )
-				 ->set_section_desc( __( 'Content settings', 'sv100' ) )
-				 ->set_section_type( 'settings' )
-				 ->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
-				 ->get_root()
-				 ->add_section( $this );
+				->set_module_desc( __( 'Manages content output.', 'sv100' ) )
+				->load_child_modules()
+				->load_settings()
+				->register_scripts()
+				->register_sidebars()
+				->set_section_title( __( 'Content', 'sv100' ) )
+				->set_section_desc( __( 'Content settings', 'sv100' ) )
+				->set_section_type( 'settings' )
+				->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
+				->get_root()
+				->add_section( $this );
 			
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
 			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
 			add_filter( 'posts_orderby', array( $this, 'posts_orderby' ), 10, 2 );
 		}
-		public function get_sub(string $sub){
-			$sub = 'content_'.$sub;
-			return $this->get_module('sv_content')->$sub;
+
+		// Loads required child modules
+		protected function load_child_modules(): sv_content {
+			require_once( $this->get_path('lib/modules/metabox.php') );
+			$this->content_metabox = new metabox();
+			$this->content_metabox
+				->set_root( $this->get_root() )
+				->set_parent( $this )
+				->init();
+
+			require_once( $this->get_path('lib/modules/archive.php') );
+			$this->content_archive = new archive();
+			$this->content_archive
+				->set_root( $this->get_root() )
+				->set_parent( $this )
+				->init();
+
+			return $this;
+		}
+		
+		// Returns a child module of sv_content
+		public function get_child_module( string $child ) {
+			$child = 'content_' . $child;
+
+			return $this->get_module( 'sv_content' )->$child;
 		}
 		
 		public function posts_orderby( $orderby_statement, $wp_query ) {
@@ -605,7 +615,7 @@
 					), $settings
 				);
 			}else{
-				return $this->content_archives->router($settings);
+				return $this->get_child_module( 'archive' )->router( $settings );
 			}
 		}
 		
@@ -620,7 +630,8 @@
 			foreach ( $template['scripts'] as $script ) {
 				$script->set_is_enqueued();
 			}
-
+			
+			// Loads the config CSS
 			$this->get_module( 'sv_content' )->get_script( 'inline_config' )->set_is_enqueued();
 			
 			// Loads the template
@@ -629,7 +640,7 @@
 			// Loads the footer
 			$this->get_footer( $template );
 			
-			$output							        = ob_get_contents();
+			$output	= ob_get_contents();
 			ob_end_clean();
 			
 			return $output;
@@ -680,9 +691,9 @@
 			if ( $post ) {
 				$metabox_data = get_post_meta(
 					$post->ID,
-					$this->get_sub('metabox')
-						->get_setting( 'show_'.$field )
-						->get_prefix( $this->get_setting( 'show_'.$field )->get_ID() ),
+					$this->get_child_module('metabox')
+						->get_setting( 'show_' . $field )
+						->get_prefix( $this->get_setting( 'show_' . $field )->get_ID() ),
 					true
 				);
 
@@ -694,7 +705,7 @@
 			}
 
 			if(!isset($data)){
-				$data = $this->get_sub('metabox')->get_setting('show_'.$field)->run_type()->get_data();
+				$data = $this->get_child_module('metabox')->get_setting('show_'.$field)->run_type()->get_data();
 			}
 
 			return boolval($data);
@@ -706,7 +717,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
-					$this->get_sub('metabox')
+					$this->get_child_module('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -714,7 +725,7 @@
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->get_sub('metabox')
+							$this->get_child_module('metabox')
 								->get_setting( 'header_content_overlay_color' )
 								->get_prefix( $this->get_setting( 'header_content_overlay_color' )->get_ID() ),
 							true
@@ -736,7 +747,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
-					$this->get_sub('metabox')
+					$this->get_child_module('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -744,7 +755,7 @@
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->get_sub('metabox')
+							$this->get_child_module('metabox')
 								->get_setting( 'header_content_overlay_opacity' )
 								->get_prefix( $this->get_setting( 'header_content_overlay_opacity' )->get_ID() ),
 							true
@@ -766,7 +777,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
-					$this->get_sub('metabox')
+					$this->get_child_module('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -774,7 +785,7 @@
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->get_sub('metabox')
+							$this->get_child_module('metabox')
 								->get_setting( 'text_color_title' )
 								->get_prefix( $this->get_setting( 'text_color_title' )->get_ID() ),
 							true
@@ -797,7 +808,7 @@
 			if ( is_single() || is_page() || is_front_page() ) {
 				if(get_post_meta(
 					$post->ID,
-					$this->get_sub('metabox')
+					$this->get_child_module('metabox')
 						->get_setting( 'header_content_override' )
 						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 					true
@@ -805,7 +816,7 @@
 					if ($post) {
 						$metabox_data = get_post_meta(
 							$post->ID,
-							$this->get_sub('metabox')
+							$this->get_child_module('metabox')
 								->get_setting('text_color_excerpt')
 								->get_prefix($this->get_setting('text_color_excerpt')->get_ID()),
 							true
@@ -827,7 +838,7 @@
 
 			if($post && get_post_meta(
 				$post->ID,
-				$this->get_sub('metabox')
+				$this->get_child_module('metabox')
 					->get_setting( 'header_content_override' )
 					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 				true
@@ -835,13 +846,13 @@
 				if ($post) {
 					$metabox_data = get_post_meta(
 						$post->ID,
-						$this->get_sub('metabox')
+						$this->get_child_module('metabox')
 							->get_setting('text_color_info')
-							->get_prefix($this->get_setting('text_color_info')->get_ID()),
+							->get_prefix( $this->get_setting('text_color_info')->get_ID() ),
 						true
 					);
 
-					if ($metabox_data) {
+					if ( $metabox_data ) {
 						$data = $metabox_data;
 					}
 				}
@@ -854,7 +865,7 @@
 	
 			if ( get_post_meta(
 					 $post->ID,
-					 $this->get_sub( 'metabox' )
+					 $this->get_child_module( 'metabox' )
 						  ->get_setting( 'hide_header' )
 						  ->get_prefix( $this->get_setting( 'hide_header' )->get_ID() ),
 					 true
