@@ -31,19 +31,19 @@ class archive extends sv_content {
 		//  List - Title
 		$this->get_settings_component( 'font_family_title_list','font_family' );
 		$this->get_settings_component( 'font_size_title_list','font_size', 32 );
-		$this->get_settings_component( 'line_height_title_list','line_height', 48 );
+		$this->get_settings_component( 'line_height_title_list','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_title_list','text_color', '#1e1e1e' );
 
 		// List - Excerpt
 		$this->get_settings_component( 'font_family_excerpt_list','font_family' );
 		$this->get_settings_component( 'font_size_excerpt_list','font_size', 16 );
-		$this->get_settings_component( 'line_height_excerpt_list','line_height', 23 );
+		$this->get_settings_component( 'line_height_excerpt_list','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_excerpt_list','text_color', '#1e1e1e' );
 
 		// List - Read More
 		$this->get_settings_component( 'font_family_more_list','font_family' );
 		$this->get_settings_component( 'font_size_more_list','font_size', 16 );
-		$this->get_settings_component( 'line_height_more_list','line_height', 23 );
+		$this->get_settings_component( 'line_height_more_list','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_more_list','text_color', '#1e1e1e' );
 
 		$this->get_setting( 'text_more_list' )
@@ -63,19 +63,19 @@ class archive extends sv_content {
 		// Masonry - Title
 		$this->get_settings_component( 'font_family_title_masonry','font_family' );
 		$this->get_settings_component( 'font_size_title_masonry','font_size', 32 );
-		$this->get_settings_component( 'line_height_title_masonry','line_height', 48 );
+		$this->get_settings_component( 'line_height_title_masonry','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_title_masonry','text_color', '#1e1e1e' );
 
 		// Masonry - Excerpt
 		$this->get_settings_component( 'font_family_excerpt_masonry','font_family' );
 		$this->get_settings_component( 'font_size_excerpt_masonry','font_size', 16 );
-		$this->get_settings_component( 'line_height_excerpt_masonry','line_height', 23 );
+		$this->get_settings_component( 'line_height_excerpt_masonry','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_excerpt_masonry','text_color', '#1e1e1e' );
 
 		// Masonry - Read More
 		$this->get_settings_component( 'font_family_more_masonry','font_family' );
 		$this->get_settings_component( 'font_size_more_masonry','font_size', 16 );
-		$this->get_settings_component( 'line_height_more_masonry','line_height', 23 );
+		$this->get_settings_component( 'line_height_more_masonry','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_more_masonry','text_color', '#1e1e1e' );
 
 		$this->get_setting( 'text_more_masonry' )
@@ -108,13 +108,13 @@ class archive extends sv_content {
 		// Grid - Title
 		$this->get_settings_component( 'font_family_title_grid','font_family' );
 		$this->get_settings_component( 'font_size_title_grid','font_size', 32 );
-		$this->get_settings_component( 'line_height_title_grid','line_height', 48 );
+		$this->get_settings_component( 'line_height_title_grid','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_title_grid','text_color', '#ffffff' );
 
 		// Grid - Excerpt
 		$this->get_settings_component( 'font_family_excerpt_grid','font_family' );
 		$this->get_settings_component( 'font_size_excerpt_grid','font_size', 16 );
-		$this->get_settings_component( 'line_height_excerpt_grid','line_height', 23 );
+		$this->get_settings_component( 'line_height_excerpt_grid','line_height', 1.3 );
 		$this->get_settings_component( 'text_color_excerpt_grid','text_color', '#ffffff' );
 
 		// Grid - Color Settings
