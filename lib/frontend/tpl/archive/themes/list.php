@@ -1,4 +1,4 @@
-<div class="<?php echo $this->get_prefix( 'archive' ) . ' ' .$this->get_prefix( 'list' ); ?>">
+<div class="<?php echo $this->get_prefix( 'style_list' ); ?>">
 	<?php
 		while ( have_posts() ) {
 			the_post();
