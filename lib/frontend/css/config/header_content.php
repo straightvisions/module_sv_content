@@ -1,6 +1,11 @@
 <?php
-	$font_title		= $font_family_title ? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title ) : false;
-	$font_excerpt 	= $font_family_excerpt ? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_excerpt ) : false;
+	$font_title			= $font_family_title ? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title ) : false;
+	$font_excerpt 		= $font_family_excerpt ? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_excerpt ) : false;
+	
+	// Those can be overwritten by metabox settings
+	$text_color_title 	= $script->get_parent()->get_header_content_title_color();
+	$text_color_excerpt = $script->get_parent()->get_header_content_excerpt_color();
+	$text_color_info 	= $script->get_parent()->get_header_content_info_color();
 ?>
 
 .sv100_sv_content_header h1 {

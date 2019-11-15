@@ -710,18 +710,22 @@
 
 			return boolval($data);
 		}
+
 		public function get_header_content_overlay_color(): string{
 			global $post;
 
-			$data = $this->get_setting( 'header_content_overlay_color' )->run_type()->get_data();
+			$setting 			= $this->get_setting( 'header_content_overlay_color' );
+			$data 				= $this->get_setting( 'header_content_overlay_color' )->run_type()->get_data();
+			$override_settings 	= get_post_meta(
+				$post->ID,
+				$this->get_child_module('metabox')
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			);
+
 			if ( is_single() || is_page() || is_front_page() ) {
-				if ( get_post_meta(
-					$post->ID,
-					$this->get_child_module('metabox')
-						->get_setting( 'header_content_override' )
-						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-					true
-				) ) {
+				if ( $override_settings ) {
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
@@ -738,8 +742,11 @@
 				}
 			}
 
-			return $data;
+			$color = $setting->get_rgb( $data );
+
+			return $color;
 		}
+
 		public function get_header_content_overlay_opacity(): string{
 			global $post;
 
@@ -770,18 +777,22 @@
 
 			return $data;
 		}
+
 		public function get_header_content_title_color(): string{
 			global $post;
 
-			$data = $this->get_setting( 'text_color_title' )->run_type()->get_data();
+			$setting 			= $this->get_setting( 'text_color_title' );
+			$data 				= $this->get_setting( 'text_color_title' )->run_type()->get_data();
+			$override_settings 	= get_post_meta(
+				$post->ID,
+				$this->get_child_module('metabox')
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			);
+
 			if ( is_single() || is_page() || is_front_page() ) {
-				if ( get_post_meta(
-					$post->ID,
-					$this->get_child_module('metabox')
-						->get_setting( 'header_content_override' )
-						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-					true
-				) ) {
+				if ( $override_settings ) {
 					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
@@ -798,22 +809,27 @@
 				}
 			}
 
-			return $data;
+			$color = $setting->get_rgb( $data );
+
+			return $color;
 		}
+
 		public function get_header_content_excerpt_color(): string{
 			global $post;
 
-			$data = $this->get_setting( 'text_color_excerpt' )->run_type()->get_data();
+			$setting 			= $this->get_setting( 'text_color_excerpt' );
+			$data 				= $this->get_setting( 'text_color_excerpt' )->run_type()->get_data();
+			$override_settings 	= get_post_meta(
+				$post->ID,
+				$this->get_child_module('metabox')
+					->get_setting( 'header_content_override' )
+					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
+				true
+			);
 			
 			if ( is_single() || is_page() || is_front_page() ) {
-				if(get_post_meta(
-					$post->ID,
-					$this->get_child_module('metabox')
-						->get_setting( 'header_content_override' )
-						->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
-					true
-				)) {
-					if ($post) {
+				if ( $override_settings ) {
+					if ( $post ) {
 						$metabox_data = get_post_meta(
 							$post->ID,
 							$this->get_child_module('metabox')
@@ -822,28 +838,33 @@
 							true
 						);
 						
-						if ($metabox_data) {
+						if ( $metabox_data ) {
 							$data = $metabox_data;
 						}
 					}
 				}
 			}
 
-			return $data;
+			$color = $setting->get_rgb( $data );
+
+			return $color;
 		}
-		public function get_header_content_author_date_color(): string{
+
+		public function get_header_content_info_color(): string{
 			global $post;
 
-			$data = $this->get_setting( 'text_color_info' )->run_type()->get_data();
-
-			if($post && get_post_meta(
+			$setting 			= $this->get_setting( 'text_color_info' );
+			$data 				= $this->get_setting( 'text_color_info' )->run_type()->get_data();
+			$override_settings 	= get_post_meta(
 				$post->ID,
 				$this->get_child_module('metabox')
 					->get_setting( 'header_content_override' )
 					->get_prefix( $this->get_setting( 'header_content_override' )->get_ID() ),
 				true
-			)) {
-				if ($post) {
+			);
+
+			if ( $override_settings ) {
+				if ( $post ) {
 					$metabox_data = get_post_meta(
 						$post->ID,
 						$this->get_child_module('metabox')
@@ -858,8 +879,11 @@
 				}
 			}
 
-			return $data;
+			$color = $setting->get_rgb( $data );
+
+			return $color;
 		}
+
 		public function hide_header(): bool {
 			global $post;
 	

@@ -1,3 +1,9 @@
+<?php 
+	// Those can be overwritten by metabox settings
+	$header_content_overlay_color = $script->get_parent()->get_header_content_overlay_color();
+?>
+?>
+
 .sv100_sv_content_header {
     background-color: rgba(<?php echo $bg_color; ?>);
 }
