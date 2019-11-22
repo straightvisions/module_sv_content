@@ -381,11 +381,6 @@
 		}
 		
 		protected function register_scripts(): sv_content {
-			// Styles - Common
-			$this->get_script( 'form' )
-				 ->set_path( 'lib/frontend/css/form.css' )
-				 ->set_inline( true );
-			
 			// Styles - Sidebar
 			$this->get_script( 'widgets' )
 				 ->set_path( 'lib/frontend/css/sidebar/widgets.css' )
@@ -557,7 +552,6 @@
 					$template = array(
 						'path'      => 'content/frontpage',
 						'scripts'   => array(
-							$this->get_script( 'form' )->set_inline( $settings['inline'] ),
 							$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 							$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 							$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
@@ -573,7 +567,6 @@
 							$template = array(
 								'path'      => 'content/single',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_single' )->set_inline( $settings['inline'] ),
@@ -584,7 +577,6 @@
 							$template = array(
 								'path'      => 'content/page',
 								'scripts'   => array(
-									$this->get_script( 'form' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
@@ -597,7 +589,6 @@
 				$template = array(
 					'path'      => 'content/404',
 					'scripts'   => array(
-						$this->get_script( 'form' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
