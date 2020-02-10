@@ -29,18 +29,18 @@
 	$highlight_color_grid		= $module->get_setting( 'highlight_color_grid' )->get_rgb( $module->get_setting( 'highlight_color_grid' )->run_type()->get_data() );
 ?>
 
-.sv100_sv_content_archive_grid article {
+.sv100_sv_content_archive_style_grid article {
 	background-color: rgba(<?php echo $bg_color_grid; ?>);
 }
 
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_categories a,
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_categories a:hover,
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_categories a:focus {
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_categories a,
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_categories a:hover,
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_categories a:focus {
 	color: rgba(<?php echo $text_color_category_grid; ?>);
 	background-color: rgba(<?php echo $bg_color_category_grid; ?>);
 }
 
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_title {
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_title {
 	<?php echo ( $font_title_grid ? 'font-family: "' . $font_title_grid['family'] . '", sans-serif;' : '' ); ?>
 	font-weight: <?php echo ( $font_title_grid ? $font_title_grid['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_title_grid; ?>px;
@@ -48,20 +48,20 @@
 	line-height: <?php echo $line_height_title_grid; ?>;
 }
 
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_info > div,
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_info > p {
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_info > div,
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_info > p {
 	color: rgba(<?php echo $text_color_info_grid; ?>);
 }
 
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_info > div::before {
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_info > div::before {
 	background-color: rgba(<?php echo $text_color_info_grid; ?>);
 }
 
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_excerpt {
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_excerpt {
 	background-color: rgba( <?php echo $highlight_color_grid; ?> );
 }
 
-.sv100_sv_content_archive_grid .sv100_sv_content_archive_excerpt p {
+.sv100_sv_content_archive_style_grid .sv100_sv_content_archive_excerpt p {
 	<?php echo ( $font_excerpt_grid ? 'font-family: "' . $font_excerpt_grid['family'] . '", sans-serif;' : '' ); ?>
 	font-weight: <?php echo ( $font_excerpt_grid ? $font_excerpt_grid['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_excerpt_grid; ?>px;

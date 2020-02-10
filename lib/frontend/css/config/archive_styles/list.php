@@ -37,7 +37,7 @@
 	$highlight_color_list		= $module->get_setting( 'highlight_color_list' )->get_rgb( $module->get_setting( 'highlight_color_list' )->run_type()->get_data() );
 ?>
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_title a {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_title a {
 	<?php echo ( $font_title_list ? 'font-family: "' . $font_title_list['family'] . '", sans-serif;' : '' ); ?>
 	font-weight: <?php echo ( $font_title_list ? $font_title_list['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_title_list; ?>px;
@@ -45,7 +45,7 @@
 	line-height: <?php echo $line_height_title_list; ?>;
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_excerpt p {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_excerpt p {
 	<?php echo ( $font_excerpt_list ? 'font-family: "' . $font_excerpt_list['family'] . '", sans-serif;' : '' ); ?>
 	font-weight: <?php echo ( $font_excerpt_list ? $font_excerpt_list['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_excerpt_list; ?>px;
@@ -53,7 +53,7 @@
 	line-height: <?php echo $line_height_excerpt_list; ?>;
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_read_more {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_read_more {
 	<?php echo ( $font_more_list ? 'font-family: "' . $font_more_list['family'] . '", sans-serif;' : '' ); ?>
 	font-weight: <?php echo ( $font_more_list ? $font_more_list['weight'] : '400' ); ?>;
 	font-size: <?php echo $font_size_more_list; ?>px;
@@ -61,27 +61,27 @@
 	line-height: <?php echo $line_height_more_list; ?>;
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_read_more:hover,
-.sv100_sv_content_archive_list .sv100_sv_content_archive_read_more:focus {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_read_more:hover,
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_read_more:focus {
 	color: rgba(<?php echo $text_color_more_list; ?>);
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_info a {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_info a {
 	color: rgba(<?php echo $text_color_info_list; ?>);
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_info > div::before {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_info > div::before {
 	background-color: rgba(<?php echo $text_color_info_list; ?>);
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_title:hover a,
-.sv100_sv_content_archive_list .sv100_sv_content_archive_title:focus a,
-.sv100_sv_content_archive_list .sv100_sv_content_archive_info a:hover,
-.sv100_sv_content_archive_list .sv100_sv_content_archive_info a:focus {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_title:hover a,
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_title:focus a,
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_info a:hover,
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_info a:focus {
 	color: rgba(<?php echo $highlight_color_list; ?>);
 }
 
-.sv100_sv_content_archive_list .sv100_sv_content_archive_read_more::after,
-.sv100_sv_content_archive_list .sv100_sv_content_archive_thumbnail > a {
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_read_more::after,
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_thumbnail > a {
 	background-color: rgba(<?php echo $highlight_color_list; ?>);
 }

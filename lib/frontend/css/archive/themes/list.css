@@ -89,7 +89,11 @@
 }
 
 .sv100_sv_content_archive_style_list .sv100_sv_content_archive_wrapper .sv100_sv_content_archive_title {
+	margin-top:0;
 	margin-bottom: .3em;
+}
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_wrapper .sv100_sv_content_archive_title a{
+	text-decoration:none;
 }
 
 @media ( min-width: 850px ) {
