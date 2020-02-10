@@ -733,7 +733,7 @@
 				}
 			}
 
-			$color = $setting->get_rgb( $data );
+			$color = $setting->get_rgb( $data, $this->get_header_content_overlay_opacity() );
 
 			return $color;
 		}
