@@ -21,7 +21,6 @@
 	.sv100_sv_content_archive_wrapper,
 	.sv100_sv_content_archive_header .sv100_sv_content_archive_header_content{
 		max-width: var( --sv100_sv_common-max-width-mb );
-		padding: 70px var( --sv100_sv_common-padding );
 	}
 }
 
