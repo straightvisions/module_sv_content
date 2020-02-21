@@ -86,8 +86,7 @@
 .sv100_sv_content_wrapper > article .aligncenter,
 .sv100_sv_content_wrapper > article .wp-block-image,
 .sv100_sv_content_wrapper > article .wp-block-cover,
-.sv100_sv_content_wrapper > article .wp-block-quote.is-style-large,
-.sv100_sv_content_wrapper > article .wp-block-pullquote {
+.sv100_sv_content_wrapper > article .wp-block-quote.is-style-large {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -288,14 +287,6 @@
 	border-left: 4px solid #000;
 	padding-left: 1em;
 }
-.sv100_sv_content_wrapper > article .wp-block-pullquote {
-	margin-top: 0;
-	margin-bottom: 1em;
-	border-top-width: 4px;
-	border-bottom-width: 4px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-}
 
 .sv100_sv_content_wrapper > article .wp-block-quote[style="text-align:center"] {
 	display: block;
@@ -308,8 +299,7 @@
 	border-width: 0 2px 0 0;
 }
 
-.sv100_sv_content_wrapper > article .wp-block-quote > cite,
-.sv100_sv_content_wrapper > article .wp-block-pullquote > cite {
+.sv100_sv_content_wrapper > article .wp-block-quote > cite {
 	grid-area: author;
 	font-size: .8rem;
 }
