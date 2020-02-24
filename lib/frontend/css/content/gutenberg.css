@@ -272,8 +272,8 @@
 }
 
 /* Seperator Block */
-.sv100_sv_content_wrapper > article .wp-block-separator,
-.sv100_sv_content_wrapper > article .wp-block-separator.is-style-wide {
+.sv100_sv_content_wrapper > article .wp-block-separator:not(.is-style-dots),
+.sv100_sv_content_wrapper > article .wp-block-separator.is-style-wide:not(.is-style-dots) {
 	border-width: 2px;
 	border-style: solid;
 }
