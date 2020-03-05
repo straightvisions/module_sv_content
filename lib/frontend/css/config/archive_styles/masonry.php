@@ -1,43 +1,43 @@
 <?php
 	// Masonry - Title
-	$font_family_title_masonry	= $module->get_setting( 'font_family_title_masonry' )->run_type()->get_data();
+	$font_family_title_masonry	= $module->get_setting( 'font_family_title_masonry' )->get_data();
 	if ( $font_family_title_masonry ) {
 		$font_title_masonry		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title_masonry );
 	} else {
 		$font_title_masonry     = false;
 	}
-	$font_size_title_masonry	= $module->get_setting( 'font_size_title_masonry' )->run_type()->get_data();
-	$line_height_title_masonry	= $module->get_setting( 'line_height_title_masonry' )->run_type()->get_data();
-	$text_color_title_masonry	= $module->get_setting( 'text_color_title_masonry' )->get_rgb( $module->get_setting( 'text_color_title_masonry' )->run_type()->get_data() );
+	$font_size_title_masonry	= $module->get_setting( 'font_size_title_masonry' )->get_data();
+	$line_height_title_masonry	= $module->get_setting( 'line_height_title_masonry' )->get_data();
+	$text_color_title_masonry	= $module->get_setting( 'text_color_title_masonry' )->get_rgb( $module->get_setting( 'text_color_title_masonry' )->get_data() );
 	
 	// Masonry - Excerpt
-	$font_family_excerpt_masonry= $module->get_setting( 'font_family_excerpt_masonry' )->run_type()->get_data();
+	$font_family_excerpt_masonry= $module->get_setting( 'font_family_excerpt_masonry' )->get_data();
 	if ( $font_family_excerpt_masonry ) {
 		$font_excerpt_masonry	= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_excerpt_masonry );
 	} else {
 		$font_excerpt_masonry   = false;
 	}
-	$font_size_excerpt_masonry	= $module->get_setting( 'font_size_excerpt_masonry' )->run_type()->get_data();
-	$line_height_excerpt_masonry= $module->get_setting( 'line_height_excerpt_masonry' )->run_type()->get_data();
-	$text_color_excerpt_masonry = $module->get_setting( 'text_color_excerpt_masonry' )->get_rgb( $module->get_setting( 'text_color_excerpt_masonry' )->run_type()->get_data() );
+	$font_size_excerpt_masonry	= $module->get_setting( 'font_size_excerpt_masonry' )->get_data();
+	$line_height_excerpt_masonry= $module->get_setting( 'line_height_excerpt_masonry' )->get_data();
+	$text_color_excerpt_masonry = $module->get_setting( 'text_color_excerpt_masonry' )->get_rgb( $module->get_setting( 'text_color_excerpt_masonry' )->get_data() );
 	
 	// Masonry - Read More
-	$font_family_more_masonry	= $module->get_setting( 'font_family_more_masonry' )->run_type()->get_data();
+	$font_family_more_masonry	= $module->get_setting( 'font_family_more_masonry' )->get_data();
 	if ( $font_family_more_masonry ) {
 		$font_more_masonry		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_more_masonry );
 	} else {
 		$font_more_masonry      = false;
 	}
-	$font_size_more_masonry		= $module->get_setting( 'font_size_more_masonry' )->run_type()->get_data();
-	$line_height_more_masonry	= $module->get_setting( 'line_height_more_masonry' )->run_type()->get_data();
-	$text_color_more_masonry	= $module->get_setting( 'text_color_more_masonry' )->get_rgb( $module->get_setting( 'text_color_more_masonry' )->run_type()->get_data() );
+	$font_size_more_masonry		= $module->get_setting( 'font_size_more_masonry' )->get_data();
+	$line_height_more_masonry	= $module->get_setting( 'line_height_more_masonry' )->get_data();
+	$text_color_more_masonry	= $module->get_setting( 'text_color_more_masonry' )->get_rgb( $module->get_setting( 'text_color_more_masonry' )->get_data() );
 	
 	// Masonry - Color Settings
-	$bg_color_masonry			= $module->get_setting( 'bg_color_masonry' )->get_rgb( $module->get_setting( 'bg_color_masonry' )->run_type()->get_data() );
-	$text_color_category_masonry= $module->get_setting( 'text_color_category_masonry' )->get_rgb( $module->get_setting( 'text_color_category_masonry' )->run_type()->get_data() );
-	$bg_color_category_masonry	= $module->get_setting( 'bg_color_category_masonry' )->get_rgb( $module->get_setting( 'bg_color_category_masonry' )->run_type()->get_data() );
-	$text_color_info_masonry	= $module->get_setting( 'text_color_info_masonry' )->get_rgb( $module->get_setting( 'text_color_info_masonry' )->run_type()->get_data() );
-	$highlight_color_masonry	= $module->get_setting( 'highlight_color_masonry' )->get_rgb( $module->get_setting( 'highlight_color_masonry' )->run_type()->get_data() );
+	$bg_color_masonry			= $module->get_setting( 'bg_color_masonry' )->get_rgb( $module->get_setting( 'bg_color_masonry' )->get_data() );
+	$text_color_category_masonry= $module->get_setting( 'text_color_category_masonry' )->get_rgb( $module->get_setting( 'text_color_category_masonry' )->get_data() );
+	$bg_color_category_masonry	= $module->get_setting( 'bg_color_category_masonry' )->get_rgb( $module->get_setting( 'bg_color_category_masonry' )->get_data() );
+	$text_color_info_masonry	= $module->get_setting( 'text_color_info_masonry' )->get_rgb( $module->get_setting( 'text_color_info_masonry' )->get_data() );
+	$highlight_color_masonry	= $module->get_setting( 'highlight_color_masonry' )->get_rgb( $module->get_setting( 'highlight_color_masonry' )->get_data() );
 ?>
 
 .sv100_sv_content_archive_style_masonry .sv100_sv_content_archive_wrapper {

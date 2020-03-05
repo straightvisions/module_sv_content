@@ -2,7 +2,7 @@
 	namespace sv100;
 	
 	/**
-	 * @version         4.000
+	 * @version         4.262
 	 * @author			straightvisions GmbH
 	 * @package			sv100
 	 * @copyright		2019 straightvisions GmbH
@@ -696,7 +696,7 @@
 			}
 
 			if(!isset($data)){
-				$data = $this->get_child_module('metabox')->get_setting('show_'.$field)->run_type()->get_data();
+				$data = $this->get_child_module('metabox')->get_setting('show_'.$field)->get_data();
 			}
 
 			return boolval($data);
@@ -706,7 +706,7 @@
 			global $post;
 
 			$setting 			= $this->get_setting( 'header_content_overlay_color' );
-			$data 				= $this->get_setting( 'header_content_overlay_color' )->run_type()->get_data();
+			$data 				= $this->get_setting( 'header_content_overlay_color' )->get_data();
 			$override_settings 	= get_post_meta(
 				$post->ID,
 				$this->get_child_module('metabox')
@@ -741,7 +741,7 @@
 		public function get_header_content_overlay_opacity(): string{
 			global $post;
 
-			$data = $this->get_setting( 'header_content_overlay_opacity' )->run_type()->get_data();
+			$data = $this->get_setting( 'header_content_overlay_opacity' )->get_data();
 			if ( is_single() || is_page() || is_front_page() ) {
 				if ( get_post_meta(
 					$post->ID,
@@ -773,7 +773,7 @@
 			global $post;
 
 			$setting 			= $this->get_setting( 'text_color_title' );
-			$data 				= $this->get_setting( 'text_color_title' )->run_type()->get_data();
+			$data 				= $this->get_setting( 'text_color_title' )->get_data();
 			$override_settings 	= get_post_meta(
 				$post->ID,
 				$this->get_child_module('metabox')
@@ -809,7 +809,7 @@
 			global $post;
 
 			$setting 			= $this->get_setting( 'text_color_excerpt' );
-			$data 				= $this->get_setting( 'text_color_excerpt' )->run_type()->get_data();
+			$data 				= $this->get_setting( 'text_color_excerpt' )->get_data();
 			$override_settings 	= get_post_meta(
 				$post->ID,
 				$this->get_child_module('metabox')
@@ -845,7 +845,7 @@
 			global $post;
 
 			$setting 			= $this->get_setting( 'text_color_info' );
-			$data 				= $this->get_setting( 'text_color_info' )->run_type()->get_data();
+			$data 				= $this->get_setting( 'text_color_info' )->get_data();
 			$override_settings 	= get_post_meta(
 				$post->ID,
 				$this->get_child_module('metabox')

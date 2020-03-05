@@ -9,8 +9,8 @@
 		<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 			<?php
 				$archive_theme = 'lib/frontend/tpl/archive/themes/';
-				$archive_theme .= $this->get_setting( 'tag_theme' )->run_type()->get_data()
-					? $this->get_setting( 'tag_theme' )->run_type()->get_data()
+				$archive_theme .= $this->get_setting( 'tag_theme' )->get_data()
+					? $this->get_setting( 'tag_theme' )->get_data()
 					: 'list';
 				$archive_theme .= '.php';
 				

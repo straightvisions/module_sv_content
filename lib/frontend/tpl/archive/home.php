@@ -3,8 +3,8 @@
 		<h1><?php _e( 'Recent Posts', 'sv100' ); ?></h1>
 		<?php
 			$archive_theme = 'lib/frontend/tpl/archive/themes/';
-			$archive_theme .= $this->get_setting( 'home_theme' )->run_type()->get_data()
-				? $this->get_setting( 'home_theme' )->run_type()->get_data()
+			$archive_theme .= $this->get_setting( 'home_theme' )->get_data()
+				? $this->get_setting( 'home_theme' )->get_data()
 				: 'list';
 			$archive_theme .= '.php';
 			

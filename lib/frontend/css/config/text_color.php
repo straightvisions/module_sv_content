@@ -3,7 +3,7 @@
 	$sv_common_text_color		= false;
 
 	if ( $script->get_parent()->get_module( 'sv_common' ) ) {
-		$sv_common_text_color 	= $script->get_parent()->get_module( 'sv_common' )->get_setting( 'text_color' )->run_type()->get_data();
+		$sv_common_text_color 	= $script->get_parent()->get_module( 'sv_common' )->get_setting( 'text_color' )->get_data();
 	}
 	?>
 <?php if ( $sv_common_text_color ) { ?>

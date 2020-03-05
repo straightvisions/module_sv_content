@@ -1,32 +1,32 @@
 <?php
 	// Grid - Title
-	$font_family_title_grid		= $module->get_setting( 'font_family_title_grid' )->run_type()->get_data();
+	$font_family_title_grid		= $module->get_setting( 'font_family_title_grid' )->get_data();
 	if ( $font_family_title_grid ) {
 		$font_title_grid		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title_grid );
 	} else {
 		$font_title_grid     	= false;
 	}
-	$font_size_title_grid		= $module->get_setting( 'font_size_title_grid' )->run_type()->get_data();
-	$line_height_title_grid		= $module->get_setting( 'line_height_title_grid' )->run_type()->get_data();
-	$text_color_title_grid		= $module->get_setting( 'text_color_title_grid' )->get_rgb( $module->get_setting( 'text_color_title_grid' )->run_type()->get_data() );
+	$font_size_title_grid		= $module->get_setting( 'font_size_title_grid' )->get_data();
+	$line_height_title_grid		= $module->get_setting( 'line_height_title_grid' )->get_data();
+	$text_color_title_grid		= $module->get_setting( 'text_color_title_grid' )->get_rgb( $module->get_setting( 'text_color_title_grid' )->get_data() );
 	
 	// Grid - Excerpt
-	$font_family_excerpt_grid	= $module->get_setting( 'font_family_excerpt_grid' )->run_type()->get_data();
+	$font_family_excerpt_grid	= $module->get_setting( 'font_family_excerpt_grid' )->get_data();
 	if ( $font_family_excerpt_grid ) {
 		$font_excerpt_grid		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_excerpt_grid );
 	} else {
 		$font_excerpt_grid   	= false;
 	}
-	$font_size_excerpt_grid		= $module->get_setting( 'font_size_excerpt_grid' )->run_type()->get_data();
-	$line_height_excerpt_grid	= $module->get_setting( 'line_height_excerpt_grid' )->run_type()->get_data();
-	$text_color_excerpt_grid	= $module->get_setting( 'text_color_excerpt_grid' )->get_rgb( $module->get_setting( 'text_color_excerpt_grid' )->run_type()->get_data() );
+	$font_size_excerpt_grid		= $module->get_setting( 'font_size_excerpt_grid' )->get_data();
+	$line_height_excerpt_grid	= $module->get_setting( 'line_height_excerpt_grid' )->get_data();
+	$text_color_excerpt_grid	= $module->get_setting( 'text_color_excerpt_grid' )->get_rgb( $module->get_setting( 'text_color_excerpt_grid' )->get_data() );
 	
 	// Grid - Color Settings
-	$bg_color_grid				= $module->get_setting( 'bg_color_grid' )->get_rgb( $module->get_setting( 'bg_color_grid' )->run_type()->get_data() );
-	$text_color_category_grid	= $module->get_setting( 'text_color_category_grid' )->get_rgb( $module->get_setting( 'text_color_category_grid' )->run_type()->get_data() );
-	$bg_color_category_grid		= $module->get_setting( 'bg_color_category_grid' )->get_rgb( $module->get_setting( 'bg_color_category_grid' )->run_type()->get_data() );
-	$text_color_info_grid		= $module->get_setting( 'text_color_info_grid' )->get_rgb( $module->get_setting( 'text_color_info_grid' )->run_type()->get_data() );
-	$highlight_color_grid		= $module->get_setting( 'highlight_color_grid' )->get_rgb( $module->get_setting( 'highlight_color_grid' )->run_type()->get_data() );
+	$bg_color_grid				= $module->get_setting( 'bg_color_grid' )->get_rgb( $module->get_setting( 'bg_color_grid' )->get_data() );
+	$text_color_category_grid	= $module->get_setting( 'text_color_category_grid' )->get_rgb( $module->get_setting( 'text_color_category_grid' )->get_data() );
+	$bg_color_category_grid		= $module->get_setting( 'bg_color_category_grid' )->get_rgb( $module->get_setting( 'bg_color_category_grid' )->get_data() );
+	$text_color_info_grid		= $module->get_setting( 'text_color_info_grid' )->get_rgb( $module->get_setting( 'text_color_info_grid' )->get_data() );
+	$highlight_color_grid		= $module->get_setting( 'highlight_color_grid' )->get_rgb( $module->get_setting( 'highlight_color_grid' )->get_data() );
 ?>
 
 .sv100_sv_content_archive_style_grid article {

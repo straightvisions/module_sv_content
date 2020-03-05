@@ -23,7 +23,7 @@
 					echo $this->get_module( 'sv_sidebar' )
 							  ->load( array( 'id' => $this->get_module_name() . '_' . $type . '_right' ) );
 				
-					if ( $this->get_setting( 'sidebar_right_' . $type . '_sticky' )->run_type()->get_data() ) {
+					if ( $this->get_setting( 'sidebar_right_' . $type . '_sticky' )->get_data() ) {
 						$this->get_script( 'sidebar_js' )->set_is_enqueued();
 					}
 				?>

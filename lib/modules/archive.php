@@ -253,8 +253,8 @@ class archive extends sv_content {
 
 				$archive_theme = 'archive_theme_';
 				$archive_theme .=
-					$this->get_setting( 'home_theme' )->run_type()->get_data()
-						? $this->get_setting( 'home_theme' )->run_type()->get_data()
+					$this->get_setting( 'home_theme' )->get_data()
+						? $this->get_setting( 'home_theme' )->get_data()
 						: 'list';
 
 				$template = array(
@@ -282,8 +282,8 @@ class archive extends sv_content {
 					case 'category':
 						$archive_theme = 'archive_theme_';
 						$archive_theme .=
-							$this->get_setting( 'category_theme' )->run_type()->get_data()
-								? $this->get_setting( 'category_theme' )->run_type()->get_data()
+							$this->get_setting( 'category_theme' )->get_data()
+								? $this->get_setting( 'category_theme' )->get_data()
 								: 'list';
 
 						$template = array(
@@ -298,8 +298,8 @@ class archive extends sv_content {
 					case 'tag':
 						$archive_theme = 'archive_theme_';
 						$archive_theme .=
-							$this->get_setting( 'tag_theme' )->run_type()->get_data()
-								? $this->get_setting( 'tag_theme' )->run_type()->get_data()
+							$this->get_setting( 'tag_theme' )->get_data()
+								? $this->get_setting( 'tag_theme' )->get_data()
 								: 'list';
 
 						$template = array(
@@ -314,8 +314,8 @@ class archive extends sv_content {
 					case 'search':
 						$archive_theme = 'archive_theme_';
 						$archive_theme .=
-							$this->get_setting( 'search_theme' )->run_type()->get_data()
-								? $this->get_setting( 'search_theme' )->run_type()->get_data()
+							$this->get_setting( 'search_theme' )->get_data()
+								? $this->get_setting( 'search_theme' )->get_data()
 								: 'list';
 
 						$template = array(
@@ -330,8 +330,8 @@ class archive extends sv_content {
 					case 'author':
 						$archive_theme = 'archive_theme_';
 						$archive_theme .=
-							$this->get_setting( 'author_theme' )->run_type()->get_data()
-								? $this->get_setting( 'author_theme' )->run_type()->get_data()
+							$this->get_setting( 'author_theme' )->get_data()
+								? $this->get_setting( 'author_theme' )->get_data()
 								: 'list';
 
 						$template = array(

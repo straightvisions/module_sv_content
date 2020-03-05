@@ -79,7 +79,7 @@
 <?php
 if ( count( $script->get_parent()->get_module( 'sv_sidebar' )->get_sidebars( $script->get_parent() ) ) > 0 ) {
 	foreach ( $script->get_parent()->get_module( 'sv_sidebar' )->get_sidebars( $script->get_parent() ) as $sidebar ) {
-		$value = $script->get_parent()->get_setting( $sidebar['id'] )->run_type()->get_data();
+		$value = $script->get_parent()->get_setting( $sidebar['id'] )->get_data();
 
 		switch ( $value ) {
 			case 'left':

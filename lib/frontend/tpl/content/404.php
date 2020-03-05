@@ -1,5 +1,5 @@
 <?php
-	if ( ! get_post( $this->get_setting( '404_page' )->run_type()->get_data() ) ) {
+	if ( ! get_post( $this->get_setting( '404_page' )->get_data() ) ) {
 	?>
 	<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( '404' ); ?>">
 		<div class="<?php echo $this->get_prefix( 'header' ); ?>">
@@ -16,7 +16,7 @@
 	<?php
 	} else {
 		global $post;
-		$post = get_post( $this->get_setting( '404_page' )->run_type()->get_data() );
+		$post = get_post( $this->get_setting( '404_page' )->get_data() );
 		setup_postdata($post);
 		require_once($this->get_path('lib/frontend/tpl/content/page.php'));
 	}
