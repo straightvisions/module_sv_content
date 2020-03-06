@@ -66,6 +66,7 @@
 	color: rgba(<?php echo $text_color_more_list; ?>);
 }
 
+.sv100_sv_content_archive_style_list .sv100_sv_content_archive_info,
 .sv100_sv_content_archive_style_list .sv100_sv_content_archive_info a {
 	color: rgba(<?php echo $text_color_info_list; ?>);
 }
