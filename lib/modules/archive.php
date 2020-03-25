@@ -29,22 +29,76 @@ class archive extends sv_content {
 	protected function load_settings(): sv_content {
 		// ### Post Listing Settings ###
 		//  List - Title
-		$this->get_settings_component( 'font_family_title_list','font_family' );
-		$this->get_settings_component( 'font_size_title_list','font_size', 32 );
-		$this->get_settings_component( 'line_height_title_list','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_title_list','text_color', '#1e1e1e' );
+		$this->get_setting( 'font_family_title_list' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_title_list' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 32 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_title_list' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( 1.3 )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_title_list' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 
 		// List - Excerpt
-		$this->get_settings_component( 'font_family_excerpt_list','font_family' );
-		$this->get_settings_component( 'font_size_excerpt_list','font_size', 16 );
-		$this->get_settings_component( 'line_height_excerpt_list','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_excerpt_list','text_color', '#1e1e1e' );
+		$this->get_setting( 'font_family_excerpt_list' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_excerpt_list' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 16 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_excerpt_list' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_excerpt_list' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#1e1e1e' )
+				->load_type( 'color' );
 
 		// List - Read More
-		$this->get_settings_component( 'font_family_more_list','font_family' );
-		$this->get_settings_component( 'font_size_more_list','font_size', 16 );
-		$this->get_settings_component( 'line_height_more_list','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_more_list','text_color', '#1e1e1e' );
+		$this->get_setting( 'font_family_more_list' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_more_list' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 16 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_more_list' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_more_list' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#1e1e1e' )
+				->load_type( 'color' );
 
 		$this->get_setting( 'text_more_list' )
 			->set_title( __( 'Read more text', 'sv100' ) )
@@ -52,7 +106,11 @@ class archive extends sv_content {
 			->load_type( 'text' );
 
 		// List - Colors Settings
-		$this->get_settings_component( 'highlight_color_list','highlight_color', '#328ce6' );
+		$this->get_setting( 'highlight_color_list' )
+				 ->set_title( __( 'Highlight Color', 'sv100' ) )
+				 ->set_description( __( 'This color is used for highlighting elements, like links on hover/focus.', 'sv100' ) )
+				 ->set_default_value( '#328ce6' )
+				 ->load_type( 'color' );
 
 		$this->get_setting( 'text_color_info_list' )
 			->set_title( __( 'Info text color', 'sv100' ) )
@@ -61,22 +119,81 @@ class archive extends sv_content {
 			->load_type( 'color' );
 
 		// Masonry - Title
-		$this->get_settings_component( 'font_family_title_masonry','font_family' );
-		$this->get_settings_component( 'font_size_title_masonry','font_size', 32 );
-		$this->get_settings_component( 'line_height_title_masonry','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_title_masonry','text_color', '#1e1e1e' );
+		$this->get_setting( 'font_family_title_masonry' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_title_masonry' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 32 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_title_masonry' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_title_masonry' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#1e1e1e' )
+				->load_type( 'color' );
 
 		// Masonry - Excerpt
-		$this->get_settings_component( 'font_family_excerpt_masonry','font_family' );
-		$this->get_settings_component( 'font_size_excerpt_masonry','font_size', 16 );
-		$this->get_settings_component( 'line_height_excerpt_masonry','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_excerpt_masonry','text_color', '#1e1e1e' );
+		$this->get_setting( 'font_family_excerpt_masonry' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_excerpt_masonry' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 16 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_excerpt_masonry' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_excerpt_masonry' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#1e1e1e' )
+				->load_type( 'color' );
+
+		$this->get_setting( 'text_more_list' )
+			->set_title( __( 'Read more text', 'sv100' ) )
+			->set_default_value( __( 'Read more', 'sv100' ) )
+			->load_type( 'text' );
 
 		// Masonry - Read More
-		$this->get_settings_component( 'font_family_more_masonry','font_family' );
-		$this->get_settings_component( 'font_size_more_masonry','font_size', 16 );
-		$this->get_settings_component( 'line_height_more_masonry','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_more_masonry','text_color', '#1e1e1e' );
+		$this->get_setting( 'font_family_more_masonry' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_more_masonry' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 16 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_more_masonry' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_more_masonry' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#1e1e1e' )
+				->load_type( 'color' );
 
 		$this->get_setting( 'text_more_masonry' )
 			->set_title( __( 'Read more text', 'sv100' ) )
@@ -84,8 +201,16 @@ class archive extends sv_content {
 			->load_type( 'text' );
 
 		// Masonry - Colors Settings
-		$this->get_settings_component( 'highlight_color_masonry','highlight_color', '#328ce6' );
-		$this->get_settings_component( 'bg_color_masonry','background_color', '#f5f5f5' );
+		$this->get_setting( 'highlight_color_masonry' )
+				 ->set_title( __( 'Highlight Color', 'sv100' ) )
+				 ->set_description( __( 'This color is used for highlighting elements, like links on hover/focus.', 'sv100' ) )
+				 ->set_default_value( '#328ce6' )
+				 ->load_type( 'color' );
+
+		$this->get_setting( 'bg_color_masonry' )
+				 ->set_title( __( 'Background Color', 'sv100' ) )
+				 ->set_default_value( '#f5f5f5' )
+				 ->load_type( 'color' );
 
 		$this->get_setting( 'text_color_category_masonry' )
 			->set_title( __( 'Category text color', 'sv100' ) )
@@ -106,20 +231,64 @@ class archive extends sv_content {
 			->load_type( 'color' );
 
 		// Grid - Title
-		$this->get_settings_component( 'font_family_title_grid','font_family' );
-		$this->get_settings_component( 'font_size_title_grid','font_size', 32 );
-		$this->get_settings_component( 'line_height_title_grid','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_title_grid','text_color', '#ffffff' );
+		$this->get_setting( 'font_family_more_masonry' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_more_masonry' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 32 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_more_masonry' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_more_masonry' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#ffffff' )
+				->load_type( 'color' );
 
 		// Grid - Excerpt
-		$this->get_settings_component( 'font_family_excerpt_grid','font_family' );
-		$this->get_settings_component( 'font_size_excerpt_grid','font_size', 16 );
-		$this->get_settings_component( 'line_height_excerpt_grid','line_height', 1.3 );
-		$this->get_settings_component( 'text_color_excerpt_grid','text_color', '#ffffff' );
+		$this->get_setting( 'font_family_excerpt_grid' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+		$this->get_setting( 'font_size_excerpt_grid' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				->set_default_value( 16 )
+				->load_type( 'number' );
+
+		$this->get_setting( 'line_height_excerpt_grid' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_default_value( 1.3 )
+				->load_type( 'text' );
+
+		$this->get_setting( 'text_color_excerpt_grid' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '#ffffff' )
+				->load_type( 'color' );
 
 		// Grid - Color Settings
-		$this->get_settings_component( 'highlight_color_grid','highlight_color', '#1e1e1e' );
-		$this->get_settings_component( 'bg_color_grid','background_color', '#828282' );
+		$this->get_setting( 'highlight_color_grid' )
+			->set_title( __( 'Highlight Color', 'sv100' ) )
+			->set_description( __( 'This color is used for highlighting elements, like links on hover/focus.', 'sv100' ) )
+			->set_default_value( '#1e1e1e' )
+			->load_type( 'color' );
+
+		$this->get_setting( 'bg_color_grid' )
+			->set_title( __( 'Background Color', 'sv100' ) )
+			->set_default_value( '#828282' )
+			->load_type( 'color' );
 
 		$this->get_setting( 'text_color_category_grid' )
 			->set_title( __( 'Category text color', 'sv100' ) )

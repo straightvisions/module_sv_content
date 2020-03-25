@@ -2,7 +2,7 @@
 	namespace sv100;
 	
 	/**
-	 * @version         4.262
+	 * @version         4.263
 	 * @author			straightvisions GmbH
 	 * @package			sv100
 	 * @copyright		2019 straightvisions GmbH
@@ -84,67 +84,233 @@
 		protected function load_settings(): sv_content {
 			// ### Content Settings ###
 			// H1
-			$this->get_settings_component( 'font_family_h1','font_family' );
-			$this->get_settings_component( 'font_size_h1','font_size', 48 );
-			$this->get_settings_component( 'line_height_h1','line_height', 1.3 );
-			$this->get_settings_component( 'text_color_h1','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_h1' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_h1' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 48 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h1' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_h1' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// H1 (Mobile)
-			$this->get_settings_component( 'font_size_h1_mobile','font_size', 38 );
-			$this->get_settings_component( 'line_height_h1_mobile','line_height');
-			
+			$this->get_setting( 'font_size_h1_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 38 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h1_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
 			// H2
-			$this->get_settings_component( 'font_family_h2','font_family' );
-			$this->get_settings_component( 'font_size_h2','font_size', 40 );
-			$this->get_settings_component( 'line_height_h2','line_height', 1.3 );
-			$this->get_settings_component( 'text_color_h2','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_h2' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_h2' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 40 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h2' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_h2' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// H2 (Mobile)
-			$this->get_settings_component( 'font_size_h2_mobile','font_size', 32 );
-			$this->get_settings_component( 'line_height_h2_mobile','line_height');
-			
+			$this->get_setting( 'font_size_h2_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 32 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h2_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
 			// H3
-			$this->get_settings_component( 'font_family_h3','font_family' );
-			$this->get_settings_component( 'font_size_h3','font_size', 32 );
-			$this->get_settings_component( 'line_height_h3','line_height', 1.3 );
-			$this->get_settings_component( 'text_color_h3','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_h3' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_h3' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 32 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h3' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_h3' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// H3 (Mobile)
-			$this->get_settings_component( 'font_size_h3_mobile','font_size', 24 );
-			$this->get_settings_component( 'line_height_h3_mobile','line_height', 1.3 );
-			
+			$this->get_setting( 'font_size_h3_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 24 )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h3_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->load_type( 'text' );
+
 			// H4
-			$this->get_settings_component( 'font_family_h4','font_family' );
-			$this->get_settings_component( 'font_size_h4','font_size', 24 );
-			$this->get_settings_component( 'line_height_h4','line_height', 1.3 );
-			$this->get_settings_component( 'text_color_h4','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_h4' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_h4' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 24 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h4' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_h4' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// H4 (Mobile)
-			$this->get_settings_component( 'font_size_h4_mobile','font_size', 19 );
-			$this->get_settings_component( 'line_height_h4_mobile','line_height', 1.3 );
-			
+			$this->get_setting( 'font_size_h4_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 19 )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h4_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->load_type( 'text' );
+
 			// H5
-			$this->get_settings_component( 'font_family_h5','font_family' );
-			$this->get_settings_component( 'font_size_h5','font_size', 19 );
-			$this->get_settings_component( 'line_height_h5','line_height', 1.3 );
-			$this->get_settings_component( 'text_color_h5','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_h5' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_h5' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 19 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h5' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_h5' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// H5 (Mobile)
-			$this->get_settings_component( 'font_size_h5_mobile','font_size', 16 );
-			$this->get_settings_component( 'line_height_h5_mobile','line_height' );
+			$this->get_setting( 'font_size_h5_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 16 )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h5_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->load_type( 'text' );
 			
 			// H6
-			$this->get_settings_component( 'font_family_h6','font_family' );
-			$this->get_settings_component( 'font_size_h6','font_size', 16 );
-			$this->get_settings_component( 'line_height_h6','line_height', 1.3 );
-			$this->get_settings_component( 'text_color_h6','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_h6' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_h6' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 16 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h6' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_h6' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// H6 (Mobile)
-			$this->get_settings_component( 'font_size_h6_mobile','font_size', 14 );
-			$this->get_settings_component( 'line_height_h6_mobile','line_height', 1.3 );
+			$this->get_setting( 'font_size_h6_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 14 )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_h6_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->load_type( 'text' );
 			
 			// Color Settings
-			$this->get_settings_component( 'highlight_color','highlight_color', '#328ce6' );
+			$this->get_setting( 'highlight_color' )
+				 ->set_title( __( 'Highlight Color', 'sv100' ) )
+				 ->set_description( __( 'This color is used for highlighting elements, like links on hover/focus.', 'sv100' ) )
+				 ->set_default_value( '#328ce6' )
+				 ->load_type( 'color' );
 			
 			// ### Content Header Settings ###
 			// Max Width
@@ -227,27 +393,84 @@
 			     ->load_type( 'select' );
 
 			// Title
-			$this->get_settings_component( 'font_family_title','font_family' );
-			$this->get_settings_component( 'font_size_title','font_size', 48 );
-			$this->get_settings_component( 'line_height_title','line_height' );
-			$this->get_settings_component( 'text_color_title','text_color', '#1e1e1e' );
+			$this->get_setting( 'font_family_title' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_title' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 48 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_title' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_title' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#1e1e1e' )
+				 ->load_type( 'color' );
 			
 			// Title (Mobile)
-			$this->get_settings_component( 'font_size_title_mobile','font_size', 38 );
-			$this->get_settings_component( 'line_height_title_mobile','line_height' );
-			
+			$this->get_setting( 'font_size_title_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 38 )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_title_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->load_type( 'text' );
+
 			// Excerpt
-			$this->get_settings_component( 'font_family_excerpt','font_family' );
-			$this->get_settings_component( 'font_size_excerpt','font_size', 16 );
-			$this->get_settings_component( 'line_height_excerpt','line_height' );
-			$this->get_settings_component( 'text_color_excerpt','text_color', '#828282' );
+			$this->get_setting( 'font_family_excerpt' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_excerpt' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 16 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_excerpt' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_excerpt' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#828282' )
+				 ->load_type( 'color' );
 			
 			// Excerpt (Mobile)
-			$this->get_settings_component( 'font_size_excerpt_mobile','font_size', 14 );
-			$this->get_settings_component( 'line_height_excerpt_mobile','line_height' );
+			$this->get_setting( 'font_size_excerpt_mobile' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 14 )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_excerpt_mobile' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->load_type( 'text' );
 			
 			// Color Settings
-			$this->get_settings_component( 'bg_color','background_color', '#f5f5f5' );
+			$this->get_setting( 'bg_color' )
+				 ->set_title( __( 'Background Color', 'sv100' ) )
+				 ->set_default_value( '#f5f5f5' )
+				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_color_info' )
 				 ->set_title( __( 'Author & Date color', 'sv100' ) )
@@ -285,10 +508,28 @@
 
 			// ### Widgets Settings ###
 			// Widgets Title
-			$this->get_settings_component( 'font_family_widget_title','font_family' );
-			$this->get_settings_component( 'font_size_widget_title','font_size', 32 );
-			$this->get_settings_component( 'text_color_widget_title','text_color', '#828282' );
-			$this->get_settings_component( 'line_height_widget_title','line_height' );
+			$this->get_setting( 'font_family_widget_title' )
+				 ->set_title( __( 'Font Family', 'sv100' ) )
+				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->load_type( 'select' );
+
+			$this->get_setting( 'font_size_widget_title' )
+				 ->set_title( __( 'Font Size', 'sv100' ) )
+				 ->set_description( __( 'Font Size in pixel.', 'sv100' ) )
+				 ->set_default_value( 32 )
+				 ->load_type( 'number' );
+
+			$this->get_setting( 'line_height_widget_title' )
+				 ->set_title( __( 'Line Height', 'sv100' ) )
+				 ->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				 ->set_default_value( '1.3' )
+				 ->load_type( 'text' );
+
+			$this->get_setting( 'text_color_widget_title' )
+				 ->set_title( __( 'Text Color', 'sv100' ) )
+				 ->set_default_value( '#828282' )
+				 ->load_type( 'color' );
 			
 			$this->get_setting( 'text_color_widget' )
 				 ->set_title( __( 'Widget text color', 'sv100' ) )

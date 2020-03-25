@@ -20,10 +20,10 @@
 	<h3 class="divider"><?php _e( 'Widget - Title', 'sv100' ); ?></h3>
 	<div class="sv_setting_flex">
 		<?php
-			echo $module->get_settings_component( 'font_family_widget_title' )->form();
-			echo $module->get_settings_component( 'font_size_widget_title' )->form();
-			echo $module->get_settings_component( 'text_color_widget_title' )->form();
-			echo $module->get_settings_component( 'line_height_widget_title' )->form();
+			echo $module->get_setting( 'font_family_widget_title' )->form();
+			echo $module->get_setting( 'font_size_widget_title' )->form();
+			echo $module->get_setting( 'text_color_widget_title' )->form();
+			echo $module->get_setting( 'line_height_widget_title' )->form();
 		?>
 	</div>
 	
