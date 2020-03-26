@@ -231,25 +231,25 @@ class archive extends sv_content {
 			->load_type( 'color' );
 
 		// Grid - Title
-		$this->get_setting( 'font_family_more_masonry' )
+		$this->get_setting( 'font_family_title_grid' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
 				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
 				 ->load_type( 'select' );
 
-		$this->get_setting( 'font_size_more_masonry' )
+		$this->get_setting( 'font_size_title_grid' )
 				->set_title( __( 'Font Size', 'sv100' ) )
 				->set_description( __( 'Font Size in pixel.', 'sv100' ) )
 				->set_default_value( 32 )
 				->load_type( 'number' );
 
-		$this->get_setting( 'line_height_more_masonry' )
+		$this->get_setting( 'line_height_title_grid' )
 				->set_title( __( 'Line Height', 'sv100' ) )
 				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
 				->set_default_value( 1.3 )
 				->load_type( 'text' );
 
-		$this->get_setting( 'text_color_more_masonry' )
+		$this->get_setting( 'text_color_title_grid' )
 				->set_title( __( 'Text Color', 'sv100' ) )
 				->set_default_value( '#ffffff' )
 				->load_type( 'color' );
