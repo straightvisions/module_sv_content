@@ -6,7 +6,15 @@
 
 .sv100_sv_content_header {
     background-color: rgba(<?php echo $bg_color; ?>);
+    padding: 30px 0;
 }
+/* Tablet */
+@media ( min-width: 850px ) {
+    .sv100_sv_content_wrapper {
+        padding: 70px 0;
+    }
+}
+
 
 .sv100_sv_content_header_content {
     background-color: rgba(<?php echo $header_content_overlay_color; ?>);
@@ -15,3 +23,4 @@
 .sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background::before {
     background-color: rgba(<?php echo $image_overlay_color; ?>);
 }
+
