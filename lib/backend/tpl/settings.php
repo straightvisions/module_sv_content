@@ -5,7 +5,6 @@
         <?php
             require_once( $module->get_path( 'lib/backend/tpl/subpage_general.php' ) );
             require_once( $module->get_path( 'lib/backend/tpl/subpage_gutenberg_blocks.php' ) );
-            require_once( $module->get_path( 'lib/backend/tpl/subpage_content_header.php' ) );
             require_once( $module->get_path( 'lib/backend/tpl/subpage_sidebar.php' ) );
 		?>
     </div>

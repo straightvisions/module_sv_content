@@ -1,72 +1,9 @@
-/* Header */
-.sv100_sv_content_header {
-	position: relative;
-	min-height: 60vh;
-	display: flex;
-	align-items: center;
-}
-
-.sv100_sv_content_header.with-thumbnail .sv100_sv_content_header_background::before {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	content: '';
-}
-.sv100_sv_content_header_background picture {
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-.sv100_sv_content_header_background img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.sv100_sv_content_header_content {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	z-index: 50;
-	padding: 20px var( --sv100_sv_common-padding );
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-}
-
-.sv100_sv_content_header_content h1 {
-	text-transform: uppercase;
-	margin: 0;
-	text-align: center;
-	max-width: 100%;
-}
-
-.sv100_sv_content_header_content .sv100_sv_content_excerpt p {
-	max-width: 100%;
-}
-
-.sv100_sv_content_header_content span {
-	font-size: .9rem;
-}
-
-.sv100_sv_content_header_background {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
-
-.sv100_sv_content_excerpt {
-	max-width: var( --sv100_sv_common-max-width-txt );
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .wp-block-embed__wrapper iframe{
 	max-width:100%;
+}
+/* Tablet */
+@media ( min-width: 850px ) {
+	.sv100_sv_content_wrapper {
+		padding: 70px 0;
+	}
 }

@@ -28,10 +28,6 @@
 	else {
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/text_color.php' ) );
 
-		if(!$script->get_parent()->hide_header()) {
-            require_once($script->get_parent()->get_path('lib/frontend/css/config/header.php'));
-            require_once($script->get_parent()->get_path('lib/frontend/css/config/header_content.php'));
-        }
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/sidebar.php' ) );
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/gutenberg_headings.php' ) );
 	}

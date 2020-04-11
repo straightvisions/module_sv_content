@@ -17,7 +17,7 @@
                 if(!$this->hide_header()) {
 					$class = $this->get_prefix( 'header' );
 					include( $this->get_path( 'lib/frontend/tpl/content/featured_image.php' ) );
-					include( $this->get_path( 'lib/frontend/tpl/content/_header_content.php' ) );
+					include( $this->get_path( 'lib/frontend/tpl/content/default.php' ) );
 				}
 			?>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
