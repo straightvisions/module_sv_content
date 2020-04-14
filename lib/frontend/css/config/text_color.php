@@ -16,7 +16,7 @@
 	.sv100_sv_content_wrapper .sv100_sv_content_page_links > a.post-page-numbers:active,
 	input,
 	button {
-		color: rgba(<?php echo $sv_common_text_color; ?>);
+		color: rgba(<?php echo $setting->get_rgb($sv_common_text_color); ?>);
 	}
 
 	blockquote::before, blockquote.wp-block-quote::before,
@@ -30,11 +30,11 @@
 	input[type="radio"]:hover,
 	input[type="radio"]:focus,
 	input[type="radio"]:checked {
-		border-color: rgba(<?php echo $sv_common_text_color; ?>);
+		border-color: rgba(<?php echo $setting->get_rgb($sv_common_text_color); ?>);
 	}
 
 	input[type="checkbox"]::before,
 	input[type="radio"]::before {
-		background-color: rgba(<?php echo $sv_common_text_color; ?>);
+		background-color: rgba(<?php echo $setting->get_rgb($sv_common_text_color); ?>);
 	}
 <?php } ?>
