@@ -26,6 +26,7 @@
 				->set_section_desc( __( 'Content settings', 'sv100' ) )
 				->set_section_type( 'settings' )
 				->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
+				->set_section_order(30)
 				->get_root()
 				->add_section( $this );
 			
