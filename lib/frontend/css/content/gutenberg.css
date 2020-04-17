@@ -1,20 +1,3 @@
-/* Heading */
-.sv100_sv_content_wrapper h1,
-.sv100_sv_content_wrapper h2,
-.sv100_sv_content_wrapper h3,
-.sv100_sv_content_wrapper h4,
-.sv100_sv_content_wrapper h5,
-.sv100_sv_content_wrapper h6,
-.sv100_sv_content_wrapper h1 a,
-.sv100_sv_content_wrapper h2 a,
-.sv100_sv_content_wrapper h3 a,
-.sv100_sv_content_wrapper h4 a,
-.sv100_sv_content_wrapper h5 a,
-.sv100_sv_content_wrapper h6 a {
-	margin-top: .6em;
-	margin-bottom: .2em;
-}
-
 .sv100_sv_content_wrapper > article .has-background:not(.wp-block-media-text),
 .sv100_sv_content_wrapper p.has-background {
 	padding-left: var( --sv100_sv_common-padding );
@@ -235,41 +218,6 @@
 	}
 }
 
-/* Columns Block */
-.sv100_sv_content_wrapper > article .wp-block-column{
-	word-break: normal;
-	overflow-wrap: normal;
-	max-width:100%;
-}
-.sv100_sv_content_wrapper > article .wp-block-columns .wp-block-column:not(:first-child) {
-	margin-left: 0;
-}
-
-@media ( min-width: 850px ) {
-	.sv100_sv_content_wrapper > article .wp-block-columns .wp-block-column:not(:first-child) {
-		margin-left: 32px;
-	}
-}
-
-/* Column Style - Stretch */
-.sv100_sv_content_wrapper > article .wp-block-columns {
-	align-items: inherit;
-}
-
-.sv100_sv_content_wrapper > article .wp-block-columns > .wp-block-column {
-	display: flex;
-	flex-flow: column;
-	align-items: stretch;
-}
-/* If we have only one child, just stretch it */
-.sv100_sv_content_wrapper > article .wp-block-columns > .wp-block-column > :only-child{
-	flex: 1;
-}
-/* If we have more than one child, stretch the selected one by this class */
-.sv100_sv_content_wrapper > article .wp-block-columns > .wp-block-column > .sv_flex_stretch_element {
-	flex: 1;
-}
-
 /* Seperator Block */
 .sv100_sv_content_wrapper > article .wp-block-separator:not(.is-style-dots),
 .sv100_sv_content_wrapper > article .wp-block-separator.is-style-wide:not(.is-style-dots) {
@@ -390,15 +338,6 @@
 	display: block;
 	padding: 20px;
 	max-height:400px;
-}
-
-@media ( max-width: 1300px ) {
-	div.wp-block-columns{
-		flex-direction: column;
-	}
-	.sv100_sv_content_wrapper > article .wp-block-columns .wp-block-column:not(:first-child){
-		margin-left:0;
-	}
 }
 
 /* Button */

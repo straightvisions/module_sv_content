@@ -29,6 +29,5 @@
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/text_color.php' ) );
 
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/sidebar.php' ) );
-		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/gutenberg_headings.php' ) );
 	}
 ?>

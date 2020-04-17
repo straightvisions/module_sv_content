@@ -4,7 +4,6 @@
         <ul class="sv_setting_subpages_nav"></ul>
         <?php
             require_once( $module->get_path( 'lib/backend/tpl/subpage_general.php' ) );
-            require_once( $module->get_path( 'lib/backend/tpl/subpage_gutenberg_blocks.php' ) );
             require_once( $module->get_path( 'lib/backend/tpl/subpage_sidebar.php' ) );
 		?>
     </div>
