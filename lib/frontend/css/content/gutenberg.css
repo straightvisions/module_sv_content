@@ -1,9 +1,3 @@
-.sv100_sv_content_wrapper > article .has-background:not(.wp-block-media-text),
-.sv100_sv_content_wrapper p.has-background {
-	padding-left: var( --sv100_sv_common-padding );
-	padding-right: var( --sv100_sv_common-padding );
-}
-
 .sv100_sv_content_wrapper figure{
 	margin:0;
 }
