@@ -16,9 +16,6 @@
 
 	// ##### SCRIPTS #####
 
-	// Loads general config scripts
-	require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/highlight_color.php' ) );
-
 	// Loads config scripts for archives
 	if( is_archive() || ( is_front_page() && is_home() ) ) {
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/archive.php' ) );
@@ -26,8 +23,6 @@
 	
 	// Loads config scripts for posts
 	else {
-		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/text_color.php' ) );
-
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/sidebar.php' ) );
 	}
 ?>
