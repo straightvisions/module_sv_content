@@ -28,9 +28,7 @@
 /* Max Width */
 .sv100_sv_content_wrapper > article > *,
 /* The following elements are necessary, because they got own max-width value that would overwrite the * rules */
-.sv100_sv_content_wrapper > article .wp-block-image,
-.sv100_sv_content_wrapper > article .wp-block-cover,
-.wp-block-group{
+{
 	max-width: var( --sv100_sv_common-max-width-txt );
 	margin-left:auto;
 	margin-right:auto;
@@ -55,11 +53,7 @@
 	margin-right: auto;
 }
 
-.sv100_sv_content_wrapper > article > *,
-.sv100_sv_content_wrapper > article .aligncenter,
-.sv100_sv_content_wrapper > article .wp-block-image,
-.sv100_sv_content_wrapper > article .wp-block-cover,
-.sv100_sv_content_wrapper > article .wp-block-quote.is-style-large {
+.sv100_sv_content_wrapper > article > * {
 	margin-left: auto;
 	margin-right: auto;
 }
