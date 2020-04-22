@@ -326,7 +326,17 @@
 		protected function router( array $settings ): string {
 			$template = false;
 
-			if ( have_posts() ) {
+			if ( is_404() ) {
+				$template = array(
+					'path'      => 'content/404',
+					'scripts'   => array(
+						$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
+						$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
+						$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
+						$this->get_script( 'content_404' )->set_inline( $settings['inline'] ),
+					),
+				);
+			}elseif ( have_posts() ) {
 				// Home: A static page
 				if ( ( is_front_page() && !is_home() ) || ( ! is_front_page() && is_home() ) ) {
 					$template = array(
@@ -365,16 +375,6 @@
 							break;
 					}
 				}
-			} elseif ( is_404() ) {
-				$template = array(
-					'path'      => 'content/404',
-					'scripts'   => array(
-						$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_404' )->set_inline( $settings['inline'] ),
-					),
-				);
 			}
 
 			// @filter: sv100_sv_content_template
