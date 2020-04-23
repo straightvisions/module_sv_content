@@ -13,13 +13,7 @@
 		}
 		?>
 		<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'single' ) . $post_classes; ?>">
-			<?php
-                if(!$this->hide_header()) {
-                    $class = $this->get_prefix( 'header' );
-                    include( $this->get_path( 'lib/frontend/tpl/content/featured_image.php' ) );
-                    include( $this->get_path( 'lib/frontend/tpl/content/default.php' ) );
-                }
-			?>
+			<?php echo $this->get_module('sv_header_content')->load(); ?>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 				<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
 					<?php
