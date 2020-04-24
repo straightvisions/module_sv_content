@@ -178,11 +178,7 @@
 			$this->get_script( 'content_common' )
 				 ->set_path( 'lib/frontend/css/content/common.css' )
 				 ->set_inline( true );
-			
-			$this->get_script( 'content_gutenberg' )
-				 ->set_path( 'lib/frontend/css/content/gutenberg.css' )
-				 ->set_inline( true );
-			
+
 			$this->get_script( 'content_single' )
 				 ->set_path( 'lib/frontend/css/content/single.css' )
 				 ->set_inline( true );
@@ -200,10 +196,14 @@
 				 ->set_inline( true );
 			
 			// Gutenberg Default Styles
-			$this->get_script( 'bodhi-svgs-attachment' )
-				 ->set_path( ABSPATH . '/wp-includes/css/dist/block-library/style.min.css', true )
+			$this->get_script( 'block-library' )
+				 ->set_path( ABSPATH . 'wp-includes/css/dist/block-library/style.min.css', true )
 				 ->set_inline( true );
-			
+
+			$this->get_script( 'block-library-theme' )
+				->set_path( ABSPATH . 'wp-includes/css/dist/block-library/theme.min.css', true )
+				->set_inline( true );
+
 			// Inline Config
 			$this->get_script( 'inline_config' )
 				 ->set_path( 'lib/frontend/css/config.php' )
@@ -298,12 +298,16 @@
 		public function wp_print_styles() {
 			// Gutenberg: load Styles inline for Pagespeed purposes
 			wp_dequeue_style( 'wp-block-library' );
+			wp_dequeue_style( 'wp-block-library-theme' );
 		}
 		
 		public function load_gutenberg_css(): sv_content {
 			if ( is_single() || is_page() ) {
-				$this->get_script( 'bodhi-svgs-attachment' )
+				$this->get_script( 'block-library' )
 					 ->set_is_enqueued( true );
+
+				$this->get_script( 'block-library-theme' )
+					->set_is_enqueued( true );
 			}
 			
 			return $this;
@@ -331,7 +335,6 @@
 					'path'      => 'content/404',
 					'scripts'   => array(
 						$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-						$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'content_404' )->set_inline( $settings['inline'] ),
 					),
@@ -343,7 +346,6 @@
 						'path'      => 'content/frontpage',
 						'scripts'   => array(
 							$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-							$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 							$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
 							$this->get_script( 'content_frontpage' )->set_inline( $settings['inline'] ),
 						),
@@ -358,7 +360,6 @@
 								'path'      => 'content/single',
 								'scripts'   => array(
 									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_single' )->set_inline( $settings['inline'] ),
 								),
 							);
@@ -368,7 +369,6 @@
 								'path'      => 'content/page',
 								'scripts'   => array(
 									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
-									$this->get_script( 'content_gutenberg' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
 								),
 							);
