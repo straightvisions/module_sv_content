@@ -1,14 +1,7 @@
 .wp-block-embed__wrapper iframe{
 	 max-width:100%;
  }
-/* Tablet */
-@media ( min-width: 850px ) {
-	.sv100_sv_content_wrapper {
-		padding: 70px 0;
-	}
-}
-
-.edit-post-visual-editor.editor-styles-wrapper > *, .sv100_sv_content_wrapper article > *{
+.edit-post-visual-editor.editor-styles-wrapper > *:not(:first-child), .sv100_sv_content_wrapper article > *:not(:first-child){
 	margin:20px auto 10px auto;
 }
 .edit-post-visual-editor.editor-styles-wrapper *, .sv100_sv_content_wrapper article *{
