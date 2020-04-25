@@ -83,6 +83,27 @@
 		}
 		
 		protected function load_settings(): sv_content {
+			$this->get_setting( 'bg_color' )
+				->set_title( __( 'Background Color', 'sv100' ) )
+				->set_default_value( '255,255,255,0' )
+				->set_is_responsive(true)
+				->load_type( 'color' );
+
+			$this->get_setting( 'margin' )
+				->set_title( __( 'Margin', 'sv100' ) )
+				->set_is_responsive(true)
+				->load_type( 'margin' );
+
+			$this->get_setting( 'padding' )
+				->set_title( __( 'Padding', 'sv100' ) )
+				->set_is_responsive(true)
+				->load_type( 'margin' );
+
+			$this->get_setting( 'border' )
+				->set_title( __( 'Border', 'sv100' ) )
+				->set_is_responsive(true)
+				->load_type( 'border' );
+
 			// ### Widgets Settings ###
 			// Widgets Title
 			$this->get_setting( 'font_family_widget_title' )

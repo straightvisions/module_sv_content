@@ -6,15 +6,12 @@
 	foreach ( $script->get_parent()->get_settings() as $setting ) {
 		if ( $setting->get_type() !== false ) {
 			${ $setting->get_ID() } = $setting->get_data();
-		
-			// If setting is color, it gets the value in the RGB-Format
-			if ( $setting->get_type() === 'setting_color' ) {
-				${ $setting->get_ID() } = $setting->get_rgb( ${ $setting->get_ID() } );
-			}
 		}
 	}
 
 	// ##### SCRIPTS #####
+
+	require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/general.php' ) );
 
 	// Loads config scripts for archives
 	if( is_archive() || ( is_front_page() && is_home() ) ) {

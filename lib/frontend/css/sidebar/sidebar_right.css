@@ -1,7 +1,7 @@
 /* Content - Wrapper */
 .sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper {
 	width: 100%;
-	max-width: var( --sv100_sv_common-max-width-lg );
+	max-width: var( --sv100_sv_common-max-width-alignwide );
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 0;
@@ -37,7 +37,7 @@
 .sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-image,
 .sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-cover,
 .sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-cover .wp-block-cover__inner-container {
-	max-width: var( --sv100_sv_common-max-width-txt );
+	max-width: var( --sv100_sv_common-max-width-text );
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 0;
@@ -58,7 +58,7 @@
 
 .sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .alignwide,
 .sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-separator.is-style-wide {
-	max-width: var( --sv100_sv_common-max-width-lg );
+	max-width: var( --sv100_sv_common-max-width-alignwide );
 	padding-left: var( --sv100_sv_common-padding );
 	padding-right: var( --sv100_sv_common-padding );
 }
@@ -112,7 +112,7 @@
 	padding-left: var(--sv100_sv_common-padding);
 	margin-top: var( --sv100_sv_common-padding );
 	padding-top: var( --sv100_sv_common-padding );
-	max-width: var( --sv100_sv_common-max-width-txt );
+	max-width: var( --sv100_sv_common-max-width-text );
 	margin-left: auto;
 	margin-right: auto;
 }

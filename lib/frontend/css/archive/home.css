@@ -4,7 +4,7 @@
 	padding-left: var( --sv100_sv_common-padding );
 	padding-right: var( --sv100_sv_common-padding );
 	margin: .6em auto .2em auto;
-	max-width: var( --sv100_sv_common-max-width-txt );
+	max-width: var( --sv100_sv_common-max-width-text );
 	text-align: center;
 	transition: max-width .25s ease;
 }
