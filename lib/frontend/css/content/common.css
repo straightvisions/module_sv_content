@@ -1,9 +1,6 @@
 .wp-block-embed__wrapper iframe{
 	 max-width:100%;
  }
-.edit-post-visual-editor.editor-styles-wrapper > *:not(:first-child), .sv100_sv_content_wrapper article > *:not(:first-child){
-	margin:20px auto 10px auto;
-}
 .edit-post-visual-editor.editor-styles-wrapper > *, .sv100_sv_content_wrapper article > *{
 	max-width:var( --sv100_sv_common-max-width-text );
 }
