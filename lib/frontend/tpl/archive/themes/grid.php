@@ -35,17 +35,17 @@
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
 						<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><?php the_title(); ?></h3>
 						<p class="<?php echo $this->get_prefix( 'mobile_excerpt' ); ?>"><?php echo get_the_excerpt(); ?></p>
-						<?php if($this->show_author()){ ?>
+						<?php if($this->get_module('sv_header_content')->show_author()){ ?>
 						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 							<?php echo get_the_author_meta( 'display_name' ); ?>
 						</div>
 						<?php } ?>
-						<?php if($this->show_date()){ ?>
+						<?php if($this->get_module('sv_header_content')->show_date()){ ?>
 						<div class="<?php echo $this->get_prefix( 'date' ); ?>">
 							<?php echo get_the_date(); ?>
 						</div>
 						<?php } ?>
-						<?php if($this->show_date_modified()){ ?>
+						<?php if($this->get_module('sv_header_content')->show_date_modified()){ ?>
 							<div class="<?php echo $this->get_prefix( 'date_modified' ); ?>">
 								<?php echo get_the_modified_date(); ?>
 							</div>
