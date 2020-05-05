@@ -1,0 +1,135 @@
+/* Content - Wrapper */
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper {
+	width: 100%;
+	max-width: var( --sv100_sv_common-max-width-alignwide );
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+@media ( min-width: 850px ) {
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper {
+		padding-left: var( --sv100_sv_common-padding );
+		padding-right: var( --sv100_sv_common-padding );
+	}
+}
+@media ( min-width: 1050px ) {
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper {
+		display: grid;
+		grid-template-columns: 1fr 350px;
+		grid-column-gap: calc(var(--sv100_sv_common-padding) * 2);
+	}
+}
+
+/* ### Content - Article ### */
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article {
+	width: 100%;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* Max Width */
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > *,
+/* The following elements are necessary, because they got own max-width value that would overwrite the * rules */
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-image,
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-cover,
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-cover .wp-block-cover__inner-container {
+	max-width: var( --sv100_sv_common-max-width-text );
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > ul,
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > ol {
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
+}
+
+@media ( min-width: 1050px ) {
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-cover::before {
+		margin-right: 0;
+	}
+}
+
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .alignwide,
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-separator.is-style-wide {
+	max-width: var( --sv100_sv_common-max-width-alignwide );
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
+}
+
+@media ( min-width: 1050px ) {
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .alignwide,
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-separator.is-style-wide {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .alignfull,
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-group {
+	max-width: 100vw;
+	width: 100vw;
+	position: relative;
+	left: calc( var( --sv100_sv_common-padding ) * -1 );
+	right: calc( var( --sv100_sv_common-padding ) * -1 );
+}
+
+@media ( min-width: 1050px ) {
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .alignfull,
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-group {
+		left: 0;
+		right: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+/* Group Block */
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-group.has-background {
+	padding-left: var( --sv100_sv_common-padding );
+	padding-right: var( --sv100_sv_common-padding );
+}
+@media ( min-width: 1050px ) {
+	/* Group Block */
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-group.has-background {
+		padding-left: var(--sv100_sv_common-padding);
+		padding-right: var(--sv100_sv_common-padding);
+	}
+}
+
+/* ### Content - Sidebar ### */
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_right {
+	width: 100%;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	padding-right: var(--sv100_sv_common-padding);
+	padding-left: var(--sv100_sv_common-padding);
+	margin-top: var( --sv100_sv_common-padding );
+	padding-top: var( --sv100_sv_common-padding );
+	max-width: var( --sv100_sv_common-max-width-text );
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media ( min-width: 1050px ) {
+	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_right {
+		border-width: 0 0 0 1px;
+		margin-top: 0;
+		padding-left: calc( var( --sv100_sv_common-padding ) * 2  );
+		padding-right: 0;
+		max-width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > .sv100_sv_content_sidebar_right > .sv100_sv_sidebar {
+	display: flex;
+	flex-direction: column;
+}

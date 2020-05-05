@@ -1,14 +1,19 @@
 <div class="<?php echo $this->get_prefix() . ' ' .$this->get_prefix( 'search' ); ?>">
 	<div class="<?php echo $this->get_prefix( 'header' ); ?>">
-		<h1><?php _e( 'Search results for', 'sv100' ); ?>: <span><?php echo get_search_query(); ?></span></h1>
+        <div class="<?php echo $this->get_prefix( 'header_content' ); ?>">
+		    <h1>
+				<?php _e( 'Search results for', 'sv100' ); ?>:
+				<span><?php echo get_search_query(); ?></span>
+			</h1>
+        </div>
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
 		<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 			<?php
 				$archive_theme = 'lib/frontend/tpl/archive/themes/';
-				$archive_theme .= $this->get_setting( 'search_theme' )->run_type()->get_data()
-					? $this->get_setting( 'search_theme' )->run_type()->get_data()
+				$archive_theme .= $this->get_setting( 'search_theme' )->get_data()
+					? $this->get_setting( 'search_theme' )->get_data()
 					: 'list';
 				$archive_theme .= '.php';
 				

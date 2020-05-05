@@ -1,9 +1,9 @@
-<div class="<?php echo $this->get_prefix( 'archive' ) . ' ' .$this->get_prefix( 'list' ); ?>">
+<div class="<?php echo $this->get_prefix( 'style_list' ); ?>">
 	<?php
 		while ( have_posts() ) {
 			the_post();
-			
-			include('featured_image.php');
+
+			include( $this->get_path( 'lib/frontend/tpl/archive/themes/featured_image.php' ) );
 			?>
 			<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
 				<?php if( $thumbnail ) { ?>
@@ -12,7 +12,7 @@
 					</div>
 				<?php } ?>
 				<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
-					<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+					<h3 class="<?php echo $this->get_prefix( 'title' ); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<div class="<?php echo $this->get_prefix( 'excerpt' ); ?>">
 						<p><?php echo get_the_excerpt(); ?></p>
 						<a href="<?php the_permalink(); ?>" class="<?php echo $this->get_prefix( 'read_more' )?>">
@@ -20,17 +20,26 @@
 						</a>
 					</div>
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
+						<?php if($this->show_author()){ ?>
 						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 							<?php echo get_the_author_posts_link( get_the_author_meta( 'ID' ) ); ?>
 						</div>
+						<?php } ?>
+						<?php if($this->show_date()){ ?>
 						<div class="<?php echo $this->get_prefix( 'date' ); ?>">
-							<a href="<?php the_permalink(); ?>"><?php echo get_the_date(); ?></a>
+							<?php echo get_the_date(); ?>
 						</div>
+						<?php } ?>
+						<?php if($this->show_date_modified()){ ?>
+							<div class="<?php echo $this->get_prefix( 'date_modified' ); ?>">
+								<?php echo get_the_modified_date(); ?>
+							</div>
+						<?php } ?>
 						<div class="<?php echo $this->get_prefix( 'category' ); ?>">
 							<?php
 								$categories = get_the_category();
-								$separator  = ', ';
-								$output     = '';
+								$separator  = ',&nbsp;';
+								$output	 = '';
 								
 								if ( ! empty( $categories ) ) {
 									foreach ( $categories as $category ) {
@@ -56,5 +65,7 @@
 			</article>
 			<?php
 		}
+		
+		wp_reset_postdata();
 	?>
 </div>
