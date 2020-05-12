@@ -226,7 +226,7 @@
 				->set_inline( true );
 
 			// Inline Config
-			$this->get_script( 'inline_config' )
+			$this->get_script( 'config' )
 				 ->set_path( 'lib/frontend/css/config.php' )
 				 ->set_inline( true );
 			
@@ -424,7 +424,7 @@
 			}
 			
 			// Loads the config CSS
-			$this->get_module( 'sv_content' )->get_script( 'inline_config' )->set_is_enqueued();
+			$this->get_module( 'sv_content' )->get_script( 'config' )->set_is_enqueued();
 			
 			// Loads the template
 			require ( $this->get_path('lib/frontend/tpl/' . $template['path'] . '.php' ) );
