@@ -22,3 +22,14 @@ article{
 	right: 0;
 	z-index: -1;
 }
+
+/* Gutenberg Classes */
+.alignright{
+	text-align:right;
+}
+.alignleft{
+	text-align:left;
+}
+.aligncenter{
+	text-align:center;
+}
