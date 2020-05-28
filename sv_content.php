@@ -198,6 +198,7 @@
 			// Styles - Content
 			$this->get_script( 'content_common' )
 				 ->set_path( 'lib/frontend/css/content/common.css' )
+				->set_is_gutenberg()
 				 ->set_inline( true );
 
 			$this->get_script( 'content_single' )
