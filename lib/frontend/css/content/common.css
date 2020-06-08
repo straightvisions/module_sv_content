@@ -31,6 +31,9 @@ article{
 .aligncenter{
 	text-align:center;
 }
+article > * {
+	max-width:var(--sv100_sv_common-max-width-text);
+}
 
 .alignwide, .alignwide > *:not(img),
 [data-align="wide"], [data-align="wide"] > *:not(img){
