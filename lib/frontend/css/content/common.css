@@ -31,17 +31,18 @@ article{
 .aligncenter{
 	text-align:center;
 }
-article > * {
-	max-width:var(--sv100_sv_common-max-width-text);
-}
-article > *.alignright,
-article > *.alignleft,
-article > *.aligncenter,
-article > *.alignfull,
-article > *.alignwide {
-	margin-left:auto;
-	margin-right:auto;
-}
+
+.sv100_sv_content_wrapper > article *:not([class*="wp-block"]),
+.sv100_sv_content_wrapper > article blockquote.wp-block-quote,
+.sv100_sv_content_wrapper > article div[class*="wp-block"]:not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(alignright),
+/* Editor Styles */
+.editor-styles-wrapper *[class*="wp-block"]:not([data-align*="align"])
+ {
+     max-width:var( --sv100_sv_common-max-width-text );
+     margin-left:auto;
+     margin-right:auto;
+ }
+
 .alignwide, .alignwide > *:not(img),
 [data-align="wide"], [data-align="wide"] > *:not(img){
 	max-width:var( --sv100_sv_common-max-width-alignwide ) !important;
