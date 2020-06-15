@@ -32,9 +32,9 @@ article{
 	text-align:center;
 }
 
-.sv100_sv_content_wrapper > article *:not([class*="wp-block"]),
+.sv100_sv_content_wrapper > article *:not([class*="wp-block"]), /* paragraphs , headings etc. */
 .sv100_sv_content_wrapper > article blockquote.wp-block-quote,
-.sv100_sv_content_wrapper > article div[class*="wp-block"]:not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(alignright),
+.sv100_sv_content_wrapper > article div[class*="wp-block"]:not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(alignright):not(.wp-block-column),
 /* Editor Styles */
 .editor-styles-wrapper *[class*="wp-block"]:not([data-align*="align"])
  {
