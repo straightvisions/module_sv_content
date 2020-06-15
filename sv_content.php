@@ -97,6 +97,14 @@
 			$this->get_setting( 'padding' )
 				->set_title( __( 'Padding', 'sv100' ) )
 				->set_is_responsive(true)
+				->set_default_value(
+					array(
+						'top'=>'40px',
+						'right'=>'20px',
+						'left'=>'20px',
+						'bottom'=>'40px'
+					)
+				)
 				->load_type( 'margin' );
 
 			$this->get_setting( 'border' )
