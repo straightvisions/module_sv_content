@@ -32,41 +32,28 @@ article{
 	text-align:center;
 }
 
-.sv100_sv_content_wrapper > article p:not([class*="align"]),
-.sv100_sv_content_wrapper > article h1:not([class*="align"]),
-.sv100_sv_content_wrapper > article h2:not([class*="align"]),
-.sv100_sv_content_wrapper > article h3:not([class*="align"]),
-.sv100_sv_content_wrapper > article h4:not([class*="align"]),
-.sv100_sv_content_wrapper > article h5:not([class*="align"]),
-.sv100_sv_content_wrapper > article h6:not([class*="align"]),
-.sv100_sv_content_wrapper > article ul:not([class*="align"]),
-.sv100_sv_content_wrapper > article blockquote.wp-block-quote,
-.sv100_sv_content_wrapper > article div[class*="wp-block"]:not([class*="inner"]):not([class*="wp-block-straightvisions"]):not(.wp-block-column):not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(.alignright):not(.wp-block-column):not(.wp-block-button):not(.wp-block-image),
-/* Editor Styles */
-.editor-styles-wrapper *[class="wp-block"]:not([data-align*="align"]):not([data-align*="full"]):not([class*="inner"]):not(.wp-block-column):not(.wp-block-button)
- {
-     max-width:var( --sv100_sv_common-max-width-text );
-     margin-left:auto;
-     margin-right:auto;
- }
+/* first level - max width + center */
+.sv100_sv_content_wrapper > article > *{
+    max-width:var( --sv100_sv_common-max-width-text );
+    margin-left:auto;
+    margin-right:auto;
+}
 
-.sv100_sv_content_wrapper > article .sv_glossary_modules_entry_excerpt p{
-    margin-left: initial;
-    margin-right:initial;
+/* > 2nd level - max width only */
+.sv100_sv_content_wrapper > article div[class*="wp-block"]:not([class*="inner"]):not([class*="wp-block-straightvisions"]):not(.wp-block-column):not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(.alignright):not(.wp-block-column):not(.wp-block-button):not(.wp-block-image){
+    max-width:var( --sv100_sv_common-max-width-text );
 }
 
 .alignwide,
 [data-align="wide"], [data-align="wide"]{
 	max-width:var( --sv100_sv_common-max-width-alignwide );
 }
+
 .alignfull,
 [data-align="full"]{
 	max-width:var( --sv100_sv_common-max-width-alignfull );
 }
 
-.wp-block-group__inner-container{
-    width:100%;
-}
 /* override default gutenberg styles */
 .block-editor-block-list__layout .block-editor-block-list__block[data-align=full]{
 	margin-left:auto !important;
