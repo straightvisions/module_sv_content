@@ -33,14 +33,16 @@ article{
 }
 
 /* first level - max width + center */
-.sv100_sv_content_wrapper > article > *:not(.alignwide):not(.alignfull):not(.aligncenter){
+.sv100_sv_content_wrapper > article > *:not(.alignwide):not(.alignfull):not(.aligncenter),
+.max-text-width-center{
     max-width:var( --sv100_sv_common-max-width-text );
     margin-left:auto;
     margin-right:auto;
 }
 
 /* > 2nd level - max width only */
-.sv100_sv_content_wrapper > article div[class*="wp-block"]:not([class*="inner"]):not([class*="wp-block-straightvisions"]):not(.wp-block-column):not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(.alignright):not(.wp-block-column):not(.wp-block-button):not(.wp-block-image){
+.sv100_sv_content_wrapper > article div[class*="wp-block"]:not([class*="inner"]):not([class*="wp-block-straightvisions"]):not(.wp-block-column):not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(.alignright):not(.wp-block-column):not(.wp-block-button):not(.wp-block-image),
+.max-text-width{
     max-width:var( --sv100_sv_common-max-width-text );
 }
 
