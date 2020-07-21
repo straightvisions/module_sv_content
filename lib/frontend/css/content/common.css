@@ -33,11 +33,13 @@ article{
 }
 
 /* first level - max width + center */
+.sv100_sv_content_wrapper > article > *{
+	margin-left:auto;
+	margin-right:auto;
+}
 .sv100_sv_content_wrapper > article > *:not(.alignwide):not(.alignfull):not(.aligncenter),
 .max-text-width-center{
     max-width:var( --sv100_sv_common-max-width-text );
-    margin-left:auto;
-    margin-right:auto;
 }
 
 /* > 2nd level - max width only */
