@@ -474,4 +474,9 @@
 		public function show_bottom_sidebar(): bool{
 			return $this->get_visibility('sidebar_bottom');
 		}
+		
+		public function get_global_wrapper_class(){
+			/* global wrapper style should be inherited to all sub page types and overwritten there if needed */
+			return $this->get_parent()->get_prefix('wrapper');
+		}
 	}

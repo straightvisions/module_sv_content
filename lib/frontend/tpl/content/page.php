@@ -15,7 +15,7 @@
 		<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'page' ) . $post_classes; ?>">
 			<?php echo $this->get_module('sv_header_content')->load(); ?>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
-				<article id="post-<?php echo the_ID(); ?>" <?php post_class(); ?>>
+				<article id="post-<?php echo the_ID(); ?>" <?php post_class($this->get_prefix( 'wrapper_inner' )); ?>>
 					<?php
 						the_content();
 						wp_link_pages(
