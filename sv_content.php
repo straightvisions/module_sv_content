@@ -475,8 +475,12 @@
 			return $this->get_visibility('sidebar_bottom');
 		}
 		
-		public function get_global_wrapper_class(){
+		public function get_global_wrapper_class(string $suffix = ''){
 			/* global wrapper style should be inherited to all sub page types and overwritten there if needed */
-			return $this->get_parent()->get_prefix('wrapper');
+			$wrapper = 'wrapper';
+			if($suffix != ''){
+				$wrapper .= '_'.$suffix;
+			}
+			return $this->get_parent()->get_prefix($wrapper);
 		}
 	}

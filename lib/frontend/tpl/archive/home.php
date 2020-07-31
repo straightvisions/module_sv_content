@@ -1,6 +1,6 @@
 <div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'home' ); ?>">
-    <div class="<?php echo $this->get_global_wrapper_class(); echo $this->get_prefix( 'wrapper' ); ?>">
-        <div class="<?php echo $this->get_prefix( 'wrapper_inner' ); ?>">
+    <div class="<?php  echo $this->get_global_wrapper_class(); ?> <?php echo $this->get_prefix( 'wrapper' ); ?>">
+        <div class="<?php echo $this->get_global_wrapper_class( 'inner' ); ?>">
             <h1><?php _e( 'Recent Posts', 'sv100' ); ?></h1>
             <?php
                 $archive_theme = 'lib/frontend/tpl/archive/themes/';
