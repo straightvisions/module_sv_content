@@ -52,6 +52,13 @@ article{
     max-width:var( --sv100_sv_common-max-width-text );
 }
 
+/* first level - alignfull fix - replace this when padding var is available */
+.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull{
+	/* override this in child themes for every breakpoint */
+	width:calc(100% + 40px);
+	margin-left:-20px;
+}
+
 /* > 2nd level - max width only */
 .sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner div[class*="wp-block"]:not([class*="inner"]):not([class*="wp-block-straightvisions"]):not(.wp-block-column):not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(.alignright):not(.wp-block-column):not(.wp-block-button):not(.wp-block-image),
 .max-text-width{
