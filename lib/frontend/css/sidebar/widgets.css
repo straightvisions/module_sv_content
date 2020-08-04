@@ -26,7 +26,6 @@
 
 .sv100_sv_content_wrapper .sv100_sv_sidebar .widget ul li a {
     flex: 1;
-    padding: 8px 12px;
     transition: color .25s ease, background-color .25s ease;
 }
 
