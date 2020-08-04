@@ -20,13 +20,10 @@
 		border-color: rgba(<?php echo $bg_color_widget; ?>);
 	}
 
-	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget,
-	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget a,
-	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget a:hover,
-	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget a:focus {
+	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget{
 		color: rgba(<?php echo $text_color_widget; ?>);
 	}
-
+	
 	.sv100_sv_content_wrapper .sv100_sv_sidebar .widget h3 {
 		<?php echo ( $font_widget_title ? 'font-family: "' . $font_widget_title['family'] . '", sans-serif;' : '' ); ?>
 		font-weight: <?php echo ( $font_widget_title ? $font_widget_title['weight'] : '400' ); ?>;

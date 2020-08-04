@@ -16,6 +16,8 @@
 .sv100_sv_content_wrapper .sv100_sv_sidebar .widget ul li {
     margin-bottom: .3em;
     display: flex;
+    flex-direction:column;
+    align-content: flex-start;
     width: 100%;
     flex-wrap: wrap;
     text-decoration: none;
