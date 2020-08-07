@@ -38,7 +38,9 @@ article{
 }
 
 /* first level - max width + center */
-.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > *{
+.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > *,
+.edit-post-visual-editor.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *
+{
 	margin-left:auto;
 	margin-right:auto;
 }
