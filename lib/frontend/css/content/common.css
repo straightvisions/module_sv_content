@@ -34,7 +34,7 @@ article{
 }
 
 .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]){
-	max-width:initial;
+	max-width:var( --sv100_sv_common-max-width-text );
 }
 
 /* first level - max width + center */
