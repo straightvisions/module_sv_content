@@ -360,6 +360,24 @@ class archive extends sv_content {
 			))
 			->load_type( 'select' );
 
+		$this->get_setting( 'margin' )
+			->set_title( __( 'Margin', 'sv100' ) )
+			->set_is_responsive(true)
+			->load_type( 'margin' );
+
+		$this->get_setting( 'padding' )
+			->set_title( __( 'Padding', 'sv100' ) )
+			->set_is_responsive(true)
+			->set_default_value(
+				array(
+					'top'=>'40px',
+					'right'=>'20px',
+					'left'=>'20px',
+					'bottom'=>'40px'
+				)
+			)
+			->load_type( 'margin' );
+
 		return $this;
 	}
 
