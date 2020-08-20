@@ -1,6 +1,48 @@
+/* START Max Width Behavior */
+/* default: no max width */
+.sv100_sv_content_wrapper > article .wp-block:not(.alignfull):not(.alignwide), /* Frontend */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]){ /* Gutenberg */
+	max-width:none;
+}
+/* First level Default: Max Width Text */
+.sv100_sv_content_wrapper > article > *:not(.editor-post-title):not(.alignfull):not(.alignwide), /* Frontend */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container > .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]){ /* Gutenberg */
+	max-width:var( --sv100_sv_common-max-width-text );
+}
+/* Block Group Reset */
+.sv100_sv_content_wrapper > article .wp-block-group:not(.alignfull):not(.alignwide), /* Frontend */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block-group:not([data-align="full"]):not([data-align="wide"]){ /* Gutenberg */
+	max-width:var( --sv100_sv_common-max-width-text );
+}
+/* max width + center */
+.sv100_sv_content_wrapper > article *, /* Frontend */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .block-editor-block-list__layout.is-root-container *{ /* Gutenberg */
+	margin-left:auto;
+	margin-right:auto;
+}
 .wp-block-embed__wrapper iframe{ /* common */
-	 max-width:100%;
- }
+	max-width:100%;
+}
+
+.alignwide,
+[data-align="wide"], [data-align="wide"]{
+	max-width:var( --sv100_sv_common-max-width-alignwide );
+}
+
+.alignfull,
+[data-align="full"]{
+	max-width:var( --sv100_sv_common-max-width-alignfull );
+}
+
+/* first level - alignfull fix - replace this when padding var is available */
+.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull{
+	/* override this in child themes for every breakpoint */
+	width:calc(100% + 40px);
+	margin-left:-20px;
+}
+/* END Max Width Behavior */
+
+
 article{
 	overflow:hidden;
 }
@@ -31,54 +73,4 @@ article{
 }
 .aligncenter{
 	text-align:center;
-}
-
-.wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]){
-	max-width:var( --sv100_sv_common-max-width-text );
-}
-
-/* first level - max width + center */
-.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > *,
-.edit-post-visual-editor.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *
-{
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.sv100_sv_content_wrapper_inner > .wp-block,
-.is-root-container > .wp-block:not([data-align="full"]):not([data-align="wide"]){
-	max-width:var( --sv100_sv_common-max-width-text );
-}
-.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > *:not(.alignwide):not(.alignfull):not(.aligncenter),
-.max-text-width-center{
-    max-width:var( --sv100_sv_common-max-width-text );
-}
-
-/* first level - alignfull fix - replace this when padding var is available */
-.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull{
-	/* override this in child themes for every breakpoint */
-	width:calc(100% + 40px);
-	margin-left:-20px;
-}
-
-/* > 2nd level - max width only */
-.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner div[class*="wp-block"]:not([class*="inner"]):not([class*="wp-block-straightvisions"]):not(.wp-block-column):not(.alignwide):not(.alignfull):not(.aligncenter):not(.alignleft):not(.alignright):not(.wp-block-column):not(.wp-block-button):not(.wp-block-image),
-.max-text-width{
-    max-width:var( --sv100_sv_common-max-width-text );
-}
-
-.alignwide,
-[data-align="wide"], [data-align="wide"]{
-	max-width:var( --sv100_sv_common-max-width-alignwide );
-}
-
-.alignfull,
-[data-align="full"]{
-	max-width:var( --sv100_sv_common-max-width-alignfull );
-}
-
-/* override default gutenberg styles */
-.block-editor-block-list__layout .block-editor-block-list__block[data-align=full]{
-	margin-left:auto !important;
-	margin-right:auto !important;
 }
