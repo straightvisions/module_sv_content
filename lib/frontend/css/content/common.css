@@ -1,22 +1,25 @@
 /* START Max Width Behavior */
 /* default: no max width */
 .sv100_sv_content_wrapper > article .wp-block:not(.alignfull):not(.alignwide), /* Frontend */
-.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]), /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:none;
 }
 /* First level Default: Max Width Text */
 .sv100_sv_content_wrapper > article > *:not(.editor-post-title):not(.alignfull):not(.alignwide), /* Frontend */
-.edit-post-visual-editor.editor-styles-wrapper .is-root-container > .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container > .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]), /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container > .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-text );
 }
 /* Block Group Reset */
 .sv100_sv_content_wrapper > article .wp-block-group:not(.alignfull):not(.alignwide), /* Frontend */
-.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block-group:not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block:not([data-align="full"]):not([data-align="wide"]) > *, /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .is-root-container .wp-block:not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-text );
 }
 /* max width + center */
 .sv100_sv_content_wrapper > article *, /* Frontend */
-.edit-post-visual-editor.editor-styles-wrapper .is-root-container .block-editor-block-list__layout.is-root-container *{ /* Gutenberg */
+.edit-post-visual-editor.editor-styles-wrapper .block-editor-block-list__layout.is-root-container *{ /* Gutenberg */
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -24,13 +27,15 @@
 	max-width:100%;
 }
 
-.alignwide,
-[data-align="wide"] > div[role="group"], [data-align="wide"] > div[role="group"]{
+.alignwide, /* Frontend */
+[data-align="wide"], /* Gutenberg */
+[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignwide );
 }
 
-.alignfull,
-[data-align="full"] > div[role="group"]{
+.alignfull, /* Frontend */
+[data-align="full"], /* Gutenberg */
+[data-align="full"] > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignfull );
 }
 
