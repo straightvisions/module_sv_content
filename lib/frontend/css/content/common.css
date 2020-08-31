@@ -42,12 +42,6 @@
 	max-width:var( --sv100_sv_common-max-width-alignfull );
 }
 
-/* first level - alignfull fix - replace this when padding var is available */
-.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull{
-	/* override this in child themes for every breakpoint */
-	width:calc(100% + 40px);
-	margin-left:-20px;
-}
 /* END Max Width Behavior */
 
 .sv100_sv_content_wrapper{
