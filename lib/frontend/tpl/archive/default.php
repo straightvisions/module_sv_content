@@ -1,0 +1,1 @@
+<?php require($this->get_path('lib/frontend/tpl/archive/archive.php'));
