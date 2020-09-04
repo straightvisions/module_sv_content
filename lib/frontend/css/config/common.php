@@ -37,13 +37,16 @@
 		'width'			=>array(),
 		'margin-left'	=>array(),
 		'margin-right'	=>array(),
+		'padding-left'	=>array(),
+		'padding-right'	=>array(),
 	);
 
 	foreach($settings_raw as $breakpoint_key => $responsive_data_array){
 		$key = str_replace('_', '-', $breakpoint_key);
 		$properties['width'][$breakpoint_key]			= 'calc( 100% + var( --sv100_sv_content-padding-'.$key.'-left ) + var( --sv100_sv_content-padding-'.$key.'-right ) )';
 		$properties['margin-left'][$breakpoint_key]		= 'calc( -1 *  var( --sv100_sv_content-padding-'.$key.'-left ) )';
-		$properties['margin-right'][$breakpoint_key]	= 'auto';
+		$properties['padding-left'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-left )';
+		$properties['padding-right'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-right )';
 	}
 
 	echo $_s->build_css(
