@@ -49,8 +49,21 @@
 		$properties['padding-right'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-right )';
 	}
 
+	$class_list = array(
+		'backend' => array(
+			'.editor-styles-wrapper > article > .alignfull',
+		),
+		'frontend' => array(
+			'.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull',
+			// '.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .sv_content_skip_padding > .alignfull',
+			/* @todo add support for skipping the parent block (helpful with layout helper blocks like columns manager
+			 * to keep larger content padding over all breakpoints
+			 */
+		)
+	);
+
 	echo $_s->build_css(
-		is_admin() ? '.editor-styles-wrapper > article > .alignfull' : '.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull',
+		is_admin() ? implode(',', $class_list['backend']) : implode(',', $class_list['frontend']),
 		$properties
 	);
 
