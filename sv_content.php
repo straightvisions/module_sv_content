@@ -34,6 +34,14 @@
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
 			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
 			add_filter( 'posts_orderby', array( $this, 'posts_orderby' ), 10, 2 );
+
+			add_filter('sv_core_has_block_frontend_queried_object', function ($post) {
+				if ( is_404() ) {
+					return get_post($this->get_setting('404_page')->get_data());
+				}else{
+					return $post;
+				}
+			});
 		}
 
 		// Loads required child modules
@@ -332,7 +340,7 @@
 		}
 		
 		public function load_gutenberg_css(): sv_content {
-			if ( is_single() || is_page() ) {
+			if ( is_single() || is_page() || is_404() ) {
 				$this->get_script( 'block-library' )
 					 ->set_is_enqueued( true );
 
@@ -361,6 +369,11 @@
 			$template = false;
 
 			if ( is_404() ) {
+				global $post;
+				$post = get_post( $this->get_setting( '404_page' )->get_data() );
+				setup_postdata($post);
+
+
 				$template = array(
 					'path'      => 'content/404',
 					'scripts'   => array(
