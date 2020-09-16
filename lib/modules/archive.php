@@ -33,7 +33,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_title_list' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 			$this->get_setting( 'font_size_title_list' )
@@ -57,7 +57,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_excerpt_list' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_excerpt_list' )
@@ -81,7 +81,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_more_list' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_more_list' )
@@ -123,7 +123,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_title_masonry' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_title_masonry' )
@@ -147,7 +147,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_excerpt_masonry' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_excerpt_masonry' )
@@ -176,7 +176,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_more_masonry' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_more_masonry' )
@@ -235,7 +235,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_title_grid' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_title_grid' )
@@ -259,7 +259,7 @@ class archive extends sv_content {
 		$this->get_setting( 'font_family_excerpt_grid' )
 				 ->set_title( __( 'Font Family', 'sv100' ) )
 				 ->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-				 ->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+				 ->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 				 ->load_type( 'select' );
 
 		$this->get_setting( 'font_size_excerpt_grid' )

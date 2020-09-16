@@ -19,17 +19,17 @@
 						</a>
 					</div>
 					<div class="<?php echo $this->get_prefix( 'info' ); ?>">
-						<?php if($this->get_module('sv_header_content')->show_author()){ ?>
+						<?php if($this->get_module('sv_header_content') && $this->get_module('sv_header_content')->show_author()){ ?>
 						<div class="<?php echo $this->get_prefix( 'author' ); ?>">
 							<?php echo get_the_author_posts_link( get_the_author_meta( 'ID' ) ); ?>
 						</div>
 						<?php } ?>
-						<?php if($this->get_module('sv_header_content')->show_date()){ ?>
+						<?php if($this->get_module('sv_header_content') && $this->get_module('sv_header_content')->show_date()){ ?>
 						<div class="<?php echo $this->get_prefix( 'date' ); ?>">
 							<?php echo get_the_date(); ?>
 						</div>
 						<?php } ?>
-						<?php if($this->get_module('sv_header_content')->show_date_modified()){ ?>
+						<?php if($this->get_module('sv_header_content') && $this->get_module('sv_header_content')->show_date_modified()){ ?>
 							<div class="<?php echo $this->get_prefix( 'date_modified' ); ?>">
 								<?php echo get_the_modified_date(); ?>
 							</div>
