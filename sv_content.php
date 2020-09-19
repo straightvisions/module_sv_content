@@ -1,16 +1,7 @@
 <?php
+	/* @todo: rebuild */
 	namespace sv100;
-	
-	/**
-	 * @version         4.268
-	 * @author			straightvisions GmbH
-	 * @package			sv100
-	 * @copyright		2019 straightvisions GmbH
-	 * @link			https://straightvisions.com
-	 * @since			1.000
-	 * @license			See license.txt or https://straightvisions.com
-	 */
-	
+
 	class sv_content extends init {
 		public $content_metabox = false;
 		public $content_archive = false;

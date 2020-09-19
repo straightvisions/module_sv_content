@@ -18,6 +18,7 @@
 	max-width:var( --sv100_sv_common-max-width-text );
 }
 /* max width + center */
+.wp-block-group__inner-container > *,
 .sv100_sv_content_wrapper > article > *, /* Frontend First Level */
 .sv100_sv_content_wrapper > article [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), /* Frontend Child Levels */
 .edit-post-visual-editor.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *, /* Gutenberg First Level */
