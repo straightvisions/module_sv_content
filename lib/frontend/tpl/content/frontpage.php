@@ -13,7 +13,7 @@
 		}
 		?>
 		<div class="<?php echo $this->get_prefix() . ' ' . $this->get_prefix( 'frontpage' ) . $post_classes; ?>">
-			<?php echo $this->get_module('sv_header_content')->load(); ?>
+			<?php echo $this->get_module('sv_header_content') ? $this->get_module('sv_header_content')->load() : ''; ?>
 			<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 				<article id="post-<?php echo the_ID(); ?>" <?php post_class($this->get_prefix( 'wrapper_inner' )); ?>>
 					<?php

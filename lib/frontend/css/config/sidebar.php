@@ -1,5 +1,5 @@
 <?php if ( $script->get_parent()->has_sidebar() ) {
-	$font_widget_title = $font_family_widget_title ? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_widget_title ) : false;
+	$font_widget_title = ($script->get_parent()->get_module( 'sv_webfontloader' ) && $font_family_widget_title) ? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_widget_title ) : false;
 ?>
 	/* Sidebar Settings */
 	<?php if ( $sidebar_right_post_sticky ) { ?>
@@ -74,7 +74,7 @@
 
 /* Sidebar - Alignment */
 <?php
-if ( count( $script->get_parent()->get_module( 'sv_sidebar' )->get_sidebars( $script->get_parent() ) ) > 0 ) {
+if ( $script->get_parent()->get_module( 'sv_sidebar' ) && count( $script->get_parent()->get_module( 'sv_sidebar' )->get_sidebars( $script->get_parent() ) ) > 0 ) {
 	foreach ( $script->get_parent()->get_module( 'sv_sidebar' )->get_sidebars( $script->get_parent() ) as $sidebar ) {
 		$value = $script->get_parent()->get_setting( $sidebar['id'] )->get_data();
 
