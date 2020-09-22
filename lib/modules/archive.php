@@ -21,7 +21,7 @@ class archive extends sv_content {
 			->set_section_title( __( 'Archive', 'sv100' ) )
 			->set_section_desc( __( 'Archive settings', 'sv100' ) )
 			->set_section_type( 'settings' )
-			->set_section_template_path( $this->get_path( 'lib/backend/tpl/archives.php' ) )
+			->set_section_template_path('lib/backend/tpl/archives.php' )
 			->set_section_order(33)
 			->get_root()
 			->add_section( $this );
