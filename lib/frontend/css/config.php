@@ -22,4 +22,3 @@
 	else {
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/sidebar.php' ) );
 	}
-?>
