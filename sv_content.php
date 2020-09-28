@@ -472,11 +472,11 @@
 		}
 
 		public function show_right_sidebar(): bool{
-			return $this->get_visibility('sidebar_right');
+			return $this->has_sidebar_content() ? $this->get_visibility('sidebar_right') : false;
 		}
 		
 		public function show_bottom_sidebar(): bool{
-			return $this->get_visibility('sidebar_bottom');
+			return $this->has_sidebar_content() ? $this->get_visibility('sidebar_bottom') : false;
 		}
 		
 		public function get_global_wrapper_class(string $suffix = ''){
