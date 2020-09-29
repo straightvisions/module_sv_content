@@ -1,13 +1,13 @@
 <?php
+
     if($this->has_sidebar_content()) {
 		$type = is_single() ? 'post' : 'page';
-	
+
+		//var_dump($this->show_right_sidebar()); die('end');
 		if ( $this->show_right_sidebar() ) {
-			$this->get_script( 'widgets' )->set_inline( true );
+			$this->get_script( 'widgets' )->set_inline( true )->set_is_enqueued();
 		}
-	
-		$this->get_script( 'widgets' )->set_is_enqueued();
-	
+
 		if (
 			$this->show_right_sidebar()
 			&& ! empty(

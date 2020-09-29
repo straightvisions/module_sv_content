@@ -75,3 +75,14 @@
 	margin-top: 0;
 	margin-bottom: .8em;
 }
+
+
+.admin-bar .sv100_sv_content_archive{
+	position:relative;
+	top:46px;
+}
+@media only screen and (min-width: 782px){
+	.admin-bar .sv100_sv_content_archive{
+		top:32px;
+	}
+}

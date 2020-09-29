@@ -41,20 +41,20 @@
 
 			$this->get_setting( 'show_sidebar_right' )
 				 ->set_title( __( 'Show right sidebar', 'sv100' ) )
-				 ->set_default_value(
+				 ->set_data(
 					 (get_post_type() && $this->get_parent()->get_setting( 'show_sidebar_right_' . get_post_type() )->get_type())
 							 ? $this->get_parent()->get_setting('show_sidebar_right_'.get_post_type())->get_data()
-						: false
+						: ''
 				 )
 				->load_type( 'radio' )
 				->set_options($states);
 
 			$this->get_setting( 'show_sidebar_bottom' )
 				 ->set_title( __( 'Show bottom sidebar', 'sv100' ) )
-				 ->set_default_value(
+				 ->set_data(
 					 (get_post_type() && $this->get_parent()->get_setting( 'show_sidebar_bottom_' . get_post_type() )->get_type())
 							 ? $this->get_parent()->get_setting('show_sidebar_bottom_'.get_post_type())->get_data()
-						: false
+						: ''
 				 )
 				->load_type( 'radio' )
 				->set_options($states);

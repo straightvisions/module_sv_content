@@ -9,8 +9,8 @@
 		public function init() {
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				->set_module_desc( __( 'Manages content output.', 'sv100' ) )
-				->load_child_modules()
 				->load_settings()
+				->load_child_modules()
 				->register_scripts()
 				->register_sidebars()
 				->set_section_title( __( 'Content', 'sv100' ) )
