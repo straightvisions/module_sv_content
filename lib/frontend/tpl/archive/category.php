@@ -7,7 +7,7 @@
 	</div>
 	
 	<?php if ( have_posts() ) { ?>
-    <div class="<?php  echo $this->get_global_wrapper_class(); ?> <?php echo $this->get_prefix( 'wrapper' ); ?>">
+    <div class="<?php echo $this->get_global_wrapper_class(); ?> <?php echo $this->get_prefix( 'wrapper' ); ?>">
         <div class="<?php echo $this->get_global_wrapper_class( 'inner' ); ?> <?php echo $this->get_prefix( 'wrapper_inner' ); ?>">
 			<?php
 				$archive_theme = 'lib/frontend/tpl/archive/themes/';
