@@ -41,12 +41,27 @@
 		'padding-right'	=>array(),
 	);
 
+	$settings_raw = $script->get_parent()->get_setting('padding')->get_data();
+
 	foreach($settings_raw as $breakpoint_key => $responsive_data_array){
+		$paddings = (isset($settings_raw[$breakpoint_key])) ? $settings_raw[$breakpoint_key] : array();
 		$key = str_replace('_', '-', $breakpoint_key);
 		$properties['width'][$breakpoint_key]			= 'calc( 100% + var( --sv100_sv_content-padding-'.$key.'-left ) + var( --sv100_sv_content-padding-'.$key.'-right ) )';
-		$properties['margin-left'][$breakpoint_key]		= 'calc( -1 *  var( --sv100_sv_content-padding-'.$key.'-left ) )';
-		$properties['padding-left'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-left )';
-		$properties['padding-right'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-right )';
+
+		if( isset($paddings['left']) && (int)$paddings['left'] > 0 ){
+			$properties['margin-left'][$breakpoint_key]		= 'calc( -1 *  var( --sv100_sv_content-padding-'.$key.'-left ) )';
+			$properties['padding-left'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-left )';
+		}else{
+			$properties['margin-left'][$breakpoint_key]		= 'auto';
+			$properties['padding-left'][$breakpoint_key]	= 'auto';
+		}
+
+		if( isset($paddings['right']) && (int)$paddings['right'] > 0 ) {
+			$properties['padding-right'][$breakpoint_key]	= 'var( --sv100_sv_content-padding-'.$key.'-right )';
+		}else{
+			$properties['padding-right'][$breakpoint_key]	= 'auto';
+		}
+
 	}
 
 	$class_list = array(
