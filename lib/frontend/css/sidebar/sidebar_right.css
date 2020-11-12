@@ -44,12 +44,6 @@
 	padding-right: 0;
 }
 
-.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > ul,
-.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > ol {
-	padding-left: var( --sv100_sv_common-padding );
-	padding-right: var( --sv100_sv_common-padding );
-}
-
 @media ( min-width: 1050px ) {
 	.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article > .wp-block-cover::before {
 		margin-right: 0;
