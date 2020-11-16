@@ -1,3 +1,10 @@
+/* Password Protected Post */
+.post-password-form{
+	margin: 200px auto;
+	padding: 200px 0;
+}
+
+
 /* START Max Width Behavior */
 /* default: no max width */
 .sv100_sv_content_wrapper > article .wp-block:not(.alignfull):not(.alignwide), /* Frontend */
