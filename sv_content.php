@@ -15,9 +15,9 @@
 				->register_sidebars()
 				->set_section_title( __( 'Content', 'sv100' ) )
 				->set_section_desc( __( 'Content settings', 'sv100' ) )
-				->set_section_type( 'settings' )
 				->set_section_template_path( 'lib/backend/tpl/settings.php' )
 				->set_section_order(3000)
+				->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm11 22h-9v-16h9v16zm11 0h-9v-7h9v7zm0-9h-9v-7h9v7z"/></svg>')
 				->get_root()
 				->add_section( $this );
 			

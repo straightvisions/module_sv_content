@@ -20,9 +20,9 @@ class archive extends sv_content {
 			->register_scripts()
 			->set_section_title( __( 'Archive', 'sv100' ) )
 			->set_section_desc( __( 'Archive settings', 'sv100' ) )
-			->set_section_type( 'settings' )
 			->set_section_template_path('lib/backend/tpl/archives.php' )
 			->set_section_order(3100)
+			->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3h-12v-2h12v2zm0 3h-12v2h12v-2zm0 5h-12v2h12v-2zm0 5h-12v2h12v-2zm0 5h-12v2h12v-2zm-14-20h-10v10h10v-10zm0 12h-10v10h10v-10z"/></svg>')
 			->get_root()
 			->add_section( $this );
 	}
