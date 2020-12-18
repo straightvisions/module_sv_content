@@ -364,7 +364,6 @@
 				$post = get_post( $this->get_setting( '404_page' )->get_data() );
 				setup_postdata($post);
 
-
 				$template = array(
 					'path'      => 'content/404',
 					'scripts'   => array(

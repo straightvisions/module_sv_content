@@ -15,6 +15,10 @@
 	</div>
 	<?php
 	} else {
+		global $post;
+		$post = get_post( $this->get_setting( '404_page' )->get_data() );
+		setup_postdata($post);
+		
 		$post_classes = ' ';
 
 		if ( $this->show_right_sidebar() ) {
