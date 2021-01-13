@@ -14,7 +14,7 @@
 	require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/common.php' ) );
 
 	// Loads config scripts for archives
-	if( is_archive() || ( is_front_page() && is_home() ) ) {
+	if( is_archive() || is_search() || ( is_front_page() && is_home() ) ) {
 		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/archive.php' ) );
 	} 
 	
