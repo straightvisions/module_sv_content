@@ -10,7 +10,6 @@
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				->set_module_desc( __( 'Manages content output.', 'sv100' ) )
 				->load_settings()
-				->load_child_modules()
 				->register_scripts()
 				->register_sidebars()
 				->set_section_title( __( 'Content', 'sv100' ) )
@@ -36,6 +35,7 @@
 		}
 
 		// Loads required child modules
+		/*
 		protected function load_child_modules(): sv_content {
 			require_once( $this->get_path('lib/modules/metabox.php') );
 			$this->content_metabox = new metabox();
@@ -52,15 +52,15 @@
 				->init();
 
 			return $this;
-		}
+		}*/
 		
 		// Returns a child module of sv_content
-		public function get_child_module( string $child ) {
+		/*public function get_child_module( string $child ) {
 			$child = 'content_' . $child;
 
 			return $this->get_module( 'sv_content' )->$child;
 		}
-		
+		*/
 		public function posts_orderby( $orderby_statement, $wp_query ) {
 			global $wpdb;
 
@@ -419,7 +419,7 @@
 					), $settings
 				);
 			}else{
-				return $this->get_child_module( 'archive' )->router( $settings );
+				return '';
 			}
 		}
 		
