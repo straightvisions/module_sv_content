@@ -13,4 +13,4 @@
 
 	require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/common.php' ) );
 
-		require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/sidebar.php' ) );
+	require_once( $script->get_parent()->get_path( 'lib/frontend/css/config/sidebar.php' ) );

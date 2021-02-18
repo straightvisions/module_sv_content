@@ -301,23 +301,23 @@
 			
 			$i = false;
 			
-			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage_right' ) ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_frontpage_right' ) ){
 				$i = true;
 			}
 			
-			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_frontpage_bottom' ) ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_frontpage_bottom' ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page_right' ) ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_page_right' ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_page_bottom' ) ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_page_bottom' ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_post_right' ) ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_post_right' ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( array( 'id' => $this->get_module_name() . '_post_bottom' ) ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_post_bottom' ) ){
 				$i = true;
 			}
 			
