@@ -4,7 +4,7 @@
 	if ( $font_family_title_masonry ) {
 		$font_title_masonry		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title_masonry );
 	} else {
-		$font_title_masonry     = false;
+		$font_title_masonry	 = false;
 	}
 	$font_size_title_masonry	= $module->get_setting( 'font_size_title_masonry' )->get_data();
 	$line_height_title_masonry	= $module->get_setting( 'line_height_title_masonry' )->get_data();
@@ -26,7 +26,7 @@
 	if ( $font_family_more_masonry ) {
 		$font_more_masonry		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_more_masonry );
 	} else {
-		$font_more_masonry      = false;
+		$font_more_masonry	  = false;
 	}
 	$font_size_more_masonry		= $module->get_setting( 'font_size_more_masonry' )->get_data();
 	$line_height_more_masonry	= $module->get_setting( 'line_height_more_masonry' )->get_data();

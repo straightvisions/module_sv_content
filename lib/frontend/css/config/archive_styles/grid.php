@@ -4,7 +4,7 @@
 	if ( $font_family_title_grid ) {
 		$font_title_grid		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title_grid );
 	} else {
-		$font_title_grid     	= false;
+		$font_title_grid	 	= false;
 	}
 	$font_size_title_grid		= $module->get_setting( 'font_size_title_grid' )->get_data();
 	$line_height_title_grid		= $module->get_setting( 'line_height_title_grid' )->get_data();

@@ -360,7 +360,7 @@
 				setup_postdata($post);
 
 				$template = array(
-					'path'      => 'content/404',
+					'path'	  => 'content/404',
 					'scripts'   => array(
 						$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 						$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
@@ -371,7 +371,7 @@
 				// Home: A static page
 				if ( ( is_front_page() && !is_home() ) || ( ! is_front_page() && is_home() ) ) {
 					$template = array(
-						'path'      => 'content/frontpage',
+						'path'	  => 'content/frontpage',
 						'scripts'   => array(
 							$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 							$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),
@@ -385,7 +385,7 @@
 					switch ( $settings['template'] ) {
 						case 'single':
 							$template = array(
-								'path'      => 'content/single',
+								'path'	  => 'content/single',
 								'scripts'   => array(
 									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_single' )->set_inline( $settings['inline'] ),
@@ -394,7 +394,7 @@
 							break;
 						case 'page':
 							$template = array(
-								'path'      => 'content/page',
+								'path'	  => 'content/page',
 								'scripts'   => array(
 									$this->get_script( 'content_common' )->set_inline( $settings['inline'] ),
 									$this->get_script( 'content_page' )->set_inline( $settings['inline'] ),

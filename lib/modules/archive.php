@@ -2,7 +2,7 @@
 namespace sv100;
 
 /**
- * @version         4.000
+ * @version		 4.000
  * @author			straightvisions GmbH
  * @package			sv100
  * @copyright		2019 straightvisions GmbH
@@ -446,7 +446,7 @@ class archive extends sv_content {
 						: 'list';
 
 				$template = array(
-					'path'      => 'archive/home',
+					'path'	  => 'archive/home',
 					'scripts'   => array(
 						$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 						$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
@@ -459,7 +459,7 @@ class archive extends sv_content {
 				switch ( $settings['template'] ) {
 					case 'archive':
 						$template = array(
-							'path'      => 'archive/default',
+							'path'	  => 'archive/default',
 							'scripts'   => array(
 								$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 								$this->get_script( 'archive_theme_list' )->set_inline( $settings['inline'] ),
@@ -475,7 +475,7 @@ class archive extends sv_content {
 								: 'list';
 
 						$template = array(
-							'path'      => 'archive/category',
+							'path'	  => 'archive/category',
 							'scripts'   => array(
 								$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 								$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
@@ -491,7 +491,7 @@ class archive extends sv_content {
 								: 'list';
 
 						$template = array(
-							'path'      => 'archive/tag',
+							'path'	  => 'archive/tag',
 							'scripts'   => array(
 								$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 								$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
@@ -507,7 +507,7 @@ class archive extends sv_content {
 								: 'list';
 
 						$template = array(
-							'path'      => 'archive/search',
+							'path'	  => 'archive/search',
 							'scripts'   => array(
 								$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 								$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
@@ -523,7 +523,7 @@ class archive extends sv_content {
 								: 'list';
 
 						$template = array(
-							'path'      => 'archive/author',
+							'path'	  => 'archive/author',
 							'scripts'   => array(
 								$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 								$this->get_script( $archive_theme )->set_inline( $settings['inline'] ),
@@ -535,7 +535,7 @@ class archive extends sv_content {
 			}
 		} else {
 			$template = array(
-				'path'      => 'archive/no_post',
+				'path'	  => 'archive/no_post',
 				'scripts'   => array(
 					$this->get_script( 'archive_common' )->set_inline( $settings['inline'] ),
 					$this->get_script( 'archive_no_post' )->set_inline( $settings['inline'] ),

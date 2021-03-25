@@ -4,7 +4,7 @@
 	if ( $font_family_title_list ) {
 		$font_title_list		= $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_title_list );
 	} else {
-		$font_title_list        = false;
+		$font_title_list		= false;
 	}
 	$font_size_title_list		= $module->get_setting( 'font_size_title_list' )->get_data();
 	$line_height_title_list		= $module->get_setting( 'line_height_title_list' )->get_data();

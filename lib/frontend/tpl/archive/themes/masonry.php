@@ -12,7 +12,7 @@
 							<?php
 							$categories = get_the_category();
 							$separator  = ' ';
-							$output     = '';
+							$output	 = '';
 	
 							if ( ! empty( $categories ) ) {
 								foreach ( $categories as $category ) {

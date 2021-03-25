@@ -37,11 +37,11 @@
 						the_content();
 						wp_link_pages(
 							array(
-								'before'      => '<div class="' . $this->get_prefix( 'page_links' ) . '">',
-								'after'       => '</div>',
+								'before'	  => '<div class="' . $this->get_prefix( 'page_links' ) . '">',
+								'after'	   => '</div>',
 								'link_before' => '',
 								'link_after'  => '',
-								'pagelink'    => __( 'Page', 'sv100' ) . ' %',
+								'pagelink'	=> __( 'Page', 'sv100' ) . ' %',
 								'separator'   => '',
 							)
 						);

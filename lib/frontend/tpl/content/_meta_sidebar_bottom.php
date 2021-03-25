@@ -12,11 +12,11 @@
 			$this->has_sidebar = true;
 			$this->get_script( 'sidebar_bottom' )->set_is_enqueued();
 			?>
-            <aside class="<?php echo $this->get_prefix( 'sidebar_bottom' ); ?>">
+			<aside class="<?php echo $this->get_prefix( 'sidebar_bottom' ); ?>">
 				<?php
 					echo $this->get_module( 'sv_sidebar' )
 							  ->load( array( 'id' => $this->get_module_name() . '_' . $type . '_bottom' ) );
 				?>
-            </aside>
+			</aside>
 		<?php }
 	}
