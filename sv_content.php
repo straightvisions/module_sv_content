@@ -3,9 +3,6 @@
 	namespace sv100;
 
 	class sv_content extends init {
-		public $content_metabox = false;
-		public $content_archive = false;
-		
 		public function init() {
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				->set_module_desc( __( 'Manages content output.', 'sv100' ) )
@@ -33,34 +30,6 @@
 				}
 			});
 		}
-
-		// Loads required child modules
-		/*
-		protected function load_child_modules(): sv_content {
-			require_once( $this->get_path('lib/modules/metabox.php') );
-			$this->content_metabox = new metabox();
-			$this->content_metabox
-				->set_root( $this->get_root() )
-				->set_parent( $this )
-				->init();
-
-			require_once( $this->get_path('lib/modules/archive.php') );
-			$this->content_archive = new archive();
-			$this->content_archive
-				->set_root( $this->get_root() )
-				->set_parent( $this )
-				->init();
-
-			return $this;
-		}*/
-		
-		// Returns a child module of sv_content
-		/*public function get_child_module( string $child ) {
-			$child = 'content_' . $child;
-
-			return $this->get_module( 'sv_content' )->$child;
-		}
-		*/
 		public function posts_orderby( $orderby_statement, $wp_query ) {
 			global $wpdb;
 
@@ -293,29 +262,29 @@
 			if(!$this->get_module( 'sv_sidebar' )){
 				return false;
 			}
-			
+
 			$i = false;
 			
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_frontpage_right' ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('frontpage_right' )) ){
 				$i = true;
 			}
 			
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_frontpage_bottom' ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('frontpage_bottom') ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_page_right' ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('page_right') ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_page_bottom' ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('page_bottom') ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_post_right' ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('post_right') ) ){
 				$i = true;
 			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_module_name() . '_post_bottom' ) ){
+			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('post_bottom') ) ){
 				$i = true;
 			}
-			
+
 			return $i;
 		}
 		
@@ -480,5 +449,10 @@
 				$wrapper .= '_'.$suffix;
 			}
 			return $this->get_parent()->get_prefix($wrapper);
+		}
+		public function get_visibility(string $field): bool{
+			$status = $this->get_setting( 'show_'.$field.'_' . get_post_type() )->get_data();
+
+			return $status;
 		}
 	}
