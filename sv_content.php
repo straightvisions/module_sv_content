@@ -35,11 +35,11 @@
 
 			if ( !is_admin() && is_category() ) {
 				$cat_ID = get_cat_ID( $wp_query->query['category_name'] );
-				$order_by = get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order_by', true )
-					? get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order_by', true )
+				$order_by = get_term_meta( $cat_ID, 'sv100_companion_sv_categories_order_by', true )
+					? get_term_meta( $cat_ID, 'sv100_companion_sv_categories_order_by', true )
 					: 'date';
-				$order = get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order', true )
-					? get_term_meta( $cat_ID, 'sv100_companion_modules_sv_categories_order', true )
+				$order = get_term_meta( $cat_ID, 'sv100_companion_sv_categories_order', true )
+					? get_term_meta( $cat_ID, 'sv100_companion_sv_categories_order', true )
 					: 'DESC';
 
 				$orderby_statement = $wpdb->prefix.'posts.post_' . $order_by . ' ' . $order;
