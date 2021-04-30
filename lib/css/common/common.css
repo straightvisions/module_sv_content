@@ -1,0 +1,92 @@
+/* Password Protected Post */
+.post-password-form{
+	margin: 200px auto;
+	padding: 200px 0;
+}
+
+
+/* START Max Width Behavior */
+/* default: no max width */
+.sv100_sv_content_wrapper > article .wp-block:not(.alignfull):not(.alignwide), /* Frontend */
+.editor-styles-wrapper .is-root-container .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]), /* Gutenberg */
+.editor-styles-wrapper .is-root-container .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
+	max-width:none;
+}
+/* First level Default: Max Width Text */
+.sv100_sv_content_wrapper > article > *:not(.editor-post-title):not(.alignfull):not(.alignwide), /* Frontend */
+.editor-styles-wrapper .is-root-container > .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]), /* Gutenberg */
+.editor-styles-wrapper .is-root-container > .wp-block:not(.editor-post-title):not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-text );
+}
+/* Block Group Reset */
+.sv100_sv_content_wrapper > article .wp-block-group:not(.alignfull):not(.alignwide), /* Frontend */
+.editor-styles-wrapper .is-root-container .wp-block:not([data-align="full"]):not([data-align="wide"]), /* Gutenberg */
+.editor-styles-wrapper .is-root-container .wp-block:not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-text );
+}
+/* max width + center */
+.wp-block-group__inner-container > *,
+.sv100_sv_content_wrapper > article > *, /* Frontend First Level */
+.sv100_sv_content_wrapper > article [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), /* Frontend Child Levels */
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *, /* Gutenberg First Level */
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-editor-block-list__layout .wp-block{ /* Gutenberg Child Levels */
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.wp-block-embed__wrapper iframe{ /* common */
+	max-width:100%;
+	max-height:400px;
+}
+
+.alignwide, /* Frontend */
+.wp-block[data-align="wide"], /* Gutenberg */
+.wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-alignwide );
+}
+
+.alignfull, /* Frontend */
+.wp-block[data-align="full"], /* Gutenberg */
+.wp-block[data-align="full"] > div[role="group"]{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-alignfull );
+}
+
+/* END Max Width Behavior */
+
+.sv100_sv_content_wrapper{
+	position:relative;
+}
+.sv100_sv_content_wrapper:before{
+	content:'';
+	display:block;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	max-width: var( --sv100_sv_common-max-width-alignfull ) !important;
+	margin: auto;
+	left: 0;
+	right: 0;
+	z-index: -1;
+}
+
+/* Gutenberg Classes */
+/* this has to be in common not content */
+.alignright{
+	text-align:right;
+}
+.alignleft{
+	text-align:left;
+}
+.aligncenter{
+	text-align:center;
+}
+/*
+.admin-bar .sv100_sv_content{
+	position:relative;
+	top:46px;
+}
+@media only screen and (min-width: 782px){
+	.admin-bar .sv100_sv_content{
+		top:32px;
+	}
+}*/
