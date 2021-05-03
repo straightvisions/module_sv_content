@@ -117,6 +117,8 @@
 		}
 		
 		protected function register_scripts(): sv_content {
+			parent::register_scripts();
+
 			// Styles - Sidebar
 			$this->get_script( 'sidebar_right' )
 				 ->set_path( 'lib/css/sidebar/right.css' )
@@ -247,14 +249,14 @@
 
 			$template	= $settings['template'];
 
+			// Loads scripts
+			foreach ( $this->get_scripts() as $script ) {
+				$script->set_is_enqueued();
+			}
+
 			ob_start();
 			// Loads the header
 			get_header();
-
-			// Loads scripts
-			foreach ( $template['scripts'] as $script ) {
-				$script->set_is_enqueued();
-			}
 
 			// Loads the template
 			require ( $this->get_path('lib/tpl/frontend/' . $template . '.php' ) );
