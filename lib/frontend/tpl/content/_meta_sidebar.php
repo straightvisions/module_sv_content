@@ -2,7 +2,11 @@
 
     if($this->has_sidebar_content()) {
 		$type = is_single() ? 'post' : 'page';
-
+		
+		if(is_front_page() === true){
+		    $type = 'frontpage';
+        }
+		
 		//var_dump($this->show_right_sidebar()); die('end');
 		if ( $this->show_right_sidebar() ) {
 			$this->get_script( 'widgets' )->set_inline( true )->set_is_enqueued();

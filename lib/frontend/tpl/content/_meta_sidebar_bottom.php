@@ -2,6 +2,10 @@
 	if($this->has_sidebar_content()) {
 		$type = is_single() ? 'post' : 'page';
 		
+		if(is_front_page() === true){
+			$type = 'frontpage';
+		}
+		
 		if (
 			$this->show_bottom_sidebar()
 			&& ! empty(
