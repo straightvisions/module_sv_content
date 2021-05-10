@@ -154,3 +154,8 @@
 		padding-right:var( --sv100_sv_content-padding-desktop-right );
 	}
 }
+
+.sv100_sv_content_wrapper > .sv100_sv_content_wrapper_inner > .alignfull{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
