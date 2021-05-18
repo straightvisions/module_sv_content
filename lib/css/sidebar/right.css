@@ -11,9 +11,10 @@
 .sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper .sv100_sv_content_sidebar_right {
 	flex-basis:100%;
 }
-@media ( min-width: 850px ) {
+@media ( min-width: 1057px ) {
 	.sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper > article {
 		flex-basis: calc(70% - 20px);
+		padding-right:20px;
 	}
 	.sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper .sv100_sv_content_sidebar_right{
 		flex-basis: 30%;
