@@ -127,24 +127,7 @@
 			$this->get_script( 'sidebar_bottom' )
 				 ->set_path( 'lib/css/sidebar/bottom.css' )
 				 ->set_inline( false );
-			
-			// Styles - Content
-			$this->get_script( 'content_single' )
-				 ->set_path( 'lib/css/common/single.css' )
-				 ->set_inline( true );
-			
-			$this->get_script( 'content_page' )
-				 ->set_path( 'lib/css/common/page.css' )
-				 ->set_inline( true );
-			
-			$this->get_script( 'content_frontpage' )
-				 ->set_path( 'lib/css/common/frontpage.css' )
-				 ->set_inline( true );
-			
-			$this->get_script( 'content_404' )
-				 ->set_path( 'lib/css/common/404.css' )
-				 ->set_inline( true );
-			
+
 			// Gutenberg Default Styles
 			$this->get_script( 'block-library' )
 				 ->set_path( ABSPATH . 'wp-includes/css/dist/block-library/style.min.css', true )
