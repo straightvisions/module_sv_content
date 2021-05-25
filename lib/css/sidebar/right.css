@@ -28,22 +28,3 @@
 	position: relative;
 	text-transform: none;
 }
-
-.sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper .sv100_sv_content_sidebar_right .widget-title::before {
-	content: "";
-	display: block;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	border-bottom: 2px solid #5f88c5;
-}
-
-.sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper .sv100_sv_content_sidebar_right .widget-title::after {
-	content: "";
-	display: block;
-	width: 35px;
-	border-bottom: 2px solid #ff8a00;
-	z-index: 1;
-	bottom: 0;
-	position: absolute;
-}
