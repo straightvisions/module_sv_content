@@ -21,7 +21,7 @@
 /* Block Group Reset */
 .sv100_sv_content_wrapper > article .wp-block-group:not(.alignfull):not(.alignwide), /* Frontend */
 .editor-styles-wrapper .is-root-container .wp-block:not([data-align="full"]):not([data-align="wide"]), /* Gutenberg */
-.editor-styles-wrapper .is-root-container .wp-block:not([data-align="full"]):not([data-align="wide"]) > div[role="group"]{ /* Gutenberg Group Blocks */
+.editor-styles-wrapper .is-root-container div.wp-block.wp-block-group[role="group"]:not([data-align="full"]):not([data-align="wide"]){ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-text );
 }
 /* max width + center */
@@ -47,8 +47,8 @@
 
 .alignfull, /* Frontend */
 .wp-block[data-align="full"], /* Gutenberg */
-.wp-block[data-align="full"] > div[role="group"]{ /* Gutenberg Group Blocks */
-	max-width:var( --sv100_sv_common-max-width-alignfull );
+.editor-styles-wrapper .is-root-container div.wp-block[data-align="full"] > div.wp-block.wp-block-group{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-alignfull ) !important;
 }
 
 /* END Max Width Behavior */
