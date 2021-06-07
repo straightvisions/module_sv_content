@@ -7,6 +7,8 @@
 
 /* START Max Width Behavior */
 article p, /* Frontend & Gutenberg */
+article ul, /* Frontend & Gutenberg */
+article ol, /* Frontend & Gutenberg */
 article .wp-block, /* Frontend & Gutenberg */
 .sv100_sv_content_wrapper > article .wp-block-group:not(.alignwide):not(.alignfull) > *, /* Frontend */
 :not(.wp-block[data-align="wide"]):not(.wp-block[data-align="full"]) > :not(p).wp-block:not(.is-reusable){ /* Gutenberg */
