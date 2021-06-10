@@ -26,7 +26,7 @@
 	}
 	
 	echo $_s->build_css(
-		is_admin() ? '.editor-styles-wrapper > article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' : '.sv100_sv_content_wrapper_inner > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)',
+		is_admin() ? '.editor-styles-wrapper > article > *:not(.alignfull)' : '.sv100_sv_content_wrapper_inner > *:not(.alignfull)',
 		array_merge(
 			$properties
 		)
