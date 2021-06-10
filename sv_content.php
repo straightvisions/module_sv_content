@@ -50,6 +50,13 @@
 				->set_default_value( '255,255,255,0' )
 				->set_is_responsive(true)
 				->load_type( 'color' );
+			
+			$this->get_setting( 'spacing' )
+			     ->set_title( __( 'Spacing', 'sv100' ) )
+			     ->set_description( __( 'The distance to the viewport left & right', 'sv100' ) )
+			     ->set_default_value('32px')
+			     ->set_is_responsive(true)
+			     ->load_type( 'text' );
 
 			$this->get_setting( 'margin' )
 				->set_title( __( 'Margin', 'sv100' ) )
