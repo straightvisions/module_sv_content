@@ -15,6 +15,7 @@
 
 /* global wides */
 .sv100_sv_content_wrapper_inner .alignwide, /* Frontend */
+.sv100_sv_content_wrapper_inner .is-style-wide,
 .sv100_sv_content_wrapper_inner .wp-block[data-align="wide"], /* Gutenberg */
 .sv100_sv_content_wrapper_inner .wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignwide );
