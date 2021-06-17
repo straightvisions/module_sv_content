@@ -1,4 +1,4 @@
-.sv100_sv_content_wrapper_inner *{
+.sv100_sv_content_wrapper_inner > *{
 	margin-left: auto;
 	margin-right: auto;
 }
