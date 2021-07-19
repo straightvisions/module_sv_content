@@ -4,11 +4,11 @@
 }
 
 /* content wides */
-.sv100_sv_content_wrapper_inner > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+.sv100_sv_content_wrapper_inner > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
 	max-width:var( --sv100_sv_common-max-width-text );
 }
 
-.sv100_sv_content_wrapper_inner [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+.sv100_sv_content_wrapper_inner [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
 	max-width:var( --sv100_sv_common-max-width-text );
 	width: 100%;
 }
