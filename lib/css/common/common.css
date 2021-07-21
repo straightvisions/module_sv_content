@@ -26,3 +26,9 @@
 .editor-styles-wrapper .is-root-container div.wp-block[data-align="full"] > div.wp-block.wp-block-group{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignfull ) !important;
 }
+
+/* Password Protected Post */
+.post-password-form{
+	margin: 200px auto;
+	padding: 200px 0;
+}
