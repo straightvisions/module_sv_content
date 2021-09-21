@@ -31,9 +31,9 @@
 					echo $this->get_module( 'sv_tags' ) ? $this->get_module( 'sv_tags' )->load() : '';
 					comments_template();
 
-				include( $this->get_path( 'lib/frontend/tpl/content/_meta_sidebar_bottom.php' ) );
+				include( $this->get_path( 'lib/tpl/frontend/_meta_sidebar_bottom.php' ) );
 				?>
 			</article>
-			<?php include( $this->get_path( 'lib/frontend/tpl/content/_meta_sidebar.php' ) ); ?>
+			<?php include( $this->get_path( 'lib/tpl/frontend/_meta_sidebar.php' ) ); ?>
 		</div>
 	</div>
