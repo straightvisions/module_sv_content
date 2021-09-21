@@ -2,12 +2,12 @@
 	if(!isset($post)){ the_post(); }
 		
 	$post_classes = ' ';
-
-	if ( $this->show_right_sidebar() ) {
+	
+	if ( $this->show_right_sidebar() && empty($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('post_right' ))) === false) {
 		$post_classes .= $this->get_prefix( 'has_sidebar_right' );
 	}
-
-	if ( $this->show_bottom_sidebar() ) {
+	
+	if ( $this->show_bottom_sidebar() && empty($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('post_bottom' ))) === false) {
 		$post_classes .= ' ' . $this->get_prefix( 'has_sidebar_bottom' );
 	}
 	?>
