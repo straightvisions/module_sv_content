@@ -2,7 +2,16 @@
 	namespace sv100;
 
 	class sv_content extends init {
+		private $sidebar_positions		= array();
+
 		public function init() {
+			$this->sidebar_positions		= array(
+				'top'		=> __('Top', 'sv100'),
+				'right'		=> __('Right', 'sv100'),
+				'bottom'	=> __('Bottom', 'sv100'),
+				'left'		=> __('Left', 'sv100'),
+			);
+
 			$this->set_module_title( __( 'SV Content', 'sv100' ) )
 				->set_module_desc( __( 'Manages content output.', 'sv100' ) )
 				->load_settings()
@@ -11,11 +20,14 @@
 				->set_section_desc( $this->get_module_desc() )
 				->set_section_template_path()
 				->register_scripts()
-				->register_sidebars()
 				->set_section_order(3000)
 				->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm11 22h-9v-16h9v16zm11 0h-9v-7h9v7zm0-9h-9v-7h9v7z"/></svg>')
 				->get_root()
 				->add_section( $this );
+
+			add_action('init', function(){
+				$this->load_settings()->add_metaboxes();
+			});
 			
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
@@ -27,6 +39,10 @@
 					return $post;
 				}
 			});
+		}
+
+		public function get_sidebar_positions(): array{
+			return $this->sidebar_positions;
 		}
 		
 		protected function load_settings(): sv_content {
@@ -88,38 +104,16 @@
 				 ->load_type( 'select_page' );
 			
 			// ### Sidebar Settings ###
-			// Post
-			$this->get_setting( 'show_sidebar_right_post' )
-				 ->set_title( __( 'Show right sidebar on posts', 'sv100' ) )
-				 ->set_default_value( 0 )
-				 ->load_type( 'checkbox' );
-			
-			$this->get_setting( 'sidebar_right_post_sticky' )
-				 ->set_title( __( 'Make right sidebar on posts sticky', 'sv100' ) )
-				 ->set_default_value( 0 )
-				 ->load_type( 'checkbox' );
+			foreach(get_post_types(array('public' => true)) as $post_type) {
+				foreach ($this->get_sidebar_positions() as $position => $position_label) {
+					$this->get_setting('sidebar_'.$position.'_'.$post_type)
+						->set_title( __( 'Sidebar', 'sv100' ).' '.$position_label )
+						->set_description( __( 'Select Sidebar.', 'sv100' ) )
+						->set_options( $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_settings_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100')) )
+						->load_type( 'select' );
+				}
+			}
 
-			$this->get_setting( 'show_sidebar_bottom_post' )
-				->set_title( __( 'Show bottom sidebar on posts', 'sv100' ) )
-				->set_default_value( 0 )
-				->load_type( 'checkbox' );
-
-			// Page
-			$this->get_setting( 'show_sidebar_right_page' )
-				 ->set_title( __( 'Show right sidebar on pages', 'sv100' ) )
-				 ->set_default_value( 0 )
-				 ->load_type( 'checkbox' );
-			
-			$this->get_setting( 'sidebar_right_page_sticky' )
-				 ->set_title( __( 'Make right sidebar on pages sticky', 'sv100' ) )
-				 ->set_default_value( 0 )
-				 ->load_type( 'checkbox' );
-			
-			$this->get_setting( 'show_sidebar_bottom_page' )
-				 ->set_title( __( 'Show bottom sidebar on pages', 'sv100' ) )
-				 ->set_default_value( 0 )
-				 ->load_type( 'checkbox' );
-			
 			return $this;
 		}
 		
@@ -127,13 +121,11 @@
 			parent::register_scripts();
 
 			// Styles - Sidebar
-			$this->get_script( 'sidebar_right' )
-				 ->set_path( 'lib/css/sidebar/right.css' )
-				 ->set_inline( true );
-			
-			$this->get_script( 'sidebar_bottom' )
-				 ->set_path( 'lib/css/sidebar/bottom.css' )
-				 ->set_inline( false );
+			foreach($this->get_sidebar_positions() as $position => $position_label){
+				$this->get_script( 'sidebar_'.$position )
+					->set_path( 'lib/css/sidebar/'.$position.'.css' )
+					->set_inline( true );
+			}
 
 			// Gutenberg Default Styles
 			$this->get_script( 'block-library' )
@@ -147,66 +139,25 @@
 			return $this;
 		}
 		
-		protected function register_sidebars(): sv_content {
-			if ( $this->get_module( 'sv_sidebar' ) ) {
-				$this->get_module( 'sv_sidebar' )
-					 ->create( $this, $this->get_prefix('frontpage_right') )
-					 ->set_title( __( 'Frontpage - right', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this sidebar will be shown on the frontpage/landingpage, next to the content.', 'sv100' ) )
-					 ->load_sidebar()
-					 ->create( $this, $this->get_prefix('frontpage_bottom') )
-					 ->set_ID( 'frontpage_bottom' )
-					 ->set_title( __( 'Frontpage - bottom', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this sidebar will be shown on the frontpage/landingpage, below the content.', 'sv100' ) )
-					 ->load_sidebar()
-					 ->create( $this, $this->get_prefix('page_right') )
-					 ->set_title( __( 'Pages - right', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this sidebar will be shown on pages, next to the content.', 'sv100' ) )
-					 ->load_sidebar()
-					 ->create( $this, $this->get_prefix('page_bottom') )
-					 ->set_title( __( 'Pages - bottom', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this sidebar will be shown on pages, below the content.', 'sv100' ) )
-					 ->load_sidebar()
-					 ->create( $this, $this->get_prefix('post_right') )
-					 ->set_title( __( 'Posts - right', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this sidebar will be shown on posts, next to the content.', 'sv100' ) )
-					 ->load_sidebar()
-					 ->create( $this, $this->get_prefix('post_bottom') )
-					 ->set_title( __( 'Posts - bottom', 'sv100' ) )
-					 ->set_desc( __( 'Widgets in this sidebar will be shown on posts, below the content.', 'sv100' ) )
-					 ->load_sidebar();
-			}
-			
-			return $this;
-		}
-		
-		public function has_sidebar_content(): bool{
+		public function has_sidebar_content(string $position): bool{
 			if(!$this->get_module( 'sv_sidebar' )){
 				return false;
 			}
 
-			$i = false;
-			
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('frontpage_right' )) ){
-				$i = true;
-			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('frontpage_bottom') ) ){
-				$i = true;
-			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('page_right') ) ){
-				$i = true;
-			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('page_bottom') ) ){
-				$i = true;
-			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('post_right') ) ){
-				$i = true;
-			}
-			if($this->get_module( 'sv_sidebar' )->load( $this->get_prefix('post_bottom') ) ){
-				$i = true;
+			if( $this->get_module( 'sv_sidebar' )->load( $this->get_setting('sidebar_'.$position.'_'.get_post_type())->get_data() ) ) {
+				return true;
 			}
 
-			return $i;
+			return false;
+		}
+		public function has_active_sidebar(){
+			foreach($this->get_sidebar_positions() as $position => $position_value){
+				if($this->show_sidebar($position) === true){
+					return true;
+				}
+			}
+
+			return false;
 		}
 		
 		public function wp_print_styles() {
@@ -226,30 +177,32 @@
 			
 			return $this;
 		}
+
+		public function enqueue_scripts(): sv_content {
+			$this->get_script( 'common' )->set_is_enqueued();
+			$this->get_script( 'config' )->set_is_enqueued();
+
+			return $this;
+		}
 		
 		public function load( $settings = array() ): string {
+			$this->enqueue_scripts();
+
 			$settings = shortcode_atts(
 				array(
 					'inline'	=> true,
-					'template'	=> 'single',
+					'template'	=> 'default',
 				),
 				$settings,
 				$this->get_module_name()
 			);
-
-			$template	= $settings['template'];
-
-			// Loads scripts
-			foreach ( $this->get_scripts() as $script ) {
-				$script->set_is_enqueued();
-			}
 
 			ob_start();
 			// Loads the header
 			get_header();
 
 			// Loads the template
-			require ( $this->get_path('lib/tpl/frontend/' . $template . '.php' ) );
+			require ( $this->get_path('lib/tpl/frontend/single_' . $settings['template'] . '.php' ) );
 
 			// Loads the footer
 			get_footer();
@@ -260,12 +213,8 @@
 			return $output;
 		}
 
-		public function show_right_sidebar(): bool{
-			return $this->has_sidebar_content() ? $this->get_visibility('sidebar_right') : false;
-		}
-		
-		public function show_bottom_sidebar(): bool{
-			return $this->has_sidebar_content() ? $this->get_visibility('sidebar_bottom') : false;
+		public function show_sidebar(string $location): string{
+			return $this->has_sidebar_content($location) ? $this->get_metabox_data_by_post_type('sidebar_'.$location) : '';
 		}
 		
 		public function get_global_wrapper_class(string $suffix = ''){
@@ -276,9 +225,23 @@
 			}
 			return $this->get_parent()->get_prefix($wrapper);
 		}
-		public function get_visibility(string $field): bool{
-			$status = $this->get_setting( 'show_'.$field.'_' . get_post_type() )->get_data();
+		private function add_metaboxes(): sv_content{
+			$this->metaboxes			= $this->get_root()->get_module('sv_metabox');
 
-			return $status;
+			$states = array(
+				''				=> __('Default', 'sv100'),
+				'0'				=> __('Hidden', 'sv100'),
+				'1'				=> __('Show', 'sv100')
+			);
+
+			foreach($this->get_sidebar_positions() as $position => $position_label){
+				$this->metaboxes->get_setting( $this->get_prefix('sidebar_'.$position) )
+					->set_title( __('Show Sidebar', 'sv100').' '.$position_label )
+					->set_description( __('Override Default Settings', 'sv100') )
+					->load_type( 'select' )
+					->set_options($states);
+			}
+
+			return $this;
 		}
 	}
