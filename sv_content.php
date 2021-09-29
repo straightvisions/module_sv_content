@@ -139,12 +139,12 @@
 			return $this;
 		}
 		
-		public function has_sidebar_content(string $position): bool{
+		public function has_sidebar_content(string $location): bool{
 			if(!$this->get_module( 'sv_sidebar' )){
 				return false;
 			}
 
-			if( $this->get_module( 'sv_sidebar' )->load( $this->get_setting('sidebar_'.$position.'_'.get_post_type())->get_data() ) ) {
+			if( $this->get_module( 'sv_sidebar' )->load( $this->get_metabox_data_by_post_type('sidebar_'.$location) ) ) {
 				return true;
 			}
 
@@ -228,15 +228,16 @@
 		private function add_metaboxes(): sv_content{
 			$this->metaboxes			= $this->get_root()->get_module('sv_metabox');
 
-			$states = array(
+			$states						= $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_metabox_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100'));
+			/*$states = array(
 				''				=> __('Default', 'sv100'),
 				'0'				=> __('Hidden', 'sv100'),
 				'1'				=> __('Show', 'sv100')
-			);
+			);*/
 
 			foreach($this->get_sidebar_positions() as $position => $position_label){
 				$this->metaboxes->get_setting( $this->get_prefix('sidebar_'.$position) )
-					->set_title( __('Show Sidebar', 'sv100').' '.$position_label )
+					->set_title( __('Select Sidebar', 'sv100').' '.$position_label )
 					->set_description( __('Override Default Settings', 'sv100') )
 					->load_type( 'select' )
 					->set_options($states);
