@@ -229,11 +229,6 @@
 			$this->metaboxes			= $this->get_root()->get_module('sv_metabox');
 
 			$states						= $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_metabox_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100'));
-			/*$states = array(
-				''				=> __('Default', 'sv100'),
-				'0'				=> __('Hidden', 'sv100'),
-				'1'				=> __('Show', 'sv100')
-			);*/
 
 			foreach($this->get_sidebar_positions() as $position => $position_label){
 				$this->metaboxes->get_setting( $this->get_prefix('sidebar_'.$position) )

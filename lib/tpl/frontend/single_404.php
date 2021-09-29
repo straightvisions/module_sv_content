@@ -19,5 +19,5 @@
 		$post = get_post( $this->get_setting( '404_page' )->get_data() );
 		setup_postdata($post);
 
-		require( $this->get_path( 'lib/tpl/frontend/single_default.php' ) );
+		require_once( $this->get_path( 'lib/tpl/frontend/single.php' ) );
 	}
