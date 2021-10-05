@@ -31,7 +31,6 @@
 			
 			// Action Hooks
 			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
-			add_action( 'wp', array( $this, 'load_gutenberg_css' ) );
 			add_filter('sv_core_has_block_frontend_queried_object', function ($post) {
 				if ( is_404() ) {
 					return get_post($this->get_setting('404_page')->get_data());
@@ -127,15 +126,6 @@
 					->set_inline( true );
 			}
 
-			// Gutenberg Default Styles
-			$this->get_script( 'block-library' )
-				 ->set_path( ABSPATH . 'wp-includes/css/dist/block-library/style.min.css', true )
-				 ->set_inline( true );
-
-			$this->get_script( 'block-library-theme' )
-				->set_path( ABSPATH . 'wp-includes/css/dist/block-library/theme.min.css', true )
-				->set_inline( true );
-
 			return $this;
 		}
 		
@@ -164,18 +154,6 @@
 			// Gutenberg: load Styles inline for Pagespeed purposes
 			wp_dequeue_style( 'wp-block-library' );
 			wp_dequeue_style( 'wp-block-library-theme' );
-		}
-		
-		public function load_gutenberg_css(): sv_content {
-			if ( is_single() || is_page() || is_404() ) {
-				$this->get_script( 'block-library' )
-					 ->set_is_enqueued( true );
-
-				$this->get_script( 'block-library-theme' )
-					->set_is_enqueued( true );
-			}
-			
-			return $this;
 		}
 
 		public function enqueue_scripts(): sv_content {
