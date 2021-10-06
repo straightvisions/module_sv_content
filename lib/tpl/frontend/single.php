@@ -12,7 +12,7 @@
 	<?php include( $this->get_path( 'lib/tpl/frontend/sidebar_top.php' ) ); ?>
 	<div class="<?php echo $this->get_prefix( 'wrapper' ); ?>">
 		<?php include( $this->get_path( 'lib/tpl/frontend/sidebar_left.php' ) ); ?>
-		<article id="post-<?php echo the_ID(); ?>" <?php post_class($this->get_prefix( 'wrapper_inner' )); ?>>
+		<article id="post-<?php echo the_ID(); ?>" <?php post_class($this->get_prefix( 'wrapper_inner' ).' '.$this->get_prefix( 'wrapper_blocks' )); ?>>
 			<?php
 				the_content();
 				wp_link_pages(
