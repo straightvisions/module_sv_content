@@ -1,31 +1,31 @@
-.sv100_sv_content_wrapper_blocks .widget_block,
-.sv100_sv_content_wrapper_blocks article
+.sv100_sv_content_wrapper .widget_block,
+.sv100_sv_content_wrapper article
 {
 	margin-left: auto;
 	margin-right: auto;
 }
 
 /* content wides */
-.sv100_sv_content_wrapper_blocks .widget_block > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image),
-.sv100_sv_content_wrapper_blocks article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
+.sv100_sv_content_wrapper .widget_block > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image),
+.sv100_sv_content_wrapper article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
 	max-width:var( --sv100_sv_common-max-width-text );
 }
 
-.sv100_sv_content_wrapper_blocks [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
+.sv100_sv_content_wrapper [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
 	max-width:var( --sv100_sv_common-max-width-text );
 	width: 100%;
 }
 
 /* global wides */
-.sv100_sv_content_wrapper_blocks .alignwide, /* Frontend */
-.sv100_sv_content_wrapper_blocks .is-style-wide,
-.sv100_sv_content_wrapper_blocks .wp-block[data-align="wide"], /* Gutenberg */
-.sv100_sv_content_wrapper_blocks .wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
+.sv100_sv_content_wrapper .alignwide, /* Frontend */
+.sv100_sv_content_wrapper .is-style-wide,
+.sv100_sv_content_wrapper .wp-block[data-align="wide"], /* Gutenberg */
+.sv100_sv_content_wrapper .wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignwide );
 }
 
-.sv100_sv_content_wrapper_blocks .alignfull, /* Frontend */
-.sv100_sv_content_wrapper_blocks .wp-block[data-align="full"], /* Gutenberg */
+.sv100_sv_content_wrapper .alignfull, /* Frontend */
+.sv100_sv_content_wrapper .wp-block[data-align="full"], /* Gutenberg */
 .editor-styles-wrapper .is-root-container div.wp-block[data-align="full"] > div.wp-block.wp-block-group{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignfull ) !important;
 }
