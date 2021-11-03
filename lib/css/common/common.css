@@ -19,15 +19,21 @@
 /* global wides */
 .sv100_sv_content_wrapper .alignwide, /* Frontend */
 .sv100_sv_content_wrapper .is-style-wide,
-.sv100_sv_content_wrapper .wp-block[data-align="wide"], /* Gutenberg */
-.sv100_sv_content_wrapper .wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
+.editor-styles-wrapper .wp-block[data-align="wide"], /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="wide"] > *, /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignwide );
 }
 
 .sv100_sv_content_wrapper .alignfull, /* Frontend */
-.sv100_sv_content_wrapper .wp-block[data-align="full"], /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="full"], /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="full"] > *, /* Gutenberg */
 .editor-styles-wrapper .is-root-container div.wp-block[data-align="full"] > div.wp-block.wp-block-group{ /* Gutenberg Group Blocks */
 	max-width:var( --sv100_sv_common-max-width-alignfull ) !important;
+}
+
+html :where(.wp-block.is-reusable){
+	max-width:initial;
 }
 
 /* Password Protected Post */
