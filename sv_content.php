@@ -69,9 +69,8 @@
 			$this->get_setting( 'spacing' )
 			     ->set_title( __( 'Spacing', 'sv100' ) )
 			     ->set_description( __( 'The distance to the viewport left & right', 'sv100' ) )
-			     ->set_default_value('32px')
-			     ->set_is_responsive(true)
-			     ->load_type( 'text' );
+			     ->set_default_value('32')
+			     ->load_type( 'number' );
 
 			$this->get_setting( 'margin' )
 				->set_title( __( 'Margin', 'sv100' ) )
