@@ -14,7 +14,7 @@
 	);
 	
 	$properties = array();
-	$properties['width']	= $_s->prepare_css_property(($module->get_setting('spacing')->get_data('width') * 2),'calc(100% - ','px)');
+	$properties['width']	= $_s->prepare_css_property((floatval($module->get_setting('spacing')->get_data('width')) * 2),'calc(100% - ','px)');
 
 	echo $_s->build_css(
 		is_admin() ? '.editor-styles-wrapper > article > *:not(.alignfull)' : '.sv100_sv_content_wrapper_inner > *:not(.alignfull)',
