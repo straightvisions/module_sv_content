@@ -41,3 +41,7 @@ html :where(.wp-block.is-reusable){
 	margin: 200px auto;
 	padding: 200px 0;
 }
+
+a img{
+	vertical-align:middle;
+}
