@@ -25,6 +25,8 @@
 						'separator'   => '',
 					)
 				);
+				echo $this->get_module( 'sv_tags' ) ? $this->get_module( 'sv_tags' )->load() : '';
+				comments_template();
 			?>
 		</article>
 		<?php include( $this->get_path( 'lib/tpl/frontend/sidebar_right.php' ) ); ?>
