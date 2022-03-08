@@ -1,7 +1,8 @@
 .sv100_sv_content_wrapper .widget_block,
 .sv100_sv_content_wrapper article,
 .sv100_sv_content_wrapper .alignwide,
-.sv100_sv_content_wrapper .alignfull
+.sv100_sv_content_wrapper .alignfull,
+.sv100_sv_content_wrapper > article > *
 {
 	margin-left: auto;
 	margin-right: auto;
