@@ -65,35 +65,6 @@
 				->set_default_value( '255,255,255,0' )
 				->set_is_responsive(true)
 				->load_type( 'color' );
-			
-			$this->get_setting( 'spacing' )
-			     ->set_title( __( 'Spacing', 'sv100' ) )
-			     ->set_description( __( 'The distance to the viewport left & right', 'sv100' ) )
-			     ->set_default_value('32')
-			     ->load_type( 'number' );
-
-			$this->get_setting( 'margin' )
-				->set_title( __( 'Margin', 'sv100' ) )
-				->set_is_responsive(true)
-				->load_type( 'margin' );
-
-			$this->get_setting( 'padding' )
-				->set_title( __( 'Padding', 'sv100' ) )
-				->set_is_responsive(true)
-				->set_default_value(
-					array(
-						'top'=>'40px',
-						'right'=>'20px',
-						'left'=>'20px',
-						'bottom'=>'40px'
-					)
-				)
-				->load_type( 'margin' );
-
-			$this->get_setting( 'border' )
-				->set_title( __( 'Border', 'sv100' ) )
-				->set_is_responsive(true)
-				->load_type( 'border' );
 
 			// 404 Page
 			$this->get_setting( '404_page' )
@@ -110,19 +81,6 @@
 						->set_options( $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_settings_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100')) )
 						->load_type( 'select' );
 				}
-			}
-
-			return $this;
-		}
-		
-		protected function register_scripts(): sv_content {
-			parent::register_scripts();
-
-			// Styles - Sidebar
-			foreach($this->get_sidebar_positions() as $position => $position_label){
-				$this->get_script( 'sidebar_'.$position )
-					->set_path( 'lib/css/sidebar/'.$position.'.css' )
-					->set_inline( true );
 			}
 
 			return $this;

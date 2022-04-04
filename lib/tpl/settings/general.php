@@ -7,17 +7,5 @@
 				echo $module->get_setting( 'bg_color' )->form();
 			?>
 		</div>
-		<div class="sv_setting_flex">
-			<?php
-				echo $module->get_setting( 'spacing' )->form();
-				echo $module->get_setting( 'margin' )->form();
-				echo $module->get_setting( 'padding' )->form();
-			?>
-		</div>
-		<div class="sv_setting_flex">
-			<?php
-				echo $module->get_setting( 'border' )->form();
-			?>
-		</div>
 	</div>
 <?php } ?>
