@@ -5,6 +5,7 @@
 		<?php
 			require_once( $module->get_path( 'lib/tpl/settings/general.php' ) );
 			require_once( $module->get_path( 'lib/tpl/settings/sidebar.php' ) );
+			require_once( $module->get_path( 'lib/tpl/settings/post_types.php' ) );
 		?>
 	</div>
 	<?php

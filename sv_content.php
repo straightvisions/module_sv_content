@@ -71,7 +71,33 @@
 				 ->set_title( __( '404 Page', 'sv100' ) )
 				 ->set_description( __( 'Select a page for showing custom content in error 404 / not found cases', 'sv100' ) )
 				 ->load_type( 'select_page' );
-			
+
+			// ### Post Type Settings ###
+			foreach(get_post_types(array('public' => true)) as $post_type) {
+				$this->get_setting( 'outer_wrapper_max_width_'.$post_type )
+					->set_title( __( 'Outer Wrapper Max Width', 'sv100' ) )
+					->set_description( __( 'Set the max width of the wrapper for the content including sidebars', 'sv100' ) )
+					->set_options( $this->get_module('sv_common') ? $this->get_module('sv_common')->get_max_width_options() : array('' => __('Please activate module SV Common for this Feature.', 'sv100')) )
+					->set_default_value( '100%' )
+					->set_is_responsive(true)
+					->load_type( 'select' );
+
+				$this->get_setting( 'article_wrapper_max_width_'.$post_type )
+					->set_title( __( 'Article Wrapper Max Width', 'sv100' ) )
+					->set_description( __( 'Set the max width of the wrapper for the content article wrapper', 'sv100' ) )
+					->set_options( $this->get_module('sv_common') ? $this->get_module('sv_common')->get_max_width_options() : array('' => __('Please activate module SV Common for this Feature.', 'sv100')) )
+					->set_default_value( '100%' )
+					->set_is_responsive(true)
+					->load_type( 'select' );
+
+				$this->get_setting( 'column_gap_'.$post_type )
+					->set_title( __( 'Column Gap', 'sv100' ) )
+					->set_description( __( 'Gap between Sidebars and Content in Pixel', 'sv100' ) )
+					->set_default_value( '20' )
+					->set_is_responsive(true)
+					->load_type( 'text' );
+			}
+
 			// ### Sidebar Settings ###
 			foreach(get_post_types(array('public' => true)) as $post_type) {
 				foreach ($this->get_sidebar_positions() as $position => $position_label) {
@@ -80,6 +106,12 @@
 						->set_description( __( 'Select Sidebar.', 'sv100' ) )
 						->set_options( $this->get_module('sv_sidebar') ? $this->get_module('sv_sidebar')->get_sidebars_for_settings_options() : array('' => __('Please activate module SV Sidebar for this Feature.', 'sv100')) )
 						->load_type( 'select' );
+
+					$this->get_setting('sidebar_max_width_'.$position.'_'.$post_type)
+						->set_title( __( 'Sidebar Max Width', 'sv100' ).' '.$position_label )
+						->set_description( __( 'Set max width with unit (e.g. px, vw etc.)', 'sv100' ) )
+						->set_is_responsive(true)
+						->load_type( 'text' );
 				}
 			}
 

@@ -16,3 +16,24 @@
 		'.sv100_sv_content_wrapper',
 		$properties
 	);
+
+	foreach(get_post_types(array('public' => true)) as $post_type){
+		echo $_s->build_css(
+			'.single-'.$post_type.' .sv100_sv_content_wrapper',
+			array_merge(
+			$module->get_setting('outer_wrapper_max_width_'.$post_type)->get_css_data('max-width'),
+			$module->get_setting('column_gap_'.$post_type)->get_css_data('column-gap','','px')
+			)
+		);
+		echo $_s->build_css(
+			'.single-'.$post_type.' .sv100_sv_content_wrapper_inner',
+			$module->get_setting('article_wrapper_max_width_'.$post_type)->get_css_data('max-width')
+		);
+
+		foreach ($module->get_sidebar_positions() as $position => $position_label) {
+			echo $_s->build_css(
+				'.single-'.$post_type.' .sv100_sv_content_wrapper > aside.sv100_sv_content_sidebar_'.$position,
+				$module->get_setting('sidebar_max_width_'.$position.'_'.$post_type)->get_css_data('width')
+			);
+		}
+	}
