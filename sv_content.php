@@ -146,8 +146,8 @@
 		}
 
 		public function enqueue_scripts(): sv_content {
-			$this->get_script( 'common' )->set_is_enqueued();
-			$this->get_script( 'config' )->set_is_enqueued();
+			$this->get_script( 'common' )->set_inline(true)->set_is_enqueued();
+			$this->get_script( 'config' )->set_inline(true)->set_is_enqueued();
 
 			return $this;
 		}
