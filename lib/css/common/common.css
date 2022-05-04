@@ -1,0 +1,74 @@
+.sv100_sv_content_wrapper{
+	margin:0 auto;
+}
+
+.sv100_sv_content_wrapper .widget_block,
+.sv100_sv_content_wrapper .alignwide,
+.sv100_sv_content_wrapper .alignfull,
+.sv100_sv_content_wrapper > article > *
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sv100_sv_content_wrapper > article > *:not(.alignfull),
+.sv100_sv_content_wrapper > aside > .sv100_sv_sidebar > *:not(.alignfull){
+	padding-left: var(--sv100_sv_common-spacing);
+	padding-right: var(--sv100_sv_common-spacing);
+}
+
+.sv100_sv_content_wrapper > aside{
+	max-width:100%;
+}
+
+/* content wides */
+.sv100_sv_content_wrapper .widget_block > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+.sv100_sv_content_wrapper article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide){
+	max-width:var( --sv100_sv_common-max-width-text );
+}
+
+.sv100_sv_content_wrapper [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.wp-block-image) {
+	max-width:var( --sv100_sv_common-max-width-text );
+	width: 100%;
+}
+
+/* global wides */
+.sv100_sv_content_wrapper .alignwide, /* Frontend */
+.sv100_sv_content_wrapper .is-style-wide,
+.editor-styles-wrapper .wp-block[data-align="wide"], /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="wide"] > *, /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="wide"] > div[role="group"]{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-alignwide );
+}
+
+.sv100_sv_content_wrapper .alignfull, /* Frontend */
+.editor-styles-wrapper .wp-block[data-align="full"], /* Gutenberg */
+.editor-styles-wrapper .wp-block[data-align="full"] > *, /* Gutenberg */
+.editor-styles-wrapper .is-root-container div.wp-block[data-align="full"] > div.wp-block.wp-block-group{ /* Gutenberg Group Blocks */
+	max-width:var( --sv100_sv_common-max-width-alignfull ) !important;
+}
+
+html :where(.wp-block.is-reusable){
+	max-width:initial;
+}
+
+/* Password Protected Post */
+.post-password-form{
+	margin: 200px auto;
+	padding: 200px 0;
+}
+
+a img{
+	vertical-align:middle;
+}
+
+/* Sidebars */
+.sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper{
+	grid-template-columns: 2fr 1fr;
+}
+.sv100_sv_content.sv100_sv_content_has_sidebar_left .sv100_sv_content_wrapper{
+	grid-template-columns: 1fr 2fr;
+}
+.sv100_sv_content.sv100_sv_content_has_sidebar_right.sv100_sv_content_has_sidebar_left .sv100_sv_content_wrapper{
+	grid-template-columns: 1fr 2fr 1fr;
+}
