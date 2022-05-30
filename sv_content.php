@@ -131,7 +131,7 @@
 		}
 		public function has_active_sidebar(){
 			foreach($this->get_sidebar_positions() as $position => $position_value){
-				if($this->show_sidebar($position) === true){
+				if(strlen($this->show_sidebar($position)) > 0){
 					return true;
 				}
 			}
@@ -183,15 +183,6 @@
 
 		public function show_sidebar(string $location): string{
 			return $this->has_sidebar_content($location) ? $this->get_metabox_data_by_post_type('sidebar_'.$location) : '';
-		}
-		
-		public function get_global_wrapper_class(string $suffix = ''){
-			/* global wrapper style should be inherited to all sub page types and overwritten there if needed */
-			$wrapper = 'wrapper';
-			if($suffix != ''){
-				$wrapper .= '_'.$suffix;
-			}
-			return $this->get_parent()->get_prefix($wrapper);
 		}
 		private function add_metaboxes(): sv_content{
 			$this->metaboxes			= $this->get_root()->get_module('sv_metabox');
