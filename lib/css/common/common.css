@@ -61,14 +61,3 @@ html :where(.wp-block.is-reusable){
 a img{
 	vertical-align:middle;
 }
-
-/* Sidebars */
-.sv100_sv_content.sv100_sv_content_has_sidebar_right .sv100_sv_content_wrapper{
-	grid-template-columns: 2fr 1fr;
-}
-.sv100_sv_content.sv100_sv_content_has_sidebar_left .sv100_sv_content_wrapper{
-	grid-template-columns: 1fr 2fr;
-}
-.sv100_sv_content.sv100_sv_content_has_sidebar_right.sv100_sv_content_has_sidebar_left .sv100_sv_content_wrapper{
-	grid-template-columns: 1fr 2fr 1fr;
-}

@@ -145,10 +145,22 @@
 			wp_dequeue_style( 'wp-block-library' );
 			wp_dequeue_style( 'wp-block-library-theme' );
 		}
+		protected function register_scripts(): sv_content {
+			parent::register_scripts();
 
+			$this->get_script( 'sidebars' )
+			     ->set_path( 'lib/css/common/sidebars.css' )
+			     ->set_inline( true );
+
+			return $this;
+		}
 		public function enqueue_scripts(): sv_content {
 			$this->get_script( 'common' )->set_inline(true)->set_is_enqueued();
 			$this->get_script( 'config' )->set_inline(true)->set_is_enqueued();
+
+			if($this->has_active_sidebar()){
+				$this->get_script( 'sidebars' )->set_inline(true)->set_is_enqueued();
+			}
 
 			return $this;
 		}
