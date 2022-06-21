@@ -30,7 +30,6 @@
 			});
 			
 			// Action Hooks
-			add_action( 'wp_print_styles', array( $this, 'wp_print_styles' ), 100 );
 			add_filter('sv_core_has_block_frontend_queried_object', function ($post) {
 				if ( is_404() ) {
 					return get_post($this->get_setting('404_page')->get_data());
@@ -137,13 +136,6 @@
 			}
 
 			return false;
-		}
-		
-		public function wp_print_styles() {
-			// Gutenberg: load Styles inline for Pagespeed purposes
-			wp_deregister_style( 'wp-block-library' );
-			wp_dequeue_style( 'wp-block-library' );
-			wp_dequeue_style( 'wp-block-library-theme' );
 		}
 		protected function register_scripts(): sv_content {
 			parent::register_scripts();
